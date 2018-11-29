@@ -1,4 +1,4 @@
-package com.brg.api;
+package com.tosad.brg.api;
 
 public class Main {
     public static void main(String[] args) {
