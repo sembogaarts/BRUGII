@@ -47,7 +47,7 @@ public class BusinessRule {
         for (Map.Entry<TemplateTag, BusinessRuleTag> entry : templateTagHashMap.entrySet()) {
             TemplateTag key = entry.getKey();
             BusinessRuleTag value = entry.getValue();
-            newScript = newScript.replace(key.getKey(), value.getValue());
+            newScript = newScript.replace("{{" + key.getKey() + "}}", value.getValue());
         }
 
         return newScript;

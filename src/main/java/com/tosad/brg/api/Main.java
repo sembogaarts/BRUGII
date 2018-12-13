@@ -18,7 +18,7 @@ public class Main {
         List<TemplateTag> templateTags = new ArrayList<TemplateTag>();
         templateTags.addAll(Arrays.asList(new TemplateTag[]{templateTag}));
 
-        BusinessRuleTag businessRuleTag = new BusinessRuleTag("test");
+        BusinessRuleTag businessRuleTag = new BusinessRuleTag("moussa");
         List<BusinessRuleTag> businessRuleTags = new ArrayList<BusinessRuleTag>();
         businessRuleTags.addAll(Arrays.asList(new BusinessRuleTag[]{businessRuleTag}));
 
