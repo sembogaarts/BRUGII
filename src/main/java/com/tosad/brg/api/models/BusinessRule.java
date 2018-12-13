@@ -3,6 +3,7 @@ package com.tosad.brg.api.models;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.IntStream;
 
 public class BusinessRule {
 
@@ -35,12 +36,14 @@ public class BusinessRule {
         this.template = template;
     }
 
-    public HashMap<TemplateTag, BusinessRuleTag> getTemplateTagAndBusinessRuleTagHashMap() {
+    private HashMap<TemplateTag, BusinessRuleTag> getTemplateTagAndBusinessRuleTagHashMap() {
         templateTagHashMap = new HashMap<>();
-        for (int i = 0; i < businessRuleTags.size(); i++) {
+
+        IntStream.range(0, businessRuleTags.size()).forEach(i -> {
             BusinessRuleTag businessRuleTag = businessRuleTags.get(i);
             templateTagHashMap.put(template.getTemplateTagArrayList().get(i), businessRuleTag);
-        }
+        });
+
         return templateTagHashMap;
     }
 
