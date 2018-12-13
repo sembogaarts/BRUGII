@@ -7,6 +7,10 @@ public class TemplateTag {
         this.key = key;
     }
 
+    public String getTemplateKey() {
+        return String.format("{{%s}}", key);
+    }
+
     public String getKey() {
         return key;
     }

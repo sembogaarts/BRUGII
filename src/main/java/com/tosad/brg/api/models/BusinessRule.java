@@ -1,6 +1,5 @@
 package com.tosad.brg.api.models;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,21 +35,24 @@ public class BusinessRule {
         this.template = template;
     }
 
-    public String generateCode() {
+    public HashMap<TemplateTag, BusinessRuleTag> getTemplateTagAndBusinessRuleTagHashMap() {
         templateTagHashMap = new HashMap<>();
         for (int i = 0; i < businessRuleTags.size(); i++) {
             BusinessRuleTag businessRuleTag = businessRuleTags.get(i);
             templateTagHashMap.put(template.getTemplateTagArrayList().get(i), businessRuleTag);
         }
+        return templateTagHashMap;
+    }
 
-        String newScript = template.getScript();
+    public String generateCode() {
+        String code = template.getScript();
 
-        for (Map.Entry<TemplateTag, BusinessRuleTag> entry : templateTagHashMap.entrySet()) {
-            TemplateTag key = entry.getKey();
-            BusinessRuleTag value = entry.getValue();
-            newScript = newScript.replace("{{" + key.getKey() + "}}", value.getValue());
+        for (Map.Entry<TemplateTag, BusinessRuleTag> entry : getTemplateTagAndBusinessRuleTagHashMap().entrySet()) {
+            TemplateTag templateTag = entry.getKey();
+            BusinessRuleTag businessRuleTag = entry.getValue();
+            code = code.replace(templateTag.getTemplateKey(), businessRuleTag.getValue());
         }
 
-        return newScript;
+        return code;
     }
 }
