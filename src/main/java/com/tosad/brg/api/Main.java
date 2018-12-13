@@ -15,16 +15,13 @@ public class Main {
         System.out.println("Hello world");
 
         TemplateTag templateTag = new TemplateTag("table");
-        List<TemplateTag> templateTags = new ArrayList<TemplateTag>();
-        templateTags.addAll(Arrays.asList(new TemplateTag[]{templateTag}));
+        List<TemplateTag> templateTags = new ArrayList<TemplateTag>(Arrays.asList(templateTag));
 
         BusinessRuleTag businessRuleTag = new BusinessRuleTag("moussa");
-        List<BusinessRuleTag> businessRuleTags = new ArrayList<BusinessRuleTag>();
-        businessRuleTags.addAll(Arrays.asList(new BusinessRuleTag[]{businessRuleTag}));
+        List<BusinessRuleTag> businessRuleTags = new ArrayList<BusinessRuleTag>(Arrays.asList(businessRuleTag));
 
         Template template = new Template("businessRule", "SELECT * FROM {{table}}", "blabla", templateTags);
         BusinessRule businessRule = new BusinessRule("naam", template, businessRuleTags);
-
 
         System.out.println(businessRule.generateCode());
     }

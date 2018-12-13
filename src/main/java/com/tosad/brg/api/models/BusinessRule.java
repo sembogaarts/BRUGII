@@ -42,6 +42,7 @@ public class BusinessRule {
             BusinessRuleTag businessRuleTag = businessRuleTags.get(i);
             templateTagHashMap.put(template.getTemplateTagArrayList().get(i), businessRuleTag);
         }
+
         String newScript = template.getScript();
 
         for (Map.Entry<TemplateTag, BusinessRuleTag> entry : templateTagHashMap.entrySet()) {
