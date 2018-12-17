@@ -7,20 +7,19 @@ import com.tosad.brg.api.models.TemplateTag;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world");
-
         TemplateTag templateTag = new TemplateTag("table");
-        List<TemplateTag> templateTags = new ArrayList<TemplateTag>(Arrays.asList(templateTag));
+        TemplateTag templateTag1 = new TemplateTag("attribute");
+        List<TemplateTag> templateTags = new ArrayList<>(Arrays.asList(templateTag, templateTag1));
 
-        BusinessRuleTag businessRuleTag = new BusinessRuleTag("moussa");
-        List<BusinessRuleTag> businessRuleTags = new ArrayList<BusinessRuleTag>(Arrays.asList(businessRuleTag));
+        BusinessRuleTag businessRuleTag = new BusinessRuleTag("sem");
+        BusinessRuleTag businessRuleTag1 = new BusinessRuleTag("getal");
+        List<BusinessRuleTag> businessRuleTags = new ArrayList<>(Arrays.asList(businessRuleTag, businessRuleTag1));
 
-        Template template = new Template("businessRule", "SELECT * FROM {{table}}", "blabla", templateTags);
+        Template template = new Template("businessRule", "SELECT * FROM {{table}} WHERE {{attribute}} = 0", "blabla", templateTags);
         BusinessRule businessRule = new BusinessRule("naam", template, businessRuleTags);
 
         System.out.println(businessRule.generateCode());
