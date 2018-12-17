@@ -13,7 +13,7 @@ public class BusinessRule {
     HashMap<TemplateTag, BusinessRuleTag> templateTagHashMap;
 
 
-    public BusinessRule(String naam, Template template, List<BusinessRuleTag> businessRuleTags) {
+    public BusinessRule(String name, Template template, List<BusinessRuleTag> businessRuleTags) {
         this.name = name;
         this.template = template;
         this.businessRuleTags = businessRuleTags;
