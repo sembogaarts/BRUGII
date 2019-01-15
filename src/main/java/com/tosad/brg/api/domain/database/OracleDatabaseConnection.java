@@ -9,10 +9,11 @@ import java.sql.SQLException;
 public class OracleDatabaseConnection implements DatabaseConnection {
     Connection connection = null;
 
+
     public OracleDatabaseConnection(Project project) {
         try {
             connection = DriverManager.getConnection(
-                    "jdbc:oracle:thin:@localhost:1521:xe", "system", "password"
+                    formatToConnectionString(project), project.getUsername(), project.getPasssword()
             );
         } catch (SQLException e) {
             System.out.println("Connection Failed! Check output console");
@@ -32,5 +33,9 @@ public class OracleDatabaseConnection implements DatabaseConnection {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    private String formatToConnectionString(Project project) {
+        return String.format("jdbc:oracle:thin:@%s:%d:xe", project.getHost(), project.getPort());
     }
 }

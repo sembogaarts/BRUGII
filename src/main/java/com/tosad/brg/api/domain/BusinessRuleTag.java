@@ -1,8 +1,5 @@
 package com.tosad.brg.api.domain;
 
-import com.tosad.brg.api.domain.templatetagtypes.TemplateTagType;
-import com.tosad.brg.api.domain.templatetagtypes.TemplateTagTypes;
-
 public class BusinessRuleTag {
     public String value;
     private TemplateTag templateTag;
