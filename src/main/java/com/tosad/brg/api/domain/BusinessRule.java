@@ -8,13 +8,15 @@ public class BusinessRule {
 
     private String name;
     private Template template;
+    private BusinessRuleType businessRuleType;
     private List<BusinessRuleTag> businessRuleTags;
 
     HashMap<TemplateTag, BusinessRuleTag> businessRuleTagHashMap;
 
 
-    public BusinessRule(String name, Template template, HashMap<TemplateTag, BusinessRuleTag> businessRuleTagHashMap) {
+    public BusinessRule(String name, BusinessRuleType businessRuleType, Template template, HashMap<TemplateTag, BusinessRuleTag> businessRuleTagHashMap) {
         this.name = name;
+        this.businessRuleType = businessRuleType;
         this.template = template;
         this.businessRuleTagHashMap = businessRuleTagHashMap;
     }

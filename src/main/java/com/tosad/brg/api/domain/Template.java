@@ -6,11 +6,13 @@ public class Template {
     private String name;
     private String script;
     private String prefix;
+    private DatabaseType databaseType;
 
-    public Template(String name, String script, String prefix) {
+    public Template(String name, String script, String prefix, DatabaseType databaseType) {
         this.name = name;
         this.script = script;
         this.prefix = prefix;
+        this.databaseType = databaseType;
     }
 
     public String getName() {
@@ -35,5 +37,13 @@ public class Template {
 
     public void setPrefix(String prefix) {
         this.prefix = prefix;
+    }
+
+    public DatabaseType getDatabaseType() {
+        return databaseType;
+    }
+
+    public void setDatabaseType(DatabaseType databaseType) {
+        this.databaseType = databaseType;
     }
 }
