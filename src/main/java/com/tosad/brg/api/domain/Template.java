@@ -1,19 +1,16 @@
-package com.tosad.brg.api.models;
+package com.tosad.brg.api.domain;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Template {
     private String name;
     private String script;
     private String prefix;
-    private List<TemplateTag> templateTagArrayList;
 
-    public Template(String name, String script, String prefix, List<TemplateTag> templateTagArrayList) {
+    public Template(String name, String script, String prefix) {
         this.name = name;
         this.script = script;
         this.prefix = prefix;
-        this.templateTagArrayList = templateTagArrayList;
     }
 
     public String getName() {
@@ -38,13 +35,5 @@ public class Template {
 
     public void setPrefix(String prefix) {
         this.prefix = prefix;
-    }
-
-    public List<TemplateTag> getTemplateTagArrayList() {
-        return templateTagArrayList;
-    }
-
-    public void setTemplateTagArrayList(List<TemplateTag> templateTagArrayList) {
-        this.templateTagArrayList = templateTagArrayList;
     }
 }

@@ -1,4 +1,4 @@
-package com.tosad.brg.api.models;
+package com.tosad.brg.api.domain;
 
 import java.util.HashMap;
 import java.util.List;
@@ -10,13 +10,13 @@ public class BusinessRule {
     private Template template;
     private List<BusinessRuleTag> businessRuleTags;
 
-    HashMap<TemplateTag, BusinessRuleTag> templateTagHashMap;
+    HashMap<TemplateTag, BusinessRuleTag> businessRuleTagHashMap;
 
 
-    public BusinessRule(String name, Template template, List<BusinessRuleTag> businessRuleTags) {
+    public BusinessRule(String name, Template template, HashMap<TemplateTag, BusinessRuleTag> businessRuleTagHashMap) {
         this.name = name;
         this.template = template;
-        this.businessRuleTags = businessRuleTags;
+        this.businessRuleTagHashMap = businessRuleTagHashMap;
     }
 
     public String getName() {
@@ -35,22 +35,10 @@ public class BusinessRule {
         this.template = template;
     }
 
-    private HashMap<TemplateTag, BusinessRuleTag> getTemplateTagAndBusinessRuleTagHashMap() {
-        templateTagHashMap = new HashMap<>();
-
-        int bound = businessRuleTags.size();
-        for (int i = 0; i < bound; i++) {
-            BusinessRuleTag businessRuleTag = businessRuleTags.get(i);
-            templateTagHashMap.put(template.getTemplateTagArrayList().get(i), businessRuleTag);
-        }
-
-        return templateTagHashMap;
-    }
-
     public String generateCode() {
         String code = template.getScript();
 
-        for (Map.Entry<TemplateTag, BusinessRuleTag> entry : getTemplateTagAndBusinessRuleTagHashMap().entrySet()) {
+        for (Map.Entry<TemplateTag, BusinessRuleTag> entry : businessRuleTagHashMap.entrySet()) {
             TemplateTag templateTag = entry.getKey();
             BusinessRuleTag businessRuleTag = entry.getValue();
             code = code.replace(templateTag.getTemplateKey(), businessRuleTag.getValue());

@@ -1,4 +1,4 @@
-package com.tosad.brg.api.models;
+package com.tosad.brg.api.domain;
 
 public class Project {
     private String name;
