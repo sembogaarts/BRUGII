@@ -11,6 +11,9 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        
+
+
         TemplateTag templateTag = new TemplateTag("table");
         TemplateTag templateTag1 = new TemplateTag("attribute");
         List<TemplateTag> templateTags = new ArrayList<>(Arrays.asList(templateTag, templateTag1));
