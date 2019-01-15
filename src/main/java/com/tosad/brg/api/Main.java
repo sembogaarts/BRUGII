@@ -1,9 +1,7 @@
 package com.tosad.brg.api;
 
+import com.tosad.brg.api.domain.*;
 import com.tosad.brg.api.domain.BusinessRule;
-import com.tosad.brg.api.domain.BusinessRuleTag;
-import com.tosad.brg.api.domain.Template;
-import com.tosad.brg.api.domain.TemplateTag;
 import com.tosad.brg.api.domain.templatetagtypes.TemplateTagTypeList;
 import com.tosad.brg.api.domain.templatetagtypes.TemplateTagTypeString;
 
@@ -14,6 +12,8 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        Project project = new Project("test", "127.0.0.1", "rj", "33", 3323, DatabaseType.ORACLE, new ArrayList<Table>());
+//        project.getDatabaseConnection();
 
         TemplateTag templateTag = new TemplateTag("table", new TemplateTagTypeString());
         TemplateTag templateTag1 = new TemplateTag("attribute", new TemplateTagTypeList());
