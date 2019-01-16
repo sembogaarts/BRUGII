@@ -5,7 +5,12 @@ import java.io.Serializable;
 
 public enum TemplateTagType implements Serializable {
     STRING("string"),
-    LIST("list"),
+    LIST("list") {
+        @Override
+        public String parseValue(String value) {
+            return value;
+        }
+    },
     OPERATOR("operator"),
     NUMBER("number"),
     TABLE("table"),

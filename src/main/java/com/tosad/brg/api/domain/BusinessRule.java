@@ -9,8 +9,6 @@ public class BusinessRule {
     private String name;
     private Template template;
     private BusinessRuleType businessRuleType;
-    private List<BusinessRuleTag> businessRuleTags;
-
     HashMap<TemplateTag, BusinessRuleTag> businessRuleTagHashMap;
 
 
