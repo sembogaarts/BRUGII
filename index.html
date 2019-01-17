@@ -10,6 +10,7 @@
     <script src="./node_modules/vue/dist/vue.min.js"></script>
     <link rel="stylesheet" href="node_modules/highlightjs/styles/default.css">
     <script src="./node_modules/highlightjs/highlight.pack.min.js"></script>
+    <script src="./node_modules/requirejs/require.js"></script>
     <!-- Styles (Generated with Gulp) -->
     <link rel="stylesheet" href="./css/theme.css">
     <!-- Fonts -->
@@ -68,109 +69,8 @@
     </div>
 </div>
 
-
-<script>
-    var app = new Vue({
-        el: '#app',
-        data: {
-
-            schema: [
-                {
-                    name: "Gebruiker",
-                    columns: [
-                        {
-                            name: "Leeftijd",
-                            type: "NUMBER"
-                        }
-                    ]
-                }
-            ],
-
-            template: {
-
-                raw: "ALTER TABLE {{ TABLE }} ADD CONSTRAINT {{ NAME }} CHECK ( {{ COLUMN }} [[ NOT ]] BETWEEN {{ NUMBER_1 }} AND {{ NUMBER_2 }} )",
-
-                tags: [
-                    {
-                        name: "TABLE",
-                        type: "TABLE",
-                        value: ""
-                    },
-                    {
-                        name: "NAME",
-                        type: "STRING"
-                    },
-                    {
-                        name: "COLUMN",
-                        type: "COLUMN"
-                    },
-                    {
-                        name: "NUMBER_1",
-                        type: "NUMBER"
-                    },
-                    {
-                        name: "NUMBER_2",
-                        type: "NUMBER"
-                    },
-                    {
-                        name: "NOT",
-                        type: "BOOLEAN"
-                    }
-                ]
-
-            }
-
-        },
-
-        methods: {
-
-            isType(type, compareTo) {
-                return type === compareTo;
-            },
-
-            isNumber(type) {
-                return this.isType("NUMBER", type);
-            },
-
-            isString(type) {
-                return this.isType("STRING", type);
-            },
-
-            isBoolean(type) {
-                return this.isType("BOOLEAN", type);
-            },
-
-            isTable(type) {
-                return this.isType("TABLE", type);
-            },
-
-            isColumn(type) {
-                return this.isType("COLUMN", type);
-            },
-
-            onSubmit() {
-                console.log(this.template.tags);
-            },
-
-            columns() {
-                for (var x = 0; this.template.tags.length > x; x++) {
-                    // Check if the tag is a table
-                    if (this.isTable(this.template.tags[x].type)) {
-
-                        // Get the selected table
-                        var selectedTable = this.template.tags[x].value;
-
-                        // Return columns for the specific table
-                        return isNaN(parseInt(selectedTable)) ? [] : this.schema[selectedTable].columns;
-                    }
-                }
-            }
-
-        },
-    })
-</script>
-
-<!-- Initialize Highlight.JS -->
+<!-- Initialize scripts -->
+<script src="js/main.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
 </body>

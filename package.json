@@ -5,6 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "highlightjs": "^9.12.0",
+    "requirejs": "^2.3.6",
     "vue": "^2.5.22"
   },
   "devDependencies": {
