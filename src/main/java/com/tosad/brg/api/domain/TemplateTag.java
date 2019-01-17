@@ -12,7 +12,7 @@ public class TemplateTag {
     }
 
     public String getTemplateKey() {
-        return String.format("{{%s}}", key);
+        return String.format("{{ %s }}", key);
     }
 
     public String getKey() {

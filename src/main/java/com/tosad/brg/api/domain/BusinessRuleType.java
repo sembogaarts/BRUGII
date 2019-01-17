@@ -7,6 +7,8 @@ import java.io.Serializable;
 
 public enum BusinessRuleType implements Serializable {
     TUPLE_COMPARE_RULE("tuple_compare_rule"),
+    ATTRIBUTE_RANGE_RULE("attribute_range_rule"),
+    ATTRIBUTE_COMPARE_RULE("attribute_compare_rule"),
     UNKNOWN("unkown");
 
     private String type;

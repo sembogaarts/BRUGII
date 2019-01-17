@@ -11,7 +11,12 @@ public enum TemplateTagType implements Serializable {
             return value;
         }
     },
-    OPERATOR("operator"),
+    OPERATOR("operator") {
+        @Override
+        public String parseValue(String value) {
+            return value;
+        }
+    },
     NUMBER("number"),
     TABLE("table"),
     COLUMN("column"),

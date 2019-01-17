@@ -36,6 +36,6 @@ public class OracleDatabaseConnection implements DatabaseConnection {
     }
 
     private String formatToConnectionString(Project project) {
-        return String.format("jdbc:oracle:thin:@%s:%d:xe", project.getHost(), project.getPort());
+        return String.format("jdbc:oracle:thin:@//%s:%d/%s", project.getHost(), project.getPort(), "EDUC16");
     }
 }

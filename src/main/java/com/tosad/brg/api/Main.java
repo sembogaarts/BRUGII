@@ -1,8 +1,7 @@
 package com.tosad.brg.api;
 
-import com.sun.org.apache.bcel.internal.classfile.Constant;
-import com.tosad.brg.api.domain.*;
 import com.tosad.brg.api.domain.BusinessRule;
+import com.tosad.brg.api.domain.*;
 import com.tosad.brg.api.domain.templatetagtypes.TemplateTagType;
 
 import java.util.ArrayList;
@@ -10,12 +9,13 @@ import java.util.HashMap;
 
 public class Main {
     public static void main(String[] args) {
-//        Project project = new Project("test", "127.0.0.1", "rj", "33", 3323, DatabaseType.ORACLE, new ArrayList<Table>());
+        Project project = new Project("test", "ondora04.hu.nl", "cursist", "cursist2321", 8521, DatabaseType.ORACLE, new ArrayList<Table>());
 
-        BusinessRuleTag businessRuleTag = new BusinessRuleTag("gebruikers", new TemplateTag("table", TemplateTagType.TABLE));
-        BusinessRuleTag businessRuleTag1 = new BusinessRuleTag("id", new TemplateTag("column", TemplateTagType.COLUMN));
-        BusinessRuleTag businessRuleTag2 = new BusinessRuleTag("=", new TemplateTag("operator", TemplateTagType.OPERATOR));
-        BusinessRuleTag businessRuleTag3 = new BusinessRuleTag("Y", new TemplateTag("check", TemplateTagType.STRING));
+
+        BusinessRuleTag businessRuleTag = new BusinessRuleTag("gebruikers", new TemplateTag("TABLE", TemplateTagType.TABLE));
+        BusinessRuleTag businessRuleTag1 = new BusinessRuleTag("id", new TemplateTag("COLUMN", TemplateTagType.COLUMN));
+        BusinessRuleTag businessRuleTag2 = new BusinessRuleTag("=", new TemplateTag("OPERATOR", TemplateTagType.OPERATOR));
+        BusinessRuleTag businessRuleTag3 = new BusinessRuleTag("Y", new TemplateTag("CHECK", TemplateTagType.STRING));
 
         HashMap<TemplateTag, BusinessRuleTag> businessRuleTagHashMap = new HashMap<>();
         businessRuleTagHashMap.put(businessRuleTag.getTemplateTag(), businessRuleTag);
@@ -23,10 +23,33 @@ public class Main {
         businessRuleTagHashMap.put(businessRuleTag2.getTemplateTag(), businessRuleTag2);
         businessRuleTagHashMap.put(businessRuleTag3.getTemplateTag(), businessRuleTag3);
 
+        TemplateFactory templateFactory = new TemplateFactory();
 
-        Template template = new Template("businessRule", "ALTER TABLE {{table}} ADD CONSTRAINT compare_rule_name check ({{column}} {{operator}} '{{check}}');", "blabla", DatabaseType.ORACLE);
-        BusinessRule businessRule = new BusinessRule("naam", BusinessRuleType.TUPLE_COMPARE_RULE, template, businessRuleTagHashMap);
+
+        BusinessRule businessRule = new BusinessRule(
+                "tuple_compare_rule_test_rule",
+                BusinessRuleType.TUPLE_COMPARE_RULE,
+                null,
+                businessRuleTagHashMap);
+        businessRule.setTemplate(templateFactory.getTemplateByBusinessRuleType(businessRule.getBusinessRuleType()));
+
+        BusinessRule businessRule1 = new BusinessRule(
+                "attribute_range_rule_test_rule",
+                BusinessRuleType.ATTRIBUTE_RANGE_RULE,
+                null,
+                businessRuleTagHashMap);
+        businessRule1.setTemplate(templateFactory.getTemplateByBusinessRuleType(businessRule1.getBusinessRuleType()));
+
+
+        BusinessRule businessRule2 = new BusinessRule(
+                "attribute_range_rule_test_rule",
+                BusinessRuleType.ATTRIBUTE_COMPARE_RULE,
+                null,
+                businessRuleTagHashMap);
+        businessRule2.setTemplate(templateFactory.getTemplateByBusinessRuleType(businessRule2.getBusinessRuleType()));
 
         System.out.println(businessRule.generateCode());
+        System.out.println(businessRule1.generateCode());
+        System.out.println(businessRule2.generateCode());
     }
 }

@@ -46,4 +46,20 @@ public class BusinessRule {
 
         return code;
     }
+
+    public BusinessRuleType getBusinessRuleType() {
+        return businessRuleType;
+    }
+
+    public void setBusinessRuleType(BusinessRuleType businessRuleType) {
+        this.businessRuleType = businessRuleType;
+    }
+
+    public HashMap<TemplateTag, BusinessRuleTag> getBusinessRuleTagHashMap() {
+        return businessRuleTagHashMap;
+    }
+
+    public void setBusinessRuleTagHashMap(HashMap<TemplateTag, BusinessRuleTag> businessRuleTagHashMap) {
+        this.businessRuleTagHashMap = businessRuleTagHashMap;
+    }
 }
