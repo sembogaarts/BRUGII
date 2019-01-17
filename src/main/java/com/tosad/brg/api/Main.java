@@ -1,11 +1,12 @@
 package com.tosad.brg.api;
 
-import com.sun.org.apache.bcel.internal.classfile.Constant;
-import com.tosad.brg.api.domain.*;
-import com.tosad.brg.api.domain.BusinessRule;
-import com.tosad.brg.api.domain.templatetagtypes.TemplateTagType;
+import com.tosad.brg.api.domain.businessRule.BusinessRule;
+import com.tosad.brg.api.domain.businessRule.BusinessRuleTag;
+import com.tosad.brg.api.domain.businessRule.BusinessRuleType;
+import com.tosad.brg.api.domain.template.Template;
+import com.tosad.brg.api.domain.template.TemplateTag;
+import com.tosad.brg.api.domain.type.TemplateTagType;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Main {

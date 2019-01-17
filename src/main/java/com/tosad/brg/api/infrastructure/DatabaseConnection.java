@@ -1,4 +1,4 @@
-package com.tosad.brg.api.domain.database;
+package com.tosad.brg.api.infrastructure;
 
 public interface DatabaseConnection {
     Object getConnection();

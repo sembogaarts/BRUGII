@@ -1,4 +1,4 @@
-package com.tosad.brg.api.domain;
+package com.tosad.brg.api.taskSpecific;
 
 import java.util.ArrayList;
 

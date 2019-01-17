@@ -1,4 +1,4 @@
-package com.tosad.brg.api.domain.templatetagtypes;
+package com.tosad.brg.api.domain.type;
 
 
 import java.io.Serializable;
