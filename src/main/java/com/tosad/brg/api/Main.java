@@ -11,7 +11,6 @@ public class Main {
     public static void main(String[] args) {
         Project project = new Project("test", "ondora04.hu.nl", "cursist", "cursist2321", 8521, DatabaseType.ORACLE, new ArrayList<Table>());
 
-
         BusinessRuleTag businessRuleTag = new BusinessRuleTag("gebruikers", new TemplateTag("TABLE", TemplateTagType.TABLE));
         BusinessRuleTag businessRuleTag1 = new BusinessRuleTag("id", new TemplateTag("COLUMN", TemplateTagType.COLUMN));
         BusinessRuleTag businessRuleTag2 = new BusinessRuleTag("=", new TemplateTag("OPERATOR", TemplateTagType.OPERATOR));
