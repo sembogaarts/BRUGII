@@ -1,0 +1,9 @@
+{
+  "name": "TOSAD",
+  "version": "1.0.0",
+  "main": "index.html",
+  "license": "MIT",
+  "dependencies": {
+    "vue": "^2.5.22"
+  }
+}

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.JS</title>
+    <!-- Node Modules -->
+    <script src="./node_modules/vue/dist/vue.min.js"></script>
+</head>
+<body>
+
+<div id="app">
+
+    <form @submit.prevent>
+
+        <div v-for="tag in template.tags">
+
+            <label :for="tag.name">{{ tag.name }}</label>
+            
+            <!-- String, Number, Boolean -->
+            <input v-if="isString(tag.type)" :id="tag.name" type="text" v-model="tag.value">
+            <input v-if="isNumber(tag.type)" :id="tag.name" type="number" v-model="tag.value">
+            <input v-if="isBoolean(tag.type)" :id="tag.name" type="checkbox" v-model="tag.value">
+
+            <!-- Tables -->
+            <select v-if="isTable(tag.type)" v-model="tag.value" @change="columns()" :id="tag.name">
+                <option selected value="" disabled>Selecteer een tabel</option>
+                <option v-for="(table, index) in schema" :value="index">{{ table.name }}</option>
+            </select>
+
+            <!-- Columns -->
+            <select v-if="isColumn(tag.type)" :id="tag.name">
+                <option selected value="" disabled>Selecteer een kolom</option>
+                <option v-for="column in columns()" value="">{{ column.name }}</option>
+            </select>
+
+        </div>
+
+        {{ template.tags }}
+
+        <button type="submit" @click="onSubmit()">Genereer</button>
+
+    </form>
+
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+
+            schema: [
+                {
+                    name: "Gebruiker",
+                    columns: [
+                        {
+                            name: "Leeftijd",
+                            type: "NUMBER"
+                        }
+                    ]
+                }
+            ],
+
+            template: {
+
+                raw: "ALTER TABLE {{ TABLE }} ADD CONSTRAINT {{ NAME }} CHECK ( {{ COLUMN }} [[ NOT ]] BETWEEN {{ NUMBER_1 }} AND {{ NUMBER_2 }} )",
+
+                tags: [
+                    {
+                        name: "TABLE",
+                        type: "TABLE",
+                        value: ""
+                    },
+                    {
+                        name: "NAME",
+                        type: "STRING"
+                    },
+                    {
+                        name: "COLUMN",
+                        type: "COLUMN"
+                    },
+                    {
+                        name: "NUMBER_1",
+                        type: "NUMBER"
+                    },
+                    {
+                        name: "NUMBER_2",
+                        type: "NUMBER"
+                    }
+                ]
+
+            }
+
+        },
+
+        methods: {
+
+            isType(type, compareTo) {
+                return type === compareTo;
+            },
+
+            isNumber(type) {
+                return this.isType("NUMBER", type);
+            },
+
+            isString(type) {
+                return this.isType("STRING", type);
+            },
+
+            isBoolean(type) {
+                return this.isType("BOOLEAN", type);
+            },
+
+            isTable(type) {
+                return this.isType("TABLE", type);
+            },
+
+            isColumn(type) {
+                return this.isType("COLUMN", type);
+            },
+
+            onSubmit() {
+                console.log(this.template.tags);
+            },
+
+            columns() {
+                for(var x = 0; this.template.tags.length > x; x++) {
+                    // Check if the tag is a table
+                    if(this.isTable(this.template.tags[x].type)) {
+
+                        // Get the selected table
+                        var selectedTable = this.template.tags[x].value;
+
+                        // Return columns for the specific table
+                        return isNaN(parseInt(selectedTable)) ? [] :  this.schema[selectedTable].columns;
+                    }
+                }
+            }
+
+        },
+    })
+</script>
+
+</body>
+</html>
