@@ -1,7 +1,8 @@
-package com.tosad.brg.api.domain;
+package com.tosad.brg.api.domain.template;
 
-import com.tosad.brg.api.domain.database.DatabaseConnection;
-import com.tosad.brg.api.domain.database.OracleDatabaseConnection;
+import com.tosad.brg.api.taskSpecific.Project;
+import com.tosad.brg.api.infrastructure.DatabaseConnection;
+import com.tosad.brg.api.infrastructure.OracleDatabaseConnection;
 
 import java.io.Serializable;
 

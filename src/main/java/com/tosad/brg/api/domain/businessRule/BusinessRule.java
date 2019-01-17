@@ -1,7 +1,9 @@
-package com.tosad.brg.api.domain;
+package com.tosad.brg.api.domain.businessRule;
+
+import com.tosad.brg.api.domain.template.Template;
+import com.tosad.brg.api.domain.template.TemplateTag;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class BusinessRule {

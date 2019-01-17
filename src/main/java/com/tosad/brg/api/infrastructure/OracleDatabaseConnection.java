@@ -1,6 +1,6 @@
-package com.tosad.brg.api.domain.database;
+package com.tosad.brg.api.infrastructure;
 
-import com.tosad.brg.api.domain.Project;
+import com.tosad.brg.api.taskSpecific.Project;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

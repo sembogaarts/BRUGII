@@ -1,7 +1,4 @@
-package com.tosad.brg.api.domain;
-
-import com.tosad.brg.api.domain.database.DatabaseConnection;
-import com.tosad.brg.api.domain.database.OracleDatabaseConnection;
+package com.tosad.brg.api.domain.businessRule;
 
 import java.io.Serializable;
 

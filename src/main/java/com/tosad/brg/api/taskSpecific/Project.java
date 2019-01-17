@@ -1,6 +1,7 @@
-package com.tosad.brg.api.domain;
+package com.tosad.brg.api.taskSpecific;
 
-import com.tosad.brg.api.domain.database.DatabaseConnection;
+import com.tosad.brg.api.infrastructure.DatabaseConnection;
+import com.tosad.brg.api.domain.template.DatabaseType;
 
 import java.util.ArrayList;
 

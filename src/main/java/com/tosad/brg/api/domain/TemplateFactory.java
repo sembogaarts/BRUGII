@@ -1,5 +1,9 @@
 package com.tosad.brg.api.domain;
 
+import com.tosad.brg.api.domain.businessRule.BusinessRuleType;
+import com.tosad.brg.api.domain.template.DatabaseType;
+import com.tosad.brg.api.domain.template.Template;
+
 public class TemplateFactory {
     public Template getTemplateByBusinessRuleType(BusinessRuleType businessRuleType) {
         String value = "";

@@ -1,6 +1,4 @@
-package com.tosad.brg.api.domain;
-
-import java.util.List;
+package com.tosad.brg.api.domain.template;
 
 public class Template {
     private String name;

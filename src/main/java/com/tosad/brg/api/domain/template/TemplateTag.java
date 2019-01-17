@@ -1,6 +1,6 @@
-package com.tosad.brg.api.domain;
+package com.tosad.brg.api.domain.template;
 
-import com.tosad.brg.api.domain.templatetagtypes.TemplateTagType;
+import com.tosad.brg.api.domain.type.TemplateTagType;
 
 public class TemplateTag {
     private String key;

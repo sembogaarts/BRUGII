@@ -1,4 +1,6 @@
-package com.tosad.brg.api.domain;
+package com.tosad.brg.api.domain.businessRule;
+
+import com.tosad.brg.api.domain.template.TemplateTag;
 
 public class BusinessRuleTag {
     public String value;
