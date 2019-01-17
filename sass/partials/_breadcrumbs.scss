@@ -1,0 +1,21 @@
+.breadcrumbs {
+
+  width: 100%;
+  padding: 10px 20px;
+  overflow: auto;
+  background-color: #eee;
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    float: left;
+    margin-right: 10px;
+    &:not(:last-child):after {
+      content: ">";
+      margin-left: 10px;
+    }
+  }
+
+}
