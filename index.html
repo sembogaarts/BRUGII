@@ -8,6 +8,9 @@
     <title>Vue.JS</title>
     <!-- Node Modules -->
     <script src="./node_modules/vue/dist/vue.min.js"></script>
+    <link rel="stylesheet" href="node_modules/highlightjs/styles/default.css">
+    <script src="./node_modules/highlightjs/highlight.pack.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 </head>
 <body>
 
@@ -37,14 +40,16 @@
             </select>
 
         </div>
-
-        {{ template.tags }}
-
+        
         <button type="submit" @click="onSubmit()">Genereer</button>
 
     </form>
 
+    <pre><code class="sql solorized-dark">{{ template.raw }}</code></pre>
+
 </div>
+
+
 
 <script>
     var app = new Vue({
@@ -88,6 +93,10 @@
                     {
                         name: "NUMBER_2",
                         type: "NUMBER"
+                    },
+                    {
+                        name: "NOT",
+                        type: "BOOLEAN"
                     }
                 ]
 
