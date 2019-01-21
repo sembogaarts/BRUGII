@@ -40,28 +40,9 @@ module.exports = {
                     this.schema = response.data.schema;
                 });
         },
+
         isType(type, compareTo) {
             return type === compareTo;
-        },
-
-        isNumber(type) {
-            return this.isType("NUMBER", type);
-        },
-
-        isString(type) {
-            return this.isType("STRING", type);
-        },
-
-        isBoolean(type) {
-            return this.isType("BOOLEAN", type);
-        },
-
-        isTable(type) {
-            return this.isType("TABLE", type);
-        },
-
-        isColumn(type) {
-            return this.isType("COLUMN", type);
         },
 
         isLoop(type) {
@@ -94,17 +75,48 @@ module.exports = {
 
         },
 
-        addLoopRow(index) {
-            var fields = this.template.tags[index].fields;
-            this.template.tags[index].rows.push(fields);
+        addLoopRow(tag) {
+
+            // Loop door alle velden heen en voeg een lege waarde eraan toe
+            for (var x = 0; tag.fields.length > x; x++) {
+                tag.fields[x].value = [""];
+                console.log(tag.fields[x].value);
+            }
+
+
+        },
+
+
+        getLoopRows(tag) {
+            // The actual sorted rows
+            var rows = [];
+            // Check the count of the rows that have to exists
+            for (var x = 0; tag.fields[0].value.length > x; x++) {
+
+
+                var modifiedRow = {};
+
+                for (var y = 0; tag.fields.length > y; y++) {
+
+                    modifiedRow = tag.fields[y];
+                    modifiedRow['value'] = tag.fields[y].value[x];
+
+                    rows.push(modifiedRow);
+
+                }
+
+
+            }
+
+
+            return rows;
+
         }
+
     },
     computed: {
         hasTemplate: function () {
             return JSON.stringify(this.template) !== '{}'
-        },
-        pagename: function () {
-            return this.$route.name;
         }
     },
     created: function () {

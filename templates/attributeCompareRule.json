@@ -19,20 +19,22 @@
         {
           "id": 4,
           "name": "COLUMN",
-          "type": "COLUMN"
+          "type": "COLUMN",
+          "value": []
         },
         {
           "id": 5,
           "name": "OPERATOR",
-          "type": "OPERATOR"
+          "type": "OPERATOR",
+          "value": []
         },
         {
           "id": 6,
           "name": "VALUE",
-          "type": "STRING"
+          "type": "STRING",
+          "value": []
         }
-      ],
-      "rows": []
+      ]
     }
   ]
 }
