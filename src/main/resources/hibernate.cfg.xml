@@ -33,7 +33,6 @@
 
         <property name="hibernate.default_schema">cursist</property>
 
-
         <mapping class="com.tosad.brg.api.domain.businessRule.BusinessRuleTag"/>
         <mapping class="com.tosad.brg.api.domain.businessRule.BusinessRule"/>
         <mapping class="com.tosad.brg.api.domain.businessRule.BusinessRuleType"/>
