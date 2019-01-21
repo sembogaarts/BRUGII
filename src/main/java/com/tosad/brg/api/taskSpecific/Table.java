@@ -9,10 +9,10 @@ import java.util.Set;
 public class Table {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @SequenceGenerator(name="TABLES_SEQUENCE", sequenceName="TABLES_SEQUENCE", allocationSize=1)
+    @SequenceGenerator(name = "TABLES_SEQUENCE", sequenceName = "TABLES_SEQUENCE", allocationSize = 1)
     public int id;
 
-    @OneToMany(mappedBy="tables")
+    @OneToMany(mappedBy = "tables")
     Set<Column> columns;
 
     public Table(Set<Column> columns) {

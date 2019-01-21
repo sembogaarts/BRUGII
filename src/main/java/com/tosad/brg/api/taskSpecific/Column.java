@@ -11,7 +11,7 @@ public class Column {
     public int id;
 
     @ManyToOne
-    @JoinColumn(name = "table_id", nullable = false)
+    @JoinColumn(name = "tables_id", nullable = false)
     private Table table;
 
     public Column(Table table) {
