@@ -76,41 +76,28 @@ module.exports = {
         },
 
         addLoopRow(tag) {
-
             // Loop door alle velden heen en voeg een lege waarde eraan toe
             for (var x = 0; tag.fields.length > x; x++) {
-                tag.fields[x].value = [""];
-                console.log(tag.fields[x].value);
+                tag.fields[x].value.push("");
             }
-
-
         },
 
 
         getLoopRows(tag) {
             // The actual sorted rows
-            var rows = [];
+            rows = [];
+
             // Check the count of the rows that have to exists
             for (var x = 0; tag.fields[0].value.length > x; x++) {
-
-
-                var modifiedRow = {};
-
                 for (var y = 0; tag.fields.length > y; y++) {
-
-                    modifiedRow = tag.fields[y];
+                    var modifiedRow = {};
+                    modifiedRow = Object.assign({}, tag.fields[y]);
                     modifiedRow['value'] = tag.fields[y].value[x];
-
                     rows.push(modifiedRow);
-
                 }
-
-
             }
 
-
             return rows;
-
         }
 
     },

@@ -21,23 +21,12 @@
                     <!-- Render Loop -->
                     <div v-if="isLoop(tag.type)">
 
-                        <div v-for="row in getLoopRows(tag)">
+                        <div v-for="(field, index) in getLoopRows(tag)">
 
-                            test
+                            <!-- Render the field -->
+                            <field :tag="field" :tags="template.tags" :index="index" :schema="schema"></field>
 
                         </div>
-
-                        <!--<div v-for="row in tag.fields">-->
-
-                            <!--<div v-for="value in row.value">-->
-
-                                <!--&lt;!&ndash; Render the field &ndash;&gt;-->
-                                <!--<field :tag="row" :tags="template.tags" :index="index" :schema="schema"></field>-->
-
-                            <!--</div>-->
-
-
-                        <!--</div>-->
 
                         <button @click="addLoopRow(tag)">Addrow</button>
 
