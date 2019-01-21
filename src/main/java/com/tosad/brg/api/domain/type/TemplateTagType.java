@@ -39,6 +39,10 @@ public enum TemplateTagType implements Serializable {
         return UNKNOWN;
     }
 
+    public String getType() {
+        return type;
+    }
+
     public String parseValue(String value) {
         return value;
     }

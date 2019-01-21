@@ -19,8 +19,9 @@ public class Main {
         Session session = hibernateUtils.getSession();
 
 
-        BusinessRuleTag businessRuleTag = new BusinessRuleTag(1, "gebruikers", null);
-
+//        BusinessRuleTag businessRuleTag = new BusinessRuleTag(1, "gebruikers", null);
+        BusinessRuleTag businessRule =  (BusinessRuleTag) session.get(BusinessRuleTag.class, 1);
+        System.out.println(businessRule.getValue());
         Transaction t = session.beginTransaction();
         session.save(businessRuleTag);
         t.commit();
