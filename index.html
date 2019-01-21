@@ -7,71 +7,91 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Vue.JS</title>
     <!-- Node Modules -->
-    <script src="./node_modules/vue/dist/vue.min.js"></script>
-    <link rel="stylesheet" href="node_modules/highlightjs/styles/default.css">
-    <script src="./node_modules/highlightjs/highlight.pack.min.js"></script>
-    <script src="./node_modules/requirejs/require.js"></script>
+    <!--<link rel="stylesheet" href="node_modules/highlightjs/styles/default.css">-->
+    <!--<script src="./node_modules/highlightjs/highlight.pack.min.js"></script>-->
+    <!--<script src="./node_modules/requirejs/require.js"></script>-->
     <!-- Styles (Generated with Gulp) -->
-    <link rel="stylesheet" href="./css/theme.css">
+    <!--<link rel="stylesheet" href="./css/theme.css">-->
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 </head>
 <body>
 
-<header>
-    <p class="project">BRUG II (TOSAD)</p>
-</header>
+<div id="app">
 
-<div class="breadcrumbs">
-    <ul>
-        <li>Home</li>
-        <li>Genereer Businessrule</li>
-    </ul>
-</div>
+    <div class="sidenav">
 
-<div class="page">
+        <header>
+            <p class="project">BRUG <span>II</span></p>
+        </header>
+
+        <ul>
+            <!-- Render the Routes -->
+            <li v-for="nav in routes">
+                <router-link :to="nav.path">
+                    <i class="fa" :class="nav.icon"></i>
+                    {{ nav.name }}
+                </router-link>
+            </li>
+        </ul>
+
+    </div>
 
 
-    <div id="app">
+    <div class="page">
+
+        <h1>{{ route.name }}</h1>
+
+        <!--<p>-->
+        <!--&lt;!&ndash; use router-link component for navigation. &ndash;&gt;-->
+        <!--&lt;!&ndash; specify the link by passing the `to` prop. &ndash;&gt;-->
+        <!--&lt;!&ndash; `<router-link>` will be rendered as an `<a>` tag by default &ndash;&gt;-->
+        <!--<router-link to="/foo">Go to Foo</router-link>-->
+        <!--<router-link to="/bar">Go to Bar</router-link>-->
+        <!--</p>-->
+
+        <router-view></router-view>
 
 
-        <form @submit.prevent>
+        <!--<form @submit.prevent>-->
 
-            <div v-for="tag in template.tags">
+        <!--<div v-for="tag in template.tags">-->
 
-                <label :for="tag.name">{{ tag.name }}</label>
+        <!--<label :for="tag.name">{{ tag.name }}</label>-->
 
-                <!-- String, Number, Boolean -->
-                <input v-if="isString(tag.type)" :id="tag.name" type="text" v-model="tag.value">
-                <input v-if="isNumber(tag.type)" :id="tag.name" type="number" v-model="tag.value">
-                <input v-if="isBoolean(tag.type)" :id="tag.name" type="checkbox" v-model="tag.value">
+        <!--&lt;!&ndash; String, Number, Boolean &ndash;&gt;-->
+        <!--<input v-if="isString(tag.type)" :id="tag.name" type="text" v-model="tag.value">-->
+        <!--<input v-if="isNumber(tag.type)" :id="tag.name" type="number" v-model="tag.value">-->
+        <!--<input v-if="isBoolean(tag.type)" :id="tag.name" type="checkbox" v-model="tag.value">-->
 
-                <!-- Tables -->
-                <select v-if="isTable(tag.type)" v-model="tag.value" @change="columns()" :id="tag.name">
-                    <option selected value="" disabled>Selecteer een tabel</option>
-                    <option v-for="(table, index) in schema" :value="index">{{ table.name }}</option>
-                </select>
+        <!--&lt;!&ndash; Tables &ndash;&gt;-->
+        <!--<select v-if="isTable(tag.type)" v-model="tag.value" @change="columns()" :id="tag.name">-->
+        <!--<option selected value="" disabled>Selecteer een tabel</option>-->
+        <!--<option v-for="(table, index) in schema" :value="index">{{ table.name }}</option>-->
+        <!--</select>-->
 
-                <!-- Columns -->
-                <select v-if="isColumn(tag.type)" :id="tag.name">
-                    <option selected value="" disabled>Selecteer een kolom</option>
-                    <option v-for="column in columns()" value="">{{ column.name }}</option>
-                </select>
+        <!--&lt;!&ndash; Columns &ndash;&gt;-->
+        <!--<select v-if="isColumn(tag.type)" :id="tag.name">-->
+        <!--<option selected value="" disabled>Selecteer een kolom</option>-->
+        <!--<option v-for="column in columns()" value="">{{ column.name }}</option>-->
+        <!--</select>-->
 
-            </div>
+        <!--</div>-->
 
-            <button type="submit" @click="onSubmit()">Genereer</button>
+        <!--<button type="submit" @click="onSubmit()">Genereer</button>-->
 
-        </form>
+        <!--</form>-->
 
-        <pre><code class="sql solorized-dark">{{ template.raw }}</code></pre>
+        <!--<pre><code class="sql solorized-dark">{{ template.raw }}</code></pre>-->
 
     </div>
 </div>
 
 <!-- Initialize scripts -->
-<script src="js/main.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+<script src="dist/main.js" type="text/javascript"></script>
+
+<!--<script>hljs.initHighlightingOnLoad();</script>-->
 
 </body>
 </html>
