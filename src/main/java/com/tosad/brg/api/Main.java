@@ -28,12 +28,15 @@ public class Main {
     public static void main(String[] args) {
         StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
         Metadata meta = new MetadataSources(ssr).getMetadataBuilder().build();
-
         SessionFactory factory = meta.getSessionFactoryBuilder().build();
         Session session = factory.openSession();
         Transaction t = session.beginTransaction();
 
+
         BusinessRuleTag businessRuleTag = new BusinessRuleTag(1, "gebruikers", null);
+
+
+
         session.save(businessRuleTag);
         t.commit();
         close();
