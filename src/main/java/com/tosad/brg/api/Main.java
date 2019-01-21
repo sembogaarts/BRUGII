@@ -1,13 +1,8 @@
 package com.tosad.brg.api;
 
-import com.tosad.brg.api.domain.businessRule.BusinessRuleTag;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.boot.Metadata;
-import org.hibernate.boot.MetadataSources;
-import org.hibernate.boot.registry.StandardServiceRegistry;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 public class Main {
     SessionFactory factory;
@@ -18,10 +13,9 @@ public class Main {
         hibernateUtils.boot();
         Session session = hibernateUtils.getSession();
 
-
 //        BusinessRuleTag businessRuleTag = new BusinessRuleTag(1, "gebruikers", null);
-        BusinessRuleTag businessRule =  (BusinessRuleTag) session.get(BusinessRuleTag.class, 1);
-        System.out.println(businessRule.getValue());
+//        BusinessRuleTag businessRule = (BusinessRuleTag) session.get(BusinessRuleTag.class, 1);
+//        System.out.println(businessRule.getValue());
         Transaction t = session.beginTransaction();
 //        session.save(businessRuleTag);
         t.commit();

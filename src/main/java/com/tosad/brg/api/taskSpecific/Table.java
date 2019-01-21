@@ -12,7 +12,7 @@ public class Table {
     @SequenceGenerator(name = "TABLES_SEQUENCE", sequenceName = "TABLES_SEQUENCE", allocationSize = 1)
     public int id;
 
-    @OneToMany()
+    @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
     Set<Column> columns;
 
     @ManyToOne

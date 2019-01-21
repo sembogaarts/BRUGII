@@ -29,9 +29,10 @@ public class TemplateTag {
 
     private TemplateTagType templateTagType;
 
-    public TemplateTag(String key, TemplateTagType templateTagType) {
+    public TemplateTag(String key, String templateTagTypeStr) {
         this.key = key;
-        this.templateTagTypeStr = templateTagType.getType();
+        this.templateTagTypeStr = templateTagTypeStr;
+        this.templateTagType = TemplateTagType.getTypeByText(templateTagTypeStr);
     }
 
     public String getTemplateKey() {
