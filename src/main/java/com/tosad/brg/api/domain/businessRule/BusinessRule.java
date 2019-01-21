@@ -22,6 +22,7 @@ public class BusinessRule {
     @ManyToOne
     @JoinColumn(name = "template_id")
     private Template template;
+
     @JoinColumn(name = "businessruletype_id", nullable = false)
     private BusinessRuleType businessRuleType;
 
