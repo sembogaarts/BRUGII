@@ -23,7 +23,7 @@ public class Main {
         BusinessRuleTag businessRule =  (BusinessRuleTag) session.get(BusinessRuleTag.class, 1);
         System.out.println(businessRule.getValue());
         Transaction t = session.beginTransaction();
-        session.save(businessRuleTag);
+//        session.save(businessRuleTag);
         t.commit();
 
         hibernateUtils.close();

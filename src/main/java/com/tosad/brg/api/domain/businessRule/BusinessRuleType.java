@@ -18,9 +18,11 @@ public enum BusinessRuleType implements Serializable {
         this.type = type;
     }
 
-    @OneToMany(mappedBy="businessruletype")
+    @OneToMany(mappedBy="businessRuleType")
     Set<Template> template;
 
+    @OneToMany(mappedBy="businessRuleType")
+    Set<BusinessRule> businessRule;
 
     @Override
     public String toString() {

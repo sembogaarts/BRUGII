@@ -1,16 +1,25 @@
 package com.tosad.brg.api.domain.template;
 
+import com.tosad.brg.api.domain.businessRule.BusinessRuleTag;
 import com.tosad.brg.api.domain.type.TemplateTagType;
 
 import javax.persistence.*;
 
+
 @Entity
-@Table(name = "TEMPLATE_TAG")
+@Table(name = "TEMPLATETAG")
 public class TemplateTag {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @SequenceGenerator(name = "TEMPLATETAG_SEQUENCE", sequenceName = "TEMPLATETAG_SEQUENCE", allocationSize = 1)
     public int id;
+
+    @OneToOne(mappedBy="templateTag")
+    private BusinessRuleTag businessRuleTag;
+
+    @ManyToOne
+    @JoinColumn(name = "template_id", nullable = false)
+    private Template template;
 
     @Column(name = "key")
     public String key;

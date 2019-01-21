@@ -5,7 +5,7 @@ import com.tosad.brg.api.domain.template.TemplateTag;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "BUSINESSRULE_TAG")
+@Table(name = "BUSINESSRULETAG")
 public class BusinessRuleTag {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -15,7 +15,13 @@ public class BusinessRuleTag {
     @Column(name = "value")
     private String value;
 
-//    private TemplateTag templateTag;
+    @OneToOne(mappedBy="businessRuleTag")
+    private TemplateTag templateTag;
+
+    @ManyToOne
+    @JoinColumn(name = "businessRuleTag")
+    private BusinessRule businessRule;
+
 
     public BusinessRuleTag(int id, String value, TemplateTag templateTag) {
         this.id = id;

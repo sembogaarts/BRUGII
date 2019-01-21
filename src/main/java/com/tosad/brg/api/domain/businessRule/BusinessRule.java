@@ -6,6 +6,7 @@ import com.tosad.brg.api.domain.template.TemplateTag;
 import javax.persistence.*;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 @Entity
 @Table(name = "BUSINESSRULE")
@@ -19,10 +20,14 @@ public class BusinessRule {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "fk_template")
+    @JoinColumn(name = "template")
     private Template template;
-
+    @JoinColumn(name = "businessruletype_id", nullable = false)
     private BusinessRuleType businessRuleType;
+
+    @OneToMany(mappedBy="businessRule")
+    Set<BusinessRuleTag> businessRuleTag;
+
 
     HashMap<TemplateTag, BusinessRuleTag> businessRuleTagHashMap;
 
