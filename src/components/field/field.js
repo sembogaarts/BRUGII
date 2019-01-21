@@ -35,8 +35,16 @@ module.exports = {
             return this.isType("COLUMN", type);
         },
 
+        isBinder(type) {
+            return this.isType("BINDER", type);
+        },
+
         getOperatorsForNumber() {
             return [">", "<", ">=", "<=", "=", "!="];
+        },
+
+        binders() {
+            return ["AND", "OR", "NOT"];
         },
 
         columns() {

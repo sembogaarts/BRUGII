@@ -21,6 +21,12 @@
             <option v-for="column in columns()" value="">{{ column.name }}</option>
         </select>
 
+        <!-- Columns -->
+        <select v-if="isBinder(tag.type)" :id="tag.name">
+            <option selected value="" disabled>Selecteer een binder</option>
+            <option v-for="binder in binders()" :value="binder">{{ binder }}</option>
+        </select>
+
     </div>
 
 </template>

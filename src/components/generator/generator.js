@@ -89,13 +89,17 @@ module.exports = {
 
             // Check the count of the rows that have to exists
             for (var x = 0; tag.fields[0].value.length > x; x++) {
+                row = []
                 for (var y = 0; tag.fields.length > y; y++) {
                     var modifiedRow = {};
                     modifiedRow = Object.assign({}, tag.fields[y]);
                     modifiedRow['value'] = tag.fields[y].value[x];
-                    rows.push(modifiedRow);
+                    row.push(modifiedRow);
                 }
+                rows.push(row)
             }
+
+            console.log(rows);
 
             return rows;
         }

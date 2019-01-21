@@ -33,6 +33,12 @@
           "name": "VALUE",
           "type": "STRING",
           "value": []
+        },
+        {
+          "id": 7,
+          "name": "BINDER",
+          "type": "BINDER",
+          "value": []
         }
       ]
     }
