@@ -1,6 +1,15 @@
 package com.tosad.brg.api;
 
+import com.tosad.brg.api.domain.businessRule.BusinessRule;
 import com.tosad.brg.api.domain.businessRule.BusinessRuleTag;
+import com.tosad.brg.api.domain.businessRule.BusinessRuleType;
+import com.tosad.brg.api.domain.template.DatabaseType;
+import com.tosad.brg.api.domain.template.Template;
+import com.tosad.brg.api.domain.template.TemplateTag;
+import com.tosad.brg.api.domain.type.TemplateTagType;
+import com.tosad.brg.api.taskSpecific.Column;
+import com.tosad.brg.api.taskSpecific.Project;
+import com.tosad.brg.api.taskSpecific.Table;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -14,17 +23,28 @@ public class Main {
         hibernateUtils.boot();
         Session session = hibernateUtils.getSession();
 
+        Project project = new Project("BRG", "localhost", "cursist", "cursist2321", 8521, null, null);
+        Table table = new Table("gebruikers");
+        Column column = new Column("gebruikersnaam");
         BusinessRuleTag businessRuleTag = new BusinessRuleTag(1, "gebruikers", null);
-<<<<<<< HEAD
+        BusinessRule businessRule = new BusinessRule("testrule", null, null, null);
+        BusinessRuleType businessRuleType = new BusinessRuleType("attribute_range_rule");
+        Template template = new Template("testnaam", "", "", null);
+        TemplateTag templateTag = new TemplateTag("key", "type");
+//        TemplateTagType templateTagType = new TemplateTagType("");
+//        DatabaseType databaseType = new DatabaseType("Oracle");
 //        BusinessRuleTag businessRule = (BusinessRuleTag) session.get(BusinessRuleTag.class, 1);
 //        System.out.println(businessRule.getValue());
-=======
 
-        // BusinessRuleTag businessRule = (BusinessRuleTag) session.get(BusinessRuleTag.class, 1);
-
->>>>>>> acbb61c12b0e4120d1891cb376ea10a153975f9e
         Transaction t = session.beginTransaction();
+        session.save(project);
+        session.save(table);
+        session.save(column);
+        session.save(businessRule);
         session.save(businessRuleTag);
+        session.save(businessRuleType);
+        session.save(template);
+        session.save(templateTag);
 
         t.commit();
 

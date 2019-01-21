@@ -12,7 +12,6 @@ import java.util.Set;
 
 @Entity
 @javax.persistence.Table(name = "DATABASETYPE")
-
 public enum DatabaseType implements Serializable {
     ORACLE("oracle") {
         @Override
@@ -22,7 +21,11 @@ public enum DatabaseType implements Serializable {
     },
     UNKNOWN("unknown");
 
-    private String type;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "DATABASETYPE_SEQUENCE", sequenceName = "DATABASETYPE_SEQUENCE", allocationSize = 1)
+    public int id;
+
 
     @OneToMany(mappedBy="databasetype")
     Set<Project> project;
@@ -30,13 +33,17 @@ public enum DatabaseType implements Serializable {
     @OneToMany(mappedBy="databasetype")
     Set<Template> template;
 
-    DatabaseType(String type) {
-        this.type = type;
+    @Column(name = "name")
+    private String name;
+
+    DatabaseType(String name) {
+        this.name = name;
     }
+
 
     @Override
     public String toString() {
-        return type;
+        return name;
     }
 
     public DatabaseConnection createConnection(String host, String username, String password, int port) {

@@ -17,8 +17,8 @@ public class Column {
     @JoinColumn(name = "tables_id", nullable = false)
     private Table tables;
 
-    public Column(Table table) {
-        this.tables = table;
+    public Column(String name) {
+        this.name = name;
     }
 
     public Table getTable() {

@@ -22,6 +22,10 @@ public class Table {
     @JoinColumn(name = "project_id", nullable = false)
     private Project project;
 
+    public Table(String name){
+        this.name = name;
+    }
+
     public Table(Set<Column> columns) {
         this.columns = columns;
     }
@@ -33,4 +37,5 @@ public class Table {
     public void setColumns(Set<Column> columns) {
         this.columns = columns;
     }
+
 }
