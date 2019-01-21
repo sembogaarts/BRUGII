@@ -20,7 +20,7 @@ public class BusinessRule {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "template")
+    @JoinColumn(name = "template_id")
     private Template template;
     @JoinColumn(name = "businessruletype_id", nullable = false)
     private BusinessRuleType businessRuleType;

@@ -32,10 +32,6 @@
         <property name="hibernate.hbm2ddl.auto">create</property>
 
         <property name="hibernate.default_schema">cursist</property>
-<<<<<<< HEAD
-
-=======
->>>>>>> f9fa750bc5b32fd2a69c30f4df68119b5f31d1ce
 
         <mapping class="com.tosad.brg.api.domain.businessRule.BusinessRuleTag"/>
         <mapping class="com.tosad.brg.api.domain.businessRule.BusinessRule"/>

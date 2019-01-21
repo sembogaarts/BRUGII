@@ -14,8 +14,9 @@ public class TemplateTag {
     @SequenceGenerator(name = "TEMPLATETAG_SEQUENCE", sequenceName = "TEMPLATETAG_SEQUENCE", allocationSize = 1)
     public int id;
 
-    @OneToOne(mappedBy="templateTag")
-    private BusinessRuleTag businessRuleTag;
+//    @OneToOne(mappedBy="templateTag")
+//    @JoinColumn(name = "businessRuleTag")
+//    private BusinessRuleTag businessRuleTag;
 
     @ManyToOne
     @JoinColumn(name = "template_id", nullable = false)

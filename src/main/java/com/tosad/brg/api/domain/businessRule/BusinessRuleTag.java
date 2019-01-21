@@ -15,11 +15,12 @@ public class BusinessRuleTag {
     @Column(name = "value")
     private String value;
 
-    @OneToOne(mappedBy="businessRuleTag")
-    private TemplateTag templateTag;
+//    @OneToOne(mappedBy="businessRuleTag")
+//    @JoinColumn(name = "templateTag")
+//    private TemplateTag templateTag;
 
     @ManyToOne
-    @JoinColumn(name = "businessRuleTag")
+    @JoinColumn(name = "businessRuleTag_id")
     private BusinessRule businessRule;
 
 
