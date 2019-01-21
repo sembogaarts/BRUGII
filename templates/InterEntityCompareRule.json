@@ -1,0 +1,63 @@
+{
+"raw": "CREATE OR REPLACE TRIGGER {{ NAME }} {{ BEFORE/AFTER }} {{ EVENT }}  ON {{ TABLE_1 }} [[ FOR EACH ROW ]] DECLARE BEGIN IF (SELECT {{COLUMN_2}} FROM {{TABLE_2}} {{OPERATOR}} :new.{{COLUMN1}}) THEN RAISE_APPLICATION_ERROR({{errcode}}, {{errmessage}});",
+
+"tags": [
+  {
+    "id": 1,
+    "name": "TABLE",
+    "type": "TABLE"
+  },
+  {
+    "id": 2,
+    "name": "BEFORE/AFTER",
+    "type": "STRING"
+  },
+  {
+    "id": 3,
+    "name": "EVENT",
+    "type": "STRING"
+  },
+  {
+    "id": 4,
+    "name": "TABLE_1",
+    "type": "STRING"
+  },
+  {
+    "id": 5,
+    "name": "FOR EACH ROW",
+    "type": "BOOLEAN"
+  },
+  {
+    "id": 6,
+    "name": "COLUMN_2",
+    "type": "COLUMN"
+  },
+  {
+    "id": 7,
+    "name": "TABLE_2",
+    "type": "STRING"
+  },
+  {
+    "id": 8,
+    "name": "OPERATOR",
+    "type": "OPERATOR"
+  },
+  {
+    "id": 9,
+    "name": "COLUMN_2",
+    "type": "COLUMN"
+  },
+  {
+    "id": 10,
+    "name": "ERRCODE",
+    "type": "NUMBER"
+  },
+  {
+    "id": 11,
+    "name": "ERRMESSAGE",
+    "type": "STRING"
+  }
+]
+
+}
+
