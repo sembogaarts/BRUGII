@@ -6,12 +6,13 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 
 
-public class BusinessRuleApi {
+public class BusinessRuleApi implements Api {
 
-    @GET
-    @Path("")
+    @POST
+    @Path("/create")
     @Produces("application/json")
-    public String getBusinessRules() {
+    @Override
+    public void create() {
 //		JsonArrayBuilder jab = Json.createArrayBuilder();
 //		JsonObjectBuilder job = Json.createObjectBuilder();
 //
@@ -19,14 +20,21 @@ public class BusinessRuleApi {
 //
 //		JsonArray array = jab.build();
 //		return array.toString();
+    }
+
+    @GET
+    @Path("/get")
+    @Produces("application/json")
+    @Override
+    public String get() {
         return "";
     }
 
     @POST
-    @Path("")
+    @Path("/update")
     @Produces("application/json")
-    public String postBusinessRule() {
-        return "";
-    }
+    @Override
+    public void update() {
 
+    }
 }
