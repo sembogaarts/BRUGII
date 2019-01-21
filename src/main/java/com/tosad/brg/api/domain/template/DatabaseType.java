@@ -6,6 +6,7 @@ import com.tosad.brg.api.infrastructure.OracleDatabaseConnection;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
 
@@ -19,12 +20,15 @@ public enum DatabaseType implements Serializable {
             return new OracleDatabaseConnection(host, username, password, port);
         }
     },
-    UNKNOWN("unkown");
+    UNKNOWN("unknown");
 
     private String type;
 
     @OneToMany(mappedBy="databasetype")
-    Set<Project> projects;
+    Set<Project> project;
+
+    @OneToMany(mappedBy="databasetype")
+    Set<Template> template;
 
     DatabaseType(String type) {
         this.type = type;

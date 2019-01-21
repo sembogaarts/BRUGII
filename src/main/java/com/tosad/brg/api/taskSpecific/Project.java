@@ -18,6 +18,13 @@ public class Project {
 
 //    private final DatabaseConnection databaseConnection;
 
+    @OneToMany(mappedBy = "project")
+    Set<Table> tables;
+
+    @ManyToOne
+    @JoinColumn(name = "databasetype_id", nullable = false)
+    private Project databasetype;
+
     @Column(name = "name")
     private String name;
 

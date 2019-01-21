@@ -15,6 +15,10 @@ public class Table {
     @OneToMany(mappedBy = "tables")
     Set<Column> columns;
 
+    @ManyToOne
+    @JoinColumn(name = "project_id", nullable = false)
+    private Project project;
+
     public Table(Set<Column> columns) {
         this.columns = columns;
     }

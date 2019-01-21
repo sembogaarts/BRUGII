@@ -17,11 +17,17 @@ public enum TemplateTagType implements Serializable {
             return value;
         }
     },
+    L_OPERATOR("l_operator") {
+        @Override
+        public String parseValue(String value) {
+            return value;
+        }
+    },
     NUMBER("number"),
     TABLE("table"),
     COLUMN("column"),
     BOOLEAN("boolean"),
-    UNKNOWN("unkown");
+    UNKNOWN("unknown");
 
     private String type;
 

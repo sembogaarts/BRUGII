@@ -1,5 +1,8 @@
 package com.tosad.brg.api.domain.template;
 
+import com.tosad.brg.api.domain.businessRule.BusinessRuleType;
+import com.tosad.brg.api.taskSpecific.Project;
+
 import javax.persistence.*;
 
 @Entity
@@ -9,6 +12,13 @@ public class Template {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @SequenceGenerator(name="TEMPLATE_SEQUENCE", sequenceName="TEMPLATE_SEQUENCE", allocationSize=1)
     public int id;
+
+    @ManyToOne
+    @JoinColumn(name = "databasetype_id", nullable = false)
+    private Project databasetype;
+    @JoinColumn(name = "businessruletype_id", nullable = false)
+    private BusinessRuleType businessruletype;
+
 
     @Column(name = "name")
     private String name;
