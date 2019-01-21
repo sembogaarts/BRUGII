@@ -54,35 +54,6 @@
         <router-view></router-view>
 
 
-        <!--<form @submit.prevent>-->
-
-        <!--<div v-for="tag in template.tags">-->
-
-        <!--<label :for="tag.name">{{ tag.name }}</label>-->
-
-        <!--&lt;!&ndash; String, Number, Boolean &ndash;&gt;-->
-        <!--<input v-if="isString(tag.type)" :id="tag.name" type="text" v-model="tag.value">-->
-        <!--<input v-if="isNumber(tag.type)" :id="tag.name" type="number" v-model="tag.value">-->
-        <!--<input v-if="isBoolean(tag.type)" :id="tag.name" type="checkbox" v-model="tag.value">-->
-
-        <!--&lt;!&ndash; Tables &ndash;&gt;-->
-        <!--<select v-if="isTable(tag.type)" v-model="tag.value" @change="columns()" :id="tag.name">-->
-        <!--<option selected value="" disabled>Selecteer een tabel</option>-->
-        <!--<option v-for="(table, index) in schema" :value="index">{{ table.name }}</option>-->
-        <!--</select>-->
-
-        <!--&lt;!&ndash; Columns &ndash;&gt;-->
-        <!--<select v-if="isColumn(tag.type)" :id="tag.name">-->
-        <!--<option selected value="" disabled>Selecteer een kolom</option>-->
-        <!--<option v-for="column in columns()" value="">{{ column.name }}</option>-->
-        <!--</select>-->
-
-        <!--</div>-->
-
-        <!--<button type="submit" @click="onSubmit()">Genereer</button>-->
-
-        <!--</form>-->
-
         <!--<pre><code class="sql solorized-dark">{{ template.raw }}</code></pre>-->
 
     </div>

@@ -1,0 +1,33 @@
+{
+    "raw": "ALTER TABLE {{ TABLE }} ADD CONSTRAINT {{ NAME }} CHECK ( {{ COLUMN }} {{ OPERATOR }} {{ VALUE }} )",
+
+    "tags": [
+        {
+            "id": 1,
+            "name": "TABLE",
+            "type": "TABLE"
+        },
+        {
+            "id": 2,
+            "name": "NAME",
+            "type": "STRING"
+        },
+        {
+            "id": 3,
+            "name": "COLUMN",
+            "type": "COLUMN"
+        },
+        {
+            "id": 4,
+            "name": "OPERATOR",
+            "type": "OPERATOR"
+        },
+        {
+            "id": 5,
+            "name": "VALUE",
+            "type": "STRING"
+        }
+    ]
+
+}
+
