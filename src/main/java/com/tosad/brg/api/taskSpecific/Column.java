@@ -1,17 +1,16 @@
 package com.tosad.brg.api.taskSpecific;
 
 import javax.persistence.*;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "COLUMN")
+@javax.persistence.Table(name = "COLUMN")
 public class Column {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public int id;
 
     @ManyToOne
-    @JoinColumn(name="table_id", nullable=false)
+    @JoinColumn(name = "table_id", nullable = false)
     private Table table;
 
     public Column(Table table) {
