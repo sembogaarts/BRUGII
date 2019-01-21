@@ -15,10 +15,17 @@ public class Main {
         Session session = hibernateUtils.getSession();
 
         BusinessRuleTag businessRuleTag = new BusinessRuleTag(1, "gebruikers", null);
+<<<<<<< HEAD
 //        BusinessRuleTag businessRule = (BusinessRuleTag) session.get(BusinessRuleTag.class, 1);
 //        System.out.println(businessRule.getValue());
+=======
+
+        // BusinessRuleTag businessRule = (BusinessRuleTag) session.get(BusinessRuleTag.class, 1);
+
+>>>>>>> acbb61c12b0e4120d1891cb376ea10a153975f9e
         Transaction t = session.beginTransaction();
-//        session.save(businessRuleTag);
+        session.save(businessRuleTag);
+
         t.commit();
 
         hibernateUtils.close();
