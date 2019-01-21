@@ -78,6 +78,9 @@ module.exports = {
     computed: {
         hasTemplate: function () {
             return JSON.stringify(this.template) !== '{}'
+        },
+        pagename: function() {
+            return this.$route.name;
         }
     }
 }

@@ -14,8 +14,8 @@ var app = new Vue({
         routes () {
             return this.$router.options.routes;
         },
-        route () {
-            return this.$router.currentRoute;
+        pageName () {
+            return this.$route.name;
         }
     }
     //     schema: [

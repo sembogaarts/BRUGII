@@ -1,0 +1,26 @@
+.page {
+
+  padding: 0 0 0 300px;
+
+  header {
+    padding: 0 20px;
+    width: 100%;
+    background-color: $primary;
+    height: 80px;
+    color: #fff;
+    line-height: 80px;
+    border-bottom: 2px solid #eee;
+
+    h1 {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+
+}
