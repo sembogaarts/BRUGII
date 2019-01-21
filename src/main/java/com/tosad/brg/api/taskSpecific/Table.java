@@ -12,7 +12,7 @@ public class Table {
     @SequenceGenerator(name = "TABLES_SEQUENCE", sequenceName = "TABLES_SEQUENCE", allocationSize = 1)
     public int id;
 
-    @OneToMany(mappedBy = "tables")
+    @OneToMany()
     Set<Column> columns;
 
     public Table(Set<Column> columns) {

@@ -31,7 +31,7 @@
         <!-- Drop and re-create the database schema on startup -->
         <property name="hibernate.hbm2ddl.auto">update</property>
 
-        <property name="hibernate.default_schema">cursist</property>
+        <property name="hibernate.default_schema">system</property>
 
 
         <mapping class="com.tosad.brg.api.domain.businessRule.BusinessRuleTag"/>

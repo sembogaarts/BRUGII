@@ -3,7 +3,7 @@ package com.tosad.brg.api.taskSpecific;
 import javax.persistence.*;
 
 @Entity
-@javax.persistence.Table(name = "COLUMN")
+@javax.persistence.Table(name = "COLUMNS")
 public class Column {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -12,17 +12,17 @@ public class Column {
 
     @ManyToOne
     @JoinColumn(name = "tables_id", nullable = false)
-    private Table table;
+    private Table tables;
 
     public Column(Table table) {
-        this.table = table;
+        this.tables = table;
     }
 
     public Table getTable() {
-        return table;
+        return tables;
     }
 
     public void setTable(Table table) {
-        this.table = table;
+        this.tables = table;
     }
 }

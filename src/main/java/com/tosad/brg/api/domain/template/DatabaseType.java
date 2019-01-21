@@ -4,7 +4,13 @@ import com.tosad.brg.api.taskSpecific.Project;
 import com.tosad.brg.api.infrastructure.DatabaseConnection;
 import com.tosad.brg.api.infrastructure.OracleDatabaseConnection;
 
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import java.io.Serializable;
+import java.util.Set;
+
+@Entity
+@javax.persistence.Table(name = "DATABASETYPE")
 
 public enum DatabaseType implements Serializable {
     ORACLE("oracle") {
@@ -16,6 +22,9 @@ public enum DatabaseType implements Serializable {
     UNKNOWN("unkown");
 
     private String type;
+
+    @OneToMany(mappedBy="databasetype")
+    Set<Project> projects;
 
     DatabaseType(String type) {
         this.type = type;
