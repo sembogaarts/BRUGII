@@ -36,6 +36,7 @@
         <mapping class="com.tosad.brg.api.domain.businessRule.BusinessRuleTag"/>
         <mapping class="com.tosad.brg.api.domain.businessRule.BusinessRule"/>
         <mapping class="com.tosad.brg.api.domain.businessRule.BusinessRuleType"/>
+        <mapping class="com.tosad.brg.api.domain.template.DatabaseType"/>
         <mapping class="com.tosad.brg.api.domain.template.Template"/>
         <mapping class="com.tosad.brg.api.domain.template.TemplateTag"/>
         <mapping class="com.tosad.brg.api.taskSpecific.Column"/>
