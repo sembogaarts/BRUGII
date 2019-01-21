@@ -1,5 +1,6 @@
 package com.tosad.brg.api;
 
+import com.tosad.brg.api.domain.businessRule.BusinessRuleTag;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -13,7 +14,7 @@ public class Main {
         hibernateUtils.boot();
         Session session = hibernateUtils.getSession();
 
-//        BusinessRuleTag businessRuleTag = new BusinessRuleTag(1, "gebruikers", null);
+        BusinessRuleTag businessRuleTag = new BusinessRuleTag(1, "gebruikers", null);
 //        BusinessRuleTag businessRule = (BusinessRuleTag) session.get(BusinessRuleTag.class, 1);
 //        System.out.println(businessRule.getValue());
         Transaction t = session.beginTransaction();
