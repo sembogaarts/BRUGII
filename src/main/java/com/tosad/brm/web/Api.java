@@ -4,4 +4,5 @@ public interface Api {
     public void create();
     public String get();
     public void update();
+    public void delete();
 }

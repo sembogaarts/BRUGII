@@ -9,7 +9,7 @@ import javax.ws.rs.GET;
 public class BusinessRuleApi implements Api {
 
     @POST
-    @Path("/create")
+    @Path("/createBusinessRules")
     @Produces("application/json")
     @Override
     public void create() {
@@ -23,18 +23,25 @@ public class BusinessRuleApi implements Api {
     }
 
     @GET
-    @Path("/get")
+    @Path("/getBusinessRules")
     @Produces("application/json")
     @Override
     public String get() {
         return "";
     }
 
-    @POST
-    @Path("/update")
+    @PUT
+    @Path("/updateBusinessRules")
     @Produces("application/json")
     @Override
     public void update() {
 
     }
+
+    @DELETE
+    @Path("/deleteBusinessRule")
+    @Produces("application/json")
+	public void delete() {
+		
+	}
 }
