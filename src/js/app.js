@@ -18,26 +18,4 @@ var app = new Vue({
             return this.$route.name;
         }
     }
-    //     schema: [
-    //         {
-    //             name: "Gebruiker",
-    //             columns: [
-    //                 {
-    //                     name: "Leeftijd",
-    //                     type: "NUMBER"
-    //                 }
-    //             ]
-    //         }
-    //     ],
-    //
-    //     template: attributeCompareRule
-    //
-    // },
-    //
-    // methods: {
-    //
-    //
-    // },
 }).$mount('#app');
-
-// });

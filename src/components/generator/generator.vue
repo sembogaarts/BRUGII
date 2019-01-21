@@ -12,7 +12,7 @@
 
             <form @submit.prevent>
 
-                <div v-for="tag in template.tags">
+                <div v-for="(tag, index) in template.tags">
 
                     <label :for="tag.name">{{ tag.name }}</label>
 
@@ -33,8 +33,21 @@
                         <option v-for="column in columns()" value="">{{ column.name }}</option>
                     </select>
 
-                </div>
+                    <div v-if="isLoop(tag.type)">
 
+                        <div v-for="row in tag.rows">
+
+                        <div v-for="field in row">
+                            {{ field }}
+                        </div>
+
+                        </div>
+
+                        <button @click="addLoopRow(index)">Addrow</button>
+                    </div>
+
+
+                </div>
                 <button type="submit" @click="onSubmit()">Genereer</button>
 
             </form>

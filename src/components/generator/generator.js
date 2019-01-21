@@ -22,7 +22,8 @@ module.exports = {
                 }
             ],
             selectedTemplate: null,
-            template: {}
+            template: {},
+            schema: {}
         }
     },
     methods: {
@@ -31,6 +32,12 @@ module.exports = {
             this.axios.get('templates/' + this.selectedTemplate)
                 .then(response => {
                     this.template = response.data;
+                });
+        },
+        getSchemaData() {
+            this.axios.get('templates/schema.json')
+                .then(response => {
+                    this.schema = response.data.schema;
                 });
         },
         isType(type, compareTo) {
@@ -57,8 +64,16 @@ module.exports = {
             return this.isType("COLUMN", type);
         },
 
+        isLoop(type) {
+            return this.isType("LOOP", type);
+        },
+
         onSubmit() {
             console.log(this.template.tags);
+        },
+
+        getOperatorsForNumber() {
+            return [">", "<", ">=", "<=", "=", "!="];
         },
 
         columns() {
@@ -73,15 +88,27 @@ module.exports = {
                     return isNaN(parseInt(selectedTable)) ? [] : this.schema[selectedTable].columns;
                 }
             }
+        },
+
+        getOperatorForEarlierField() {
+
+        },
+
+        addLoopRow(index) {
+            var fields = this.template.tags[index].fields;
+            this.template.tags[index].rows.push(fields);
         }
     },
     computed: {
         hasTemplate: function () {
             return JSON.stringify(this.template) !== '{}'
         },
-        pagename: function() {
+        pagename: function () {
             return this.$route.name;
         }
+    },
+    created: function () {
+        this.getSchemaData();
     }
 }
 
