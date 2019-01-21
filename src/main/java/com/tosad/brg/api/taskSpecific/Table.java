@@ -12,6 +12,9 @@ public class Table {
     @SequenceGenerator(name = "TABLES_SEQUENCE", sequenceName = "TABLES_SEQUENCE", allocationSize = 1)
     public int id;
 
+    @javax.persistence.Column(name = "name")
+    String name;
+
     @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
     Set<Column> columns;
 
