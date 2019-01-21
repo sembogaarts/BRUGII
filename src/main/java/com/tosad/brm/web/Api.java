@@ -24,5 +24,95 @@ public class Api {
 		return array.toString();
 	}
 	
+	@GET
+	@Path("")
+	@Produces("application/json")
+	public String getBusinessRulesTypes() {
+		JsonArrayBuilder jab = Json.createArrayBuilder();
+		JsonObjectBuilder job = Json.createObjectBuilder();
+		
+		jab.add(job);
+		
+		JsonArray array = jab.build();
+		return array.toString();
+	}
+	
+	@GET
+	@Path("")
+	@Produces("application/json")
+	public String getBusinessRulesTags() {
+		JsonArrayBuilder jab = Json.createArrayBuilder();
+		JsonObjectBuilder job = Json.createObjectBuilder();
+		
+		jab.add(job);
+		
+		JsonArray array = jab.build();
+		return array.toString();
+	}
+	
+	@GET
+	@Path("")
+	@Produces("application/json")
+	public String getBusinessTemplateTags() {
+		JsonArrayBuilder jab = Json.createArrayBuilder();
+		JsonObjectBuilder job = Json.createObjectBuilder();
+		
+		jab.add(job);
+		
+		JsonArray array = jab.build();
+		return array.toString();
+	}
+	
+	@GET
+	@Path("")
+	@Produces("application/json")
+	public String getBusinessTemplates() {
+		JsonArrayBuilder jab = Json.createArrayBuilder();
+		JsonObjectBuilder job = Json.createObjectBuilder();
+		
+		jab.add(job);
+		
+		JsonArray array = jab.build();
+		return array.toString();
+	}
+	
+	@GET
+	@Path("")
+	@Produces("application/json")
+	public String getTables() {
+		JsonArrayBuilder jab = Json.createArrayBuilder();
+		JsonObjectBuilder job = Json.createObjectBuilder();
+		
+		jab.add(job);
+		
+		JsonArray array = jab.build();
+		return array.toString();
+	}
+	
+	@GET
+	@Path("")
+	@Produces("application/json")
+	public String getCollumns() {
+		JsonArrayBuilder jab = Json.createArrayBuilder();
+		JsonObjectBuilder job = Json.createObjectBuilder();
+		
+		jab.add(job);
+		
+		JsonArray array = jab.build();
+		return array.toString();
+	}
+	
+	@GET
+	@Path("")
+	@Produces("application/json")
+	public String getProjects() {
+		JsonArrayBuilder jab = Json.createArrayBuilder();
+		JsonObjectBuilder job = Json.createObjectBuilder();
+		
+		jab.add(job);
+		
+		JsonArray array = jab.build();
+		return array.toString();
+	}
 	
 }
