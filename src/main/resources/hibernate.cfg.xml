@@ -29,13 +29,14 @@
         <property name="show_sql">true</property>
 
         <!-- Drop and re-create the database schema on startup -->
-        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.hbm2ddl.auto">create</property>
 
         <property name="hibernate.default_schema">cursist</property>
 
 
         <mapping class="com.tosad.brg.api.domain.businessRule.BusinessRuleTag"/>
         <mapping class="com.tosad.brg.api.domain.businessRule.BusinessRule"/>
+        <mapping class="com.tosad.brg.api.domain.businessRule.BusinessRuleType"/>
         <mapping class="com.tosad.brg.api.domain.template.Template"/>
         <mapping class="com.tosad.brg.api.domain.template.TemplateTag"/>
         <mapping class="com.tosad.brg.api.taskSpecific.Column"/>

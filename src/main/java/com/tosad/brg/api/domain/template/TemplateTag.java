@@ -9,17 +9,20 @@ import javax.persistence.*;
 public class TemplateTag {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @SequenceGenerator(name="TEMPLATETAG_SEQUENCE", sequenceName="TEMPLATETAG_SEQUENCE", allocationSize=1)
+    @SequenceGenerator(name = "TEMPLATETAG_SEQUENCE", sequenceName = "TEMPLATETAG_SEQUENCE", allocationSize = 1)
     public int id;
 
     @Column(name = "key")
     public String key;
 
+    @Column(name = "template_tag_type")
+    public String templateTagTypeStr;
+
     private TemplateTagType templateTagType;
 
     public TemplateTag(String key, TemplateTagType templateTagType) {
         this.key = key;
-        this.templateTagType = templateTagType;
+        this.templateTagTypeStr = templateTagType.getType();
     }
 
     public String getTemplateKey() {
