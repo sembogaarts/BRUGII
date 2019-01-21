@@ -13,11 +13,11 @@ module.exports = {
                     name: 'Attribute Range Rule'
                 },
                 {
-                    id: 3,
+                    id: "tupleCompareRule.json",
                     name: 'Tuple Compare Rule'
                 },
                 {
-                    id: 4,
+                    id: "InterEntityCompareRule.json",
                     name: 'Inter-Entity Compare Rule'
                 }
             ],
