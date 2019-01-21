@@ -3,12 +3,20 @@ package com.tosad.brg.api.domain.businessRule;
 import com.tosad.brg.api.domain.template.Template;
 import com.tosad.brg.api.domain.template.TemplateTag;
 
+import javax.persistence.*;
 import java.util.HashMap;
 import java.util.Map;
 
+@Entity
+@Table(name = "BUSINESSRULE")
 public class BusinessRule {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public int id;
 
+    @Column(name = "name")
     private String name;
+    @Column(name = "template")
     private Template template;
     private BusinessRuleType businessRuleType;
     HashMap<TemplateTag, BusinessRuleTag> businessRuleTagHashMap;

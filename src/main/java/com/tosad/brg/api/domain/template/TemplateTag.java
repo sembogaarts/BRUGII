@@ -2,8 +2,18 @@ package com.tosad.brg.api.domain.template;
 
 import com.tosad.brg.api.domain.type.TemplateTagType;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "TEMPLATE_TAG")
 public class TemplateTag {
-    private String key;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public int id;
+
+    @Column(name = "key")
+    public String key;
+
     private TemplateTagType templateTagType;
 
     public TemplateTag(String key, TemplateTagType templateTagType) {

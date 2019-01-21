@@ -1,8 +1,19 @@
 package com.tosad.brg.api.domain.template;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "TEMPLATE")
 public class Template {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public int id;
+
+    @Column(name = "name")
     private String name;
+    @Column(name = "script")
     private String script;
+    @Column(name = "prefix")
     private String prefix;
     private DatabaseType databaseType;
 

@@ -12,7 +12,7 @@ public class BusinessRuleTag {
     public int id;
 
     @Column(name = "value")
-    public String value;
+    private String value;
 
 //    private TemplateTag templateTag;
 
