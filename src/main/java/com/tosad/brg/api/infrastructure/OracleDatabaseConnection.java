@@ -10,10 +10,10 @@ public class OracleDatabaseConnection implements DatabaseConnection {
     Connection connection = null;
 
 
-    public OracleDatabaseConnection(Project project) {
+    public OracleDatabaseConnection(String host, String username, String password, int port) {
         try {
             connection = DriverManager.getConnection(
-                    formatToConnectionString(project), project.getUsername(), project.getPasssword()
+                    formatToConnectionString(host, port), username, password
             );
         } catch (SQLException e) {
             System.out.println("Connection Failed! Check output console");
@@ -35,7 +35,7 @@ public class OracleDatabaseConnection implements DatabaseConnection {
         }
     }
 
-    private String formatToConnectionString(Project project) {
-        return String.format("jdbc:oracle:thin:@//%s:%d/%s", project.getHost(), project.getPort(), "EDUC16");
+    private String formatToConnectionString(String host, int port) {
+        return String.format("jdbc:oracle:thin:@//%s:%d/%s", host, port, "EDUC16");
     }
 }

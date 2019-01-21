@@ -9,8 +9,8 @@ import java.io.Serializable;
 public enum DatabaseType implements Serializable {
     ORACLE("oracle") {
         @Override
-        public DatabaseConnection createConnection(Project project) {
-            return new OracleDatabaseConnection(project);
+        public DatabaseConnection createConnection(String host, String username, String password, int port) {
+            return new OracleDatabaseConnection(host, username, password, port);
         }
     },
     UNKNOWN("unkown");
@@ -26,7 +26,7 @@ public enum DatabaseType implements Serializable {
         return type;
     }
 
-    public DatabaseConnection createConnection(Project project) {
+    public DatabaseConnection createConnection(String host, String username, String password, int port) {
         return null;
     }
 }

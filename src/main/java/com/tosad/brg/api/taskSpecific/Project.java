@@ -10,20 +10,20 @@ public class Project {
     private String name;
     private String host;
     private String username;
-    private String passsword;
+    private String password;
     private int port;
     private DatabaseType databaseType;
     private ArrayList<Table> tables;
 
-    public Project(String name, String host, String username, String passsword, int port, DatabaseType databaseType, ArrayList<Table> tables) {
+    public Project(String name, String host, String username, String password, int port, DatabaseType databaseType, ArrayList<Table> tables) {
         this.name = name;
         this.host = host;
         this.username = username;
-        this.passsword = passsword;
+        this.password = password;
         this.port = port;
         this.databaseType = databaseType;
         this.tables = tables;
-        this.databaseConnection = databaseType.createConnection(this);
+        this.databaseConnection = databaseType.createConnection(host, username, password, port);
     }
 
     public String getName() {
@@ -50,12 +50,12 @@ public class Project {
         this.username = username;
     }
 
-    public String getPasssword() {
-        return passsword;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPasssword(String passsword) {
-        this.passsword = passsword;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getPort() {

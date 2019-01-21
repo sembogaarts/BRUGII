@@ -2,24 +2,38 @@ package com.tosad.brg.api.domain.businessRule;
 
 import com.tosad.brg.api.domain.template.TemplateTag;
 
-public class BusinessRuleTag {
-    public String value;
-    private TemplateTag templateTag;
+import javax.persistence.*;
 
-    public BusinessRuleTag(String value, TemplateTag templateTag) {
+@Entity
+@Table(name = "BUSINESSRULE_TAG")
+public class BusinessRuleTag {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public int id;
+
+    @Column(name = "value")
+    public String value;
+
+//    private TemplateTag templateTag;
+
+    public BusinessRuleTag(int id, String value, TemplateTag templateTag) {
+        this.id = id;
         this.value = value;
-        this.templateTag = templateTag;
+//        this.templateTag = templateTag;
+    }
+
+    public BusinessRuleTag() {
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getValue() {
-        return templateTag.getTemplateTagType().parseValue(value);
+        return value;
     }
 
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public TemplateTag getTemplateTag() {
-        return this.templateTag;
-    }
+//    public TemplateTag getTemplateTag() {
+//        return templateTag;
+//    }
 }
