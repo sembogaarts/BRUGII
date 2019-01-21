@@ -12,6 +12,7 @@ import java.util.Map;
 public class BusinessRule {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name="BUSINESSRULE_SEQUENCE", sequenceName="BUSINESSRULE_SEQUENCE", allocationSize=1)
     public int id;
 
     @Column(name = "name")

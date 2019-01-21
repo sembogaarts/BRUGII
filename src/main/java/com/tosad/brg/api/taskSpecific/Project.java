@@ -5,17 +5,18 @@ import com.tosad.brg.api.domain.template.DatabaseType;
 
 import javax.persistence.*;
 import javax.persistence.Column;
-import javax.persistence.Table;
 import java.util.ArrayList;
+import java.util.Set;
 
 @Entity
-@Table(name = "PROJECT")
+@javax.persistence.Table(name = "PROJECT")
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name="PROJECT_SEQUENCE", sequenceName="PROJECT_SEQUENCE", allocationSize=1)
     public int id;
 
-    private final DatabaseConnection databaseConnection;
+//    private final DatabaseConnection databaseConnection;
 
     @Column(name = "name")
     private String name;
@@ -32,18 +33,20 @@ public class Project {
     @Column(name = "port")
     private int port;
 
-    private DatabaseType databaseType;
-    private ArrayList<Table> tables;
+//    private DatabaseType databaseType;
 
-    public Project(String name, String host, String username, String password, int port, DatabaseType databaseType, ArrayList<Table> tables) {
+//    @OneToMany(mappedBy = "project")
+//    private Set<Table> table;
+
+    public Project(String name, String host, String username, String password, int port, DatabaseType databaseType, Set<Table> tables) {
         this.name = name;
         this.host = host;
         this.username = username;
         this.password = password;
         this.port = port;
-        this.databaseType = databaseType;
-        this.tables = tables;
-        this.databaseConnection = databaseType.createConnection(host, username, password, port);
+//        this.databaseType = databaseType;
+//        this.table = tables;
+//        this.databaseConnection = databaseType.createConnection(host, username, password, port);
     }
 
     public String getName() {
@@ -86,23 +89,7 @@ public class Project {
         this.port = port;
     }
 
-    public ArrayList<Table> getTables() {
-        return tables;
-    }
-
-    public void setTables(ArrayList<Table> tables) {
-        this.tables = tables;
-    }
-
-    public DatabaseType getDatabaseType() {
-        return databaseType;
-    }
-
-    public DatabaseConnection getDatabaseConnection() {
-        return databaseConnection;
-    }
-
-    public void setDatabaseType(DatabaseType databaseType) {
-        this.databaseType = databaseType;
-    }
+//    public Set<Table> getTables() {
+//        return table;
+//    }
 }

@@ -5,13 +5,14 @@ import java.util.ArrayList;
 import java.util.Set;
 
 @Entity
-@javax.persistence.Table(name = "TABLE")
+@javax.persistence.Table(name = "TABLES")
 public class Table {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name="TABLES_SEQUENCE", sequenceName="TABLES_SEQUENCE", allocationSize=1)
     public int id;
 
-    @OneToMany(mappedBy="table")
+    @OneToMany(mappedBy="tables")
     Set<Column> columns;
 
     public Table(Set<Column> columns) {

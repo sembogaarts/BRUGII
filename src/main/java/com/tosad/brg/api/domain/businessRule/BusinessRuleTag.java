@@ -9,6 +9,7 @@ import javax.persistence.*;
 public class BusinessRuleTag {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name="BUSINESSRULE_TAG_SEQUENCE", sequenceName="BUSINESSRULE_TAG_SEQUENCE", allocationSize=1)
     public int id;
 
     @Column(name = "value")

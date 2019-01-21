@@ -7,6 +7,7 @@ import javax.persistence.*;
 public class Template {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name="TEMPLATE_SEQUENCE", sequenceName="TEMPLATE_SEQUENCE", allocationSize=1)
     public int id;
 
     @Column(name = "name")

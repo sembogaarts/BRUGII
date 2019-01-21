@@ -7,6 +7,7 @@ import javax.persistence.*;
 public class Column {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name="COLUMN_SEQUENCE", sequenceName="COLUMN_SEQUENCE", allocationSize=1)
     public int id;
 
     @ManyToOne

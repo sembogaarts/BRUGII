@@ -9,6 +9,7 @@ import javax.persistence.*;
 public class TemplateTag {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name="TEMPLATETAG_SEQUENCE", sequenceName="TEMPLATETAG_SEQUENCE", allocationSize=1)
     public int id;
 
     @Column(name = "key")
