@@ -1,13 +1,6 @@
 package com.tosad.brg.api;
 
-import com.tosad.brg.api.domain.TemplateFactory;
-import com.tosad.brg.api.domain.businessRule.BusinessRule;
 import com.tosad.brg.api.domain.businessRule.BusinessRuleTag;
-import com.tosad.brg.api.domain.businessRule.BusinessRuleType;
-import com.tosad.brg.api.domain.template.TemplateTag;
-import com.tosad.brg.api.domain.type.TemplateTagType;
-import com.tosad.brg.api.infrastructure.DatabaseConnection;
-import com.tosad.brg.api.infrastructure.OracleDatabaseConnection;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -15,32 +8,24 @@ import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.boot.spi.MetadataImplementor;
-import org.hibernate.tool.hbm2ddl.SchemaExport;
-
-import java.util.Date;
-import java.util.HashMap;
 
 public class Main {
     SessionFactory factory;
     Session session;
 
     public static void main(String[] args) {
-        StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
-        Metadata meta = new MetadataSources(ssr).getMetadataBuilder().build();
-        SessionFactory factory = meta.getSessionFactoryBuilder().build();
-        Session session = factory.openSession();
-        Transaction t = session.beginTransaction();
+        HibernateUtils hibernateUtils = new HibernateUtils();
+        hibernateUtils.boot();
+        Session session = hibernateUtils.getSession();
 
 
         BusinessRuleTag businessRuleTag = new BusinessRuleTag(1, "gebruikers", null);
 
-
-
+        Transaction t = session.beginTransaction();
         session.save(businessRuleTag);
         t.commit();
-        close();
 
+        hibernateUtils.close();
 //        toolDatabase.getConnection()
 //        Project project = new Project("test", "ondora04.hu.nl", "cursist", "cursist2321", 8521, DatabaseType.ORACLE, new ArrayList<Table>());
 
@@ -82,11 +67,6 @@ public class Main {
 //        System.out.println(businessRule.generateCode());
 //        System.out.println(businessRule1.generateCode());
 //        System.out.println(businessRule2.generateCode());
-    }
-
-    private static void close() {
-        factory.close();
-        session.close();
     }
 }
 

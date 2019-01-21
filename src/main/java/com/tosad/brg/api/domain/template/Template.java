@@ -11,10 +11,13 @@ public class Template {
 
     @Column(name = "name")
     private String name;
+
     @Column(name = "script")
     private String script;
+
     @Column(name = "prefix")
     private String prefix;
+
     private DatabaseType databaseType;
 
     public Template(String name, String script, String prefix, DatabaseType databaseType) {

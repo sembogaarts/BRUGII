@@ -1,31 +1,37 @@
 package com.tosad.brg.api.taskSpecific;
 
-import com.sun.javafx.beans.IDProperty;
 import com.tosad.brg.api.infrastructure.DatabaseConnection;
 import com.tosad.brg.api.domain.template.DatabaseType;
 
 import javax.persistence.*;
 import javax.persistence.Column;
+import javax.persistence.Table;
 import java.util.ArrayList;
 
 @Entity
-@javax.persistence.Table(name = "PROJECT")
+@Table(name = "PROJECT")
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public int id;
 
     private final DatabaseConnection databaseConnection;
+
     @Column(name = "name")
     private String name;
+
     @Column(name = "host")
     private String host;
+
     @Column(name = "username")
     private String username;
+
     @Column(name = "password")
     private String password;
+
     @Column(name = "port")
     private int port;
+
     private DatabaseType databaseType;
     private ArrayList<Table> tables;
 

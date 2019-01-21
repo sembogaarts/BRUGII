@@ -16,9 +16,13 @@ public class BusinessRule {
 
     @Column(name = "name")
     private String name;
-    @Column(name = "template")
+
+    @ManyToOne
+    @JoinColumn(name = "fk_template")
     private Template template;
+
     private BusinessRuleType businessRuleType;
+
     HashMap<TemplateTag, BusinessRuleTag> businessRuleTagHashMap;
 
 
