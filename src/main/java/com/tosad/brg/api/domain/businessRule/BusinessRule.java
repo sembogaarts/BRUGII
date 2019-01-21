@@ -13,31 +13,27 @@ import java.util.Set;
 public class BusinessRule {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @SequenceGenerator(name="BUSINESSRULE_SEQUENCE", sequenceName="BUSINESSRULE_SEQUENCE", allocationSize=1)
+    @SequenceGenerator(name = "BUSINESSRULE_SEQUENCE", sequenceName = "BUSINESSRULE_SEQUENCE", allocationSize = 1)
     public int id;
 
     @Column(name = "name")
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "template_id")
-    private Template template;
-
     @JoinColumn(name = "businessruletype_id", nullable = false)
     private BusinessRuleType businessRuleType;
 
-    @OneToMany(mappedBy="businessRule")
+    @OneToMany(mappedBy = "businessRule")
     Set<BusinessRuleTag> businessRuleTag;
 
 
-    HashMap<TemplateTag, BusinessRuleTag> businessRuleTagHashMap;
+//    HashMap<TemplateTag, BusinessRuleTag> businessRuleTagHashMap;
 
 
     public BusinessRule(String name, BusinessRuleType businessRuleType, Template template, HashMap<TemplateTag, BusinessRuleTag> businessRuleTagHashMap) {
         this.name = name;
         this.businessRuleType = businessRuleType;
-        this.template = template;
-        this.businessRuleTagHashMap = businessRuleTagHashMap;
+//        this.businessRuleTagHashMap = businessRuleTagHashMap;
     }
 
     public String getName() {
@@ -48,39 +44,16 @@ public class BusinessRule {
         this.name = name;
     }
 
-    public Template getTemplate() {
-        return template;
-    }
 
-    public void setTemplate(Template template) {
-        this.template = template;
-    }
-
-    public String generateCode() {
-        String code = template.getScript();
-
-        for (Map.Entry<TemplateTag, BusinessRuleTag> entry : businessRuleTagHashMap.entrySet()) {
-            TemplateTag templateTag = entry.getKey();
-            BusinessRuleTag businessRuleTag = entry.getValue();
-            code = code.replace(templateTag.getTemplateKey(), businessRuleTag.getValue());
-        }
-
-        return code;
-    }
-
-    public BusinessRuleType getBusinessRuleType() {
-        return businessRuleType;
-    }
-
-    public void setBusinessRuleType(BusinessRuleType businessRuleType) {
-        this.businessRuleType = businessRuleType;
-    }
-
-    public HashMap<TemplateTag, BusinessRuleTag> getBusinessRuleTagHashMap() {
-        return businessRuleTagHashMap;
-    }
-
-    public void setBusinessRuleTagHashMap(HashMap<TemplateTag, BusinessRuleTag> businessRuleTagHashMap) {
-        this.businessRuleTagHashMap = businessRuleTagHashMap;
-    }
+//    public String generateCode() {
+//        String code = template.getScript();
+//
+//        for (Map.Entry<TemplateTag, BusinessRuleTag> entry : businessRuleTagHashMap.entrySet()) {
+//            TemplateTag templateTag = entry.getKey();
+//            BusinessRuleTag businessRuleTag = entry.getValue();
+//            code = code.replace(templateTag.getTemplateKey(), businessRuleTag.getValue());
+//        }
+//
+//        return code;
+//    }
 }

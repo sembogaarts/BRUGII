@@ -11,19 +11,19 @@ import java.util.Set;
 public class Template {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @SequenceGenerator(name="TEMPLATE_SEQUENCE", sequenceName="TEMPLATE_SEQUENCE", allocationSize=1)
+    @SequenceGenerator(name = "TEMPLATE_SEQUENCE", sequenceName = "TEMPLATE_SEQUENCE", allocationSize = 1)
     public int id;
 
-
-    @OneToMany(mappedBy="template")
+    @OneToMany(mappedBy = "template")
     Set<TemplateTag> templateTag;
 
     @ManyToOne
     @JoinColumn(name = "databasetype_id", nullable = false)
     private Project databasetype;
+
+    @ManyToOne
     @JoinColumn(name = "businessruletype_id", nullable = false)
     private BusinessRuleType businessRuleType;
-
 
     @Column(name = "name")
     private String name;

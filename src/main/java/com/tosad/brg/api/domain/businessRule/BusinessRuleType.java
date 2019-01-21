@@ -14,6 +14,10 @@ public class BusinessRuleType {
     @SequenceGenerator(name = "BUSINESSRULETYPE_SEQUENCE", sequenceName = "BUSINESSRULETYPE_SEQUENCE", allocationSize = 1)
     public int id;
 
+    @ManyToOne
+    @JoinColumn(name = "template_id")
+    private Template template;
+
 //    TUPLE_COMPARE_RULE("tuple_compare_rule"),
 //    ATTRIBUTE_RANGE_RULE("attribute_range_rule"),
 //    ATTRIBUTE_COMPARE_RULE("attribute_compare_rule"),
