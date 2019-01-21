@@ -9,15 +9,15 @@ import javax.persistence.*;
 public class BusinessRuleTag {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @SequenceGenerator(name="BUSINESSRULE_TAG_SEQUENCE", sequenceName="BUSINESSRULE_TAG_SEQUENCE", allocationSize=1)
+    @SequenceGenerator(name = "BUSINESSRULE_TAG_SEQUENCE", sequenceName = "BUSINESSRULE_TAG_SEQUENCE", allocationSize = 1)
     public int id;
 
     @Column(name = "value")
     private String value;
 
-//    @OneToOne(mappedBy="businessRuleTag")
-//    @JoinColumn(name = "templateTag")
-//    private TemplateTag templateTag;
+    @OneToOne()
+    @JoinColumn(name = "templateTag_id")
+    private TemplateTag templateTag;
 
     @ManyToOne
     @JoinColumn(name = "businessRuleTag_id")
