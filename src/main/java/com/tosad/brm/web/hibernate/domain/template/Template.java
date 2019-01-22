@@ -12,20 +12,24 @@ public class Template {
     public int id;
 
     @Column(name = "databasetype")
-    private String databaseType;
+    public String databaseType;
 
     @ManyToOne
     @JoinColumn(name = "businessruletype_id", nullable = false)
-    private BusinessRuleType businessRuleType;
+    public BusinessRuleType businessRuleType;
 
     @Column(name = "name")
-    private String name;
+    public String name;
 
     @Column(name = "script")
-    private String script;
+    public String script;
 
     @Column(name = "prefix")
-    private String prefix;
+    public String prefix;
+
+    public Template() {
+
+    }
 
     public Template(int id, String name, String script, String prefix, BusinessRuleType businessRuleType, DatabaseType databaseType) {
         this.id = id;

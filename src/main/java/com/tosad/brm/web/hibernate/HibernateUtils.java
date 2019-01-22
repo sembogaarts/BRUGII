@@ -17,7 +17,7 @@ public class HibernateUtils {
     // maling the Hibernate SessionFactory object as singleton
 
     public static synchronized SessionFactory getSessionFactory() {
-        if (factory == null) {
+        if (factory == null || factory.isClosed()) {
             StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
             Metadata meta = new MetadataSources(ssr).getMetadataBuilder().build();
             factory = meta.getSessionFactoryBuilder().build();
