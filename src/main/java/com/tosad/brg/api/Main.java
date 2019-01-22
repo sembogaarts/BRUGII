@@ -39,7 +39,7 @@ public class Main {
          * */
         BusinessRuleType attribute_range_rule = new BusinessRuleType(1, "attribute_range_rule");
         session.save(attribute_range_rule);
-        Template arng_template = new Template(1, "brg_gebruiker_cns_arng_01", "", "arng", attribute_range_rule, DatabaseType.ORACLE);
+        Template arng_template = new Template(1, "brg_gebruiker_cns_arng_01", "ALTER TABLE {{ TABLE }} ADD CONSTRAINT {{ NAME }} CHECK ( {[ LOOP ]}  {{ COLUMN }} [[ NOT ]] BETWEEN {{ NUMBER_1 }} AND {{ NUMBER_2 }} {[ ENDLOOP ]} )", "arng", attribute_range_rule, DatabaseType.ORACLE);
         session.save(arng_template);
         session.save(new TemplateTag("table", TemplateTagType.TABLE, arng_template));
         session.save(new TemplateTag("name", TemplateTagType.STRING, arng_template));
@@ -54,7 +54,7 @@ public class Main {
          * */
         BusinessRuleType attribute_compare_rule = new BusinessRuleType(2, "attribute_compare_rule");
         session.save(attribute_compare_rule);
-        Template acmp_template = new Template(1, "brg_gebruiker_cns_acmp_01", "", "acmp", attribute_range_rule, DatabaseType.ORACLE);
+        Template acmp_template = new Template(2, "brg_gebruiker_cns_acmp_01", "ALTER TABLE {{ TABLE }} ADD CONSTRAINT {{ NAME }} CHECK ( {[ LOOP ]} {{ COLUMN }} {{ OPERATOR }} {{ VALUE }} {{ BINDER }} {[ ENDLOOP ]} )", "acmp", attribute_range_rule, DatabaseType.ORACLE);
         session.save(acmp_template);
         session.save(new TemplateTag("table", TemplateTagType.TABLE, acmp_template));
         session.save(new TemplateTag("name", TemplateTagType.STRING, acmp_template));
@@ -67,7 +67,7 @@ public class Main {
          * */
         BusinessRuleType tuple_compare_rule = new BusinessRuleType(3, "tuple_compare_rule");
         session.save(tuple_compare_rule);
-        Template tcmp_template = new Template(1, "brg_gebruiker_cns_tcmp_01", "", "tcmp", tuple_compare_rule, DatabaseType.ORACLE);
+        Template tcmp_template = new Template(3, "brg_gebruiker_cns_tcmp_01", "ALTER TABLE {{ TABLE }} ADD CONSTRAINT {{ NAME }} CHECK ( {{ COLUMN_1 }} {{ OPERATOR }} {{ COLUMN_2 }}  )", "tcmp", tuple_compare_rule, DatabaseType.ORACLE);
         session.save(acmp_template);
         session.save(new TemplateTag("table", TemplateTagType.TABLE, tcmp_template));
         session.save(new TemplateTag("name", TemplateTagType.STRING, tcmp_template));
@@ -80,7 +80,7 @@ public class Main {
          * */
         BusinessRuleType inter_entity_compare_rule = new BusinessRuleType(4, "inter_entity_compare_rule");
         session.save(inter_entity_compare_rule);
-        Template icmp_template = new Template(1, "brg_gebruiker_trg_icmp_01", "", "icmp", tuple_compare_rule, DatabaseType.ORACLE);
+        Template icmp_template = new Template(4, "brg_gebruiker_trg_icmp_01", "CREATE OR REPLACE TRIGGER {{ NAME }} {{ BEFORE/AFTER }} {{ EVENT }}  ON {{ TABLE_1 }} [[ FOR EACH ROW ]] DECLARE BEGIN IF (SELECT {{COLUMN_2}} FROM {{TABLE_2}} {{OPERATOR}} :new.{{COLUMN1}}) THEN RAISE_APPLICATION_ERROR({{errcode}}, {{errmessage}});", "icmp", tuple_compare_rule, DatabaseType.ORACLE);
         session.save(acmp_template);
         session.save(new TemplateTag("name", TemplateTagType.STRING, icmp_template));
         session.save(new TemplateTag("state", TemplateTagType.STATE, icmp_template));
