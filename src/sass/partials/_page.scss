@@ -3,9 +3,9 @@
   padding: 0 0 0 300px;
 
   header {
+    @extend .gradient;
     padding: 0 20px;
     width: 100%;
-    background-color: $primary;
     height: 80px;
     color: #fff;
     line-height: 80px;

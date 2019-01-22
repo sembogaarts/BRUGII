@@ -20,7 +20,6 @@
           "id": 4,
           "name": "COLUMN",
           "type": "COLUMN",
-          "type": ["NUMBER"],
           "value": []
         },
         {
