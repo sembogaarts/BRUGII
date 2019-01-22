@@ -1,8 +1,6 @@
-package com.tosad.brg.api.taskSpecific;
+package com.tosad.brg.api.hibernate.taskSpecific;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Set;
 
 @Entity
 @javax.persistence.Table(name = "TABLES")

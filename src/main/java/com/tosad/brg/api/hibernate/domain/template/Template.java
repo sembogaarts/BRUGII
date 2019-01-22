@@ -1,16 +1,13 @@
-package com.tosad.brg.api.domain.template;
+package com.tosad.brg.api.hibernate.domain.template;
 
-import com.tosad.brg.api.domain.businessRule.BusinessRuleType;
-import com.tosad.brg.api.taskSpecific.Project;
+import com.tosad.brg.api.hibernate.domain.businessRule.BusinessRuleType;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Table(name = "TEMPLATE")
 public class Template {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @SequenceGenerator(name = "TEMPLATE_SEQUENCE", sequenceName = "TEMPLATE_SEQUENCE", allocationSize = 1)
     public int id;
 

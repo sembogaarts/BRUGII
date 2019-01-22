@@ -1,14 +1,13 @@
 package com.tosad.brg.api;
 
-import com.tosad.brg.api.domain.businessRule.BusinessRule;
-import com.tosad.brg.api.domain.businessRule.BusinessRuleTag;
-import com.tosad.brg.api.domain.businessRule.BusinessRuleType;
-import com.tosad.brg.api.domain.template.DatabaseType;
-import com.tosad.brg.api.domain.template.Template;
-import com.tosad.brg.api.domain.template.TemplateTag;
-import com.tosad.brg.api.taskSpecific.Column;
-import com.tosad.brg.api.taskSpecific.Project;
-import com.tosad.brg.api.taskSpecific.Table;
+import com.tosad.brg.api.hibernate.HibernateUtils;
+import com.tosad.brg.api.hibernate.domain.businessRule.BusinessRule;
+import com.tosad.brg.api.hibernate.domain.businessRule.BusinessRuleType;
+import com.tosad.brg.api.hibernate.domain.template.DatabaseType;
+import com.tosad.brg.api.hibernate.domain.template.Template;
+import com.tosad.brg.api.hibernate.taskSpecific.Column;
+import com.tosad.brg.api.hibernate.taskSpecific.Project;
+import com.tosad.brg.api.hibernate.taskSpecific.Table;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -40,7 +39,7 @@ public class Main {
         BusinessRuleType businessRuleType = new BusinessRuleType(1, "attribute_range_rule");
         session.save(businessRuleType);
         session.save(new Template(1, "testnaam", "", "", businessRuleType, DatabaseType.ORACLE));
-        session.save(new BusinessRule(1, "testrule", businessRuleType, project));
+        session.save(new BusinessRule("testrule", businessRuleType, project));
 
 
         BusinessRuleType businessRuleType2 = new BusinessRuleType(2, "attribute_compare_rule");

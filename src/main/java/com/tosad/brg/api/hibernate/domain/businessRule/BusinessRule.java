@@ -1,13 +1,8 @@
-package com.tosad.brg.api.domain.businessRule;
+package com.tosad.brg.api.hibernate.domain.businessRule;
 
-import com.tosad.brg.api.domain.template.Template;
-import com.tosad.brg.api.domain.template.TemplateTag;
-import com.tosad.brg.api.taskSpecific.Project;
+import com.tosad.brg.api.hibernate.taskSpecific.Project;
 
 import javax.persistence.*;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
 
 @Entity
 @Table(name = "BUSINESSRULE")
@@ -28,8 +23,7 @@ public class BusinessRule {
     @JoinColumn(name = "project_id", nullable = false)
     private Project project;
 
-    public BusinessRule(int id, String name, BusinessRuleType businessRuleType, Project project) {
-        this.id = id;
+    public BusinessRule(String name, BusinessRuleType businessRuleType, Project project) {
         this.name = name;
         this.businessRuleType = businessRuleType;
         this.project = project;

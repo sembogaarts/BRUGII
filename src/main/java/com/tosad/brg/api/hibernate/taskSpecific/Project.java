@@ -1,11 +1,9 @@
-package com.tosad.brg.api.taskSpecific;
+package com.tosad.brg.api.hibernate.taskSpecific;
 
-import com.tosad.brg.api.infrastructure.DatabaseConnection;
-import com.tosad.brg.api.domain.template.DatabaseType;
+import com.tosad.brg.api.hibernate.domain.template.DatabaseType;
 
 import javax.persistence.*;
 import javax.persistence.Column;
-import java.util.ArrayList;
 import java.util.Set;
 
 @Entity

@@ -1,7 +1,7 @@
-package com.tosad.brg.api.domain.template;
+package com.tosad.brg.api.hibernate.domain.template;
 
-import com.tosad.brg.api.infrastructure.DatabaseConnection;
-import com.tosad.brg.api.infrastructure.OracleDatabaseConnection;
+import com.tosad.brg.api.hibernate.infrastructure.DatabaseConnection;
+import com.tosad.brg.api.hibernate.infrastructure.OracleDatabaseConnection;
 
 import java.io.Serializable;
 

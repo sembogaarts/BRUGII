@@ -1,4 +1,4 @@
-package com.tosad.brg.api.domain.type;
+package com.tosad.brg.api.hibernate.domain.type;
 
 
 import java.io.Serializable;

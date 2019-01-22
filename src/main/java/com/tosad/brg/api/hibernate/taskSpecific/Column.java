@@ -1,4 +1,4 @@
-package com.tosad.brg.api.taskSpecific;
+package com.tosad.brg.api.hibernate.taskSpecific;
 
 import javax.persistence.*;
 
