@@ -34,6 +34,6 @@ class BusinessRulePersistence {
     static Template getTemplateByBusinessRuleType(BusinessRuleType businessRuleType) {
         HibernateUtils.getSessionFactory();
         // Create CriteriaQuery
-        return HibernateUtils.getSession().get(Template.class, 1);
+        return HibernateUtils.getSession().get(Template.class, businessRuleType.id);
     }
 }
