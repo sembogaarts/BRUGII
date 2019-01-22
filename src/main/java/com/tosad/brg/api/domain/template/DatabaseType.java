@@ -27,9 +27,6 @@ public enum DatabaseType implements Serializable {
     public int id;
 
 
-    @OneToMany(mappedBy="databasetype")
-    Set<Project> project;
-
     @Column(name = "name")
     private String name;
 

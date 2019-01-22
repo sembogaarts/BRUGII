@@ -21,28 +21,37 @@ public class Main {
         hibernateUtils.boot();
         Session session = hibernateUtils.getSession();
 
+
+        Transaction t = session.beginTransaction();
+
         Project project = new Project(1, "BRG", "localhost", "cursist", "cursist2321", 8521, "oracle", null);
+        session.save(project);
+
         Table table = new Table(project, "gebruikers");
+        session.save(table);
+
         Column column = new Column("gebruikersnaam", table);
+        session.save(column);
+
         BusinessRuleTag businessRuleTag = new BusinessRuleTag(1, "gebruikers", null);
+        session.save(businessRuleTag);
+
         Template template = new Template("testnaam", "", "", null);
+        session.save(template);
+
         BusinessRuleType businessRuleType = new BusinessRuleType("attribute_range_rule", template);
+        session.save(businessRuleType);
+
         BusinessRule businessRule = new BusinessRule("testrule", businessRuleType, null, null);
+        session.save(businessRule);
+
         TemplateTag templateTag = new TemplateTag("key", "type");
+        session.save(templateTag);
 //        TemplateTagType templateTagType = new TemplateTagType("");
 //        DatabaseType databaseType = new DatabaseType("Oracle");
 //        BusinessRuleTag businessRule = (BusinessRuleTag) session.get(BusinessRuleTag.class, 1);
 //        System.out.println(businessRule.getValue());
 
-        Transaction t = session.beginTransaction();
-//        session.save(project);
-        session.save(table);
-        session.save(column);
-        session.save(businessRule);
-        session.save(businessRuleTag);
-        session.save(businessRuleType);
-        session.save(template);
-        session.save(templateTag);
 
         t.commit();
 

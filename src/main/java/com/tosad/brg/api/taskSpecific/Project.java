@@ -18,12 +18,8 @@ public class Project {
 
 //    private final DatabaseConnection databaseConnection;
 
-    @OneToMany(mappedBy = "project")
-    Set<Table> tables;
-
-    @ManyToOne
-    @JoinColumn(name = "databasetype_id", nullable = false)
-    private Project databasetype;
+    @Column(name = "databasetype")
+    private String databaseType;
 
     @Column(name = "name")
     private String name;
@@ -52,7 +48,7 @@ public class Project {
         this.username = username;
         this.password = password;
         this.port = port;
-//        this.databaseType = databaseType;
+        this.databaseType = databaseType;
 //        this.table = tables;
 //        this.databaseConnection = databaseType.createConnection(host, username, password, port);
     }
