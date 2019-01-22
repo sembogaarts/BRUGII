@@ -2,7 +2,8 @@ module.exports = {
     props: {
         tag: Object,
         tags: Array,
-        type: String
+        type: String,
+        rowIndex: Number
     },
     data: function () {
         return {}

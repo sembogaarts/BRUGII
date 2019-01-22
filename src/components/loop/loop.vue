@@ -34,7 +34,7 @@
         </select>
 
         <!-- Dynamic -->
-        <dynamic v-if="isDynamic(tag.type)" :tag="tag" :type="getEarlierFieldType()"></dynamic>
+        <dynamic v-if="isDynamic(tag.type)" :rowIndex="rowIndex" :tag="tag" :type="getEarlierFieldType()"></dynamic>
 
     </div>
 

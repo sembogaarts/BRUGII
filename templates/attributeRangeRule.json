@@ -1,31 +1,48 @@
 {
-    "raw": "ALTER TABLE {{ TABLE }} ADD CONSTRAINT {{ NAME }} CHECK ( {{ COLUMN }} [[ NOT ]] BETWEEN {{ NUMBER_1 }} AND {{ NUMBER_2 }} )",
-
-    "tags": [
+  "raw": "ALTER TABLE {{ TABLE }} ADD CONSTRAINT {{ NAME }} CHECK ( {[ LOOP ]}  {{ COLUMN }} [[ NOT ]] BETWEEN {{ NUMBER_1 }} AND {{ NUMBER_2 }} {[ ENDLOOP ]} )",
+  "tags": [
+    {
+      "id": 1,
+      "name": "TABLE",
+      "type": "TABLE"
+    },
+    {
+      "id": 2,
+      "name": "NAME",
+      "type": "STRING"
+    },
+    {
+      "id": 3,
+      "name": "LOOP",
+      "type": "LOOP",
+      "fields": [
         {
-            "name": "TABLE",
-            "type": "TABLE"
+          "id": 4,
+          "name": "COLUMN",
+          "type": "COLUMN",
+          "type": ["NUMBER"],
+          "value": []
         },
         {
-            "name": "NAME",
-            "type": "STRING"
+          "id": 5,
+          "name": "NUMBER_1",
+          "type": "NUMBER",
+          "value": []
         },
         {
-            "name": "COLUMN",
-            "type": "COLUMN"
+          "id": 6,
+          "name": "NUMBER_2",
+          "type": "NUMBER",
+          "value": []
         },
         {
-            "name": "NUMBER_1",
-            "type": "NUMBER"
-        },
-        {
-            "name": "NUMBER_2",
-            "type": "NUMBER"
-        },
-        {
-            "name": "NOT",
-            "type": "BOOLEAN"
+          "id": 7,
+          "name": "NOT",
+          "type": "BOOLEAN",
+          "value": []
         }
-    ]
+      ]
+    }
+  ]
 }
 
