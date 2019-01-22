@@ -40,8 +40,7 @@ public class Main {
         BusinessRuleType businessRuleType = new BusinessRuleType(1, "attribute_range_rule");
         session.save(businessRuleType);
         session.save(new Template(1, "testnaam", "", "", businessRuleType, DatabaseType.ORACLE));
-        BusinessRule businessRule = new BusinessRule(1, "testrule", businessRuleType, project);
-        session.save(businessRule);
+        session.save(new BusinessRule(1, "testrule", businessRuleType, project));
 
 
         BusinessRuleType businessRuleType2 = new BusinessRuleType(2, "attribute_compare_rule");
