@@ -15,7 +15,7 @@ public class TemplateTag {
     public int id;
 
     @ManyToOne
-    @JoinColumn(name = "template_id", nullable = false)
+    @JoinColumn(name = "template_id")
     private Template template;
 
     @Column(name = "key")

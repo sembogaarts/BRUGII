@@ -68,7 +68,7 @@ public class Main {
         BusinessRuleType tuple_compare_rule = new BusinessRuleType(3, "tuple_compare_rule");
         session.save(tuple_compare_rule);
         Template tcmp_template = new Template(3, "brg_gebruiker_cns_tcmp_01", "ALTER TABLE {{ TABLE }} ADD CONSTRAINT {{ NAME }} CHECK ( {{ COLUMN_1 }} {{ OPERATOR }} {{ COLUMN_2 }}  )", "tcmp", tuple_compare_rule, DatabaseType.ORACLE);
-        session.save(acmp_template);
+        session.save(tcmp_template);
         session.save(new TemplateTag("table", TemplateTagType.TABLE, tcmp_template));
         session.save(new TemplateTag("name", TemplateTagType.STRING, tcmp_template));
         session.save(new TemplateTag("column_1", TemplateTagType.COLUMN, tcmp_template));
@@ -81,7 +81,7 @@ public class Main {
         BusinessRuleType inter_entity_compare_rule = new BusinessRuleType(4, "inter_entity_compare_rule");
         session.save(inter_entity_compare_rule);
         Template icmp_template = new Template(4, "brg_gebruiker_trg_icmp_01", "CREATE OR REPLACE TRIGGER {{ NAME }} {{ BEFORE/AFTER }} {{ EVENT }}  ON {{ TABLE_1 }} [[ FOR EACH ROW ]] DECLARE BEGIN IF (SELECT {{COLUMN_2}} FROM {{TABLE_2}} {{OPERATOR}} :new.{{COLUMN1}}) THEN RAISE_APPLICATION_ERROR({{errcode}}, {{errmessage}});", "icmp", tuple_compare_rule, DatabaseType.ORACLE);
-        session.save(acmp_template);
+        session.save(icmp_template);
         session.save(new TemplateTag("name", TemplateTagType.STRING, icmp_template));
         session.save(new TemplateTag("state", TemplateTagType.STATE, icmp_template));
         session.save(new TemplateTag("event", TemplateTagType.EVENT, icmp_template));
