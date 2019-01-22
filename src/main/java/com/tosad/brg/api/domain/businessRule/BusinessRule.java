@@ -28,7 +28,8 @@ public class BusinessRule {
     @JoinColumn(name = "project_id", nullable = false)
     private Project project;
 
-    public BusinessRule(String name, BusinessRuleType businessRuleType, Project project) {
+    public BusinessRule(int id, String name, BusinessRuleType businessRuleType, Project project) {
+        this.id = id;
         this.name = name;
         this.businessRuleType = businessRuleType;
         this.project = project;

@@ -36,12 +36,11 @@ public class Main {
 
         /*
          * attribute_range_rule
-         *
          * */
         BusinessRuleType businessRuleType = new BusinessRuleType(1, "attribute_range_rule");
         session.save(businessRuleType);
         session.save(new Template(1, "testnaam", "", "", businessRuleType, DatabaseType.ORACLE));
-        BusinessRule businessRule = new BusinessRule("testrule", businessRuleType, project);
+        BusinessRule businessRule = new BusinessRule(1, "testrule", businessRuleType, project);
         session.save(businessRule);
 
 
