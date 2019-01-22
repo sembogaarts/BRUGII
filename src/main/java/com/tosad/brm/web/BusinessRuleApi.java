@@ -1,7 +1,10 @@
 package com.tosad.brm.web;
 
+import com.tosad.brm.web.api.BusinessRuleTypeJSON;
 import com.tosad.brm.web.hibernate.domain.businessRule.BusinessRule;
 import com.tosad.brm.web.hibernate.domain.businessRule.BusinessRuleType;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import javax.ws.rs.*;
 
@@ -33,19 +36,15 @@ public class BusinessRuleApi implements Api {
     @Produces("application/json")
     @Override
     public String get() {
-        List<BusinessRuleType> alleBusinessRules = null;
         try {
-            alleBusinessRules = getAllBusinessRules();
+            List<BusinessRuleType> businessRuleTypes = getAllBusinessRules();
+            JSONArray jsonArray = new JSONArray();
+            businessRuleTypes.forEach(businessRuleType -> jsonArray.add(BusinessRuleTypeJSON.generate(businessRuleType)));
+
+            return jsonArray.toJSONString();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return alleBusinessRules.get(0).getName();
-//        JsonArrayBuilder jab = Json.createArrayBuilder();
-//        JsonObjectBuilder job = Json.createObjectBuilder();
-//        job.add("businessrule", citiesCommaSeparated);
-//        jab.add(job);
-//        JsonArray array = jab.build();
-//        return array.toString();
     }
 
     @GET

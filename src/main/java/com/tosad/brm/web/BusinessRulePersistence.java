@@ -11,7 +11,7 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 class BusinessRulePersistence {
-    static List getAllBusinessRules() throws Exception {
+    static List<BusinessRuleType> getAllBusinessRules() throws Exception {
         SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
         CriteriaBuilder builder = sessionFactory.getCriteriaBuilder();
 
