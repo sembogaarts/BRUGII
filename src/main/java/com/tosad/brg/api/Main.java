@@ -63,7 +63,7 @@ public class Main {
 
         Template template = new Template("testnaam", "", "", businessRuleType, DatabaseType.ORACLE);
         session.save(template);
-//
+
 //        Template template_arng = new Template("BRG_(ENTITEIT)_CNS/TRG(RULE)_01", "", "arng", businessRuleType, DatabaseType.ORACLE);
 //        session.save(template_arng);
 
