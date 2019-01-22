@@ -21,10 +21,10 @@
                     <!-- Render Loop -->
                     <div v-if="isLoop(tag.type)">
 
-                        <div v-for="(row, index) in getLoopRows(tag)" class="group">
+                        <div v-for="(row, rowIndex) in getLoopRows(tag)" class="group">
                             <div v-for="(field, index) in row">
                                 <!-- Render the field -->
-                                <field :tag="field" :tags="template.tags" :index="index" :schema="schema"></field>
+                                <loop :tag="field" :tags="template.tags" :loop="row" :rowIndex="rowIndex" :index="index" :schema="schema"></loop>
                             </div>
                         </div>
 
@@ -37,6 +37,8 @@
                 <button type="submit" @click="onSubmit()">Genereer</button>
 
             </form>
+
+            {{ template.tags }}
 
         </div>
 

@@ -6,6 +6,10 @@
                  {
                      "name": "Leeftijd",
                      "type": "NUMBER"
+                 },
+                 {
+                     "name": "Naam",
+                     "type": "STRING"
                  }
              ]
          }

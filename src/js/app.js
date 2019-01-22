@@ -3,6 +3,8 @@ import router from './router';
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import FieldComponent from '../components/field/field.vue';
+import LoopComponent from '../components/loop/loop.vue';
+import DynamicComponent from '../components/dynamic/dynamic.vue';
 
 Vue.use(
     VueAxios,
@@ -11,6 +13,8 @@ Vue.use(
 
 // Register Components
 Vue.component('field', FieldComponent);
+Vue.component('loop', LoopComponent);
+Vue.component('dynamic', DynamicComponent);
 
 var app = new Vue({
     router,

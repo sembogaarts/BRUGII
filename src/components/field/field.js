@@ -3,11 +3,12 @@ module.exports = {
         tag: Object,
         tags: Array,
         schema: Array,
-        index: Number
+        index: Number,
+        loop: Array,
+        value: Number|String
     },
     data: function () {
-        return {
-        }
+        return {}
     },
     methods: {
 
@@ -39,8 +40,16 @@ module.exports = {
             return this.isType("BINDER", type);
         },
 
+        isOperator(type) {
+            return this.isType("OPERATOR", type);
+        },
+
         getOperatorsForNumber() {
             return [">", "<", ">=", "<=", "=", "!="];
+        },
+
+        getOperatorsForString() {
+            return ["=", "!="];
         },
 
         binders() {
@@ -52,18 +61,62 @@ module.exports = {
                 // Check if the tag is a table
                 if (this.isTable(this.tags[x].type)) {
 
+                    modifiedColumns = [];
+
                     // Get the selected table
                     var selectedTable = this.tags[x].value;
 
+                    if (selectedTable !== null && selectedTable !== '') {
+                        var table = {};
+                        for(let z = 0; this.schema.length > z; z++) {
+                            if(this.schema[z].name == selectedTable) {
+                                table = this.schema[z];
+                            }
+                        }
+
+                        for (var y = 0; table.columns.length > y; y++) {
+                            modifiedColumns.push({
+                                name: table.name + '.' + table.columns[y].name,
+                                type: table.columns[y].type
+                            });
+                        }
+
+                    }
+
                     // Return columns for the specific table
-                    return isNaN(parseInt(selectedTable)) ? [] : this.schema[selectedTable].columns;
+                    return modifiedColumns;
                 }
             }
         },
 
-        getOperatorForEarlierField() {
+        getOperatorsForEarlierField() {
+
+            return [];
+
+            for (var x = this.index; 0 <= x; x--) {
+
+                if (this.loop) {
+
+                    if (this.loop[x].type == 'COLUMN') {
+
+                    }
+
+                } else {
+
+                    if (this.tags[x].type == 'COLUMN') {
+
+                    }
+
+                }
+
+            }
 
         },
+
+        getColumnType(column) {
+            // for()
+        }
+
     }
 };
 
