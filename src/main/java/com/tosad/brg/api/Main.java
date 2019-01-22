@@ -73,11 +73,11 @@ public class Main {
 //        session.save(template_arng);
 
 
-        TemplateTag templateTag = new TemplateTag("key", "type", template);
-        session.save(templateTag);
-
-        BusinessRuleTag businessRuleTag = new BusinessRuleTag(1, "gebruikers", templateTag, businessRule);
-        session.save(businessRuleTag);
+//        TemplateTag templateTag = new TemplateTag("key", "type", template);
+//        session.save(templateTag);
+//
+//        BusinessRuleTag businessRuleTag = new BusinessRuleTag(1, "gebruikers", templateTag, businessRule);
+//        session.save(businessRuleTag);
 
         t.commit();
 
