@@ -18,6 +18,7 @@ public class HibernateUtils {
         factory = meta.getSessionFactoryBuilder().build();
         session = factory.openSession();
 
+
     }
 
     public Session getSession() {

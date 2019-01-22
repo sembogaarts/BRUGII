@@ -33,15 +33,15 @@
 
         <property name="hibernate.default_schema">cursist</property>
 
-        <mapping class="com.tosad.brg.api.domain.businessRule.BusinessRuleTag"/>
-        <mapping class="com.tosad.brg.api.domain.businessRule.BusinessRule"/>
-        <mapping class="com.tosad.brg.api.domain.businessRule.BusinessRuleType"/>
-        <mapping class="com.tosad.brg.api.domain.template.DatabaseType"/>
-        <mapping class="com.tosad.brg.api.domain.template.Template"/>
-        <mapping class="com.tosad.brg.api.domain.template.TemplateTag"/>
-        <mapping class="com.tosad.brg.api.taskSpecific.Column"/>
-        <mapping class="com.tosad.brg.api.taskSpecific.Table"/>
-        <mapping class="com.tosad.brg.api.taskSpecific.Project"/>
+        <mapping class="com.tosad.brg.api.hibernate.domain.businessRule.BusinessRuleTag"/>
+        <mapping class="com.tosad.brg.api.hibernate.domain.businessRule.BusinessRule"/>
+        <mapping class="com.tosad.brg.api.hibernate.domain.businessRule.BusinessRuleType"/>
+        <mapping class="com.tosad.brg.api.hibernate.domain.template.DatabaseType"/>
+        <mapping class="com.tosad.brg.api.hibernate.domain.template.Template"/>
+        <mapping class="com.tosad.brg.api.hibernate.domain.template.TemplateTag"/>
+        <mapping class="com.tosad.brg.api.hibernate.taskSpecific.Column"/>
+        <mapping class="com.tosad.brg.api.hibernate.taskSpecific.Table"/>
+        <mapping class="com.tosad.brg.api.hibernate.taskSpecific.Project"/>
 
     </session-factory>
 </hibernate-configuration>
