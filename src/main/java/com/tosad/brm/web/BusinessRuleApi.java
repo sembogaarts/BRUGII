@@ -52,18 +52,19 @@ public class BusinessRuleApi implements Api {
     @Path("/getBusinessRules/{businnessRuleType}")
     @Produces("application/json")
     public String getBusinessRules(@PathParam("id") String businessRuleType) {
-        List<String> alleBusinessRules = null;
-        JsonArrayBuilder jab = Json.createArrayBuilder();
-
-
-
-        JsonObjectBuilder job = Json.createObjectBuilder();
-        job.add("businessrule");
-
-        jab.add(job);
-
-        JsonArray array = jab.build();
-        return array.toString();
+//        List<String> alleBusinessRules = null;
+//        JsonArrayBuilder jab = Json.createArrayBuilder();
+//
+//
+//
+//        JsonObjectBuilder job = Json.createObjectBuilder();
+//        job.add("businessrule");
+//
+//        jab.add(job);
+//
+//        JsonArray array = jab.build();
+//        return array.toString();
+        return "";
     }
 
     @PUT

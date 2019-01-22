@@ -7,6 +7,8 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+import java.util.List;
+
 public class HibernateUtils {
     public static SessionFactory factory;
     public static Session session;
@@ -24,7 +26,7 @@ public class HibernateUtils {
         return factory;
     }
 
-    public Session getSession() {
+    public static Session getSession() {
         return session;
     }
 

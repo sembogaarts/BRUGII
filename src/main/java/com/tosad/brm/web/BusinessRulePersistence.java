@@ -8,6 +8,8 @@ import org.hibernate.transform.Transformers;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Order;
+import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +20,11 @@ public class BusinessRulePersistence {
 
         // Create CriteriaQuery
         CriteriaQuery<BusinessRule> criteria = builder.createQuery(BusinessRule.class);
+        Root<BusinessRule> variableRoot = criteria.from(BusinessRule.class);
+        criteria.select(variableRoot);
+
+        List<BusinessRule> lol = sessionFactory.getCurrentSession().createQuery(criteria).getResultList();
         HibernateUtils.close();
-        return criteria.getOrderList();
+        return lol;
     }
 }
