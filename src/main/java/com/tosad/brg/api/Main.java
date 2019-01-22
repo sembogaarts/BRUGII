@@ -3,10 +3,8 @@ package com.tosad.brg.api;
 import com.tosad.brg.api.domain.businessRule.BusinessRule;
 import com.tosad.brg.api.domain.businessRule.BusinessRuleTag;
 import com.tosad.brg.api.domain.businessRule.BusinessRuleType;
-import com.tosad.brg.api.domain.template.DatabaseType;
 import com.tosad.brg.api.domain.template.Template;
 import com.tosad.brg.api.domain.template.TemplateTag;
-import com.tosad.brg.api.domain.type.TemplateTagType;
 import com.tosad.brg.api.taskSpecific.Column;
 import com.tosad.brg.api.taskSpecific.Project;
 import com.tosad.brg.api.taskSpecific.Table;
@@ -23,13 +21,13 @@ public class Main {
         hibernateUtils.boot();
         Session session = hibernateUtils.getSession();
 
-        Project project = new Project("BRG", "localhost", "cursist", "cursist2321", 8521, null, null);
-        Table table = new Table("gebruikers");
-        Column column = new Column("gebruikersnaam");
+        Project project = new Project(1, "BRG", "localhost", "cursist", "cursist2321", 8521, "oracle", null);
+        Table table = new Table(project, "gebruikers");
+        Column column = new Column("gebruikersnaam", table);
         BusinessRuleTag businessRuleTag = new BusinessRuleTag(1, "gebruikers", null);
-        BusinessRule businessRule = new BusinessRule("testrule", null, null, null);
-        BusinessRuleType businessRuleType = new BusinessRuleType("attribute_range_rule");
         Template template = new Template("testnaam", "", "", null);
+        BusinessRuleType businessRuleType = new BusinessRuleType("attribute_range_rule", template);
+        BusinessRule businessRule = new BusinessRule("testrule", businessRuleType, null, null);
         TemplateTag templateTag = new TemplateTag("key", "type");
 //        TemplateTagType templateTagType = new TemplateTagType("");
 //        DatabaseType databaseType = new DatabaseType("Oracle");
@@ -37,7 +35,7 @@ public class Main {
 //        System.out.println(businessRule.getValue());
 
         Transaction t = session.beginTransaction();
-        session.save(project);
+//        session.save(project);
         session.save(table);
         session.save(column);
         session.save(businessRule);

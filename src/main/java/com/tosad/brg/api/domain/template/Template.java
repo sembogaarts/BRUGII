@@ -17,9 +17,8 @@ public class Template {
     @OneToMany(mappedBy = "template")
     Set<TemplateTag> templateTag;
 
-    @ManyToOne
-    @JoinColumn(name = "databasetype_id", nullable = false)
-    private Project databasetype;
+    @Column(name = "databasetype")
+    private DatabaseType databaseType;
 
     @ManyToOne
     @JoinColumn(name = "businessruletype_id", nullable = false)
@@ -33,8 +32,6 @@ public class Template {
 
     @Column(name = "prefix")
     private String prefix;
-
-    private DatabaseType databaseType;
 
     public Template(String name, String script, String prefix, DatabaseType databaseType) {
         this.name = name;

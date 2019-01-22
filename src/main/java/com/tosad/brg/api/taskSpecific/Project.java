@@ -13,7 +13,7 @@ import java.util.Set;
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @SequenceGenerator(name="PROJECT_SEQUENCE", sequenceName="PROJECT_SEQUENCE", allocationSize=1)
+    @SequenceGenerator(name = "PROJECT_SEQUENCE", sequenceName = "PROJECT_SEQUENCE", allocationSize = 1)
     public int id;
 
 //    private final DatabaseConnection databaseConnection;
@@ -45,7 +45,8 @@ public class Project {
 //    @OneToMany(mappedBy = "project")
 //    private Set<Table> table;
 
-    public Project(String name, String host, String username, String password, int port, DatabaseType databaseType, Set<Table> tables) {
+    public Project(int id, String name, String host, String username, String password, int port, String databaseType, Set<Table> tables) {
+        this.id = id;
         this.name = name;
         this.host = host;
         this.username = username;

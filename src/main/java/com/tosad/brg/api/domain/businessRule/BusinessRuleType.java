@@ -21,8 +21,9 @@ public class BusinessRuleType {
     @Column(name = "name")
     private String name;
 
-    public BusinessRuleType(String name) {
+    public BusinessRuleType(String name, Template template) {
         this.name = name;
+        this.template = template;
     }
 
     public String getName() {

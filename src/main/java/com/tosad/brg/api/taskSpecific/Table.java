@@ -22,7 +22,8 @@ public class Table {
     @JoinColumn(name = "project_id", nullable = false)
     private Project project;
 
-    public Table(String name){
+    public Table(Project project, String name) {
+        this.project = project;
         this.name = name;
     }
 

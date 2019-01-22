@@ -30,9 +30,6 @@ public enum DatabaseType implements Serializable {
     @OneToMany(mappedBy="databasetype")
     Set<Project> project;
 
-    @OneToMany(mappedBy="databasetype")
-    Set<Template> template;
-
     @Column(name = "name")
     private String name;
 
