@@ -50,7 +50,7 @@ module.exports = {
         },
 
         onSubmit() {
-            console.log(this.template.tags);
+            // console.log(this.template.tags);
         },
 
         getOperatorsForNumber() {
@@ -71,10 +71,6 @@ module.exports = {
             }
         },
 
-        getOperatorForEarlierField() {
-
-        },
-
         addLoopRow(tag) {
             // Loop door alle velden heen en voeg een lege waarde eraan toe
             for (var x = 0; tag.fields.length > x; x++) {
@@ -89,17 +85,15 @@ module.exports = {
 
             // Check the count of the rows that have to exists
             for (var x = 0; tag.fields[0].value.length > x; x++) {
-                row = []
+                row = [];
                 for (var y = 0; tag.fields.length > y; y++) {
                     var modifiedRow = {};
-                    modifiedRow = Object.assign({}, tag.fields[y]);
-                    modifiedRow['value'] = tag.fields[y].value[x];
+                    modifiedRow = tag.fields[y];
                     row.push(modifiedRow);
                 }
                 rows.push(row)
             }
 
-            console.log(rows);
 
             return rows;
         }
