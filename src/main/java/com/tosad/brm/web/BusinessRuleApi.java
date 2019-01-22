@@ -1,18 +1,16 @@
 package com.tosad.brm.web;
 
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.GET;
+import javax.ws.rs.*;
 
-
+@Path("/businessrules")
 public class BusinessRuleApi implements Api {
 
     @POST
-    @Path("/createBusinessRules")
+    @Path("/create")
     @Produces("application/json")
     @Override
     public void create() {
+        
 //		JsonArrayBuilder jab = Json.createArrayBuilder();
 //		JsonObjectBuilder job = Json.createObjectBuilder();
 //
@@ -23,15 +21,15 @@ public class BusinessRuleApi implements Api {
     }
 
     @GET
-    @Path("/getBusinessRules")
+    @Path("/get")
     @Produces("application/json")
     @Override
     public String get() {
-        return "";
+        return "adsa";
     }
 
     @PUT
-    @Path("/updateBusinessRules")
+    @Path("/update")
     @Produces("application/json")
     @Override
     public void update() {
@@ -39,9 +37,9 @@ public class BusinessRuleApi implements Api {
     }
 
     @DELETE
-    @Path("/deleteBusinessRule")
+    @Path("/delete")
     @Produces("application/json")
-	public void delete() {
-		
-	}
+    public void delete() {
+
+    }
 }
