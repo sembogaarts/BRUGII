@@ -54,7 +54,7 @@ public class Main {
          * */
         BusinessRuleType attribute_compare_rule = new BusinessRuleType(2, "attribute_compare_rule");
         session.save(attribute_compare_rule);
-        Template acmp_template = new Template(1, "brg_gebruiker_cns_acmp_01", "", "acmp", attribute_range_rule, DatabaseType.ORACLE);
+        Template acmp_template = new Template(2, "brg_gebruiker_cns_acmp_01", "", "acmp", attribute_range_rule, DatabaseType.ORACLE);
         session.save(acmp_template);
         session.save(new TemplateTag("table", TemplateTagType.TABLE, acmp_template));
         session.save(new TemplateTag("name", TemplateTagType.STRING, acmp_template));
@@ -67,8 +67,8 @@ public class Main {
          * */
         BusinessRuleType tuple_compare_rule = new BusinessRuleType(3, "tuple_compare_rule");
         session.save(tuple_compare_rule);
-        Template tcmp_template = new Template(2, "brg_gebruiker_cns_tcmp_01", "", "tcmp", tuple_compare_rule, DatabaseType.ORACLE);
-        session.save(acmp_template);
+        Template tcmp_template = new Template(3, "brg_gebruiker_cns_tcmp_01", "", "tcmp", tuple_compare_rule, DatabaseType.ORACLE);
+        session.save(tcmp_template);
         session.save(new TemplateTag("table", TemplateTagType.TABLE, tcmp_template));
         session.save(new TemplateTag("name", TemplateTagType.STRING, tcmp_template));
         session.save(new TemplateTag("column_1", TemplateTagType.COLUMN, tcmp_template));
@@ -80,8 +80,8 @@ public class Main {
          * */
         BusinessRuleType inter_entity_compare_rule = new BusinessRuleType(4, "inter_entity_compare_rule");
         session.save(inter_entity_compare_rule);
-        Template icmp_template = new Template(3, "brg_gebruiker_trg_icmp_01", "", "icmp", tuple_compare_rule, DatabaseType.ORACLE);
-        session.save(acmp_template);
+        Template icmp_template = new Template(4, "brg_gebruiker_trg_icmp_01", "", "icmp", tuple_compare_rule, DatabaseType.ORACLE);
+        session.save(icmp_template);
         session.save(new TemplateTag("name", TemplateTagType.STRING, icmp_template));
         session.save(new TemplateTag("state", TemplateTagType.STATE, icmp_template));
         session.save(new TemplateTag("event", TemplateTagType.EVENT, icmp_template));
