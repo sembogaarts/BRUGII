@@ -1,17 +1,10 @@
 package com.tosad.brg.api.domain.template;
 
-import com.tosad.brg.api.taskSpecific.Project;
 import com.tosad.brg.api.infrastructure.DatabaseConnection;
 import com.tosad.brg.api.infrastructure.OracleDatabaseConnection;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Set;
 
-@Entity
-@javax.persistence.Table(name = "DATABASETYPE")
 public enum DatabaseType implements Serializable {
     ORACLE("oracle") {
         @Override
@@ -21,13 +14,6 @@ public enum DatabaseType implements Serializable {
     },
     UNKNOWN("unknown");
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @SequenceGenerator(name = "DATABASETYPE_SEQUENCE", sequenceName = "DATABASETYPE_SEQUENCE", allocationSize = 1)
-    public int id;
-
-
-    @Column(name = "name")
     private String name;
 
     DatabaseType(String name) {

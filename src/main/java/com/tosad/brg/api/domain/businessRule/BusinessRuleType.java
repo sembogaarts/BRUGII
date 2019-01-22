@@ -9,8 +9,8 @@ import com.tosad.brg.api.domain.template.Template;
 @Entity
 @Table(name = "BUSINESSRULETYPE")
 public class BusinessRuleType {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @SequenceGenerator(name = "BUSINESSRULETYPE_SEQUENCE", sequenceName = "BUSINESSRULETYPE_SEQUENCE", allocationSize = 1)
     public int id;
 

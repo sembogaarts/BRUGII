@@ -80,6 +80,20 @@ public class Main {
         BusinessRuleType businessRuleType9 = new BusinessRuleType(9, "modify_rule");
         session.save(businessRuleType9);
 
+<<<<<<< HEAD
+=======
+
+//        Template template_arng = new Template("BRG_(ENTITEIT)_CNS/TRG(RULE)_01", "", "arng", businessRuleType, DatabaseType.ORACLE);
+//        session.save(template_arng);
+
+
+//        TemplateTag templateTag = new TemplateTag("key", "type", template);
+//        session.save(templateTag);
+//
+//        BusinessRuleTag businessRuleTag = new BusinessRuleTag(1, "gebruikers", templateTag, businessRule);
+//        session.save(businessRuleTag);
+
+>>>>>>> b71bce82a94bc203095e02c441b4b6c36f01423c
         t.commit();
 
         hibernateUtils.close();
