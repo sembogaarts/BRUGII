@@ -34,7 +34,7 @@ public enum TemplateTagType implements Serializable {
     BOOLEAN("boolean"),
     UNKNOWN("unknown");
 
-    private String type;
+    public String type;
 
 
     TemplateTagType(String type) {

@@ -11,7 +11,7 @@ public class BusinessRuleType {
     public int id;
 
     @Column(name = "name")
-    private String name;
+    public String name;
 
     public BusinessRuleType(int id, String name) {
         this.id = id;

@@ -17,22 +17,22 @@ public class Project {
 //    private final DatabaseConnection databaseConnection;
 
     @Column(name = "databasetype")
-    private String databaseType;
+    public String databaseType;
 
     @Column(name = "name")
-    private String name;
+    public String name;
 
     @Column(name = "host")
-    private String host;
+    public String host;
 
     @Column(name = "username")
-    private String username;
+    public String username;
 
     @Column(name = "password")
-    private String password;
+    public String password;
 
     @Column(name = "port")
-    private int port;
+    public int port;
 
 //    private DatabaseType databaseType;
 

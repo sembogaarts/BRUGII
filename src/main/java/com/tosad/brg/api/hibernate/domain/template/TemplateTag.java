@@ -16,11 +16,11 @@ public class TemplateTag {
 
     @OneToOne()
     @JoinColumn(name = "businessRuleTag_id")
-    private BusinessRuleTag businessRuleTag;
+    public BusinessRuleTag businessRuleTag;
 
     @ManyToOne
     @JoinColumn(name = "template_id", nullable = false)
-    private Template template;
+    public Template template;
 
     @Column(name = "key")
     public String key;

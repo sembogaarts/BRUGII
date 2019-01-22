@@ -13,15 +13,15 @@ public class BusinessRule {
     public int id;
 
     @Column(name = "name")
-    private String name;
+    public String name;
 
     @ManyToOne
     @JoinColumn(name = "businessruletype_id", nullable = false)
-    private BusinessRuleType businessRuleType;
+    public BusinessRuleType businessRuleType;
 
     @ManyToOne
     @JoinColumn(name = "project_id", nullable = false)
-    private Project project;
+    public Project project;
 
     public BusinessRule(String name, BusinessRuleType businessRuleType, Project project) {
         this.name = name;
