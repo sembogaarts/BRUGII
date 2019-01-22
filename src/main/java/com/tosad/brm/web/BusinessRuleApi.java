@@ -1,5 +1,11 @@
 package com.tosad.brm.web;
 
+import java.awt.List;
+
+import javax.json.Json;
+import javax.json.JsonArray;
+import javax.json.JsonArrayBuilder;
+import javax.json.JsonObjectBuilder;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
@@ -23,11 +29,36 @@ public class BusinessRuleApi implements Api {
     }
 
     @GET
-    @Path("/getBusinessRules")
+    @Path("/getBusinessRulesTypes")
     @Produces("application/json")
     @Override
     public String get() {
-        return "";
+    	List alleBusinessRules = new ArrayList();
+    	alleBusinessRules.add(getAllBusinessRules());
+    	
+    	JsonArrayBuilder jab = Json.createArrayBuilder();
+    	JsonObjectBuilder job = Json.createObjectBuilder();
+    	
+		jab.add(job);
+
+		JsonArray array = jab.build();
+		return array.toString();
+    }
+    
+    @GET
+    @Path("/getBusinessRules/{businnessRuleType}")
+    @Produces("application/json")
+    public String getBusinessRules(@PathParam("businessRuleType") String businessRuleType) {
+		JsonArrayBuilder jab = Json.createArrayBuilder();
+
+		JsonObjectBuilder job = Json.createObjectBuilder();
+		
+		job.add();
+		
+		jab.add(job)
+		
+		JsonArray array = jab.build();
+		return array.toString();
     }
 
     @PUT
