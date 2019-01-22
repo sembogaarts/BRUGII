@@ -1,5 +1,7 @@
 package com.tosad.brm.web;
 
+import com.tosad.brm.web.hibernate.domain.businessRule.BusinessRule;
+
 import javax.ws.rs.*;
 
 import java.util.ArrayList;
@@ -30,16 +32,13 @@ public class BusinessRuleApi implements Api {
     @Produces("application/json")
     @Override
     public String get() {
-        List<String> alleBusinessRules = null;
+        List<BusinessRule> alleBusinessRules = null;
         try {
             alleBusinessRules = getAllBusinessRules();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        String citiesCommaSeparated = alleBusinessRules.stream()
-                .collect(Collectors.joining(","));
-
-        return citiesCommaSeparated;
+        return alleBusinessRules.get(0).getName();
 //        JsonArrayBuilder jab = Json.createArrayBuilder();
 //        JsonObjectBuilder job = Json.createObjectBuilder();
 //        job.add("businessrule", citiesCommaSeparated);
