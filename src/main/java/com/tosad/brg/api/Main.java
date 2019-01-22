@@ -63,8 +63,6 @@ public class Main {
 
         BusinessRuleType businessRuleType9 = new BusinessRuleType(9, "modify_rule");
         session.save(businessRuleType9);
-        Template template = new Template(1, "testnaam", "", "", businessRuleType, DatabaseType.ORACLE);
-        session.save(template);
 
 //        Template template_arng = new Template("BRG_(ENTITEIT)_CNS/TRG(RULE)_01", "", "arng", businessRuleType, DatabaseType.ORACLE);
 //        session.save(template_arng);
