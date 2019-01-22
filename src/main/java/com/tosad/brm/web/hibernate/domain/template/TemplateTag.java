@@ -27,6 +27,9 @@ public class TemplateTag {
     @Column(name = "template_tag_type")
     public String templateTagType;
 
+    public TemplateTag() {
+
+    }
 
     public TemplateTag(String key, String templateTagType, Template template) {
         this.key = key;

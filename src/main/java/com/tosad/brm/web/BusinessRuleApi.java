@@ -2,9 +2,11 @@ package com.tosad.brm.web;
 
 import com.tosad.brm.web.api.BusinessRuleTypeJSON;
 import com.tosad.brm.web.api.TemplateJSON;
+import com.tosad.brm.web.api.TemplateTagJSON;
 import com.tosad.brm.web.hibernate.HibernateUtils;
 import com.tosad.brm.web.hibernate.domain.businessRule.BusinessRuleType;
 import com.tosad.brm.web.hibernate.domain.template.Template;
+import com.tosad.brm.web.hibernate.domain.template.TemplateTag;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -55,11 +57,25 @@ public class BusinessRuleApi implements Api {
     @Path("/type")
     @Produces("application/json")
     public String getBusinessRuleTemplate(@PathParam("id") int businessRuleTypeId) {
-        System.out.println();
-        BusinessRuleType businessRuleType = getBusinessRuleTypeById(businessRuleTypeId);
-        Template template = getTemplateByBusinessRuleType(businessRuleType);
-        HibernateUtils.close();
-        return TemplateJSON.generate(template).toJSONString();
+        JSONObject data = new JSONObject();
+        try {
+            BusinessRuleType businessRuleType = getBusinessRuleTypeById(businessRuleTypeId);
+            Template template = getTemplateByBusinessRuleType(businessRuleType);
+            data = TemplateJSON.generate(template);
+            List<TemplateTag> templateTags = getAllTemplateTagsByTemplate(null);
+            JSONArray jsonArray = new JSONArray();
+
+            templateTags.forEach(templateTag -> {
+                jsonArray.add(TemplateTagJSON.generate(templateTag));
+                System.out.println(templateTag.key);
+            });
+            data.put("tags", jsonArray);
+            HibernateUtils.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return data.toJSONString();
 //        List<String> alleBusinessRules = null;
 //        JsonArrayBuilder jab = Json.createArrayBuilder();
 //
