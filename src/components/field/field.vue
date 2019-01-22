@@ -33,6 +33,20 @@
             <option v-for="operator in getOperatorsForEarlierField()" :value="operator">{{ operator }}</option>
         </select>
 
+        <!-- State -->
+        <select v-if="isState(tag.type)" v-model="tag.value" :id="tag.name">
+            <option selected value="" disabled>Selecteer een state</option>
+            <option value="BEFORE">BEFORE</option>
+            <option value="AFTER">AFTER</option>
+        </select>
+
+        <!-- Event -->
+        <select v-if="isEvent(tag.type)" v-model="tag.value" :id="tag.name">
+            <option selected value="" disabled>Selecteer een event</option>
+            <option value="INSERT">INSERT</option>
+            <option value="UPDATE">UPDATE</option>
+        </select>
+
     </div>
 
 </template>

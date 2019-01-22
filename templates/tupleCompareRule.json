@@ -1,6 +1,5 @@
 {
-  "raw": "ALTER TABLE {{ TABLE }} ADD CONSTRAINT {{ NAME }} CHECK ( {{ COLUMN_1 }} {{ OPERATOR }} {{ COLUMN_2 }}  )",
-
+  "raw": "ALTER TABLE {{ TABLE }} ADD CONSTRAINT {{ NAME }} CHECK ( {[ LOOP ]} {{ COLUMN_1 }} {{ OPERATOR }} {{ COLUMN_2 }} {{ BINDER }} {[ ENDLOOP ]}  )",
   "tags": [
     {
       "id": 1,
@@ -14,20 +13,34 @@
     },
     {
       "id": 3,
-      "name": "COLUMN_1",
-      "type": "COLUMN"
-    },
-    {
-      "id": 4,
-      "name": "OPERATOR",
-      "type": "OPERATOR"
-    },
-    {
-      "id": 5,
-      "name": "COLUMN_2",
-      "type": "COLUMN"
+      "name": "LOOP",
+      "type": "LOOP",
+      "fields": [
+        {
+          "id": 4,
+          "name": "COLUMN_1",
+          "type": "COLUMN",
+          "value": []
+        },
+        {
+          "id": 5,
+          "name": "OPERATOR",
+          "type": "OPERATOR",
+          "value": []
+        },
+        {
+          "id": 6,
+          "name": "COLUMN_2",
+          "type": "COLUMN",
+          "value": []
+        },
+        {
+          "id": 7,
+          "name": "BINDER",
+          "type": "BINDER",
+          "value": []
+        }
+      ]
     }
   ]
-
 }
-
