@@ -37,15 +37,27 @@ public class Main {
         /*
          * attribute_range_rule
          * */
-        BusinessRuleType businessRuleType = new BusinessRuleType(1, "attribute_range_rule");
-        session.save(businessRuleType);
-        session.save(new Template(1, "testnaam", "", "", businessRuleType, DatabaseType.ORACLE));
-        session.save(new BusinessRule(1, "testrule", businessRuleType, project));
+        BusinessRuleType attribute_range_rule = new BusinessRuleType(1, "attribute_range_rule");
+        session.save(attribute_range_rule);
+        Template arng_template = new Template(1, "brg_gebruiker_cns_arng_01", "", "arng", attribute_range_rule, DatabaseType.ORACLE);
+        session.save(arng_template);
+        session.save(new TemplateTag("table", "table", arng_template));
+        session.save(new TemplateTag("name", "string", arng_template));
+        session.save(new TemplateTag("column", "column", arng_template));
+        session.save(new TemplateTag("between", "between", arng_template));
+        session.save(new TemplateTag("number_1", "number", arng_template));
+        session.save(new TemplateTag("operator", "operator", arng_template));
+        session.save(new TemplateTag("number_2", "number", arng_template));
 
-
-        BusinessRuleType businessRuleType2 = new BusinessRuleType(2, "attribute_compare_rule");
-        session.save(businessRuleType2);
-        session.save(new Template(2, "testnaam", "", "", businessRuleType2, DatabaseType.ORACLE));
+        BusinessRuleType attribute_compare_rule = new BusinessRuleType(2, "attribute_compare_rule");
+        session.save(attribute_compare_rule);
+        Template acmp_template = new Template(1, "brg_gebruiker_cns_acmp_01", "", "acmp", attribute_range_rule, DatabaseType.ORACLE);
+        session.save(acmp_template);
+        session.save(new TemplateTag("table", "table", acmp_template));
+        session.save(new TemplateTag("name", "string", acmp_template));
+        session.save(new TemplateTag("column", "column", acmp_template));
+        session.save(new TemplateTag("operator", "operator", acmp_template));
+        session.save(new TemplateTag("value", "dynamic", acmp_template));
 
         BusinessRuleType businessRuleType3 = new BusinessRuleType(3, "attribute_list_rule");
         session.save(businessRuleType3);
@@ -67,17 +79,6 @@ public class Main {
 
         BusinessRuleType businessRuleType9 = new BusinessRuleType(9, "modify_rule");
         session.save(businessRuleType9);
-
-
-//        Template template_arng = new Template("BRG_(ENTITEIT)_CNS/TRG(RULE)_01", "", "arng", businessRuleType, DatabaseType.ORACLE);
-//        session.save(template_arng);
-
-
-        TemplateTag templateTag = new TemplateTag("key", "type", template);
-        session.save(templateTag);
-
-        BusinessRuleTag businessRuleTag = new BusinessRuleTag(1, "gebruikers", templateTag, businessRule);
-        session.save(businessRuleTag);
 
         t.commit();
 
