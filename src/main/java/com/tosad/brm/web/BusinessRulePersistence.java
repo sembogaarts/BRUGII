@@ -2,6 +2,7 @@ package com.tosad.brm.web;
 
 import com.tosad.brm.web.hibernate.HibernateUtils;
 import com.tosad.brm.web.hibernate.domain.businessRule.BusinessRule;
+import com.tosad.brm.web.hibernate.domain.businessRule.BusinessRuleType;
 import org.hibernate.SessionFactory;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -15,12 +16,11 @@ class BusinessRulePersistence {
         CriteriaBuilder builder = sessionFactory.getCriteriaBuilder();
 
         // Create CriteriaQuery
-        CriteriaQuery<BusinessRule> criteria = builder.createQuery(BusinessRule.class);
-        Root<BusinessRule> variableRoot = criteria.from(BusinessRule.class);
+        CriteriaQuery<BusinessRuleType> criteria = builder.createQuery(BusinessRuleType.class);
+        Root<BusinessRuleType> variableRoot = criteria.from(BusinessRuleType.class);
         criteria.select(variableRoot);
 
-        List<BusinessRule> lol = HibernateUtils.getSession().createQuery(criteria).getResultList();
-        HibernateUtils.close();
+        List<BusinessRuleType> lol = HibernateUtils.getSession().createQuery(criteria).getResultList();
         return lol;
     }
 }

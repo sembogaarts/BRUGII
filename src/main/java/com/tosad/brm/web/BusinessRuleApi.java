@@ -1,6 +1,7 @@
 package com.tosad.brm.web;
 
 import com.tosad.brm.web.hibernate.domain.businessRule.BusinessRule;
+import com.tosad.brm.web.hibernate.domain.businessRule.BusinessRuleType;
 
 import javax.ws.rs.*;
 
@@ -32,7 +33,7 @@ public class BusinessRuleApi implements Api {
     @Produces("application/json")
     @Override
     public String get() {
-        List<BusinessRule> alleBusinessRules = null;
+        List<BusinessRuleType> alleBusinessRules = null;
         try {
             alleBusinessRules = getAllBusinessRules();
         } catch (Exception e) {
