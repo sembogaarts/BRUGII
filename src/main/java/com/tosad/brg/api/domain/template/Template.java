@@ -14,11 +14,8 @@ public class Template {
     @SequenceGenerator(name = "TEMPLATE_SEQUENCE", sequenceName = "TEMPLATE_SEQUENCE", allocationSize = 1)
     public int id;
 
-    @OneToMany(mappedBy = "template")
-    Set<TemplateTag> templateTag;
-
     @Column(name = "databasetype")
-    private DatabaseType databaseType;
+    private String databaseType;
 
     @ManyToOne
     @JoinColumn(name = "businessruletype_id", nullable = false)
@@ -33,42 +30,19 @@ public class Template {
     @Column(name = "prefix")
     private String prefix;
 
-    public Template(String name, String script, String prefix, DatabaseType databaseType) {
+    public Template(String name, String script, String prefix, BusinessRuleType businessRuleType, DatabaseType databaseType) {
         this.name = name;
         this.script = script;
         this.prefix = prefix;
-        this.databaseType = databaseType;
+        this.businessRuleType = businessRuleType;
+        this.databaseType = databaseType.toString();
     }
 
-    public String getName() {
-        return name;
-    }
+//    public DatabaseType getDatabaseType() {
+//        return databaseType;
+//    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getScript() {
-        return script;
-    }
-
-    public void setScript(String script) {
-        this.script = script;
-    }
-
-    public String getPrefix() {
-        return prefix;
-    }
-
-    public void setPrefix(String prefix) {
-        this.prefix = prefix;
-    }
-
-    public DatabaseType getDatabaseType() {
-        return databaseType;
-    }
-
-    public void setDatabaseType(DatabaseType databaseType) {
-        this.databaseType = databaseType;
-    }
+//    public void setDatabaseType(DatabaseType databaseType) {
+//        this.databaseType = databaseType;
+//    }
 }

@@ -41,14 +41,14 @@ public class Project {
 //    @OneToMany(mappedBy = "project")
 //    private Set<Table> table;
 
-    public Project(int id, String name, String host, String username, String password, int port, String databaseType, Set<Table> tables) {
+    public Project(int id, String name, String host, String username, String password, int port, DatabaseType databaseType, Set<Table> tables) {
         this.id = id;
         this.name = name;
         this.host = host;
         this.username = username;
         this.password = password;
         this.port = port;
-        this.databaseType = databaseType;
+        this.databaseType = databaseType.toString();
 //        this.table = tables;
 //        this.databaseConnection = databaseType.createConnection(host, username, password, port);
     }

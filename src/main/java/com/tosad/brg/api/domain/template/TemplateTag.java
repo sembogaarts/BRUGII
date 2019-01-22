@@ -26,12 +26,14 @@ public class TemplateTag {
     public String key;
 
     @Column(name = "template_tag_type")
-    public String templateTagTypeStr;
+    public String templateTagType;
 
 
-    public TemplateTag(String key, String templateTagTypeStr) {
+    public TemplateTag(String key, String templateTagType, Template template) {
         this.key = key;
-        this.templateTagTypeStr = templateTagTypeStr;
+        this.templateTagType = templateTagType;
+        this.businessRuleTag = businessRuleTag;
+        this.template = template;
 //        this.templateTagType = TemplateTagType.getTypeByText(templateTagTypeStr);
     }
 

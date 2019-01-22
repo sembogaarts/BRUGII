@@ -3,6 +3,7 @@ package com.tosad.brg.api;
 import com.tosad.brg.api.domain.businessRule.BusinessRule;
 import com.tosad.brg.api.domain.businessRule.BusinessRuleTag;
 import com.tosad.brg.api.domain.businessRule.BusinessRuleType;
+import com.tosad.brg.api.domain.template.DatabaseType;
 import com.tosad.brg.api.domain.template.Template;
 import com.tosad.brg.api.domain.template.TemplateTag;
 import com.tosad.brg.api.taskSpecific.Column;
@@ -24,7 +25,7 @@ public class Main {
 
         Transaction t = session.beginTransaction();
 
-        Project project = new Project(1, "BRG", "localhost", "cursist", "cursist2321", 8521, "oracle", null);
+        Project project = new Project(1, "BRG", "localhost", "cursist", "cursist2321", 8521, DatabaseType.ORACLE, null);
         session.save(project);
 
         Table table = new Table(project, "gebruikers");
@@ -33,32 +34,25 @@ public class Main {
         Column column = new Column("gebruikersnaam", table);
         session.save(column);
 
-        BusinessRuleTag businessRuleTag = new BusinessRuleTag(1, "gebruikers", null);
-        session.save(businessRuleTag);
 
-        Template template = new Template("testnaam", "", "", null);
-        session.save(template);
-
-        BusinessRuleType businessRuleType = new BusinessRuleType("attribute_range_rule", template);
+        BusinessRuleType businessRuleType = new BusinessRuleType("attribute_range_rule");
         session.save(businessRuleType);
+
+        Template template = new Template("testnaam", "", "", businessRuleType, DatabaseType.ORACLE);
+        session.save(template);
 
         BusinessRule businessRule = new BusinessRule("testrule", businessRuleType, null, null);
         session.save(businessRule);
 
-        TemplateTag templateTag = new TemplateTag("key", "type");
+        TemplateTag templateTag = new TemplateTag("key", "type", template);
         session.save(templateTag);
-//        TemplateTagType templateTagType = new TemplateTagType("");
-//        DatabaseType databaseType = new DatabaseType("Oracle");
-//        BusinessRuleTag businessRule = (BusinessRuleTag) session.get(BusinessRuleTag.class, 1);
-//        System.out.println(businessRule.getValue());
 
+        BusinessRuleTag businessRuleTag = new BusinessRuleTag(1, "gebruikers", templateTag, businessRule);
+        session.save(businessRuleTag);
 
         t.commit();
 
         hibernateUtils.close();
-//        toolDatabase.getConnection()
-//        Project project = new Project("test", "ondora04.hu.nl", "cursist", "cursist2321", 8521, DatabaseType.ORACLE, new ArrayList<Table>());
-
 //        BusinessRuleTag businessRuleTag1 = new BusinessRuleTag("id", new TemplateTag("COLUMN", TemplateTagType.COLUMN));
 //        BusinessRuleTag businessRuleTag2 = new BusinessRuleTag("=", new TemplateTag("OPERATOR", TemplateTagType.OPERATOR));
 //        BusinessRuleTag businessRuleTag3 = new BusinessRuleTag("Y", new TemplateTag("CHECK", TemplateTagType.STRING));

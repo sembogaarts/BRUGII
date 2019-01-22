@@ -20,17 +20,15 @@ public class BusinessRuleTag {
     private TemplateTag templateTag;
 
     @ManyToOne
-    @JoinColumn(name = "businessRuleTag_id")
+    @JoinColumn(name = "businessRule_id")
     private BusinessRule businessRule;
 
 
-    public BusinessRuleTag(int id, String value, TemplateTag templateTag) {
+    public BusinessRuleTag(int id, String value, TemplateTag templateTag, BusinessRule businessRule) {
         this.id = id;
         this.value = value;
-//        this.templateTag = templateTag;
-    }
-
-    public BusinessRuleTag() {
+        this.templateTag = templateTag;
+        this.businessRule = businessRule;
     }
 
     public int getId() {

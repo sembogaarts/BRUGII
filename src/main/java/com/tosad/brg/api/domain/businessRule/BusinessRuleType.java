@@ -14,16 +14,11 @@ public class BusinessRuleType {
     @SequenceGenerator(name = "BUSINESSRULETYPE_SEQUENCE", sequenceName = "BUSINESSRULETYPE_SEQUENCE", allocationSize = 1)
     public int id;
 
-    @ManyToOne
-    @JoinColumn(name = "template_id")
-    private Template template;
-
     @Column(name = "name")
     private String name;
 
-    public BusinessRuleType(String name, Template template) {
+    public BusinessRuleType(String name) {
         this.name = name;
-        this.template = template;
     }
 
     public String getName() {
