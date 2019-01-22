@@ -25,8 +25,11 @@ public enum TemplateTagType implements Serializable {
     },
     NUMBER("number"),
     TABLE("table"),
-    BETWEEN("between"),
+    BETWEEN("between"),     // Trigger - Between / Not between
     DYNAMIC("dynamic"),
+    STATE("state"),         // Trigger - Before / After
+    EVENT("event"),         // Trigger - Insert / Update
+    EACH_ROW("each_row"),   // Trigger - Before each row
     COLUMN("column"),
     BOOLEAN("boolean"),
     UNKNOWN("unknown");

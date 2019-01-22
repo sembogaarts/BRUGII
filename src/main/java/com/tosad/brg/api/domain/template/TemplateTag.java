@@ -26,10 +26,10 @@ public class TemplateTag {
     public String key;
 
     @Column(name = "template_tag_type")
-    public String templateTagType;
+    public TemplateTagType templateTagType;
 
 
-    public TemplateTag(String key, String templateTagType, Template template) {
+    public TemplateTag(String key, TemplateTagType templateTagType, Template template) {
         this.key = key;
         this.templateTagType = templateTagType;
         this.businessRuleTag = businessRuleTag;

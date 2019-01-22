@@ -6,6 +6,7 @@ import com.tosad.brg.api.domain.businessRule.BusinessRuleType;
 import com.tosad.brg.api.domain.template.DatabaseType;
 import com.tosad.brg.api.domain.template.Template;
 import com.tosad.brg.api.domain.template.TemplateTag;
+import com.tosad.brg.api.domain.type.TemplateTagType;
 import com.tosad.brg.api.taskSpecific.Column;
 import com.tosad.brg.api.taskSpecific.Project;
 import com.tosad.brg.api.taskSpecific.Table;
@@ -41,44 +42,77 @@ public class Main {
         session.save(attribute_range_rule);
         Template arng_template = new Template(1, "brg_gebruiker_cns_arng_01", "", "arng", attribute_range_rule, DatabaseType.ORACLE);
         session.save(arng_template);
-        session.save(new TemplateTag("table", "table", arng_template));
-        session.save(new TemplateTag("name", "string", arng_template));
-        session.save(new TemplateTag("column", "column", arng_template));
-        session.save(new TemplateTag("between", "between", arng_template));
-        session.save(new TemplateTag("number_1", "number", arng_template));
-        session.save(new TemplateTag("operator", "operator", arng_template));
-        session.save(new TemplateTag("number_2", "number", arng_template));
+        session.save(new TemplateTag("table", TemplateTagType.TABLE, arng_template));
+        session.save(new TemplateTag("name", TemplateTagType.STRING, arng_template));
+        session.save(new TemplateTag("column", TemplateTagType.COLUMN, arng_template));
+        session.save(new TemplateTag("between", TemplateTagType.BETWEEN, arng_template));
+        session.save(new TemplateTag("number_1", TemplateTagType.NUMBER, arng_template));
+        session.save(new TemplateTag("operator", TemplateTagType.OPERATOR, arng_template));
+        session.save(new TemplateTag("number_2", TemplateTagType.NUMBER, arng_template));
 
+        /*
+         * attribute_compare_rule
+         * */
         BusinessRuleType attribute_compare_rule = new BusinessRuleType(2, "attribute_compare_rule");
         session.save(attribute_compare_rule);
         Template acmp_template = new Template(1, "brg_gebruiker_cns_acmp_01", "", "acmp", attribute_range_rule, DatabaseType.ORACLE);
         session.save(acmp_template);
-        session.save(new TemplateTag("table", "table", acmp_template));
-        session.save(new TemplateTag("name", "string", acmp_template));
-        session.save(new TemplateTag("column", "column", acmp_template));
-        session.save(new TemplateTag("operator", "operator", acmp_template));
-        session.save(new TemplateTag("value", "dynamic", acmp_template));
+        session.save(new TemplateTag("table", TemplateTagType.TABLE, acmp_template));
+        session.save(new TemplateTag("name", TemplateTagType.STRING, acmp_template));
+        session.save(new TemplateTag("column", TemplateTagType.COLUMN, acmp_template));
+        session.save(new TemplateTag("operator", TemplateTagType.OPERATOR, acmp_template));
+        session.save(new TemplateTag("value", TemplateTagType.DYNAMIC, acmp_template));
 
-        BusinessRuleType businessRuleType3 = new BusinessRuleType(3, "attribute_list_rule");
-        session.save(businessRuleType3);
+        /*
+         * tuple_compare_rule
+         * */
+        BusinessRuleType tuple_compare_rule = new BusinessRuleType(3, "tuple_compare_rule");
+        session.save(tuple_compare_rule);
+        Template tcmp_template = new Template(1, "brg_gebruiker_cns_tcmp_01", "", "tcmp", tuple_compare_rule, DatabaseType.ORACLE);
+        session.save(acmp_template);
+        session.save(new TemplateTag("table", TemplateTagType.TABLE, tcmp_template));
+        session.save(new TemplateTag("name", TemplateTagType.STRING, tcmp_template));
+        session.save(new TemplateTag("column_1", TemplateTagType.COLUMN, tcmp_template));
+        session.save(new TemplateTag("operator", TemplateTagType.OPERATOR, tcmp_template));
+        session.save(new TemplateTag("column_2", TemplateTagType.COLUMN, tcmp_template));
 
-        BusinessRuleType businessRuleType4 = new BusinessRuleType(4, "attribute_other_rule");
-        session.save(businessRuleType4);
+        /*
+         * inter_entity_compare_rule
+         * */
+        BusinessRuleType inter_entity_compare_rule = new BusinessRuleType(4, "inter_entity_compare_rule");
+        session.save(inter_entity_compare_rule);
+        Template icmp_template = new Template(1, "brg_gebruiker_trg_icmp_01", "", "icmp", tuple_compare_rule, DatabaseType.ORACLE);
+        session.save(acmp_template);
+        session.save(new TemplateTag("name", TemplateTagType.STRING, icmp_template));
+        session.save(new TemplateTag("state", TemplateTagType.STATE, icmp_template));
+        session.save(new TemplateTag("event", TemplateTagType.EVENT, icmp_template));
+        session.save(new TemplateTag("table_1", TemplateTagType.TABLE, icmp_template));
+        session.save(new TemplateTag("each_row", TemplateTagType.EACH_ROW, icmp_template));
+        session.save(new TemplateTag("column_2", TemplateTagType.COLUMN, icmp_template));
+        session.save(new TemplateTag("table_2", TemplateTagType.TABLE, icmp_template));
+        session.save(new TemplateTag("operator", TemplateTagType.OPERATOR, icmp_template));
+        session.save(new TemplateTag("column_1", TemplateTagType.COLUMN, icmp_template));
+        session.save(new TemplateTag("errcode", TemplateTagType.STRING, icmp_template));
+        session.save(new TemplateTag("errmessage", TemplateTagType.STRING, icmp_template));
 
-        BusinessRuleType businessRuleType5 = new BusinessRuleType(5, "tuple_compare_rule");
-        session.save(businessRuleType5);
-
-        BusinessRuleType businessRuleType6 = new BusinessRuleType(6, "tuple_other_rule");
-        session.save(businessRuleType6);
-
-        BusinessRuleType businessRuleType7 = new BusinessRuleType(7, "inter_entity_compare_rule");
-        session.save(businessRuleType7);
-
-        BusinessRuleType businessRuleType8 = new BusinessRuleType(8, "entity_other_rule");
-        session.save(businessRuleType8);
-
-        BusinessRuleType businessRuleType9 = new BusinessRuleType(9, "modify_rule");
-        session.save(businessRuleType9);
+//        BusinessRuleType attribute_list_rule = new BusinessRuleType(3, "attribute_list_rule");
+//        session.save(attribute_list_rule);
+//
+//
+//        BusinessRuleType businessRuleType4 = new BusinessRuleType(4, "attribute_other_rule");
+//        session.save(businessRuleType4);
+//
+//        BusinessRuleType businessRuleType6 = new BusinessRuleType(6, "tuple_other_rule");
+//        session.save(businessRuleType6);
+//
+//        BusinessRuleType businessRuleType7 = new BusinessRuleType(7, "inter_entity_compare_rule");
+//        session.save(businessRuleType7);
+//
+//        BusinessRuleType businessRuleType8 = new BusinessRuleType(8, "entity_other_rule");
+//        session.save(businessRuleType8);
+//
+//        BusinessRuleType businessRuleType9 = new BusinessRuleType(9, "modify_rule");
+//        session.save(businessRuleType9);
 
 //        Template template_arng = new Template("BRG_(ENTITEIT)_CNS/TRG(RULE)_01", "", "arng", businessRuleType, DatabaseType.ORACLE);
 //        session.save(template_arng);
@@ -89,7 +123,7 @@ public class Main {
 //
 //        BusinessRuleTag businessRuleTag = new BusinessRuleTag(1, "gebruikers", templateTag, businessRule);
 //        session.save(businessRuleTag);
-        
+
         t.commit();
 
         hibernateUtils.close();
