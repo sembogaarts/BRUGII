@@ -25,6 +25,8 @@ public enum TemplateTagType implements Serializable {
     },
     NUMBER("number"),
     TABLE("table"),
+    BETWEEN("between"),
+    DYNAMIC("dynamic"),
     COLUMN("column"),
     BOOLEAN("boolean"),
     UNKNOWN("unknown");
