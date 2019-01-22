@@ -34,9 +34,15 @@ public class Main {
         Column column = new Column("gebruikersnaam", table);
         session.save(column);
 
+        /*
+         * attribute_range_rule
+         *
+         * */
         BusinessRuleType businessRuleType = new BusinessRuleType(1, "attribute_range_rule");
         session.save(businessRuleType);
         session.save(new Template(1, "testnaam", "", "", businessRuleType, DatabaseType.ORACLE));
+        BusinessRule businessRule = new BusinessRule("testrule", businessRuleType, project);
+        session.save(businessRule);
 
 
         BusinessRuleType businessRuleType2 = new BusinessRuleType(2, "attribute_compare_rule");
@@ -64,11 +70,10 @@ public class Main {
         BusinessRuleType businessRuleType9 = new BusinessRuleType(9, "modify_rule");
         session.save(businessRuleType9);
 
+
 //        Template template_arng = new Template("BRG_(ENTITEIT)_CNS/TRG(RULE)_01", "", "arng", businessRuleType, DatabaseType.ORACLE);
 //        session.save(template_arng);
 
-        BusinessRule businessRule = new BusinessRule("testrule", businessRuleType, null, null);
-        session.save(businessRule);
 
         TemplateTag templateTag = new TemplateTag("key", "type", template);
         session.save(templateTag);

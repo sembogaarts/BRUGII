@@ -2,6 +2,7 @@ package com.tosad.brg.api.domain.businessRule;
 
 import com.tosad.brg.api.domain.template.Template;
 import com.tosad.brg.api.domain.template.TemplateTag;
+import com.tosad.brg.api.taskSpecific.Project;
 
 import javax.persistence.*;
 import java.util.HashMap;
@@ -23,11 +24,14 @@ public class BusinessRule {
     @JoinColumn(name = "businessruletype_id", nullable = false)
     private BusinessRuleType businessRuleType;
 
+    @ManyToOne
+    @JoinColumn(name = "project_id", nullable = false)
+    private Project project;
 
-    public BusinessRule(String name, BusinessRuleType businessRuleType, Template template, HashMap<TemplateTag, BusinessRuleTag> businessRuleTagHashMap) {
+    public BusinessRule(String name, BusinessRuleType businessRuleType, Project project) {
         this.name = name;
         this.businessRuleType = businessRuleType;
-//        this.businessRuleTagHashMap = businessRuleTagHashMap;
+        this.project = project;
     }
 
     public String getName() {
