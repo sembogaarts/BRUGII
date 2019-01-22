@@ -1,21 +1,18 @@
 package com.tosad.brm.web;
 
-import java.awt.List;
+import javax.ws.rs.*;
 
-import javax.json.Json;
-import javax.json.JsonArray;
-import javax.json.JsonArrayBuilder;
-import javax.json.JsonObjectBuilder;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
+import static com.tosad.brm.web.BusinessRulePersistence.getAllBusinessRules;
+
+@Path("/businessrule")
 public class BusinessRuleApi implements Api {
 
     @POST
-    @Path("/createBusinessRules")
+    @Path("/create")
     @Produces("application/json")
     @Override
     public void create() {
@@ -29,36 +26,38 @@ public class BusinessRuleApi implements Api {
     }
 
     @GET
-    @Path("/getBusinessRulesTypes")
+    @Path("/get")
     @Produces("application/json")
     @Override
     public String get() {
-    	List alleBusinessRules = new ArrayList();
-    	alleBusinessRules.add(getAllBusinessRules());
-    	
-    	JsonArrayBuilder jab = Json.createArrayBuilder();
-    	JsonObjectBuilder job = Json.createObjectBuilder();
-    	
-		jab.add(job);
+        List<String> alleBusinessRules = null;
+        try {
+            alleBusinessRules = getAllBusinessRules();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        String citiesCommaSeparated = alleBusinessRules.stream()
+                .collect(Collectors.joining(","));
 
-		JsonArray array = jab.build();
-		return array.toString();
+        return citiesCommaSeparated;
     }
-    
+
     @GET
     @Path("/getBusinessRules/{businnessRuleType}")
     @Produces("application/json")
-    public String getBusinessRules(@PathParam("businessRuleType") String businessRuleType) {
-		JsonArrayBuilder jab = Json.createArrayBuilder();
+    public String getBusinessRules(@PathParam("id") String businessRuleType) {
+//		JsonArrayBuilder jab = Json.createArrayBuilder();
+//
+//		JsonObjectBuilder job = Json.createObjectBuilder();
+//
+//		job.add();
+//
+//		jab.add(job);
+//
+//		JsonArray array = jab.build();
+//		return array.toString();
 
-		JsonObjectBuilder job = Json.createObjectBuilder();
-		
-		job.add();
-		
-		jab.add(job)
-		
-		JsonArray array = jab.build();
-		return array.toString();
+        return "";
     }
 
     @PUT
@@ -72,7 +71,7 @@ public class BusinessRuleApi implements Api {
     @DELETE
     @Path("/deleteBusinessRule")
     @Produces("application/json")
-	public void delete() {
-		
-	}
+    public void delete() {
+
+    }
 }
