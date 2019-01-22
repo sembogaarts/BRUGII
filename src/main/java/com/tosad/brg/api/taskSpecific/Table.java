@@ -15,9 +15,6 @@ public class Table {
     @javax.persistence.Column(name = "name")
     String name;
 
-    @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
-    Set<Column> columns;
-
     @ManyToOne
     @JoinColumn(name = "project_id", nullable = false)
     private Project project;
@@ -26,17 +23,4 @@ public class Table {
         this.project = project;
         this.name = name;
     }
-
-    public Table(Set<Column> columns) {
-        this.columns = columns;
-    }
-
-    public Set<Column> getColumns() {
-        return columns;
-    }
-
-    public void setColumns(Set<Column> columns) {
-        this.columns = columns;
-    }
-
 }
