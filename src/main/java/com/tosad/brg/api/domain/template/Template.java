@@ -30,7 +30,8 @@ public class Template {
     @Column(name = "prefix")
     private String prefix;
 
-    public Template(String name, String script, String prefix, BusinessRuleType businessRuleType, DatabaseType databaseType) {
+    public Template(int id, String name, String script, String prefix, BusinessRuleType businessRuleType, DatabaseType databaseType) {
+        this.id = id;
         this.name = name;
         this.script = script;
         this.prefix = prefix;

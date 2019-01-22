@@ -34,34 +34,34 @@ public class Main {
         Column column = new Column("gebruikersnaam", table);
         session.save(column);
 
-        BusinessRuleType businessRuleType = new BusinessRuleType("attribute_range_rule");
+        BusinessRuleType businessRuleType = new BusinessRuleType(1, "attribute_range_rule");
         session.save(businessRuleType);
 
-        BusinessRuleType businessRuleType2 = new BusinessRuleType("attribute_compare_rule");
+        BusinessRuleType businessRuleType2 = new BusinessRuleType(2, "attribute_compare_rule");
         session.save(businessRuleType2);
 
-        BusinessRuleType businessRuleType3 = new BusinessRuleType("attribute_list_rule");
+        BusinessRuleType businessRuleType3 = new BusinessRuleType(3, "attribute_list_rule");
         session.save(businessRuleType3);
 
-        BusinessRuleType businessRuleType4 = new BusinessRuleType("attribute_other_rule");
+        BusinessRuleType businessRuleType4 = new BusinessRuleType(4, "attribute_other_rule");
         session.save(businessRuleType4);
 
-        BusinessRuleType businessRuleType5 = new BusinessRuleType("tuple_compare_rule");
+        BusinessRuleType businessRuleType5 = new BusinessRuleType(5, "tuple_compare_rule");
         session.save(businessRuleType5);
 
-        BusinessRuleType businessRuleType6 = new BusinessRuleType("tuple_other_rule");
+        BusinessRuleType businessRuleType6 = new BusinessRuleType(6, "tuple_other_rule");
         session.save(businessRuleType6);
 
-        BusinessRuleType businessRuleType7 = new BusinessRuleType("inter_entity_compare_rule");
+        BusinessRuleType businessRuleType7 = new BusinessRuleType(7, "inter_entity_compare_rule");
         session.save(businessRuleType7);
 
-        BusinessRuleType businessRuleType8 = new BusinessRuleType("entity_other_rule");
+        BusinessRuleType businessRuleType8 = new BusinessRuleType(8, "entity_other_rule");
         session.save(businessRuleType8);
 
-        BusinessRuleType businessRuleType9 = new BusinessRuleType("modify_rule");
+        BusinessRuleType businessRuleType9 = new BusinessRuleType(9, "modify_rule");
         session.save(businessRuleType9);
 
-        Template template = new Template("testnaam", "", "", businessRuleType, DatabaseType.ORACLE);
+        Template template = new Template(1, "testnaam", "", "", businessRuleType, DatabaseType.ORACLE);
         session.save(template);
 
 //        Template template_arng = new Template("BRG_(ENTITEIT)_CNS/TRG(RULE)_01", "", "arng", businessRuleType, DatabaseType.ORACLE);
