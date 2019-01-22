@@ -14,10 +14,6 @@ public class TemplateTag {
     @SequenceGenerator(name = "TEMPLATETAG_SEQUENCE", sequenceName = "TEMPLATETAG_SEQUENCE", allocationSize = 1)
     public int id;
 
-    @OneToOne()
-    @JoinColumn(name = "businessRuleTag_id")
-    private BusinessRuleTag businessRuleTag;
-
     @ManyToOne
     @JoinColumn(name = "template_id", nullable = false)
     private Template template;
@@ -32,7 +28,6 @@ public class TemplateTag {
     public TemplateTag(String key, TemplateTagType templateTagType, Template template) {
         this.key = key;
         this.templateTagType = templateTagType;
-        this.businessRuleTag = businessRuleTag;
         this.template = template;
 //        this.templateTagType = TemplateTagType.getTypeByText(templateTagTypeStr);
     }
