@@ -1,4 +1,4 @@
-package com.tosad.brg.api.infrastructure;
+package com.tosad.brg.api.hibernate.infrastructure;
 
 public interface DatabaseConnection {
     Object getConnection();

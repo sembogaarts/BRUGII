@@ -1,10 +1,6 @@
-package com.tosad.brg.api.domain.businessRule;
+package com.tosad.brg.api.hibernate.domain.businessRule;
 
-import java.io.Serializable;
-import java.util.Set;
 import javax.persistence.*;
-
-import com.tosad.brg.api.domain.template.Template;
 
 @Entity
 @Table(name = "BUSINESSRULETYPE")

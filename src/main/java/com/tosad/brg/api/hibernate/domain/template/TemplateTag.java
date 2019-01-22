@@ -1,7 +1,6 @@
-package com.tosad.brg.api.domain.template;
+package com.tosad.brg.api.hibernate.domain.template;
 
-import com.tosad.brg.api.domain.businessRule.BusinessRuleTag;
-import com.tosad.brg.api.domain.type.TemplateTagType;
+import com.tosad.brg.api.hibernate.domain.businessRule.BusinessRuleTag;
 
 import javax.persistence.*;
 

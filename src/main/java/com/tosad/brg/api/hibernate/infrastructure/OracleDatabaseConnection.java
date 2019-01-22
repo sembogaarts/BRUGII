@@ -1,6 +1,4 @@
-package com.tosad.brg.api.infrastructure;
-
-import com.tosad.brg.api.taskSpecific.Project;
+package com.tosad.brg.api.hibernate.infrastructure;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

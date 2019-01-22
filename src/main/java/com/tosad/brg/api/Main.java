@@ -1,5 +1,6 @@
 package com.tosad.brg.api;
 
+<<<<<<< HEAD
 import com.tosad.brg.api.domain.businessRule.BusinessRule;
 import com.tosad.brg.api.domain.businessRule.BusinessRuleTag;
 import com.tosad.brg.api.domain.businessRule.BusinessRuleType;
@@ -10,6 +11,17 @@ import com.tosad.brg.api.domain.type.TemplateTagType;
 import com.tosad.brg.api.taskSpecific.Column;
 import com.tosad.brg.api.taskSpecific.Project;
 import com.tosad.brg.api.taskSpecific.Table;
+=======
+import com.tosad.brg.api.hibernate.HibernateUtils;
+import com.tosad.brg.api.hibernate.domain.businessRule.BusinessRule;
+import com.tosad.brg.api.hibernate.domain.businessRule.BusinessRuleType;
+import com.tosad.brg.api.hibernate.domain.template.DatabaseType;
+import com.tosad.brg.api.hibernate.domain.template.Template;
+import com.tosad.brg.api.hibernate.domain.template.TemplateTag;
+import com.tosad.brg.api.hibernate.taskSpecific.Column;
+import com.tosad.brg.api.hibernate.taskSpecific.Project;
+import com.tosad.brg.api.hibernate.taskSpecific.Table;
+>>>>>>> 398cb38e5041e62b45516093263cd71e2e462791
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
