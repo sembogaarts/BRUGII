@@ -32,7 +32,6 @@ public class TemplateTag {
     public TemplateTag(String key, TemplateTagType templateTagType, Template template) {
         this.key = key;
         this.templateTagType = templateTagType;
-        this.businessRuleTag = businessRuleTag;
         this.template = template;
 //        this.templateTagType = TemplateTagType.getTypeByText(templateTagTypeStr);
     }
