@@ -11,6 +11,10 @@
             </select>
         </div>
 
+        <div class="template-raw">
+            <pre><code>{{ template.raw }}</code></pre>
+        </div>
+
         <!-- Template Generator -->
         <div v-if="hasTemplate">
 
@@ -42,10 +46,6 @@
                 <button type="submit" @click="onSubmit()"><i class="fas fa-sync-alt"></i> Genereer</button>
 
             </form>
-            <div class="template-raw"> <pre> <code> test </code> </pre> </div>
-
-            {{ template.tags }}
-
         </div>
 
     </div>

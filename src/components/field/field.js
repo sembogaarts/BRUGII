@@ -67,7 +67,7 @@ module.exports = {
         getEarlierFieldType() {
             for (var x = this.index; 0 <= x; x--) {
                 if (this.tags[x].type == 'COLUMN') {
-                    
+
 
 
                     if(typeof(this.tags[x].value) != 'undefined') {
