@@ -17,8 +17,8 @@ const router = new VueRouter({
             component: ManagerComponent
         },
         {
-            path: '/generate',
-            name: 'Generator',
+            path: '/creator',
+            name: 'Creator',
             icon: 'fa-database',
             component: GeneratorComponent
         },

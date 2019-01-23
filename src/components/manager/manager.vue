@@ -15,19 +15,19 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td> Dakota Rice heel verhaal getypt hierrrrrrrrrrrrrrrrrrrrrrrrrrrrr </td>
+                    <td>brg_gebruikers_cns_arng_01</td>
                     <td> Actief </td>
                     <td class="icontd"> <i class="far fa-edit"></i> </td>
                     <td class="icontd"> <i class="fas fa-sync-alt"></i></td>
                 </tr>
                 <tr>
-                    <td> Business Rule </td>
+                    <td> brg_gebruikers_cns_arng_02 </td>
                     <td> Inactief </td>
                     <td class="icontd"> <i class="far fa-edit"></i> </td>
                     <td class="icontd"> <i class="fas fa-sync-alt"></i> </td>
                 </tr>
                 <tr>
-                    <td> Business Rule nummero 2 </td>
+                    <td> brg_gebruikers_cns_arng_03 </td>
                     <td> Actief </td>
                     <td class="icontd"> <i class="far fa-edit"></i> </td>
                     <td class="icontd"> <i class="fas fa-sync-alt"></i> </td>
