@@ -15,7 +15,7 @@ public class Column {
 
     @ManyToOne
     @JoinColumn(name = "tables_id", nullable = false)
-    private Table tables;
+    public Table tables;
 
     public Column(String name, Table tables) {
         this.name = name;

@@ -23,13 +23,17 @@ public enum TemplateTagType implements Serializable {
             return value;
         }
     },
+    LOOP("loop"),
     NUMBER("number"),
     TABLE("table"),
+    DYNAMIC("dynamic"),
+    STATE("state"),         // Trigger - Before / After
+    EVENT("event"),         // Trigger - Insert / Update
     COLUMN("column"),
     BOOLEAN("boolean"),
     UNKNOWN("unknown");
 
-    private String type;
+    public String type;
 
 
     TemplateTagType(String type) {

@@ -1,6 +1,7 @@
 package com.tosad.brm.web.hibernate.domain.template;
 
 import com.tosad.brm.web.hibernate.domain.businessRule.BusinessRuleTag;
+import com.tosad.brm.web.hibernate.domain.type.TemplateTagType;
 
 import javax.persistence.*;
 
@@ -15,11 +16,11 @@ public class TemplateTag {
 
     @OneToOne()
     @JoinColumn(name = "businessRuleTag_id")
-    private BusinessRuleTag businessRuleTag;
+    public BusinessRuleTag businessRuleTag;
 
     @ManyToOne
     @JoinColumn(name = "template_id", nullable = false)
-    private Template template;
+    public Template template;
 
     @Column(name = "key")
     public String key;
@@ -27,14 +28,10 @@ public class TemplateTag {
     @Column(name = "template_tag_type")
     public String templateTagType;
 
-    public TemplateTag() {
 
-    }
-
-    public TemplateTag(String key, String templateTagType, Template template) {
+    public TemplateTag(String key, TemplateTagType templateTagType, Template template) {
         this.key = key;
-        this.templateTagType = templateTagType;
-        this.businessRuleTag = businessRuleTag;
+        this.templateTagType = templateTagType.getType();
         this.template = template;
 //        this.templateTagType = TemplateTagType.getTypeByText(templateTagTypeStr);
     }

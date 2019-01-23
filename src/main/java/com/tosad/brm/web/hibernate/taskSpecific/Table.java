@@ -11,11 +11,11 @@ public class Table {
     public int id;
 
     @javax.persistence.Column(name = "name")
-    String name;
+    public String name;
 
     @ManyToOne
     @JoinColumn(name = "project_id", nullable = false)
-    private Project project;
+    public Project project;
 
     public Table(Project project, String name) {
         this.project = project;

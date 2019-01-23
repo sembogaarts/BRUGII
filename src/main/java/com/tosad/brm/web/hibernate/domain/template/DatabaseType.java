@@ -14,7 +14,7 @@ public enum DatabaseType implements Serializable {
     },
     UNKNOWN("unknown");
 
-    private String name;
+    public String name;
 
     DatabaseType(String name) {
         this.name = name;

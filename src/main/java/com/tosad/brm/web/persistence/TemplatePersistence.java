@@ -1,4 +1,4 @@
-package com.tosad.brm.web;
+package com.tosad.brm.web.persistence;
 
 import com.tosad.brm.web.hibernate.HibernateUtils;
 import com.tosad.brm.web.hibernate.domain.businessRule.BusinessRuleType;
@@ -11,27 +11,8 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
-class BusinessRulePersistence {
-    static List<BusinessRuleType> getAllBusinessRuleTypes() throws Exception {
-        SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
-        CriteriaBuilder builder = sessionFactory.getCriteriaBuilder();
-
-        // Create CriteriaQuery
-        CriteriaQuery<BusinessRuleType> criteria = builder.createQuery(BusinessRuleType.class);
-        Root<BusinessRuleType> variableRoot = criteria.from(BusinessRuleType.class);
-        criteria.select(variableRoot);
-
-        return HibernateUtils.getSession().createQuery(criteria).getResultList();
-    }
-
-
-    static BusinessRuleType getBusinessRuleTypeById(int id) {
-        HibernateUtils.getSessionFactory();
-        // Create CriteriaQuery
-        return HibernateUtils.getSession().get(BusinessRuleType.class, id);
-    }
-
-    static Template getTemplateByBusinessRuleType(BusinessRuleType businessRuleType) {
+public class TemplatePersistence {
+    public static Template getTemplateByBusinessRuleType(BusinessRuleType businessRuleType) {
         SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
         CriteriaBuilder builder = HibernateUtils.getSession().getCriteriaBuilder();
 
@@ -44,7 +25,7 @@ class BusinessRulePersistence {
         return HibernateUtils.getSession().createQuery(query).getSingleResult();
     }
 
-    static List<TemplateTag> getTemplateTagsByTemplate(Template template) {
+    public static List<TemplateTag> getTemplateTagsByTemplate(Template template) {
         SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
         CriteriaBuilder builder = HibernateUtils.getSession().getCriteriaBuilder();
 

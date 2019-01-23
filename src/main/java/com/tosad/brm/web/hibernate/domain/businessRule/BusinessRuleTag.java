@@ -13,15 +13,15 @@ public class BusinessRuleTag {
     public int id;
 
     @Column(name = "value")
-    private String value;
+    public String value;
 
     @OneToOne()
     @JoinColumn(name = "templateTag_id")
-    private TemplateTag templateTag;
+    public TemplateTag templateTag;
 
     @ManyToOne
     @JoinColumn(name = "businessRule_id")
-    private BusinessRule businessRule;
+    public BusinessRule businessRule;
 
 
     public BusinessRuleTag(int id, String value, TemplateTag templateTag, BusinessRule businessRule) {

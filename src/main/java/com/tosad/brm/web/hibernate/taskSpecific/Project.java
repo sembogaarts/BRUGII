@@ -1,9 +1,9 @@
 package com.tosad.brm.web.hibernate.taskSpecific;
 
-
 import com.tosad.brm.web.hibernate.domain.template.DatabaseType;
 
 import javax.persistence.*;
+import javax.persistence.Column;
 import java.util.Set;
 
 @Entity
@@ -16,23 +16,23 @@ public class Project {
 
 //    private final DatabaseConnection databaseConnection;
 
-    @javax.persistence.Column(name = "databasetype")
-    private String databaseType;
+    @Column(name = "databasetype")
+    public String databaseType;
 
-    @javax.persistence.Column(name = "name")
-    private String name;
+    @Column(name = "name")
+    public String name;
 
-    @javax.persistence.Column(name = "host")
-    private String host;
+    @Column(name = "host")
+    public String host;
 
-    @javax.persistence.Column(name = "username")
-    private String username;
+    @Column(name = "username")
+    public String username;
 
-    @javax.persistence.Column(name = "password")
-    private String password;
+    @Column(name = "password")
+    public String password;
 
-    @javax.persistence.Column(name = "port")
-    private int port;
+    @Column(name = "port")
+    public int port;
 
 //    private DatabaseType databaseType;
 

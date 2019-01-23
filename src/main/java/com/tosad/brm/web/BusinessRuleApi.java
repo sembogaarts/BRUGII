@@ -13,7 +13,10 @@ import org.json.simple.JSONObject;
 import javax.ws.rs.*;
 import java.util.List;
 
-import static com.tosad.brm.web.BusinessRulePersistence.*;
+import static com.tosad.brm.web.persistence.BusinessRuleTypePersistence.getAllBusinessRuleTypes;
+import static com.tosad.brm.web.persistence.BusinessRuleTypePersistence.getBusinessRuleTypeById;
+import static com.tosad.brm.web.persistence.TemplatePersistence.getTemplateByBusinessRuleType;
+import static com.tosad.brm.web.persistence.TemplatePersistence.getTemplateTagsByTemplate;
 
 @Path("/businessrule")
 public class BusinessRuleApi implements Api {
@@ -37,12 +40,12 @@ public class BusinessRuleApi implements Api {
     @Produces("application/json")
     @Override
     public String get() {
-        String respone = "";
+        JSONArray jsonArray = new JSONArray();
         try {
-            List<BusinessRuleType> businessRuleTypes = getAllBusinessRuleTypes();
-            JSONArray jsonArray = new JSONArray();
-            businessRuleTypes.forEach(businessRuleType -> jsonArray.add(BusinessRuleTypeJSON.generate(businessRuleType)));
-            respone = jsonArray.toJSONString();
+            getAllBusinessRuleTypes()
+                    .forEach(businessRuleType ->
+                            jsonArray.add(BusinessRuleTypeJSON.generate(businessRuleType))
+                    );
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -50,7 +53,7 @@ public class BusinessRuleApi implements Api {
 
         HibernateUtils.close();
 
-        return respone;
+        return jsonArray.toJSONString();
     }
 
     @GET
@@ -60,35 +63,21 @@ public class BusinessRuleApi implements Api {
         JSONObject data = new JSONObject();
         try {
             BusinessRuleType businessRuleType = getBusinessRuleTypeById(businessRuleTypeId);
-            System.out.println(businessRuleType.name);
+
             Template template = getTemplateByBusinessRuleType(businessRuleType);
             data = TemplateJSON.generate(template);
             List<TemplateTag> templateTags = getTemplateTagsByTemplate(template);
             JSONArray jsonArray = new JSONArray();
 
-            templateTags.forEach(templateTag -> {
-                jsonArray.add(TemplateTagJSON.generate(templateTag));
-                System.out.println(templateTag.key);
-            });
+            templateTags.forEach(templateTag -> jsonArray.add(TemplateTagJSON.generate(templateTag)));
             data.put("tags", jsonArray);
+
             HibernateUtils.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         return data.toJSONString();
-//        List<String> alleBusinessRules = null;
-//        JsonArrayBuilder jab = Json.createArrayBuilder();
-//
-//
-//
-//        JsonObjectBuilder job = Json.createObjectBuilder();
-//        job.add("businessrule");
-//
-//        jab.add(job);
-//
-//        JsonArray array = jab.build();
-//        return array.toString();
     }
 
     @PUT
