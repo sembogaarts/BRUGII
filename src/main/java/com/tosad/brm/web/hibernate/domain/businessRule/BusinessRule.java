@@ -23,6 +23,9 @@ public class BusinessRule {
     @JoinColumn(name = "project_id", nullable = false)
     public Project project;
 
+    public BusinessRule() {
+    }
+
     public BusinessRule(String name, BusinessRuleType businessRuleType, Project project) {
         this.name = name;
         this.businessRuleType = businessRuleType;

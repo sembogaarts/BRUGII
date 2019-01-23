@@ -24,12 +24,11 @@ public class TemplateTagJSON implements ApiJSON {
         for (TemplateTag templateTag : templateTagList) {
             if (TemplateTagType.LOOP == templateTag.getTemplateTagType()) {
                 isLoop = !isLoop;
+                continue;
             }
 
             if (isLoop) {
-                if (TemplateTagType.LOOP != templateTag.getTemplateTagType()) {
-                    loopList.add(templateTag);
-                }
+                loopList.add(templateTag);
             } else {
                 jsonArray.add(generate(templateTag));
             }
@@ -37,7 +36,7 @@ public class TemplateTagJSON implements ApiJSON {
         if (!loopList.isEmpty()) {
             jsonArray.add(generateLoopObject(loopList));
         }
-        
+
         return jsonArray;
     }
 

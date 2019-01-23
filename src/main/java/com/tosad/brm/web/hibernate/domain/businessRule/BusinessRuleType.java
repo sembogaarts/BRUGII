@@ -13,6 +13,8 @@ public class BusinessRuleType {
     @Column(name = "name")
     public String name;
 
+    public BusinessRuleType() {}
+
     public BusinessRuleType(int id, String name) {
         this.id = id;
         this.name = name;

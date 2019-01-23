@@ -28,12 +28,14 @@ public class TemplateTag {
     @Column(name = "template_tag_type")
     public String templateTagType;
 
+    public TemplateTag() {
+
+    }
 
     public TemplateTag(String key, TemplateTagType templateTagType, Template template) {
         this.key = key;
         this.templateTagType = templateTagType.getType();
         this.template = template;
-//        this.templateTagType = TemplateTagType.getTypeByText(templateTagTypeStr);
     }
 
     public String getTemplateKey() {
@@ -51,12 +53,4 @@ public class TemplateTag {
     public TemplateTagType getTemplateTagType() {
         return TemplateTagType.getTypeByText(templateTagType);
     }
-
-//    public TemplateTagType getTemplateTagType() {
-//        return templateTagType;
-//    }
-//
-//    public void setTemplateTagType(TemplateTagType templateTagType) {
-//        this.templateTagType = templateTagType;
-//    }
 }
