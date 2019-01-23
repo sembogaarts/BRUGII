@@ -1,7 +1,6 @@
 package com.tosad.brm.web;
 
 import com.tosad.brm.web.hibernate.HibernateUtils;
-import com.tosad.brm.web.hibernate.domain.businessRule.BusinessRule;
 import com.tosad.brm.web.hibernate.domain.businessRule.BusinessRuleType;
 import com.tosad.brm.web.hibernate.domain.template.Template;
 import com.tosad.brm.web.hibernate.domain.template.TemplateTag;
@@ -45,10 +44,16 @@ class BusinessRulePersistence {
     }
 
     static Template getTemplateByBusinessRuleType(BusinessRuleType businessRuleType) {
-        HibernateUtils.getSessionFactory();
-        // Create CriteriaQuery\
+        SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
+        CriteriaBuilder builder = HibernateUtils.getSession().getCriteriaBuilder();
 
-        // @TODO FIX
-        return HibernateUtils.getSession().get(Template.class, 1);
+        CriteriaQuery<Template> query = builder.createQuery(Template.class);
+        Root<Template> root = query.from(Template.class);
+
+
+        query.select(root).where(builder.equal(root.get("BUSINESSRULETYPE_ID"), businessRuleType.id));
+
+
+        return HibernateUtils.getSession().createQuery(query).getSingleResult();
     }
 }
