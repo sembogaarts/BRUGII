@@ -23,6 +23,7 @@ public enum TemplateTagType implements Serializable {
             return value;
         }
     },
+    LOOP("loop"),
     NUMBER("number"),
     TABLE("table"),
     DYNAMIC("dynamic"),
