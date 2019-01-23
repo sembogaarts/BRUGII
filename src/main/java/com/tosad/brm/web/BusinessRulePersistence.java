@@ -24,18 +24,6 @@ class BusinessRulePersistence {
         return HibernateUtils.getSession().createQuery(criteria).getResultList();
     }
 
-    static List<TemplateTag> getAllTemplateTagsByTemplate(Template template) throws Exception {
-        SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
-        CriteriaBuilder builder = sessionFactory.getCriteriaBuilder();
-
-        // Create CriteriaQuery
-        CriteriaQuery<TemplateTag> criteria = builder.createQuery(TemplateTag.class);
-        Root<TemplateTag> variableRoot = criteria.from(TemplateTag.class);
-        criteria.select(variableRoot);
-
-        return HibernateUtils.getSession().createQuery(criteria).getResultList();
-    }
-
 
     static BusinessRuleType getBusinessRuleTypeById(int id) {
         HibernateUtils.getSessionFactory();
@@ -50,10 +38,22 @@ class BusinessRulePersistence {
         CriteriaQuery<Template> query = builder.createQuery(Template.class);
         Root<Template> root = query.from(Template.class);
 
-
-        query.select(root).where(builder.equal(root.get("BUSINESSRULETYPE_ID"), businessRuleType.id));
+        query.select(root).where(builder.equal(root.get("businessRuleType"), businessRuleType.id));
 
 
         return HibernateUtils.getSession().createQuery(query).getSingleResult();
+    }
+
+    static List<TemplateTag> getTemplateTagsByTemplate(Template template) {
+        SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
+        CriteriaBuilder builder = HibernateUtils.getSession().getCriteriaBuilder();
+
+        CriteriaQuery<TemplateTag> query = builder.createQuery(TemplateTag.class);
+        Root<TemplateTag> root = query.from(TemplateTag.class);
+
+        query.select(root).where(builder.equal(root.get("template"), template.id));
+
+
+        return HibernateUtils.getSession().createQuery(query).getResultList();
     }
 }

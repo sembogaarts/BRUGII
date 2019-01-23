@@ -56,13 +56,14 @@ public class BusinessRuleApi implements Api {
     @GET
     @Path("/type")
     @Produces("application/json")
-    public String getBusinessRuleTemplate(@PathParam("id") int businessRuleTypeId) {
+    public String getBusinessRuleTemplate(@QueryParam("id") int businessRuleTypeId) {
         JSONObject data = new JSONObject();
         try {
             BusinessRuleType businessRuleType = getBusinessRuleTypeById(businessRuleTypeId);
+            System.out.println(businessRuleType.name);
             Template template = getTemplateByBusinessRuleType(businessRuleType);
             data = TemplateJSON.generate(template);
-            List<TemplateTag> templateTags = getAllTemplateTagsByTemplate(null);
+            List<TemplateTag> templateTags = getTemplateTagsByTemplate(template);
             JSONArray jsonArray = new JSONArray();
 
             templateTags.forEach(templateTag -> {
