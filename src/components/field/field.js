@@ -100,8 +100,6 @@ module.exports = {
                 // Check if the tag is a table
                 if (this.isTable(this.tags[x].type)) {
 
-                    console.log(this.tags[x]);
-
                     modifiedColumns = [];
 
                     // Get the selected table

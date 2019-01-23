@@ -19,6 +19,10 @@ module.exports = {
                 {
                     id: "InterEntityCompareRule.json",
                     name: 'Inter-Entity Compare Rule'
+                },
+                {
+                    id: "attributeListRule.json",
+                    name: 'Attribute List Rule'
                 }
             ],
             selectedTemplate: null,

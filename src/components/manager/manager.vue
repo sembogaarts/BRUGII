@@ -1,5 +1,6 @@
 <template>
     <div>
+
         <div class="table-card">
             <div class="card">
                 <span class="card-header"> Business Rules </span>
@@ -37,3 +38,5 @@
         </div>
     </div>
 </template>
+<script src="./manager.js"></script>
+

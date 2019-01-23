@@ -28,6 +28,10 @@ module.exports = {
             return this.isType("BOOLEAN", type);
         },
 
+        isList(type) {
+            return this.isType("LIST", type);
+        },
+
         isTable(type) {
             return this.isType("TABLE", type);
         },
@@ -127,6 +131,16 @@ module.exports = {
             }
 
             return [];
+        },
+
+        addrowtje(tag) {
+
+            if(tag.value[this.rowIndex] === "") {
+                this.$set(tag.value, this.rowIndex, [""]);
+            } else {
+                tag.value[this.rowIndex].push("");
+            }
+
         },
 
         getColumnType(table, column) {

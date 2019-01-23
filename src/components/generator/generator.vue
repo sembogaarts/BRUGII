@@ -48,6 +48,8 @@
             </form>
         </div>
 
+        {{ template }}
+
     </div>
 </template>
 

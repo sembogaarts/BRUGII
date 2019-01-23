@@ -1,10 +1,5 @@
 module.exports = {
-    props: {
-        tag: Object,
-        tags: Array,
-        type: String,
-        rowIndex: Number
-    },
+    props: ['tag', 'tags', 'type', 'rowIndex', 'field'],
     data: function () {
         return {}
     },
@@ -24,6 +19,11 @@ module.exports = {
         isBoolean(type) {
             return this.isType("BOOLEAN", type);
         },
+
+        onInput: function (event) {
+            this.$emit('update:field', event.target.value);
+        }
+
     },
     computed: {
         noType: function() {

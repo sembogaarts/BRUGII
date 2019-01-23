@@ -33,6 +33,11 @@
             <option v-for="operator in getOperatorsForEarlierField()" :value="operator">{{ operator }}</option>
         </select>
 
+        <div v-if="isList(tag.type)">
+            <dynamic v-for="(value, index) in tag.value[rowIndex]" :field.sync="tag.value[rowIndex][index]"  :rowIndex="rowIndex" :tag="tag" :type="getEarlierFieldType()"></dynamic>
+            <button @click="addrowtje(tag)">wow</button>
+        </div>
+
         <!-- Dynamic -->
         <dynamic v-if="isDynamic(tag.type)" :rowIndex="rowIndex" :tag="tag" :type="getEarlierFieldType()"></dynamic>
 
