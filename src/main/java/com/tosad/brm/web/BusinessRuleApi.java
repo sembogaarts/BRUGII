@@ -13,6 +13,7 @@ import org.json.simple.JSONObject;
 import javax.ws.rs.*;
 import java.util.List;
 
+import static com.tosad.brm.web.api.TemplateTagJSON.generateFromList;
 import static com.tosad.brm.web.persistence.BusinessRuleTypePersistence.getAllBusinessRuleTypes;
 import static com.tosad.brm.web.persistence.BusinessRuleTypePersistence.getBusinessRuleTypeById;
 import static com.tosad.brm.web.persistence.TemplatePersistence.getTemplateByBusinessRuleType;
@@ -67,10 +68,8 @@ public class BusinessRuleApi implements Api {
             Template template = getTemplateByBusinessRuleType(businessRuleType);
             data = TemplateJSON.generate(template);
             List<TemplateTag> templateTags = getTemplateTagsByTemplate(template);
-            JSONArray jsonArray = new JSONArray();
 
-            templateTags.forEach(templateTag -> jsonArray.add(TemplateTagJSON.generate(templateTag)));
-            data.put("tags", jsonArray);
+            data.put("tags", generateFromList(templateTags));
 
             HibernateUtils.close();
         } catch (Exception e) {

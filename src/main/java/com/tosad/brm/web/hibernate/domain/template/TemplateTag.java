@@ -48,6 +48,10 @@ public class TemplateTag {
         this.key = key;
     }
 
+    public TemplateTagType getTemplateTagType() {
+        return TemplateTagType.getTypeByText(templateTagType);
+    }
+
 //    public TemplateTagType getTemplateTagType() {
 //        return templateTagType;
 //    }
