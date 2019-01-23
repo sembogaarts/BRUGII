@@ -12,6 +12,19 @@
                      "type": "STRING"
                  }
              ]
+         },
+         {
+             "name": "Facturen",
+             "columns": [
+                 {
+                     "name": "Nummer",
+                     "type": "NUMBER"
+                 },
+                 {
+                     "name": "Naam",
+                     "type": "STRING"
+                 }
+             ]
          }
      ]
 }

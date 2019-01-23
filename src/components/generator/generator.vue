@@ -1,14 +1,14 @@
 <template>
     <div>
-
         <div class="template-type-selector">
-            <!-- Template Selector -->
-            <label for="templateSelector">Selecteer een template type</label>
+            <!-- Business Rule Type Selector -->
+            <label for="templateSelector">Selecteer een Businessrule Type</label>
             <select @change="getTemplateInformation()" v-model="selectedTemplate" name="templateSelector"
                     id="templateSelector">
-                <option disabled value="null" selected>Selecteer een template</option>
+                <option disabled value="null" selected>Selecteer een Businessrule Type</option>
                 <option v-for="template in templates" :value="template.id">{{ template.name }}</option>
             </select>
+            <!--<input type="checkbox"> Geavanceerde modus (te geavanceerd voor docenten op de hu)-->
         </div>
 
         <div class="template-raw">
@@ -22,18 +22,36 @@
 
                 <div v-for="(tag, index) in template.tags">
 
-                    <!-- Render the field -->
+                    <!-- Render the field depending on type -->
+                    <field
+                            :value.sync="tag.value"
+                            :tag="tag"
+                            :tags="template.tags"
+                            :index="index"
+                            :schema="schema">
+                    </field>
 
-                    <field :tag="tag" :tags="template.tags" :index="index" :schema="schema"></field>
+
 
                     <!-- Render Loop -->
                     <div v-if="isLoop(tag.type)">
 
                         <div v-for="(row, rowIndex) in getLoopRows(tag)" class="group">
-                            <div v-for="(field, index) in row" class="groupinputbox">
-                                <!-- Render the field -->
-                                <loop :tag="field" :tags="template.tags" :loop="row" :rowIndex="rowIndex" :index="index"
-                                      :schema="schema"></loop>
+
+                            <div v-for="(field, fieldIndex) in row" class="groupinputbox">
+
+                                <!-- Render the field depending on type -->
+                                <field
+                                        :value.sync="field.value[rowIndex]"
+                                        :tag="field"
+                                        :tags="template.tags"
+                                        :index="index"
+                                        :fieldIndex="fieldIndex"
+                                        :schema="schema"
+                                        :rowIndex="rowIndex"
+                                        :loop="row">
+                                </field>
+
                             </div>
                         </div>
 
@@ -48,8 +66,13 @@
             </form>
         </div>
 
+        <br>
+        <br>
+        <pre>
+            <code>
         {{ template }}
-
+</code>
+            </pre>
     </div>
 </template>
 

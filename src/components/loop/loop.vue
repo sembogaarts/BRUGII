@@ -34,8 +34,8 @@
         </select>
 
         <div v-if="isList(tag.type)">
-            <dynamic v-for="(value, index) in tag.value[rowIndex]" :field.sync="tag.value[rowIndex][index]"  :rowIndex="rowIndex" :tag="tag" :type="getEarlierFieldType()"></dynamic>
-            <button @click="addrowtje(tag)">wow</button>
+            <dynamic v-for="(value, index) in tag.value[rowIndex]" :field.sync="tag.value[rowIndex][index]" :key="index"  :rowIndex="rowIndex" :tag="tag" :type="getEarlierFieldType()"></dynamic>
+            <button @click="addrowtje(tag)">Voeg rij toe</button>
         </div>
 
         <!-- Dynamic -->

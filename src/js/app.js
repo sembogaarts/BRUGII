@@ -4,8 +4,6 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import FieldComponent from '../components/field/field.vue';
 import LoopComponent from '../components/loop/loop.vue';
-import DynamicComponent from '../components/dynamic/dynamic.vue';
-import TestComponent from '../components/test/test.vue';
 
 Vue.use(
     VueAxios,
@@ -15,8 +13,6 @@ Vue.use(
 // Register Components
 Vue.component('field', FieldComponent);
 Vue.component('loop', LoopComponent);
-Vue.component('dynamic', DynamicComponent);
-Vue.component('test', TestComponent);
 
 
 var app = new Vue({
