@@ -8,7 +8,6 @@
                 <option disabled value="null" selected>Selecteer een Businessrule Type</option>
                 <option v-for="template in templates" :value="template.id">{{ template.name }}</option>
             </select>
-            <!--<input type="checkbox"> Geavanceerde modus (te geavanceerd voor docenten op de hu)-->
         </div>
 
         <div class="template-raw">
@@ -30,7 +29,6 @@
                             :index="index"
                             :schema="schema">
                     </field>
-
 
 
                     <!-- Render Loop -->
@@ -66,13 +64,6 @@
             </form>
         </div>
 
-        <br>
-        <br>
-        <pre>
-            <code>
-        {{ template }}
-</code>
-            </pre>
     </div>
 </template>
 

@@ -7,53 +7,23 @@ module.exports = {
     data: function () {
         return {
             // TODO: GET FROM API
-            templates: [
-                {
-                    id: 'attributeCompareRule.json',
-                    name: 'Attribute Compare Rule'
-                },
-                {
-                    id: "attributeCompareRulePlus.json",
-                    name: 'Attribute Compare Rule +'
-                },
-                {
-                    id: 'attributeRangeRule.json',
-                    name: 'Attribute Range Rule'
-                },
-                {
-                    id: 'attributeRangeRulePlus.json',
-                    name: 'Attribute Range Rule +'
-                },
-                {
-                    id: "tupleCompareRule.json",
-                    name: 'Tuple Compare Rule'
-                },
-                {
-                    id: "tupleCompareRulePlus.json",
-                    name: 'Tuple Compare Rule +'
-                },
-                {
-                    id: "InterEntityCompareRule.json",
-                    name: 'Inter-Entity Compare Rule'
-                },
-                {
-                    id: "attributeListRule.json",
-                    name: 'Attribute List Rule'
-                },
-                {
-                    id: "attributeListRulePlus.json",
-                    name: 'Attribute List Rule +'
-                },
-            ],
+            templates: [],
             selectedTemplate: null,
             template: {},
             schema: {}
         }
     },
     methods: {
+        getTemplates() {
+            // Get the template information
+            this.axios.get('http://localhost:8080/businessrule/types')
+                .then(response => {
+                    this.templates = response.data;
+                });
+        },
         getTemplateInformation() {
             // Get the template information
-            this.axios.get('templates/' + this.selectedTemplate)
+            this.axios.get('http://localhost:8080/businessrule/type?id=' + this.selectedTemplate)
                 .then(response => {
                     this.template = response.data;
                 });
@@ -101,6 +71,7 @@ module.exports = {
         }
     },
     created: function () {
+        this.getTemplates();
         this.getSchemaData();
     }
 }
