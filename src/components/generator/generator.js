@@ -10,7 +10,8 @@ module.exports = {
             templates: [],
             selectedTemplate: null,
             template: {},
-            schema: {}
+            schema: {},
+            loading: false
         }
     },
     methods: {
@@ -22,10 +23,12 @@ module.exports = {
                 });
         },
         getTemplateInformation() {
+            this.loading = true;
             // Get the template information
             this.axios.get('http://localhost:8080/businessrule/type?id=' + this.selectedTemplate)
                 .then(response => {
                     this.template = response.data;
+                    this.loading = false;
                 });
         },
         getSchemaData() {
@@ -36,7 +39,16 @@ module.exports = {
         },
 
         onSubmit() {
-            // console.log(this.template.tags);
+            this.loading = true;
+            this.axios.post('http://localhost:8080/businessrule/create', this.template)
+                .then(response => {
+
+
+                    this.loading = false;
+                    alert('De businessrule is toegevoegd');
+                    this.template = {};
+
+                });
         },
 
         addLoopRow(tag) {

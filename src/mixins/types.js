@@ -1,7 +1,7 @@
 module.exports =  {
     methods: {
         isType(type, compareTo) {
-            return type.toUpperCase() === compareTo.toUpperCase();
+            return type.toLowerCase() === compareTo;
         },
         isNumber(type) {
             return this.isType("NUMBER", type);

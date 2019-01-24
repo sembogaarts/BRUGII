@@ -10,12 +10,15 @@
             </select>
         </div>
 
-        <div class="template-raw">
-            <pre><code>{{ template.raw }}</code></pre>
+        <div class="template-raw" v-if="template.script">
+            <pre><code>{{ template.script }}</code></pre>
         </div>
 
+
+        <i v-if="loading" class="fas loader fa-sync fa-spin"></i>
+
         <!-- Template Generator -->
-        <div v-if="hasTemplate">
+        <div v-if="hasTemplate && !loading">
 
             <form @submit.prevent>
 
@@ -59,9 +62,11 @@
 
 
                 </div>
+
                 <button type="submit" @click="onSubmit()"><i class="fas fa-sync-alt"></i> Genereer</button>
 
             </form>
+
         </div>
 
     </div>

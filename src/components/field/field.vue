@@ -51,6 +51,7 @@
 
         <!-- Dynamic -->
         <div v-if="isDynamic(tag.type)">
+            <p class="error" v-if="!getEarlierFieldType()">Selecteer eerst een kolom.</p>
             <!-- String, Number, Boolean -->
             <input v-if="isString(getEarlierFieldType())" :id="tag.name" type="text" :value="value"
                    @input="onInput($event)">
@@ -66,7 +67,6 @@
 
             <!-- String, Number, Boolean -->
             <div v-for="(test, index) in value">
-
                 <input v-if="isString(getEarlierFieldType())" :id="tag.name" type="text" v-model="value[index]">
                 <input v-if="isNumber(getEarlierFieldType())" :id="tag.name" type="number" v-model="value[index]">
                 <input v-if="isBoolean(getEarlierFieldType())" :id="tag.name" type="checkbox" v-model="value[index]">

@@ -11,16 +11,16 @@ body {
 }
 
 .template-type-selector {
-  border-bottom: 2px solid #ccc;
+  border-bottom: 2px solid #dadada;
   width: 100%;
-  margin-bottom: 20px;
 }
 
 .template-raw {
-  border-bottom: 2px solid #ccc;
-  padding-bottom: 10px;
+  border-bottom: 2px solid #dadada;
+  padding: 10px;
   margin-bottom: 20px;
-
+  color: black;
+  background-color: #e4e4e4;
 }
 
 .groupinputbox {
@@ -30,4 +30,9 @@ body {
 .error {
   color: $primary;
   margin-bottom: 15px;
+}
+
+.loader {
+  color: $primary;
+  font-size: 22px;
 }

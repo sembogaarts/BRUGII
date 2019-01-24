@@ -3,9 +3,6 @@ import router from './router';
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import FieldComponent from '../components/field/field.vue';
-// import hljs from 'highlight.js';
-//
-// hljs.initHighlightingOnLoad();
 
 Vue.use(
     VueAxios,
