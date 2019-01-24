@@ -1,28 +1,20 @@
 package com.tosad.brm.web.hibernate.domain.type;
 
 
+import org.json.simple.JSONArray;
+
 import java.io.Serializable;
 
 public enum TemplateTagType implements Serializable {
     STRING("string"),
     LIST("list") {
         @Override
-        public String parseValue(String value) {
-            return value;
+        public Object getDefaultValue() {
+            return new JSONArray();
         }
     },
-    OPERATOR("operator") {
-        @Override
-        public String parseValue(String value) {
-            return value;
-        }
-    },
-    L_OPERATOR("l_operator") {
-        @Override
-        public String parseValue(String value) {
-            return value;
-        }
-    },
+    OPERATOR("operator"),
+    L_OPERATOR("l_operator"),
     LOOP("loop"),
     NUMBER("number"),
     TABLE("table"),
@@ -30,7 +22,12 @@ public enum TemplateTagType implements Serializable {
     STATE("state"),         // Trigger - Before / After
     EVENT("event"),         // Trigger - Insert / Update
     COLUMN("column"),
-    BOOLEAN("boolean"),
+    BOOLEAN("boolean") {
+        @Override
+        public Object getDefaultValue() {
+            return false;
+        }
+    },
     UNKNOWN("unknown");
 
     public String type;
@@ -55,5 +52,9 @@ public enum TemplateTagType implements Serializable {
 
     public String parseValue(String value) {
         return value;
+    }
+
+    public Object getDefaultValue() {
+        return "";
     }
 }

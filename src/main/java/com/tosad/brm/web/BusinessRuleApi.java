@@ -2,7 +2,6 @@ package com.tosad.brm.web;
 
 import com.tosad.brm.web.api.BusinessRuleTypeJSON;
 import com.tosad.brm.web.api.TemplateJSON;
-import com.tosad.brm.web.api.TemplateTagJSON;
 import com.tosad.brm.web.hibernate.HibernateUtils;
 import com.tosad.brm.web.hibernate.domain.businessRule.BusinessRuleType;
 import com.tosad.brm.web.hibernate.domain.template.Template;

@@ -10,10 +10,8 @@ import java.util.List;
 
 public class TemplateTagJSON implements ApiJSON {
     public static JSONObject generate(TemplateTag templateTag) {
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("id", templateTag.id);
-        jsonObject.put("key", templateTag.key);
-        jsonObject.put("type", templateTag.templateTagType);
+        JSONObject jsonObject = generateJSONObject(templateTag);
+        jsonObject.put("value", templateTag.getTemplateTagType().getDefaultValue());
         return jsonObject;
     }
 
@@ -34,21 +32,36 @@ public class TemplateTagJSON implements ApiJSON {
             }
         }
         if (!loopList.isEmpty()) {
-            jsonArray.add(generateLoopObject(loopList));
+            jsonArray.add(generateLoop(loopList));
         }
 
         return jsonArray;
     }
 
-    public static JSONObject generateLoopObject(List<TemplateTag> templateTags) {
+    public static JSONObject generateLoop(List<TemplateTag> templateTags) {
         JSONObject jsonObject = new JSONObject();
         JSONArray jsonArray = new JSONArray();
-        templateTags.forEach(templateTag -> jsonArray.add(generate(templateTag)));
+        templateTags.forEach(templateTag -> jsonArray.add(generateLoopObject(templateTag)));
         jsonObject.put("name", TemplateTagType.LOOP.type);
         jsonObject.put("type", TemplateTagType.LOOP.type);
         jsonObject.put("fields", jsonArray);
 
         return jsonObject;
 
+    }
+
+    private static JSONObject generateLoopObject(TemplateTag templateTag) {
+        JSONObject jsonObject = generateJSONObject(templateTag);
+        jsonObject.put("value", new JSONArray());
+        return jsonObject;
+    }
+
+    static JSONObject generateJSONObject(TemplateTag templateTag) {
+        JSONObject jsonObject = new JSONObject();
+
+        jsonObject.put("id", templateTag.id);
+        jsonObject.put("name", templateTag.key);
+        jsonObject.put("type", templateTag.templateTagType);
+        return jsonObject;
     }
 }
