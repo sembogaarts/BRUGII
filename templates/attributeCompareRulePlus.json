@@ -1,0 +1,47 @@
+{
+  "raw": "ALTER TABLE {{ TABLE }} ADD CONSTRAINT {{ NAME }} CHECK ( {[ LOOP ]} {{ COLUMN }} {{ OPERATOR }} {{ VALUE }} {{ BINDER }} {[ ENDLOOP ]} )",
+  "tags": [
+    {
+      "id": 1,
+      "name": "TABLE",
+      "type": "TABLE"
+    },
+    {
+      "id": 2,
+      "name": "NAME",
+      "type": "STRING"
+    },
+    {
+      "id": 3,
+      "name": "LOOP",
+      "type": "LOOP",
+      "fields": [
+        {
+          "id": 4,
+          "name": "COLUMN",
+          "type": "COLUMN",
+          "value": []
+        },
+        {
+          "id": 5,
+          "name": "OPERATOR",
+          "type": "OPERATOR",
+          "value": []
+        },
+        {
+          "id": 6,
+          "name": "VALUE",
+          "type": "DYNAMIC",
+          "value": []
+        },
+        {
+          "id": 7,
+          "name": "BINDER",
+          "type": "BINDER",
+          "value": []
+        }
+      ]
+    }
+  ]
+}
+

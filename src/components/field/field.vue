@@ -18,7 +18,9 @@
         <!-- Columns -->
         <select v-if="isColumn(tag.type)" :value="value" @input="onInput($event)" :id="tag.name">
             <option selected value="" disabled>Selecteer een kolom</option>
-            <option v-for="column in getColumnForEarlierTable()" :value="column.name" :data-type="column.type">{{ column.name }}</option>
+            <option v-for="column in getColumnForEarlierTable()" :value="column.name" :data-type="column.type">{{
+                column.name }}
+            </option>
         </select>
 
         <!-- Binders -->
@@ -50,9 +52,29 @@
         <!-- Dynamic -->
         <div v-if="isDynamic(tag.type)">
             <!-- String, Number, Boolean -->
-            <input v-if="isString(getEarlierFieldType())" :id="tag.name" type="text" :value="value" @input="onInput($event)">
-            <input v-if="isNumber(getEarlierFieldType())" :id="tag.name" type="number" :value="value" @input="onInput($event)">
-            <input v-if="isBoolean(getEarlierFieldType())" :id="tag.name" type="checkbox" :value="value" @input="onInput($event)">
+            <input v-if="isString(getEarlierFieldType())" :id="tag.name" type="text" :value="value"
+                   @input="onInput($event)">
+            <input v-if="isNumber(getEarlierFieldType())" :id="tag.name" type="number" :value="value"
+                   @input="onInput($event)">
+            <input v-if="isBoolean(getEarlierFieldType())" :id="tag.name" type="checkbox" :value="value"
+                   @input="onInput($event)">
+        </div>
+
+        <div v-if="isList(tag.type)">
+
+            <p class="error" v-if="!getEarlierFieldType()">Selecteer eerst een kolom.</p>
+
+            <!-- String, Number, Boolean -->
+            <div v-for="(test, index) in value">
+
+
+                {{index}}
+
+                <input v-if="isString(getEarlierFieldType())" :id="tag.name" type="text" v-model="value[index]">
+                <input v-if="isNumber(getEarlierFieldType())" :id="tag.name" type="number" v-model="value[index]">
+                <input v-if="isBoolean(getEarlierFieldType())" :id="tag.name" type="checkbox" v-model="value[index]">
+            </div>
+            <button @click="addListInput(tag)">Voeg rij toe</button>
         </div>
 
     </div>

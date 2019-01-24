@@ -1,5 +1,5 @@
 {
-  "raw": "ALTER TABLE {{ TABLE }} ADD CONSTRAINT {{ NAME }} CHECK ( {[ LOOP ]}  {{ COLUMN }} [[ NOT ]] BETWEEN {{ NUMBER_1 }} AND {{ NUMBER_2 }} {[ ENDLOOP ]} )",
+  "raw": "ALTER TABLE {{ TABLE }} ADD CONSTRAINT {{ NAME }} CHECK ( {{ COLUMN }} [[ NOT ]] BETWEEN {{ NUMBER_1 }} AND {{ NUMBER_2 }} )",
   "tags": [
     {
       "id": 1,
@@ -13,34 +13,23 @@
     },
     {
       "id": 3,
-      "name": "LOOP",
-      "type": "LOOP",
-      "fields": [
-        {
-          "id": 4,
-          "name": "COLUMN",
-          "type": "COLUMN",
-          "value": []
-        },
-        {
-          "id": 5,
-          "name": "NUMBER_1",
-          "type": "NUMBER",
-          "value": []
-        },
-        {
-          "id": 6,
-          "name": "NUMBER_2",
-          "type": "NUMBER",
-          "value": []
-        },
-        {
-          "id": 7,
-          "name": "NOT",
-          "type": "BOOLEAN",
-          "value": []
-        }
-      ]
+      "name": "COLUMN",
+      "type": "COLUMN"
+    },
+    {
+      "id": 4,
+      "name": "NUMBER_1",
+      "type": "NUMBER"
+    },
+    {
+      "id": 5,
+      "name": "NUMBER_2",
+      "type": "NUMBER"
+    },
+    {
+      "id": 6,
+      "name": "NOT",
+      "type": "BOOLEAN"
     }
   ]
 }

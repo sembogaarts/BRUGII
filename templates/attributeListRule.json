@@ -1,5 +1,5 @@
 {
-  "raw": "ALTER TABLE {{ TABLE }} ADD CONSTRAINT {{ NAME }} CHECK ( {[ LOOP ]}  {{ COLUMN }} [[ NOT ]] IN {{ LIST }} {{ BINDER }} {[ ENDLOOP ]} )",
+  "raw": "ALTER TABLE {{ TABLE }} ADD CONSTRAINT {{ NAME }} CHECK ( {{ COLUMN }} [[ NOT ]] IN {{ LIST }} )",
   "tags": [
     {
       "id": 1,
@@ -8,34 +8,19 @@
     },
     {
       "id": 2,
-      "name": "LOOP",
-      "type": "LOOP",
-      "fields": [
-        {
-          "id": 3,
-          "name": "COLUMN",
-          "type": "COLUMN",
-          "value": []
-        },
-        {
-          "id": 4,
-          "name": "NOT",
-          "type": "BOOLEAN",
-          "value": []
-        },
-        {
-          "id": 5,
-          "name": "LIST",
-          "type": "LIST",
-          "value": []
-        },
-        {
-          "id": 6,
-          "name": "BINDER",
-          "type": "BINDER",
-          "value": []
-        }
-      ]
+      "name": "COLUMN",
+      "type": "COLUMN"
+    },
+    {
+      "id": 3,
+      "name": "NOT",
+      "type": "BOOLEAN"
+    },
+    {
+      "id": 4,
+      "name": "LIST",
+      "type": "LIST",
+      "value": []
     }
   ]
 }

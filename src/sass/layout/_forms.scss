@@ -70,6 +70,7 @@ button {
   border-radius:2px;
   float:left;
   outline: none;
+  margin-right:15px;
   i{
     margin-right:5px;
   }
@@ -81,8 +82,4 @@ button:hover{
   color:white!important;
   transition: all .2s ease;
   box-shadow: 0 0 20px #adadad !important;
-}
-
-button:not(:first-child) {
-  margin-left:15px;
 }

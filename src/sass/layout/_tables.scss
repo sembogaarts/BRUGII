@@ -1,0 +1,46 @@
+
+.table {
+  border-collapse: collapse;
+  margin-left: 20px;
+  table-layout: auto;
+  width: 100%;
+
+  tbody {
+    tr {
+      border-bottom: 1px solid #d7d7d7;
+      height: 40px;
+
+      td {
+        font-size: 13px;
+        color: $dark-gray;
+        text-align: left;
+      }
+
+      .icontd {
+        text-align: center !important;
+        color: $primary;
+      }
+
+      .icontd i:hover {
+        cursor: pointer;
+      }
+    }
+
+    tr:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .table-header {
+    th {
+      color: $primary;
+      font-weight: 300;
+      text-align: left;
+    }
+
+    .iconth {
+      text-align: center !important;
+    }
+  }
+}
+

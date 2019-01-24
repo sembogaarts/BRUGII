@@ -8,87 +8,6 @@ body {
   padding: 20px;
   border-left:2px solid $primary;
   margin-bottom: 20px;
-
-}
-
-.table-card {
-  margin-top:30px;
-  border-radius:3px;
-  background-color:white;
-  display:flex;
-  position:relative;
-  flex-direction:column;
-  padding:10px;
-
-  .card {
-    @extend .gradient;
-    width:95%;
-    position:relative;
-    margin:0 auto;
-    box-shadow: 0 0 20px #adadad !important;
-    padding:18px;
-    border-radius:3px;
-    margin-top:-30px;
-    margin-bottom:20px;
-
-    .card-header {
-      display:block;
-      color:white;
-      font-size:16px;
-      width:100%;
-      margin-bottom:5px;
-    }
-
-    .card-p {
-      display:block;
-      color:white;
-      font-size:13px;
-      width:100%;
-    }
-
-  }
-
-  .table {
-    border-collapse:collapse;
-    margin-left:20px;
-    table-layout:auto;
-    width: 100%;
-
-    tbody {
-      tr {
-        border-bottom: 1px solid #d7d7d7;
-        height:40px;
-
-        td {
-          font-size:13px;
-          color:$dark-gray;
-          text-align:left;
-        }
-        .icontd {
-          text-align:center!important;
-          color:$primary;
-        }
-        .icontd i:hover{
-          cursor:pointer;
-        }
-      }
-      tr:last-child{
-        border-bottom:none;
-      }
-    }
-
-    .table-header {
-      th {
-        color:$primary;
-        font-weight:300;
-        text-align:left;
-      }
-      .iconth {
-        text-align:center!important;
-      }
-    }
-  }
-
 }
 
 .template-type-selector {
@@ -104,7 +23,11 @@ body {
 
 }
 
-
 .groupinputbox {
   overflow: auto;
+}
+
+.error {
+  color: $primary;
+  margin-bottom: 15px;
 }

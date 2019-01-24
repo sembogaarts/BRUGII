@@ -33,6 +33,12 @@ module.exports =  {
         isOperator(type) {
             return this.isType("OPERATOR", type);
         },
+        isList(type) {
+            return this.isType("LIST", type);
+        },
+        isLoop(type) {
+            return this.isType("LOOP", type);
+        },
         getOperatorsForNumber() {
             return [">", "<", ">=", "<=", "=", "!="];
         },

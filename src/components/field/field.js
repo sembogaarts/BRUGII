@@ -9,7 +9,6 @@ module.exports = {
 
     data: function () {
         return {
-            vb: this.value
         }
     },
 
@@ -100,8 +99,6 @@ module.exports = {
             // Get the selected table
             var selectedTable = inLoop ? tag.value[this.rowIndex] : tag.value;
 
-            console.log(selectedTable);
-
             if (selectedTable !== null && selectedTable !== '' && typeof (selectedTable) != 'undefined') {
 
                 var table = {};
@@ -136,9 +133,27 @@ module.exports = {
                     }
                 }
             }
-        }
-    }
+        },
 
+        addListInput(tag) {
+
+            if (this.loop) {
+
+                if (tag.value[this.rowIndex] === "") {
+                    this.$set(tag.value, this.rowIndex, [""]);
+                } else {
+                    tag.value[this.rowIndex].push("");
+                }
+
+            } else {
+
+                tag.value.push("");
+
+            }
+
+        }
+
+    }
 
 
 };

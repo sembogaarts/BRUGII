@@ -1,4 +1,8 @@
+var types = require("../../mixins/types");
+
 module.exports = {
+
+    mixins: [types],
 
     data: function () {
         return {
@@ -9,12 +13,24 @@ module.exports = {
                     name: 'Attribute Compare Rule'
                 },
                 {
+                    id: "attributeCompareRulePlus.json",
+                    name: 'Attribute Compare Rule +'
+                },
+                {
                     id: 'attributeRangeRule.json',
                     name: 'Attribute Range Rule'
                 },
                 {
+                    id: 'attributeRangeRulePlus.json',
+                    name: 'Attribute Range Rule +'
+                },
+                {
                     id: "tupleCompareRule.json",
                     name: 'Tuple Compare Rule'
+                },
+                {
+                    id: "tupleCompareRulePlus.json",
+                    name: 'Tuple Compare Rule +'
                 },
                 {
                     id: "InterEntityCompareRule.json",
@@ -23,7 +39,11 @@ module.exports = {
                 {
                     id: "attributeListRule.json",
                     name: 'Attribute List Rule'
-                }
+                },
+                {
+                    id: "attributeListRulePlus.json",
+                    name: 'Attribute List Rule +'
+                },
             ],
             selectedTemplate: null,
             template: {},
@@ -45,34 +65,8 @@ module.exports = {
                 });
         },
 
-        isType(type, compareTo) {
-            return type === compareTo;
-        },
-
-        isLoop(type) {
-            return this.isType("LOOP", type);
-        },
-
         onSubmit() {
             // console.log(this.template.tags);
-        },
-
-        getOperatorsForNumber() {
-            return [">", "<", ">=", "<=", "=", "!="];
-        },
-
-        columns() {
-            for (var x = 0; this.template.tags.length > x; x++) {
-                // Check if the tag is a table
-                if (this.isTable(this.template.tags[x].type)) {
-
-                    // Get the selected table
-                    var selectedTable = this.template.tags[x].value;
-
-                    // Return columns for the specific table
-                    return isNaN(parseInt(selectedTable)) ? [] : this.schema[selectedTable].columns;
-                }
-            }
         },
 
         addLoopRow(tag) {
@@ -97,8 +91,6 @@ module.exports = {
                 }
                 rows.push(row)
             }
-
-
             return rows;
         }
 
