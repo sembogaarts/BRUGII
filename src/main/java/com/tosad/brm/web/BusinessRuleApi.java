@@ -1,7 +1,5 @@
 package com.tosad.brm.web;
 
-import com.palominolabs.jersey.cors.Cors;
-import com.palominolabs.jersey.cors.CorsPreflight;
 import com.tosad.brm.web.api.BusinessRuleTypeJSON;
 import com.tosad.brm.web.api.TemplateJSON;
 import com.tosad.brm.web.hibernate.HibernateUtils;
@@ -31,7 +29,6 @@ public class BusinessRuleApi {
     @GET
     @Path("/data")
     @Produces("application/json")
-    @Cors
     public String getCreate(@QueryParam("businessrule") int businessRuleId) {
         BusinessRule businessRule = BusinessRulePersistence.getBusinessRuleById(businessRuleId);
         Template template = TemplatePersistence.getTemplateByBusinessRuleType(businessRule.businessRuleType);
@@ -50,8 +47,6 @@ public class BusinessRuleApi {
     @GET
     @Path("/types")
     @Produces("application/json")
-    @Cors
-    @CorsPreflight
     public String get() {
         JSONArray jsonArray = new JSONArray();
         try {
@@ -72,7 +67,6 @@ public class BusinessRuleApi {
     @GET
     @Path("/type")
     @Produces("application/json")
-    @Cors
     public String getBusinessRuleTemplate(@QueryParam("id") int businessRuleTypeId) {
         JSONObject data = new JSONObject();
         try {
