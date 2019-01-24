@@ -4,8 +4,9 @@ import com.tosad.brm.web.hibernate.HibernateUtils;
 import com.tosad.brm.web.hibernate.domain.businessRule.BusinessRule;
 import com.tosad.brm.web.hibernate.domain.businessRule.BusinessRuleTag;
 import com.tosad.brm.web.hibernate.domain.template.Template;
-import com.tosad.brm.web.hibernate.domain.template.TemplateTag;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -27,5 +28,16 @@ public class BusinessRuleTagPersistence {
         );
 
         return HibernateUtils.getSession().createQuery(query).getResultList();
+    }
+
+    public static void saveBusinessRuleTags(List<BusinessRuleTag> businessRuleTags) {
+        SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
+        Session session = HibernateUtils.getSession();
+        Transaction t = session.beginTransaction();
+
+        businessRuleTags.forEach(businessRuleTag -> {
+            session.save(businessRuleTag);
+        });
+        t.commit();
     }
 }

@@ -1,12 +1,18 @@
 package com.tosad.brm.web.api;
 
+import com.tosad.brm.web.hibernate.domain.businessRule.BusinessRule;
+import com.tosad.brm.web.hibernate.domain.businessRule.BusinessRuleTag;
 import com.tosad.brm.web.hibernate.domain.template.TemplateTag;
 import com.tosad.brm.web.hibernate.domain.type.TemplateTagType;
+import com.tosad.brm.web.persistence.TemplateTagPersitence;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static java.lang.Integer.parseInt;
+import static java.lang.Integer.valueOf;
 
 public class TemplateTagJSON implements ApiJSON {
     public static JSONObject generate(TemplateTag templateTag) {

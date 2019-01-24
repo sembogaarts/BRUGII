@@ -1,13 +1,17 @@
 package com.tosad.brm.web.api;
 
+import com.tosad.brm.web.hibernate.domain.businessRule.BusinessRule;
 import com.tosad.brm.web.hibernate.domain.businessRule.BusinessRuleTag;
 import com.tosad.brm.web.hibernate.domain.template.TemplateTag;
 import com.tosad.brm.web.hibernate.domain.type.TemplateTagType;
+import com.tosad.brm.web.persistence.TemplateTagPersitence;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static java.lang.Integer.parseInt;
 
 public class BusinessRuleTagJSON implements ApiJSON {
     public static JSONObject generate(BusinessRuleTag businessRuleTag) {
@@ -15,43 +19,26 @@ public class BusinessRuleTagJSON implements ApiJSON {
 //        jsonObject.put("value", templateTag.getTemplateTagType().getDefaultValue());
         return jsonObject;
     }
-//
-//    public static JSONArray generateFromList(List<TemplateTag> templateTagList) {
-//        JSONArray jsonArray = new JSONArray();
-//        List<TemplateTag> loopList = new ArrayList<>();
-//        boolean isLoop = false;
-//        for (TemplateTag templateTag : templateTagList) {
-//            if (TemplateTagType.LOOP == templateTag.getTemplateTagType()) {
-//                isLoop = !isLoop;
-//                continue;
-//            }
-//
-//            if (isLoop) {
-//                loopList.add(templateTag);
-//            } else {
-//                jsonArray.add(generate(templateTag));
-//            }
-//        }
-//        if (!loopList.isEmpty()) {
-//            jsonArray.add(generateLoop(loopList));
-//        }
-//
-//        return jsonArray;
-//    }
 
     private static JSONObject generateLoopObject(TemplateTag templateTag) {
-//        JSONObject jsonObject = generateJSONObject(templateTag);
-//        jsonObject.put("value", new JSONArray());
-//        return jsonObject;
         return new JSONObject();
     }
 
     static JSONObject generateJSONObject(BusinessRuleTag businessRuleTag) {
         JSONObject jsonObject = new JSONObject();
-//
-//        jsonObject.put("id", templateTag.id);
-//        jsonObject.put("name", templateTag.key);
-//        jsonObject.put("type", templateTag.templateTagType);
         return jsonObject;
+    }
+
+    public static List<BusinessRuleTag> parseTags(JSONArray jsonArray, BusinessRule businessRule) {
+        List<BusinessRuleTag> businessRuleTagList = new ArrayList<>();
+        for (Object item : jsonArray) {
+            JSONObject jsonItem = (JSONObject) item;
+            String value = (String) jsonItem.get("value");
+            int id = ((Long) jsonItem.get("id")).intValue();
+            TemplateTag templateTag = TemplateTagPersitence.getById(id);
+            businessRuleTagList.add(new BusinessRuleTag(value, templateTag, businessRule));
+        }
+
+        return businessRuleTagList;
     }
 }

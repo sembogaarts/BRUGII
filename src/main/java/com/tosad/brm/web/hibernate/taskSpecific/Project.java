@@ -39,6 +39,9 @@ public class Project {
 //    @OneToMany(mappedBy = "project")
 //    private Set<Table> table;
 
+    public Project() {
+
+    }
     public Project(int id, String name, String host, String username, String password, int port, DatabaseType databaseType, Set<Table> tables) {
         this.id = id;
         this.name = name;

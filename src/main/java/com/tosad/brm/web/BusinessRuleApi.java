@@ -1,5 +1,7 @@
 package com.tosad.brm.web;
 
+import com.tosad.brm.web.api.BusinessRuleJSON;
+import com.tosad.brm.web.api.BusinessRuleTagJSON;
 import com.tosad.brm.web.api.BusinessRuleTypeJSON;
 import com.tosad.brm.web.api.TemplateJSON;
 import com.tosad.brm.web.hibernate.HibernateUtils;
@@ -13,11 +15,15 @@ import com.tosad.brm.web.persistence.BusinessRuleTagPersistence;
 import com.tosad.brm.web.persistence.TemplatePersistence;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import javax.ws.rs.*;
 import java.util.List;
 
 import static com.tosad.brm.web.api.TemplateTagJSON.generateFromList;
+import static com.tosad.brm.web.persistence.BusinessRulePersistence.saveBusinessRule;
+import static com.tosad.brm.web.persistence.BusinessRuleTagPersistence.saveBusinessRuleTags;
 import static com.tosad.brm.web.persistence.BusinessRuleTypePersistence.getAllBusinessRuleTypes;
 import static com.tosad.brm.web.persistence.BusinessRuleTypePersistence.getBusinessRuleTypeById;
 import static com.tosad.brm.web.persistence.TemplatePersistence.getTemplateByBusinessRuleType;
@@ -35,7 +41,7 @@ public class BusinessRuleApi {
         List<BusinessRuleTag> businessRuleTagList = BusinessRuleTagPersistence.getBusinessRuleTagsByTemplateAndBusinessRule(template, businessRule);
 
         JSONArray jsonArray = new JSONArray();
-        businessRuleTagList.forEach(businessRuleTag->
+        businessRuleTagList.forEach(businessRuleTag ->
                 jsonArray.add(businessRuleTag.value)
         );
 
@@ -86,10 +92,21 @@ public class BusinessRuleApi {
         return data.toJSONString();
     }
 
-    @PUT
-    @Path("/updateBusinessRules")
+    @POST
+    @Path("/create")
     @Produces("application/json")
-    public void update() {
+    public String createBusinessRule(String data) throws ParseException {
+        JSONParser parser = new JSONParser();
+        JSONObject jsonObject = (JSONObject) parser.parse(data);
+        BusinessRule businessRule = BusinessRuleJSON.parseBusinessRule(jsonObject);
+        saveBusinessRule(businessRule);
+
+        List<BusinessRuleTag> businessRuleTags = BusinessRuleTagJSON.parseTags((JSONArray) jsonObject.get("tags"), businessRule);
+        saveBusinessRuleTags(businessRuleTags);
+
+        HibernateUtils.close();
+
+        return jsonObject.toJSONString();
 
     }
 

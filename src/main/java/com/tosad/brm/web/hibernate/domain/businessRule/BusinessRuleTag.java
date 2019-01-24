@@ -26,8 +26,7 @@ public class BusinessRuleTag {
     public BusinessRuleTag() {
     }
 
-    public BusinessRuleTag(int id, String value, TemplateTag templateTag, BusinessRule businessRule) {
-        this.id = id;
+    public BusinessRuleTag(String value, TemplateTag templateTag, BusinessRule businessRule) {
         this.value = value;
         this.templateTag = templateTag;
         this.businessRule = businessRule;
