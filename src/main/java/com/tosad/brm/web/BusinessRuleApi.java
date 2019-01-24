@@ -3,9 +3,14 @@ package com.tosad.brm.web;
 import com.tosad.brm.web.api.BusinessRuleTypeJSON;
 import com.tosad.brm.web.api.TemplateJSON;
 import com.tosad.brm.web.hibernate.HibernateUtils;
+import com.tosad.brm.web.hibernate.domain.businessRule.BusinessRule;
+import com.tosad.brm.web.hibernate.domain.businessRule.BusinessRuleTag;
 import com.tosad.brm.web.hibernate.domain.businessRule.BusinessRuleType;
 import com.tosad.brm.web.hibernate.domain.template.Template;
 import com.tosad.brm.web.hibernate.domain.template.TemplateTag;
+import com.tosad.brm.web.persistence.BusinessRulePersistence;
+import com.tosad.brm.web.persistence.BusinessRuleTagPersistence;
+import com.tosad.brm.web.persistence.TemplatePersistence;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -19,26 +24,29 @@ import static com.tosad.brm.web.persistence.TemplatePersistence.getTemplateByBus
 import static com.tosad.brm.web.persistence.TemplatePersistence.getTemplateTagsByTemplate;
 
 @Path("/businessrule")
-public class BusinessRuleApi implements Api {
+public class BusinessRuleApi {
 
-    @POST
-    @Path("/create")
+    @GET
+    @Path("/data")
     @Produces("application/json")
-    @Override
-    public void create() {
-//		JsonArrayBuilder jab = Json.createArrayBuilder();
-//		JsonObjectBuilder job = Json.createObjectBuilder();
-//
-//		jab.add(job);
-//
-//		JsonArray array = jab.build();
-//		return array.toString();
+    public String getCreate(@QueryParam("businessrule") int businessRuleId) {
+        BusinessRule businessRule = BusinessRulePersistence.getBusinessRuleById(businessRuleId);
+        Template template = TemplatePersistence.getTemplateByBusinessRuleType(businessRule.businessRuleType);
+        List<BusinessRuleTag> businessRuleTagList = BusinessRuleTagPersistence.getBusinessRuleTagsByTemplateAndBusinessRule(template, businessRule);
+
+        JSONArray jsonArray = new JSONArray();
+        businessRuleTagList.forEach(businessRuleTag->
+                jsonArray.add(businessRuleTag.value)
+        );
+
+        HibernateUtils.close();
+
+        return jsonArray.toJSONString();
     }
 
     @GET
     @Path("/types")
     @Produces("application/json")
-    @Override
     public String get() {
         JSONArray jsonArray = new JSONArray();
         try {
@@ -81,7 +89,6 @@ public class BusinessRuleApi implements Api {
     @PUT
     @Path("/updateBusinessRules")
     @Produces("application/json")
-    @Override
     public void update() {
 
     }
