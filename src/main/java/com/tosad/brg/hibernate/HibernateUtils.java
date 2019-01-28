@@ -1,4 +1,4 @@
-package com.tosad.brg;
+package com.tosad.brg.hibernate;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
