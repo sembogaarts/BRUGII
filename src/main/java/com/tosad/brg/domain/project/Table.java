@@ -1,4 +1,4 @@
-package com.tosad.brg.domain;
+package com.tosad.brg.domain.project;
 
 import javax.persistence.*;
 

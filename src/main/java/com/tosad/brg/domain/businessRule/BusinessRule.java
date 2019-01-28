@@ -1,4 +1,6 @@
-package com.tosad.brg.domain;
+package com.tosad.brg.domain.businessRule;
+
+import com.tosad.brg.domain.project.Project;
 
 import javax.persistence.*;
 

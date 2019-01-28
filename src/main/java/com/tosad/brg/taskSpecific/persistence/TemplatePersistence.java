@@ -1,8 +1,8 @@
 package com.tosad.brg.taskSpecific.persistence;
 
 import com.tosad.brg.hibernate.HibernateUtils;
-import com.tosad.brg.domain.BusinessRuleType;
-import com.tosad.brg.domain.Template;
+import com.tosad.brg.domain.businessRule.BusinessRuleType;
+import com.tosad.brg.domain.template.Template;
 import org.hibernate.SessionFactory;
 
 import javax.persistence.criteria.CriteriaBuilder;

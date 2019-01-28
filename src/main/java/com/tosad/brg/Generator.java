@@ -2,10 +2,10 @@ package com.tosad.brg;
 
 import com.tosad.brg.hibernate.HibernateUtils;
 import com.tosad.brg.taskSpecific.api.BusinessRuleJSON;
-import com.tosad.brg.domain.BusinessRule;
-import com.tosad.brg.domain.BusinessRuleTag;
-import com.tosad.brg.domain.Template;
-import com.tosad.brg.domain.TemplateTag;
+import com.tosad.brg.domain.businessRule.BusinessRule;
+import com.tosad.brg.domain.businessRule.BusinessRuleTag;
+import com.tosad.brg.domain.template.Template;
+import com.tosad.brg.domain.template.TemplateTag;
 import com.tosad.brg.taskSpecific.persistence.BusinessRulePersistence;
 import com.tosad.brg.taskSpecific.persistence.BusinessRuleTagPersistence;
 import com.tosad.brg.taskSpecific.persistence.TemplatePersistence;

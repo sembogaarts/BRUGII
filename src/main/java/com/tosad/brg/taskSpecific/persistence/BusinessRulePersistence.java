@@ -1,7 +1,7 @@
 package com.tosad.brg.taskSpecific.persistence;
 
 import com.tosad.brg.hibernate.HibernateUtils;
-import com.tosad.brg.domain.BusinessRule;
+import com.tosad.brg.domain.businessRule.BusinessRule;
 
 public class BusinessRulePersistence {
     public static BusinessRule getBusinessRuleById(int businessRuleId) {

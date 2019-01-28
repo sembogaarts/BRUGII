@@ -1,9 +1,9 @@
 package com.tosad.brg.taskSpecific.persistence;
 
 import com.tosad.brg.hibernate.HibernateUtils;
-import com.tosad.brg.domain.BusinessRule;
-import com.tosad.brg.domain.BusinessRuleTag;
-import com.tosad.brg.domain.TemplateTag;
+import com.tosad.brg.domain.businessRule.BusinessRule;
+import com.tosad.brg.domain.businessRule.BusinessRuleTag;
+import com.tosad.brg.domain.template.TemplateTag;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;

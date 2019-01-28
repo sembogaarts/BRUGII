@@ -1,4 +1,6 @@
-package com.tosad.brg.domain;
+package com.tosad.brg.domain.project;
+
+import com.tosad.brg.domain.template.DatabaseType;
 
 import javax.persistence.*;
 import javax.persistence.Column;

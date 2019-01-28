@@ -1,4 +1,7 @@
-package com.tosad.brg.domain;
+package com.tosad.brg.domain.template;
+
+import com.tosad.brg.domain.businessRule.BusinessRuleTag;
+import com.tosad.brg.domain.type.TemplateTagType;
 
 import javax.persistence.*;
 import javax.persistence.Table;

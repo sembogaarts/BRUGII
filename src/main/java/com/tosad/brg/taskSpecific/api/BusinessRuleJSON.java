@@ -1,8 +1,8 @@
 package com.tosad.brg.taskSpecific.api;
 
-import com.tosad.brg.domain.BusinessRuleTag;
-import com.tosad.brg.domain.Template;
-import com.tosad.brg.domain.TemplateTag;
+import com.tosad.brg.domain.businessRule.BusinessRuleTag;
+import com.tosad.brg.domain.template.Template;
+import com.tosad.brg.domain.template.TemplateTag;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,13 +1,13 @@
 package com.tosad.brg;
 
-import com.tosad.brg.domain.BusinessRuleType;
-import com.tosad.brg.domain.DatabaseType;
-import com.tosad.brg.domain.Template;
-import com.tosad.brg.domain.TemplateTag;
-import com.tosad.brg.domain.TemplateTagType;
-import com.tosad.brg.domain.Column;
-import com.tosad.brg.domain.Project;
-import com.tosad.brg.domain.Table;
+import com.tosad.brg.domain.businessRule.BusinessRuleType;
+import com.tosad.brg.domain.template.DatabaseType;
+import com.tosad.brg.domain.template.Template;
+import com.tosad.brg.domain.template.TemplateTag;
+import com.tosad.brg.domain.type.TemplateTagType;
+import com.tosad.brg.domain.project.Column;
+import com.tosad.brg.domain.project.Project;
+import com.tosad.brg.domain.project.Table;
 import com.tosad.brg.hibernate.HibernateUtils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

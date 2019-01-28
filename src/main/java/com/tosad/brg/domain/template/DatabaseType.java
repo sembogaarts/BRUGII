@@ -1,4 +1,4 @@
-package com.tosad.brg.domain;
+package com.tosad.brg.domain.template;
 
 import com.tosad.brg.dataAccess.DatabaseConnection;
 import com.tosad.brg.dataAccess.OracleDatabaseConnection;
