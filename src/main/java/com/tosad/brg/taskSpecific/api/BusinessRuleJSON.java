@@ -15,7 +15,7 @@ public class BusinessRuleJSON {
         for (Map.Entry<BusinessRuleTag, TemplateTag> entry : businessRuleHashMap.entrySet()) {
             BusinessRuleTag businessRuleTag = entry.getKey();
             TemplateTag templateTag = entry.getValue();
-            code = code.replace(templateTag.getTemplateKey(), businessRuleTag.getValue());
+            code = code.replace(templateTag.getTemplateKey(), templateTag.getTemplateTagType().parseValue(businessRuleTag.value));
         }
 
         return code;

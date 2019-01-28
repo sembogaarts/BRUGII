@@ -1,4 +1,4 @@
-package com.tosad.brg.taskSpecific.persistence;
+package com.tosad.brg;
 
 import com.tosad.brg.hibernate.HibernateUtils;
 import com.tosad.brg.taskSpecific.api.BusinessRuleJSON;
@@ -6,6 +6,9 @@ import com.tosad.brg.domain.businessRule.BusinessRule;
 import com.tosad.brg.domain.businessRule.BusinessRuleTag;
 import com.tosad.brg.domain.template.Template;
 import com.tosad.brg.domain.template.TemplateTag;
+import com.tosad.brg.taskSpecific.persistence.BusinessRulePersistence;
+import com.tosad.brg.taskSpecific.persistence.BusinessRuleTagPersistence;
+import com.tosad.brg.taskSpecific.persistence.TemplatePersistence;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -19,7 +22,7 @@ import java.util.List;
 public class Generator {
 
     @GET
-        @Path("/businessrule")
+    @Path("/businessrule")
     @Produces("application/json")
     public String getCreate(@QueryParam("businessrule") int businessRuleId) {
         BusinessRule businessRule = BusinessRulePersistence.getBusinessRuleById(businessRuleId);
