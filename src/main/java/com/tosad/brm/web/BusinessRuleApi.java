@@ -40,11 +40,13 @@ public class BusinessRuleApi {
         List<BusinessRuleTag> businessRuleTagList = BusinessRuleTagPersistence.getBusinessRuleTagsByBusinessRule(businessRule);
         HashMap<BusinessRuleTag, TemplateTag> businessRuleHashMap = BusinessRuleTagPersistence.getBusinessRuleHashMapByBusinessRuleTags(businessRuleTagList);
 
-        JSONArray jsonArray = generateFromList(businessRuleHashMap);
+        Template template = getTemplateByBusinessRuleType(businessRule.businessRuleType);
+
+        JSONObject data = TemplateJSON.generate(template);
+        data.put("tags", generateFromList(businessRuleHashMap));
 
         HibernateUtils.close();
-
-        return jsonArray.toJSONString();
+        return data.toJSONString();
     }
 
     @GET
