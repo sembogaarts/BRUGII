@@ -8,6 +8,7 @@ import com.tosad.brg.domain.TemplateTagType;
 import com.tosad.brg.domain.Column;
 import com.tosad.brg.domain.Project;
 import com.tosad.brg.domain.Table;
+import com.tosad.brg.hibernate.HibernateUtils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
