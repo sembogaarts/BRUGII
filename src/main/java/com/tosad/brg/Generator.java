@@ -36,6 +36,4 @@ public class Generator {
 
         return test;
     }
-
-
 }
