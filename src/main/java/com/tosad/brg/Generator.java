@@ -6,6 +6,9 @@ import com.tosad.brg.domain.BusinessRule;
 import com.tosad.brg.domain.BusinessRuleTag;
 import com.tosad.brg.domain.Template;
 import com.tosad.brg.domain.TemplateTag;
+import com.tosad.brg.taskSpecific.persistence.BusinessRulePersistence;
+import com.tosad.brg.taskSpecific.persistence.BusinessRuleTagPersistence;
+import com.tosad.brg.taskSpecific.persistence.TemplatePersistence;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
