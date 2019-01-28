@@ -6,11 +6,11 @@
         </div>
 
         <!-- Template Generator -->
-        <div v-if="hasTemplate && !loading">
+        <div v-if="!loading">
 
             <form @submit.prevent>
 
-                <div v-for="(tag, index) in template.tags">
+                <div v-for="(tag, index) in data.tags">
 
                     <!-- Render the field depending on type -->
                     <field

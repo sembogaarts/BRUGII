@@ -8,21 +8,19 @@ module.exports = {
         return {
             // TODO: GET FROM API
             selectedTemplate: null,
-            template: {},
+            data: {},
             schema: {},
             loading: false
         }
     },
     methods: {
-        getTemplateInformation() {
+        getBusinessRule(id) {
             this.loading = true;
             // Get the template information
-            this.axios.get('https://brugii-manager.herokuapp.com/businessrule/type?id=' + this.selectedTemplate)
+            this.axios.get('https://brugii-manager.herokuapp.com/businessrule/data?businessrule=' + id)
                 .then(response => {
-                    this.template = response.data;
+                    this.data = response.data;
                     this.loading = false;
-                }, error => {
-                    alert('Kan niet verbinden met ondora.');
                 });
         },
         getSchemaData() {
@@ -36,12 +34,9 @@ module.exports = {
             this.loading = true;
             this.axios.post('http://localhost:8080/businessrule/create', this.template)
                 .then(response => {
-
-
                     this.loading = false;
                     alert('De businessrule is toegevoegd');
                     this.template = {};
-
                 });
         },
 
@@ -71,13 +66,8 @@ module.exports = {
         }
 
     },
-    computed: {
-        hasTemplate: function () {
-            return JSON.stringify(this.template) !== '{}'
-        }
-    },
     created: function () {
-        console.log(this.$route.params);
+        this.getBusinessRule(this.$route.params['id']);
     }
 }
 
