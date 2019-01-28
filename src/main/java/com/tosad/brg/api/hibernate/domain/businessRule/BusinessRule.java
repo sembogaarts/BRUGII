@@ -29,6 +29,10 @@ public class BusinessRule {
         this.project = project;
     }
 
+    public BusinessRule() {
+
+    }
+
     public String getName() {
         return name;
     }
