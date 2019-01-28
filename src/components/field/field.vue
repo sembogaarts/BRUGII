@@ -5,7 +5,7 @@
         <label :for="tag.name">{{ tag.name }}</label>
 
         <!-- String, Number, Boolean -->
-        <input v-if="isString(tag.type)" :id="tag.name" type="text" :value="value" @input="onInput($event)">
+        <input v-if="isString(tag.type)" :id="tag.name" type="text" :v-model="value" @input="onInput($event)">
         <input v-if="isNumber(tag.type)" :id="tag.name" type="number" :value="value" @input="onInput($event)">
         <input v-if="isBoolean(tag.type)" :id="tag.name" type="checkbox" :value="value" @input="onInput($event)">
 

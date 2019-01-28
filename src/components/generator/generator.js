@@ -25,7 +25,8 @@ module.exports = {
         getTemplateInformation() {
             this.loading = true;
             // Get the template information
-            this.axios.get('http://localhost:8080/businessrule/type?id=' + this.selectedTemplate)
+            // this.axios.get('http://localhost:8080/businessrule/type?id=' + this.selectedTemplate)
+            this.axios.get('templates/' + this.selectedTemplate)
                 .then(response => {
                     this.template = response.data;
                     this.loading = false;

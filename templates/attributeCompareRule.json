@@ -4,27 +4,27 @@
     {
       "id": 1,
       "name": "TABLE",
-      "type": "TABLE"
+      "type": "table"
     },
     {
       "id": 2,
       "name": "NAME",
-      "type": "STRING"
+      "type": "string"
     },
     {
       "id": 4,
       "name": "COLUMN",
-      "type": "COLUMN"
+      "type": "column"
     },
     {
       "id": 5,
       "name": "OPERATOR",
-      "type": "OPERATOR"
+      "type": "operator"
     },
     {
       "id": 6,
       "name": "VALUE",
-      "type": "DYNAMIC"
+      "type": "dynamic"
     }
   ]
 }

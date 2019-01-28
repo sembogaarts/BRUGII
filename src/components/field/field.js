@@ -34,7 +34,7 @@ module.exports = {
             // First of all the
             if (this.loop) {
                 for (var x = this.index; 0 <= x; x--) {
-                    if (this.loop[x].type === 'COLUMN') {
+                    if (this.loop[x].type === 'column') {
                         if (typeof (this.loop[x].value[this.rowIndex]) != 'undefined') {
                             var table = this.loop[x].value[this.rowIndex].split('.');
                             return this.getColumnType(table[0], table[1]);
@@ -45,7 +45,7 @@ module.exports = {
                 }
             }
             for (var x = this.index; 0 <= x; x--) {
-                if (this.tags[x].type === 'COLUMN') {
+                if (this.tags[x].type === 'column') {
                     if (typeof (this.tags[x].value) != 'undefined') {
                         var table = this.tags[x].value.split('.');
                         return this.getColumnType(table[0], table[1]);
@@ -150,10 +150,6 @@ module.exports = {
             }
 
         }
-
-    },
-
-    computed: {
 
     }
 

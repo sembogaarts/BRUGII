@@ -5,11 +5,11 @@
              "columns": [
                  {
                      "name": "Leeftijd",
-                     "type": "NUMBER"
+                     "type": "number"
                  },
                  {
                      "name": "Naam",
-                     "type": "STRING"
+                     "type": "string"
                  }
              ]
          },
@@ -18,11 +18,11 @@
              "columns": [
                  {
                      "name": "Nummer",
-                     "type": "NUMBER"
+                     "type": "number"
                  },
                  {
                      "name": "Naam",
-                     "type": "STRING"
+                     "type": "string"
                  }
              ]
          }
