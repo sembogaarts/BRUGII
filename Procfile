@@ -1,1 +1,1 @@
-web: java -cp "target/dependency/*" webapp.runner.launch.Main --port $PORT target/*.war
+web: java -jar build/server/webapp-runner-*.jar build/libs/*.war --port $PORT
