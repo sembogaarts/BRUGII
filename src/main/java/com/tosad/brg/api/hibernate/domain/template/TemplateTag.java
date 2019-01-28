@@ -35,6 +35,10 @@ public class TemplateTag {
         this.template = template;
     }
 
+    public TemplateTag() {
+
+    }
+
     public String getTemplateKey() {
         return String.format("{{ %s }}", key);
     }

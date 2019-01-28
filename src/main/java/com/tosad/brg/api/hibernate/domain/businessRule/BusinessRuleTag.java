@@ -23,6 +23,9 @@ public class BusinessRuleTag {
     @JoinColumn(name = "businessRule_id")
     public BusinessRule businessRule;
 
+    public BusinessRuleTag() {
+
+    }
 
     public BusinessRuleTag(int id, String value, TemplateTag templateTag, BusinessRule businessRule) {
         this.id = id;
