@@ -1,8 +1,8 @@
-package com.tosad.brg.api.api;
+package com.tosad.brg.taskSpecific.api;
 
-import com.tosad.brg.api.hibernate.domain.businessRule.BusinessRuleTag;
-import com.tosad.brg.api.hibernate.domain.template.Template;
-import com.tosad.brg.api.hibernate.domain.template.TemplateTag;
+import com.tosad.brg.domain.BusinessRuleTag;
+import com.tosad.brg.domain.Template;
+import com.tosad.brg.domain.TemplateTag;
 
 import java.util.HashMap;
 import java.util.Map;

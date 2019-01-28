@@ -1,6 +1,4 @@
-package com.tosad.brg.api.hibernate.domain.businessRule;
-
-import com.tosad.brg.api.hibernate.taskSpecific.Project;
+package com.tosad.brg.domain;
 
 import javax.persistence.*;
 

@@ -1,4 +1,4 @@
-package com.tosad.brg.api;
+package com.tosad.brg;
 
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerResponseContext;

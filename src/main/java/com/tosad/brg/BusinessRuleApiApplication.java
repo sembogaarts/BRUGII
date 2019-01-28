@@ -1,4 +1,4 @@
-package com.tosad.brg.api;
+package com.tosad.brg;
 
 import org.glassfish.jersey.server.ResourceConfig;
 

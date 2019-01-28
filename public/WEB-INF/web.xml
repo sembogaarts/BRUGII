@@ -7,11 +7,11 @@
         </servlet-class>
         <init-param>
             <param-name>jersey.config.server.provider.packages</param-name>
-            <param-value>com.tosad.brg.api</param-value>
+            <param-value>com.tosad.brg.taskSpecific.api</param-value>
         </init-param>
         <init-param>
             <param-name>javax.ws.rs.Application</param-name>
-            <param-value>com.tosad.brg.api.BusinessRuleApiApplication</param-value>
+            <param-value>com.tosad.brg.BusinessRuleApiApplication</param-value>
         </init-param>
 
         <load-on-startup>1</load-on-startup>

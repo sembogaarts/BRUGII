@@ -1,14 +1,13 @@
-package com.tosad.brg.api;
+package com.tosad.brg;
 
-import com.tosad.brg.api.hibernate.HibernateUtils;
-import com.tosad.brg.api.hibernate.domain.businessRule.BusinessRuleType;
-import com.tosad.brg.api.hibernate.domain.template.DatabaseType;
-import com.tosad.brg.api.hibernate.domain.template.Template;
-import com.tosad.brg.api.hibernate.domain.template.TemplateTag;
-import com.tosad.brg.api.hibernate.domain.type.TemplateTagType;
-import com.tosad.brg.api.hibernate.taskSpecific.Column;
-import com.tosad.brg.api.hibernate.taskSpecific.Project;
-import com.tosad.brg.api.hibernate.taskSpecific.Table;
+import com.tosad.brg.domain.BusinessRuleType;
+import com.tosad.brg.domain.DatabaseType;
+import com.tosad.brg.domain.Template;
+import com.tosad.brg.domain.TemplateTag;
+import com.tosad.brg.domain.TemplateTagType;
+import com.tosad.brg.domain.Column;
+import com.tosad.brg.domain.Project;
+import com.tosad.brg.domain.Table;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;

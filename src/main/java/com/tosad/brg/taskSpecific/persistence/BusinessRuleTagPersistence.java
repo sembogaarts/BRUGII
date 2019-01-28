@@ -1,12 +1,9 @@
-package com.tosad.brg.api.persistence;
+package com.tosad.brg.taskSpecific.persistence;
 
-import com.tosad.brg.api.hibernate.HibernateUtils;
-import com.tosad.brg.api.hibernate.domain.businessRule.BusinessRule;
-import com.tosad.brg.api.hibernate.domain.businessRule.BusinessRuleTag;
-import com.tosad.brg.api.hibernate.domain.template.TemplateTag;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import com.tosad.brg.HibernateUtils;
+import com.tosad.brg.domain.BusinessRule;
+import com.tosad.brg.domain.BusinessRuleTag;
+import com.tosad.brg.domain.TemplateTag;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;

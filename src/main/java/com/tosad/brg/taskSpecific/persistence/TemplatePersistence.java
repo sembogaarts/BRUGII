@@ -1,14 +1,13 @@
-package com.tosad.brg.api.persistence;
+package com.tosad.brg.taskSpecific.persistence;
 
-import com.tosad.brg.api.hibernate.HibernateUtils;
-import com.tosad.brg.api.hibernate.domain.businessRule.BusinessRuleType;
-import com.tosad.brg.api.hibernate.domain.template.Template;
+import com.tosad.brg.HibernateUtils;
+import com.tosad.brg.domain.BusinessRuleType;
+import com.tosad.brg.domain.Template;
 import org.hibernate.SessionFactory;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import java.util.List;
 
 public class TemplatePersistence {
     public static Template getTemplateByBusinessRuleType(BusinessRuleType businessRuleType) {

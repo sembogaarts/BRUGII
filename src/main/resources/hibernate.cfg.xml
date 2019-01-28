@@ -12,7 +12,7 @@
             oracle.jdbc.driver.OracleDriver
         </property>
 
-        <!-- Assume test is the database name -->
+        <!-- Assume test is the dataAccess name -->
 
         <property name="hibernate.connection.url">
             jdbc:oracle:thin:@//ondora04.hu.nl:8521/EDUC16
@@ -28,20 +28,20 @@
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">true</property>
 
-        <!-- Drop and re-create the database schema on startup -->
+        <!-- Drop and re-create the dataAccess schema on startup -->
         <property name="hibernate.hbm2ddl.auto">update</property>
 
         <property name="hibernate.default_schema">cursist</property>
 
-        <mapping class="com.tosad.brg.api.hibernate.domain.businessRule.BusinessRuleTag"/>
-        <mapping class="com.tosad.brg.api.hibernate.domain.businessRule.BusinessRule"/>
-        <mapping class="com.tosad.brg.api.hibernate.domain.businessRule.BusinessRuleType"/>
-        <mapping class="com.tosad.brg.api.hibernate.domain.template.DatabaseType"/>
-        <mapping class="com.tosad.brg.api.hibernate.domain.template.Template"/>
-        <mapping class="com.tosad.brg.api.hibernate.domain.template.TemplateTag"/>
-        <mapping class="com.tosad.brg.api.hibernate.taskSpecific.Column"/>
-        <mapping class="com.tosad.brg.api.hibernate.taskSpecific.Table"/>
-        <mapping class="com.tosad.brg.api.hibernate.taskSpecific.Project"/>
+        <mapping class="com.tosad.brg.domain.BusinessRuleTag"/>
+        <mapping class="com.tosad.brg.domain.BusinessRule"/>
+        <mapping class="com.tosad.brg.domain.BusinessRuleType"/>
+        <mapping class="com.tosad.brg.domain.DatabaseType"/>
+        <mapping class="com.tosad.brg.domain.Template"/>
+        <mapping class="com.tosad.brg.domain.TemplateTag"/>
+        <mapping class="com.tosad.brg.domain.Column"/>
+        <mapping class="com.tosad.brg.domain.Table"/>
+        <mapping class="com.tosad.brg.domain.Project"/>
 
     </session-factory>
 </hibernate-configuration>

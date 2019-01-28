@@ -1,6 +1,4 @@
-package com.tosad.brg.api.hibernate.taskSpecific;
-
-import com.tosad.brg.api.hibernate.domain.template.DatabaseType;
+package com.tosad.brg.domain;
 
 import javax.persistence.*;
 import javax.persistence.Column;

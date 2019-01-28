@@ -1,21 +1,19 @@
-package com.tosad.brg.api;
+package com.tosad.brg.taskSpecific.persistence;
 
-import com.tosad.brg.api.api.BusinessRuleJSON;
-import com.tosad.brg.api.hibernate.HibernateUtils;
-import com.tosad.brg.api.hibernate.domain.businessRule.BusinessRule;
-import com.tosad.brg.api.hibernate.domain.businessRule.BusinessRuleTag;
-import com.tosad.brg.api.hibernate.domain.template.Template;
-import com.tosad.brg.api.hibernate.domain.template.TemplateTag;
-import com.tosad.brg.api.persistence.BusinessRulePersistence;
-import com.tosad.brg.api.persistence.BusinessRuleTagPersistence;
-import com.tosad.brg.api.persistence.TemplatePersistence;
-import org.json.simple.JSONArray;
+import com.tosad.brg.HibernateUtils;
+import com.tosad.brg.taskSpecific.api.BusinessRuleJSON;
+import com.tosad.brg.domain.BusinessRule;
+import com.tosad.brg.domain.BusinessRuleTag;
+import com.tosad.brg.domain.Template;
+import com.tosad.brg.domain.TemplateTag;
+import com.tosad.brg.taskSpecific.persistence.BusinessRulePersistence;
+import com.tosad.brg.taskSpecific.persistence.BusinessRuleTagPersistence;
+import com.tosad.brg.taskSpecific.persistence.TemplatePersistence;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.MediaType;
 import java.util.HashMap;
 import java.util.List;
 

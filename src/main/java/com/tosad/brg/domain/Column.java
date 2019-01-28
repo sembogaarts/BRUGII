@@ -1,4 +1,4 @@
-package com.tosad.brg.api.hibernate.taskSpecific;
+package com.tosad.brg.domain;
 
 import javax.persistence.*;
 

@@ -1,4 +1,4 @@
-package com.tosad.brg.api.hibernate.infrastructure;
+package com.tosad.brg.dataAccess;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
