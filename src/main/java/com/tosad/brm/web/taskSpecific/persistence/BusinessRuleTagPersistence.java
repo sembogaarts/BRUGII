@@ -51,7 +51,7 @@ public class BusinessRuleTagPersistence {
 
         query.select(root).where(
                 builder.equal(root.get("businessRule"), businessRule.id)
-        );
+        ).orderBy(builder.asc(root.get("id")));
         return HibernateUtils.getSession().createQuery(query).getResultList();
 
     }
