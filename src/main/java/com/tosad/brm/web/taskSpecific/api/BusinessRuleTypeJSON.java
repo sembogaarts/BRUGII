@@ -1,4 +1,4 @@
-package com.tosad.brm.web.taskSpecific.api.json;
+package com.tosad.brm.web.taskSpecific.api;
 
 import com.tosad.brm.web.domain.businessRule.BusinessRuleType;
 import org.json.simple.JSONObject;

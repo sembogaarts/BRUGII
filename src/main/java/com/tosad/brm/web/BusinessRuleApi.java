@@ -1,4 +1,4 @@
-package com.tosad.brm.web.taskSpecific.api;
+package com.tosad.brm.web;
 
 import com.tosad.brm.web.hibernate.HibernateUtils;
 import com.tosad.brm.web.domain.businessRule.BusinessRule;
@@ -6,10 +6,10 @@ import com.tosad.brm.web.domain.businessRule.BusinessRuleTag;
 import com.tosad.brm.web.domain.businessRule.BusinessRuleType;
 import com.tosad.brm.web.domain.template.Template;
 import com.tosad.brm.web.domain.template.TemplateTag;
-import com.tosad.brm.web.taskSpecific.api.json.BusinessRuleJSON;
-import com.tosad.brm.web.taskSpecific.api.json.BusinessRuleTagJSON;
-import com.tosad.brm.web.taskSpecific.api.json.BusinessRuleTypeJSON;
-import com.tosad.brm.web.taskSpecific.api.json.TemplateJSON;
+import com.tosad.brm.web.taskSpecific.api.BusinessRuleJSON;
+import com.tosad.brm.web.taskSpecific.api.BusinessRuleTagJSON;
+import com.tosad.brm.web.taskSpecific.api.BusinessRuleTypeJSON;
+import com.tosad.brm.web.taskSpecific.api.TemplateJSON;
 import com.tosad.brm.web.taskSpecific.persistence.BusinessRulePersistence;
 import com.tosad.brm.web.taskSpecific.persistence.BusinessRuleTagPersistence;
 import org.json.simple.JSONArray;
@@ -21,7 +21,7 @@ import javax.ws.rs.*;
 import java.util.HashMap;
 import java.util.List;
 
-import static com.tosad.brm.web.taskSpecific.api.json.TemplateTagJSON.generateFromList;
+import static com.tosad.brm.web.taskSpecific.api.TemplateTagJSON.generateFromList;
 import static com.tosad.brm.web.taskSpecific.persistence.BusinessRulePersistence.saveBusinessRule;
 import static com.tosad.brm.web.taskSpecific.persistence.BusinessRuleTagPersistence.saveBusinessRuleTags;
 import static com.tosad.brm.web.taskSpecific.persistence.BusinessRuleTypePersistence.getAllBusinessRuleTypes;
