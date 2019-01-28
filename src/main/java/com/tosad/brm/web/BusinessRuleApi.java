@@ -19,6 +19,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import javax.ws.rs.*;
+import java.util.HashMap;
 import java.util.List;
 
 import static com.tosad.brm.web.api.TemplateTagJSON.generateFromList;
@@ -37,13 +38,10 @@ public class BusinessRuleApi {
     @Produces("application/json")
     public String getCreate(@QueryParam("businessrule") int businessRuleId) {
         BusinessRule businessRule = BusinessRulePersistence.getBusinessRuleById(businessRuleId);
-        Template template = TemplatePersistence.getTemplateByBusinessRuleType(businessRule.businessRuleType);
-        List<BusinessRuleTag> businessRuleTagList = BusinessRuleTagPersistence.getBusinessRuleTagsByTemplateAndBusinessRule(template, businessRule);
+        List<BusinessRuleTag> businessRuleTagList = BusinessRuleTagPersistence.getBusinessRuleTagsByBusinessRule(businessRule);
+        HashMap<BusinessRuleTag, TemplateTag> businessRuleHashMap = BusinessRuleTagPersistence.getBusinessRuleHashMapByBusinessRuleTags(businessRuleTagList);
 
-        JSONArray jsonArray = new JSONArray();
-        businessRuleTagList.forEach(businessRuleTag ->
-                jsonArray.add(businessRuleTag.value)
-        );
+        JSONArray jsonArray = generateFromList(businessRuleHashMap);
 
         HibernateUtils.close();
 
@@ -56,14 +54,12 @@ public class BusinessRuleApi {
     public String get() {
         JSONArray jsonArray = new JSONArray();
         try {
-            getAllBusinessRuleTypes()
-                    .forEach(businessRuleType ->
-                            jsonArray.add(BusinessRuleTypeJSON.generate(businessRuleType))
-                    );
+            getAllBusinessRuleTypes().forEach(businessRuleType ->
+                    jsonArray.add(BusinessRuleTypeJSON.generate(businessRuleType))
+            );
         } catch (Exception e) {
             e.printStackTrace();
         }
-
 
         HibernateUtils.close();
 
@@ -107,7 +103,6 @@ public class BusinessRuleApi {
         HibernateUtils.close();
 
         return jsonObject.toJSONString();
-
     }
 
     @DELETE
