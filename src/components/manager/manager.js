@@ -1,9 +1,9 @@
 module.exports = {
-    data: function() {
+    data: function () {
         return {
             project: "Manager",
-            businessrules : [],
-            createStatus : "",
+            businessrules: [],
+            createStatus: "",
             loading: false
         }
     },
@@ -22,6 +22,10 @@ module.exports = {
                 .then(response => {
                     this.createStatus = response.data;
                 });
+        },
+
+        path(br) {
+            return '/editor/' + br.id;
         }
 
     },

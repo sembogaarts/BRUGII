@@ -3,6 +3,7 @@ import VueRouter from '../../node_modules/vue-router/dist/vue-router';
 // Components
 import GeneratorComponent from '../components/generator/generator.vue';
 import ManagerComponent from '../components/manager/manager.vue';
+import EditorComponent from '../components/editor/editor.vue';
 
 Vue.use(VueRouter);
 
@@ -21,6 +22,13 @@ const router = new VueRouter({
             name: 'Creator',
             icon: 'fa-database',
             component: GeneratorComponent
+        },
+        {
+            path: '/editor/:id',
+            name: 'Editor',
+            icon: 'fa-database',
+            hide: true,
+            component: EditorComponent
         },
     ]
 

@@ -24,7 +24,7 @@
 
         <ul>
             <!-- Render the Routes -->
-            <router-link tag="li" :to="nav.path" v-for="nav in routes">
+            <router-link tag="li" v-if="!nav.hide" :to="nav.path" v-for="nav in routes">
                 <i class="fa" :class="nav.icon"></i>
                 {{ nav.name }}
             </router-link>

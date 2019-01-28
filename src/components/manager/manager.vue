@@ -21,8 +21,8 @@
                 <tr v-for="businessrule in businessrules">
                     <td> {{businessrule.name}}</td>
                     <td> {{businessrule.status}}</td>
-                    <td><i class="far fa-edit"> </i></td>
-                    <td><i @click="generateBusinessRule(businessrule.id)" class="fas fa-sync-alt"></i></td>
+                    <td><router-link :to="path(businessrule)"><i class="far fa-edit"></i></router-link></td>
+                    <td @click="generateBusinessRule(businessrule.id)"><i class="fas fa-sync-alt"></i></td>
                 </tr>
                 </tbody>
             </table>

@@ -7,7 +7,6 @@ module.exports = {
     data: function () {
         return {
             // TODO: GET FROM API
-            templates: [],
             selectedTemplate: null,
             template: {},
             schema: {},
@@ -15,13 +14,6 @@ module.exports = {
         }
     },
     methods: {
-        getTemplates() {
-            // Get the template information
-            this.axios.get('https://brugii-manager.herokuapp.com/businessrule/types')
-                .then(response => {
-                    this.templates = response.data;
-                });
-        },
         getTemplateInformation() {
             this.loading = true;
             // Get the template information
@@ -85,8 +77,7 @@ module.exports = {
         }
     },
     created: function () {
-        this.getTemplates();
-        this.getSchemaData();
+        console.log(this.$route.params);
     }
 }
 
