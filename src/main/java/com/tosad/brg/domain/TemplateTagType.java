@@ -33,11 +33,7 @@ public enum TemplateTagType implements Serializable {
     BOOLEAN("boolean") {
         @Override
         public String parseValue(String value) {
-            if (value.equals("true")) {
-                return "NOT";
-            } else {
-                return "";
-            }
+            return value.equals("true") ? "NOT" : "";
         }
     },
     UNKNOWN("unknown");
