@@ -21,4 +21,7 @@ public class Table {
         this.project = project;
         this.name = name;
     }
+
+    public Table() {
+    }
 }

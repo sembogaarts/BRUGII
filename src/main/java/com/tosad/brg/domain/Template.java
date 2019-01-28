@@ -1,6 +1,8 @@
 package com.tosad.brg.domain;
 
 import javax.persistence.*;
+import javax.persistence.Table;
+import javax.persistence.Column;
 
 @Entity
 @Table(name = "TEMPLATE")

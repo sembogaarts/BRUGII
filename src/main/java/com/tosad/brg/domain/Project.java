@@ -49,6 +49,9 @@ public class Project {
 //        this.databaseConnection = databaseType.createConnection(host, username, password, port);
     }
 
+    public Project() {
+    }
+
     public String getName() {
         return name;
     }

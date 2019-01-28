@@ -3,14 +3,14 @@ package com.tosad.brg.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "BUSINESSRULETAG")
+@javax.persistence.Table(name = "BUSINESSRULETAG")
 public class BusinessRuleTag {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @SequenceGenerator(name = "BUSINESSRULE_TAG_SEQUENCE", sequenceName = "BUSINESSRULE_TAG_SEQUENCE", allocationSize = 1)
     public int id;
 
-    @Column(name = "value")
+    @javax.persistence.Column(name = "value")
     public String value;
 
     @OneToOne()

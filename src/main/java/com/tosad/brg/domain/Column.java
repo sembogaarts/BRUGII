@@ -22,6 +22,10 @@ public class Column {
         this.tables = tables;
     }
 
+    public Column() {
+        
+    }
+
     public Table getTable() {
         return tables;
     }

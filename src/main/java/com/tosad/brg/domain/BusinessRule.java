@@ -3,14 +3,14 @@ package com.tosad.brg.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "BUSINESSRULE")
+@javax.persistence.Table(name = "BUSINESSRULE")
 public class BusinessRule {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @SequenceGenerator(name = "BUSINESSRULE_SEQUENCE", sequenceName = "BUSINESSRULE_SEQUENCE", allocationSize = 1)
     public int id;
 
-    @Column(name = "name")
+    @javax.persistence.Column(name = "name")
     public String name;
 
     @ManyToOne

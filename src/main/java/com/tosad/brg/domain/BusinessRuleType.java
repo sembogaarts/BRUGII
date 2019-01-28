@@ -3,14 +3,14 @@ package com.tosad.brg.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "BUSINESSRULETYPE")
+@javax.persistence.Table(name = "BUSINESSRULETYPE")
 public class BusinessRuleType {
 
     @Id
     @SequenceGenerator(name = "BUSINESSRULETYPE_SEQUENCE", sequenceName = "BUSINESSRULETYPE_SEQUENCE", allocationSize = 1)
     public int id;
 
-    @Column(name = "name")
+    @javax.persistence.Column(name = "name")
     public String name;
 
     public BusinessRuleType(int id, String name) {
