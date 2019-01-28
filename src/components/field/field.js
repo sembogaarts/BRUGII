@@ -57,9 +57,7 @@ module.exports = {
         },
 
 
-        getOperatorsForEarlierField() {
-
-            var type = this.getEarlierFieldType();
+        getOperatorsForEarlierField(type) {
 
             if (this.isNumber(type)) {
                 return this.getOperatorsForNumber();
@@ -152,6 +150,10 @@ module.exports = {
             }
 
         }
+
+    },
+
+    computed: {
 
     }
 

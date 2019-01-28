@@ -65,6 +65,8 @@
 
                 <button type="submit" @click="onSubmit()"><i class="fas fa-sync-alt"></i> Genereer</button>
 
+                {{ template }}
+
             </form>
 
         </div>

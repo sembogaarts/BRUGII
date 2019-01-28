@@ -32,7 +32,7 @@
         <!-- Operators -->
         <select v-if="isOperator(tag.type)" :id="tag.name">
             <option selected value="" disabled>Selecteer een operator</option>
-            <option v-for="operator in getOperatorsForEarlierField()" :value="operator">{{ operator }}</option>
+            <option v-for="(operator, index) in getOperatorsForEarlierField(getEarlierFieldType())" :key="index" :value="operator">{{ operator }}</option>
         </select>
 
         <!-- State -->
