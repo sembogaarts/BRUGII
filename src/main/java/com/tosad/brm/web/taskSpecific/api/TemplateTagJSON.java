@@ -23,7 +23,7 @@ public class TemplateTagJSON implements ApiJSON {
 
     public static JSONObject generate(TemplateTag templateTag, BusinessRuleTag businessRuleTag) {
         JSONObject jsonObject = generateJSONObject(templateTag, businessRuleTag);
-        jsonObject.put("value", businessRuleTag.value);
+        jsonObject.put("value", templateTag.getTemplateTagType().parseValue(businessRuleTag.value));
         return jsonObject;
     }
 

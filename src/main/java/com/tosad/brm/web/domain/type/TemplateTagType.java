@@ -16,7 +16,12 @@ public enum TemplateTagType implements Serializable {
     OPERATOR("operator"),
     L_OPERATOR("l_operator"),
     LOOP("loop"),
-    NUMBER("number"),
+    NUMBER("number") {
+        @Override
+        public Object parseValue(String value) {
+            return Integer.parseInt(value);
+        }
+    },
     TABLE("table"),
     DYNAMIC("dynamic"),
     STATE("state"),         // Trigger - Before / After
@@ -26,6 +31,11 @@ public enum TemplateTagType implements Serializable {
         @Override
         public Object getDefaultValue() {
             return false;
+        }
+
+        @Override
+        public Object parseValue(String value) {
+            return value.equals("true");
         }
     },
     UNKNOWN("unknown");
@@ -50,7 +60,7 @@ public enum TemplateTagType implements Serializable {
         return type;
     }
 
-    public String parseValue(String value) {
+    public Object parseValue(String value) {
         return value;
     }
 
