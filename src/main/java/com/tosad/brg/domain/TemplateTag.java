@@ -49,4 +49,9 @@ public class TemplateTag {
     public void setKey(String key) {
         this.key = key;
     }
+
+    public TemplateTagType getTemplateTagType() {
+        return TemplateTagType.getTypeByText(templateTagType);
+    }
+
 }

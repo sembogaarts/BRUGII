@@ -22,7 +22,7 @@ import java.util.List;
 public class Generator {
 
     @GET
-        @Path("/businessrule")
+    @Path("/businessrule")
     @Produces("application/json")
     public String getCreate(@QueryParam("businessrule") int businessRuleId) {
         BusinessRule businessRule = BusinessRulePersistence.getBusinessRuleById(businessRuleId);

@@ -30,7 +30,16 @@ public enum TemplateTagType implements Serializable {
     STATE("state"),         // Trigger - Before / After
     EVENT("event"),         // Trigger - Insert / Update
     COLUMN("column"),
-    BOOLEAN("boolean"),
+    BOOLEAN("boolean") {
+        @Override
+        public String parseValue(String value) {
+            if (value.equals("true")) {
+                return "NOT";
+            } else {
+                return "";
+            }
+        }
+    },
     UNKNOWN("unknown");
 
     public String type;
