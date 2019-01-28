@@ -1,4 +1,4 @@
-package com.tosad.brg.taskSpecific.persistence;
+package com.tosad.brg;
 
 import com.tosad.brg.HibernateUtils;
 import com.tosad.brg.taskSpecific.api.BusinessRuleJSON;
