@@ -18,6 +18,10 @@ public class BusinessRuleType {
         this.name = name;
     }
 
+    public BusinessRuleType() {
+
+    }
+
     public String getName() {
         return name;
     }

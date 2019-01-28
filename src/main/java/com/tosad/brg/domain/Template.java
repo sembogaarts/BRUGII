@@ -34,6 +34,9 @@ public class Template {
         this.databaseType = databaseType.toString();
     }
 
+    public Template() {
+
+    }
 //    public DatabaseType getDatabaseType() {
 //        return databaseType;
 //    }
