@@ -38,18 +38,6 @@ public class BusinessRule {
     }
 
 
-//    public String generateCode() {
-//        String code = template.getScript();
-//
-//        for (Map.Entry<TemplateTag, BusinessRuleTag> entry : businessRuleTagHashMap.entrySet()) {
-//            TemplateTag templateTag = entry.getKey();
-//            BusinessRuleTag businessRuleTag = entry.getValue();
-//            code = code.replace(templateTag.getTemplateKey(), businessRuleTag.getValue());
-//        }
-//
-//        return code;
-//    }
-
     public BusinessRuleType getBusinessRuleType() {
         return businessRuleType;
     }

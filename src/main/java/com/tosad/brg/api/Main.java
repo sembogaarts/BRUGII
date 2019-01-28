@@ -18,9 +18,8 @@ public class Main {
     Session session;
 
     public static void main(String[] args) {
-        HibernateUtils hibernateUtils = new HibernateUtils();
-        hibernateUtils.boot();
-        Session session = hibernateUtils.getSession();
+        HibernateUtils.getSessionFactory();
+        Session session = HibernateUtils.getSession();
 
 
         Transaction t = session.beginTransaction();
@@ -154,7 +153,7 @@ public class Main {
 
         t.commit();
 
-        hibernateUtils.close();
+        HibernateUtils.close();
 //        BusinessRuleTag businessRuleTag1 = new BusinessRuleTag("id", new TemplateTag("COLUMN", TemplateTagType.COLUMN));
 //        BusinessRuleTag businessRuleTag2 = new BusinessRuleTag("=", new TemplateTag("OPERATOR", TemplateTagType.OPERATOR));
 //        BusinessRuleTag businessRuleTag3 = new BusinessRuleTag("Y", new TemplateTag("CHECK", TemplateTagType.STRING));

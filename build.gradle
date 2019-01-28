@@ -17,6 +17,7 @@ dependencies {
     compile 'org.glassfish.jersey.containers:jersey-container-servlet:2.27'
     compile 'org.glassfish.jersey.inject:jersey-hk2:2.27'
     compile 'javax.xml.bind:jaxb-api:2.4.0-b180830.0359'
+    compile 'com.googlecode.json-simple:json-simple:1.1.1'
     compile group: 'com.github.jsimone', name: 'webapp-runner', version: '7.0.22'
     compile files('lib/ojdbc6.jar')
     testCompile group: 'junit', name: 'junit', version: '4.12'
