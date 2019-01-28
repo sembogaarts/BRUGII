@@ -9,6 +9,7 @@ import com.tosad.brg.domain.template.TemplateTag;
 import com.tosad.brg.taskSpecific.persistence.BusinessRulePersistence;
 import com.tosad.brg.taskSpecific.persistence.BusinessRuleTagPersistence;
 import com.tosad.brg.taskSpecific.persistence.TemplatePersistence;
+import org.json.simple.JSONObject;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -18,11 +19,11 @@ import java.util.HashMap;
 import java.util.List;
 
 
-@Path("/s")
+@Path("/")
 public class Generator {
 
     @GET
-    @Path("/businessrule")
+    @Path("businessrule")
     @Produces("application/json")
     public String getCreate(@QueryParam("businessrule") int businessRuleId) {
         BusinessRule businessRule = BusinessRulePersistence.getBusinessRuleById(businessRuleId);
@@ -30,10 +31,11 @@ public class Generator {
         List<BusinessRuleTag> businessRuleTagList = BusinessRuleTagPersistence.getBusinessRuleTagsByBusinessRule(businessRule);
         HashMap<BusinessRuleTag, TemplateTag> businessRuleHashMap = BusinessRuleTagPersistence.getBusinessRuleHashMapByBusinessRuleTags(businessRuleTagList);
 
-        String test = BusinessRuleJSON.generateSQL(template, businessRuleHashMap);
-
+        String code = BusinessRuleJSON.generateSQL(template, businessRuleHashMap);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("code", code);
         HibernateUtils.close();
 
-        return test;
+        return jsonObject.toJSONString();
     }
 }
