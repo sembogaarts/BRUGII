@@ -39,7 +39,4 @@ public class BusinessRuleTag {
         return value;
     }
 
-//    public TemplateTag getTemplateTag() {
-//        return templateTag;
-//    }
 }
