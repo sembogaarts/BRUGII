@@ -49,6 +49,18 @@ public class BusinessRuleApi {
     }
 
     @GET
+    @Path("/rules")
+    @Produces("application/json")
+    public String getAllRules() {
+        List<BusinessRule> businessRuleList = BusinessRulePersistence.getAllBusinessRules();
+
+        HibernateUtils.close();
+
+        return BusinessRuleJSON.parseBusinessRules(businessRuleList).toJSONString();
+    }
+
+
+    @GET
     @Path("/types")
     @Produces("application/json")
     public String get() {
