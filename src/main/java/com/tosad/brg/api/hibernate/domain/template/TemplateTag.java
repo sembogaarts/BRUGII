@@ -33,7 +33,6 @@ public class TemplateTag {
         this.key = key;
         this.templateTagType = templateTagType.getType();
         this.template = template;
-//        this.templateTagType = TemplateTagType.getTypeByText(templateTagTypeStr);
     }
 
     public String getTemplateKey() {
@@ -47,12 +46,4 @@ public class TemplateTag {
     public void setKey(String key) {
         this.key = key;
     }
-
-//    public TemplateTagType getTemplateTagType() {
-//        return templateTagType;
-//    }
-//
-//    public void setTemplateTagType(TemplateTagType templateTagType) {
-//        this.templateTagType = templateTagType;
-//    }
 }
