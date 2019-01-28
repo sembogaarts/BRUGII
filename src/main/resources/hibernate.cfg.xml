@@ -33,15 +33,15 @@
 
         <property name="hibernate.default_schema">cursist</property>
 
-        <mapping class="com.tosad.brg.domain.BusinessRuleTag"/>
-        <mapping class="com.tosad.brg.domain.BusinessRule"/>
-        <mapping class="com.tosad.brg.domain.BusinessRuleType"/>
-        <mapping class="com.tosad.brg.domain.DatabaseType"/>
-        <mapping class="com.tosad.brg.domain.Template"/>
-        <mapping class="com.tosad.brg.domain.TemplateTag"/>
-        <mapping class="com.tosad.brg.domain.Column"/>
-        <mapping class="com.tosad.brg.domain.Table"/>
-        <mapping class="com.tosad.brg.domain.Project"/>
+        <mapping class="com.tosad.brg.domain.businessRule.BusinessRuleTag"/>
+        <mapping class="com.tosad.brg.domain.businessRule.BusinessRule"/>
+        <mapping class="com.tosad.brg.domain.businessRule.BusinessRuleType"/>
+        <mapping class="com.tosad.brg.domain.template.DatabaseType"/>
+        <mapping class="com.tosad.brg.domain.template.Template"/>
+        <mapping class="com.tosad.brg.domain.template.TemplateTag"/>
+        <mapping class="com.tosad.brg.domain.project.Column"/>
+        <mapping class="com.tosad.brg.domain.project.Table"/>
+        <mapping class="com.tosad.brg.domain.project.Project"/>
 
     </session-factory>
 </hibernate-configuration>
