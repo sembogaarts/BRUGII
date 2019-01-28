@@ -7,7 +7,6 @@
                     id="templateSelector">
                 <option disabled value="null" selected>Selecteer een Businessrule Type</option>
                 <option v-for="template in templates" :value="template.id">{{ template.name }}</option>
-                <option value="attributeCompareRule.json">test</option>
             </select>
         </div>
 

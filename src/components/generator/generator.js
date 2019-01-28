@@ -17,7 +17,7 @@ module.exports = {
     methods: {
         getTemplates() {
             // Get the template information
-            this.axios.get('http://localhost:8080/businessrule/types')
+            this.axios.get('https://brugii-manager.herokuapp.com/businessrule/types')
                 .then(response => {
                     this.templates = response.data;
                 });
@@ -25,8 +25,7 @@ module.exports = {
         getTemplateInformation() {
             this.loading = true;
             // Get the template information
-            // this.axios.get('http://localhost:8080/businessrule/type?id=' + this.selectedTemplate)
-            this.axios.get('templates/' + this.selectedTemplate)
+            this.axios.get('https://brugii-manager.herokuapp.com/businessrule/type?id=' + this.selectedTemplate)
                 .then(response => {
                     this.template = response.data;
                     this.loading = false;
