@@ -19,6 +19,7 @@ import org.json.simple.parser.ParseException;
 
 import javax.ws.rs.*;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import static com.tosad.brm.web.taskSpecific.api.TemplateTagJSON.generateFromList;
@@ -39,7 +40,8 @@ public class BusinessRuleApi {
     public String getCreate(@QueryParam("businessrule") int businessRuleId) {
         BusinessRule businessRule = BusinessRulePersistence.getBusinessRuleById(businessRuleId);
         List<BusinessRuleTag> businessRuleTagList = BusinessRuleTagPersistence.getBusinessRuleTagsByBusinessRule(businessRule);
-        HashMap<BusinessRuleTag, TemplateTag> businessRuleHashMap = BusinessRuleTagPersistence.getBusinessRuleHashMapByBusinessRuleTags(businessRuleTagList);
+
+        LinkedHashMap<BusinessRuleTag, TemplateTag> businessRuleHashMap = BusinessRuleTagPersistence.getBusinessRuleHashMapByBusinessRuleTags(businessRuleTagList);
 
         Template template = getTemplateByBusinessRuleType(businessRule.businessRuleType);
 

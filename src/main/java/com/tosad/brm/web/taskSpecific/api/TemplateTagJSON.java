@@ -6,10 +6,7 @@ import com.tosad.brm.web.domain.type.TemplateTagType;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static java.lang.Integer.parseInt;
 import static java.lang.Integer.valueOf;
@@ -50,13 +47,15 @@ public class TemplateTagJSON implements ApiJSON {
         return jsonArray;
     }
 
-    public static JSONArray generateFromList(HashMap<BusinessRuleTag, TemplateTag> hashMapList) {
+    public static JSONArray generateFromList(LinkedHashMap<BusinessRuleTag, TemplateTag> hashMapList) {
         JSONArray jsonArray = new JSONArray();
-        HashMap<BusinessRuleTag, TemplateTag> loopList = new HashMap<>();
+        LinkedHashMap<BusinessRuleTag, TemplateTag> loopList = new LinkedHashMap<>();
         boolean isLoop = false;
+
         for (Map.Entry<BusinessRuleTag, TemplateTag> entry : hashMapList.entrySet()) {
             BusinessRuleTag businessRuleTag = entry.getKey();
             TemplateTag templateTag = entry.getValue();
+            System.out.println(templateTag.id);
             if (TemplateTagType.LOOP == templateTag.getTemplateTagType()) {
                 isLoop = !isLoop;
                 continue;
@@ -86,7 +85,7 @@ public class TemplateTagJSON implements ApiJSON {
 
     }
 
-    public static JSONObject generateLoop(HashMap<BusinessRuleTag, TemplateTag> hashMapList) {
+    public static JSONObject generateLoop(LinkedHashMap<BusinessRuleTag, TemplateTag> hashMapList) {
         JSONArray jsonArray = new JSONArray();
         hashMapList.forEach((businessRuleTag, templateTag) -> jsonArray.add(generateLoopObject(templateTag, businessRuleTag)));
         JSONObject jsonObject = generateLoopJSONObject();

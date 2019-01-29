@@ -12,6 +12,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 public class BusinessRuleTagPersistence {
@@ -56,8 +57,8 @@ public class BusinessRuleTagPersistence {
 
     }
 
-    public static HashMap<BusinessRuleTag, TemplateTag> getBusinessRuleHashMapByBusinessRuleTags(List<BusinessRuleTag> businessRuleTags) {
-        HashMap<BusinessRuleTag, TemplateTag> hashMap = new HashMap<>();
+    public static LinkedHashMap<BusinessRuleTag, TemplateTag> getBusinessRuleHashMapByBusinessRuleTags(List<BusinessRuleTag> businessRuleTags) {
+        LinkedHashMap<BusinessRuleTag, TemplateTag> hashMap = new LinkedHashMap<>();
         businessRuleTags.forEach(businessRuleTag -> hashMap.put(businessRuleTag, businessRuleTag.templateTag));
 
         return hashMap;
