@@ -1,5 +1,6 @@
 package com.tosad.brg.domain.project;
 
+import com.tosad.brg.dataAccess.DatabaseConnection;
 import com.tosad.brg.domain.template.DatabaseType;
 
 import javax.persistence.*;
@@ -48,7 +49,6 @@ public class Project {
         this.port = port;
         this.databaseType = databaseType.toString();
 //        this.table = tables;
-//        this.databaseConnection = databaseType.createConnection(host, username, password, port);
     }
 
     public Project() {
@@ -94,6 +94,11 @@ public class Project {
         this.port = port;
     }
 
+
+    public DatabaseConnection getConnection() {
+        DatabaseConnection databaseConnection = DatabaseType.valueOf(databaseType).createConnection(host, username, password, port);
+        return databaseConnection;
+    }
 //    public Set<Table> getTables() {
 //        return table;
 //    }

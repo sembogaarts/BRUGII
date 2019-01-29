@@ -24,7 +24,7 @@ public class Main {
 
         Transaction t = session.beginTransaction();
 
-        Project project2 = new Project(1, "BRG", "http://174.138.0.100/phpmyadmin", "admin", "a72c23455018edf0648592d865b355a49121697731bfe6c2", 0, DatabaseType.MYSQL, null);
+        Project project2 = new Project(1, "BRG", "174.138.0.100", "admin", "a72c23455018edf0648592d865b355a49121697731bfe6c2", 3306, DatabaseType.MYSQL, null);
         session.save(project2);
 
         Project project = new Project(2, "BRG", "localhost", "cursist", "cursist2321", 8521, DatabaseType.ORACLE, null);
