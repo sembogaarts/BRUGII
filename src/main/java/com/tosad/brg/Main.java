@@ -1,6 +1,7 @@
 package com.tosad.brg;
 
 import com.tosad.brg.dataAccess.DatabaseConnection;
+import com.tosad.brg.dataAccess.OracleDatabaseConnection;
 import com.tosad.brg.domain.businessRule.BusinessRuleType;
 import com.tosad.brg.domain.template.DatabaseType;
 import com.tosad.brg.domain.template.Template;
@@ -30,13 +31,10 @@ public class Main {
 
         Project project = new Project(1, "BRG", "174.138.0.100", "admin", "a72c23455018edf0648592d865b355a49121697731bfe6c2", 3306, DatabaseType.MYSQL, null);
         session.save(project);
+//
+//        OracleDatabaseConnection conn = (OracleDatabaseConnection) project.getConnection();
+//        conn.getSchema();
 
-        DatabaseConnection conn = project.getConnection();
-        Statement stmt = null;
-
-        session.save(project);
-
-        project.getConnection();
 
         Table table = new Table(project, "gebruikers");
         session.save(table);

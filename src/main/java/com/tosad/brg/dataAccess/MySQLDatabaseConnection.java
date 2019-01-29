@@ -1,8 +1,12 @@
 package com.tosad.brg.dataAccess;
 
+import com.tosad.brg.domain.project.Table;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.List;
 
 public class MySQLDatabaseConnection implements DatabaseConnection {
     Connection connection = null;
@@ -31,6 +35,16 @@ public class MySQLDatabaseConnection implements DatabaseConnection {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public Statement createStatement() {
+        return null;
+    }
+
+    @Override
+    public List<Table> getSchema() {
+        return null;
     }
 
     private String formatToConnectionString(String host, String username, String password, int port) {

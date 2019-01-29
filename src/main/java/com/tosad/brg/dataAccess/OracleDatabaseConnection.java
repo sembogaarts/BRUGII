@@ -1,9 +1,12 @@
 package com.tosad.brg.dataAccess;
 
+import com.tosad.brg.domain.project.Table;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 public class OracleDatabaseConnection implements DatabaseConnection {
     Connection connection = null;
@@ -37,6 +40,12 @@ public class OracleDatabaseConnection implements DatabaseConnection {
 
     @Override
     public Statement createStatement() {
+        return null;
+    }
+
+    @Override
+    public List<Table> getSchema() {
+
         return null;
     }
 
