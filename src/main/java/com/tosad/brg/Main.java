@@ -25,7 +25,6 @@ public class Main {
         HibernateUtils.getSessionFactory();
         Session session = HibernateUtils.getSession();
 
-
         Transaction t = session.beginTransaction();
 
         Project project2 = new Project(1, "BRG", "174.138.0.100", "admin", "a72c23455018edf0648592d865b355a49121697731bfe6c2", 3306, DatabaseType.MYSQL, null);
@@ -37,11 +36,35 @@ public class Main {
         Project project = new Project(2, "BRG", "localhost", "cursist", "cursist2321", 8521, DatabaseType.ORACLE, null);
         session.save(project);
 
-        Table table = new Table(project, "gebruikers");
-        session.save(table);
+        Table factuur = new Table(project, "Factuur");
+        session.save(factuur);
+        session.save(new Column("id", "int", factuur));
+        session.save(new Column("bedrag", "int", factuur));
+        session.save(new Column("persoon_id", "int", factuur));
 
-        Column column = new Column("gebruikersnaam", table);
-        session.save(column);
+        Table gebruiker = new Table(project, "Gebruiker");
+        session.save(gebruiker);
+        session.save(new Column("id", "int", gebruiker));
+        session.save(new Column("naam", "string", gebruiker));
+        session.save(new Column("leeftijd", "int", gebruiker));
+        session.save(new Column("email", "string", gebruiker));
+        session.save(new Column("wachtwoord", "string", gebruiker));
+        session.save(new Column("saldo", "int", gebruiker));
+
+        Table post = new Table(project, "Post");
+        session.save(post);
+        session.save(new Column("id", "int", post));
+        session.save(new Column("name", "string", post));
+        session.save(new Column("title", "string", post));
+
+
+        Table product = new Table(project, "Product");
+        session.save(product);
+        session.save(new Column("id", "int", product));
+        session.save(new Column("name", "string", product));
+        session.save(new Column("inkoopprijs", "int", product));
+        session.save(new Column("verkoopprijs", "int", product));
+
 
         /*
          * attribute_range_rule

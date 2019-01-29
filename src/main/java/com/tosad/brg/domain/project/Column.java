@@ -9,6 +9,7 @@ public class Column {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @SequenceGenerator(name = "COLUMN_SEQUENCE", sequenceName = "COLUMN_SEQUENCE", allocationSize = 1)
     public int id;
+    public String type;
 
     @javax.persistence.Column(name = "name")
     public String name;
@@ -17,8 +18,9 @@ public class Column {
     @JoinColumn(name = "tables_id", nullable = false)
     public Table tables;
 
-    public Column(String name, Table tables) {
+    public Column(String name, String type, Table tables) {
         this.name = name;
+        this.type = type;
         this.tables = tables;
     }
 
