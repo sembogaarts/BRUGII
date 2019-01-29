@@ -2,10 +2,7 @@ package com.tosad.brg.dataAccess;
 
 import com.tosad.brg.domain.project.Table;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.List;
 
 public class MySQLDatabaseConnection implements DatabaseConnection {
@@ -50,5 +47,14 @@ public class MySQLDatabaseConnection implements DatabaseConnection {
     private String formatToConnectionString(String host, String username, String password, int port) {
         String dbName = "target_db";
         return String.format(String.format("jdbc:mysql://%s:%d/%s?user=%s&password=%s", host, port, dbName, username, password));
+    }
+
+    public void executeQuery(String code) {
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(code);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

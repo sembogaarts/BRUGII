@@ -31,9 +31,9 @@ public class Main {
 
         Project project = new Project(1, "BRG", "174.138.0.100", "admin", "a72c23455018edf0648592d865b355a49121697731bfe6c2", 3306, DatabaseType.MYSQL, null);
         session.save(project);
-//
-//        OracleDatabaseConnection conn = (OracleDatabaseConnection) project.getConnection();
-//        conn.getSchema();
+
+        OracleDatabaseConnection conn = (OracleDatabaseConnection) project.getConnection();
+        conn.getSchema();
 
 
         Table table = new Table(project, "gebruikers");
