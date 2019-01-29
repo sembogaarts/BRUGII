@@ -3,6 +3,7 @@ package com.tosad.brg.dataAccess;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class OracleDatabaseConnection implements DatabaseConnection {
     Connection connection = null;
@@ -31,6 +32,12 @@ public class OracleDatabaseConnection implements DatabaseConnection {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+
+    @Override
+    public Statement createStatement() {
+        return null;
     }
 
     private String formatToConnectionString(String host, String username, String password, int port) {
