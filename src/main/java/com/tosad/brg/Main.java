@@ -41,7 +41,7 @@ public class Main {
         Template arng_template = new Template(1, "brg_gebruiker_cns_arng_01", "ALTER TABLE {{ TABLE }} ADD CONSTRAINT {{ NAME }} CHECK ( {{ COLUMN }} {{ NOT }} BETWEEN {{ NUMBER_1 }} AND {{ NUMBER_2 }} )", "arng", attribute_range_rule, DatabaseType.ORACLE);
         session.save(arng_template);
         session.save(new TemplateTag("TABLE", TemplateTagType.TABLE, arng_template));
-        session.save(new TemplateTag("NAME", TemplateTagType.STRING, arng_template));
+        session.save(new TemplateTag("NAME", TemplateTagType.NAME, arng_template));
         session.save(new TemplateTag("COLUMN", TemplateTagType.COLUMN, arng_template));
         session.save(new TemplateTag("NUMBER_1", TemplateTagType.NUMBER, arng_template));
         session.save(new TemplateTag("NUMBER_2", TemplateTagType.NUMBER, arng_template));
@@ -55,7 +55,7 @@ public class Main {
         Template arng_template_advanced = new Template(2, "brg_gebruiker_cns_arng_02", "ALTER TABLE {{ TABLE }} ADD CONSTRAINT {{ NAME }} CHECK ( {{ LOOP }} {{ COLUMN }} {{ NOT }} BETWEEN {{ NUMBER_1 }} AND {{ NUMBER_2 }} {{ BINDER }} {{ ENDLOOP }} )", "arng", attribute_range_rule_advanced, DatabaseType.ORACLE);
         session.save(arng_template_advanced);
         session.save(new TemplateTag("TABLE", TemplateTagType.TABLE, arng_template_advanced));
-        session.save(new TemplateTag("NAME", TemplateTagType.STRING, arng_template_advanced));
+        session.save(new TemplateTag("NAME", TemplateTagType.NAME, arng_template_advanced));
         session.save(new TemplateTag("LOOP", TemplateTagType.LOOP, arng_template_advanced));
         session.save(new TemplateTag("COLUMN", TemplateTagType.COLUMN, arng_template_advanced));
         session.save(new TemplateTag("NUMBER_1", TemplateTagType.NUMBER, arng_template_advanced));
@@ -72,7 +72,7 @@ public class Main {
         Template acmp_template = new Template(3, "brg_gebruiker_cns_acmp_01", "ALTER TABLE {{ TABLE }} ADD CONSTRAINT {{ NAME }} CHECK ( {{ COLUMN }} {{ OPERATOR }} {{ VALUE }} )", "acmp", attribute_compare_rule, DatabaseType.ORACLE);
         session.save(acmp_template);
         session.save(new TemplateTag("TABLE", TemplateTagType.TABLE, acmp_template));
-        session.save(new TemplateTag("NAME", TemplateTagType.STRING, acmp_template));
+        session.save(new TemplateTag("NAME", TemplateTagType.NAME, acmp_template));
         session.save(new TemplateTag("COLUMN", TemplateTagType.COLUMN, acmp_template));
         session.save(new TemplateTag("OPERATOR", TemplateTagType.OPERATOR, acmp_template));
         session.save(new TemplateTag("VALUE", TemplateTagType.DYNAMIC, acmp_template));
@@ -86,7 +86,7 @@ public class Main {
         Template acmp_template_advanced = new Template(4, "brg_gebruiker_cns_acmp_02", "ALTER TABLE {{ TABLE }} ADD CONSTRAINT {{ NAME }} CHECK ( {{ LOOP }} {{ COLUMN }} {{ OPERATOR }} {{ VALUE }} {{ BINDER }} {{ ENDLOOP }} )", "acmp", attribute_compare_rule_advanced, DatabaseType.ORACLE);
         session.save(acmp_template_advanced);
         session.save(new TemplateTag("TABLE", TemplateTagType.TABLE, acmp_template_advanced));
-        session.save(new TemplateTag("NAME", TemplateTagType.STRING, acmp_template_advanced));
+        session.save(new TemplateTag("NAME", TemplateTagType.NAME, acmp_template_advanced));
         session.save(new TemplateTag("LOOP", TemplateTagType.LOOP, acmp_template_advanced));
         session.save(new TemplateTag("COLUMN", TemplateTagType.COLUMN, acmp_template_advanced));
         session.save(new TemplateTag("OPERATOR", TemplateTagType.OPERATOR, acmp_template_advanced));
@@ -102,7 +102,7 @@ public class Main {
         Template tcmp_template = new Template(5, "brg_gebruiker_cns_tcmp_01", "ALTER TABLE {{ TABLE }} ADD CONSTRAINT {{ NAME }} CHECK ( {{ COLUMN_1 }} {{ OPERATOR }} {{ COLUMN_2 }}  )", "tcmp", tuple_compare_rule, DatabaseType.ORACLE);
         session.save(tcmp_template);
         session.save(new TemplateTag("TABLE", TemplateTagType.TABLE, tcmp_template));
-        session.save(new TemplateTag("NAME", TemplateTagType.STRING, tcmp_template));
+        session.save(new TemplateTag("NAME", TemplateTagType.NAME, tcmp_template));
         session.save(new TemplateTag("COLUMN_1", TemplateTagType.COLUMN, tcmp_template));
         session.save(new TemplateTag("OPERATOR", TemplateTagType.OPERATOR, tcmp_template));
         session.save(new TemplateTag("COLUMN_2", TemplateTagType.COLUMN, tcmp_template));
@@ -115,7 +115,7 @@ public class Main {
         Template tcmp_template_advanced = new Template(6, "brg_gebruiker_cns_tcmp_02", "ALTER TABLE {{ TABLE }} ADD CONSTRAINT {{ NAME }} CHECK ( {{ LOOP }} {{ COLUMN_1 }} {{ OPERATOR }} {{ COLUMN_2 }} {{ BINDER }} {{ ENDLOOP }} )", "tcmp", tuple_compare_rule_advanced, DatabaseType.ORACLE);
         session.save(tcmp_template_advanced);
         session.save(new TemplateTag("TABLE", TemplateTagType.TABLE, tcmp_template_advanced));
-        session.save(new TemplateTag("NAME", TemplateTagType.STRING, tcmp_template_advanced));
+        session.save(new TemplateTag("NAME", TemplateTagType.NAME, tcmp_template_advanced));
         session.save(new TemplateTag("COLUMN_1", TemplateTagType.COLUMN, tcmp_template_advanced));
         session.save(new TemplateTag("OPERATOR", TemplateTagType.OPERATOR, tcmp_template_advanced));
         session.save(new TemplateTag("COLUMN_2", TemplateTagType.COLUMN, tcmp_template_advanced));
@@ -127,7 +127,7 @@ public class Main {
         session.save(inter_entity_compare_rule);
         Template icmp_template = new Template(7, "brg_gebruiker_trg_icmp_01", "CREATE OR REPLACE TRIGGER {{ NAME }} {{ BEFORE/AFTER }} {{ EVENT }}  ON {{ TABLE_1 }} {{ FOR EACH ROW }} DECLARE BEGIN IF (SELECT {{COLUMN_2}} FROM {{TABLE_2}} {{OPERATOR}} :new.{{COLUMN1}})  THEN RAISE_APPLICATION_ERROR({{ERRCODE}}, {{ERRMESSAGE}});", "icmp", inter_entity_compare_rule, DatabaseType.ORACLE);
         session.save(icmp_template);
-        session.save(new TemplateTag("NAME", TemplateTagType.STRING, icmp_template));
+        session.save(new TemplateTag("NAME", TemplateTagType.NAME, icmp_template));
         session.save(new TemplateTag("BEFORE/AFTER", TemplateTagType.STATE, icmp_template));
         session.save(new TemplateTag("EVENT", TemplateTagType.EVENT, icmp_template));
         session.save(new TemplateTag("TABLE_1", TemplateTagType.TABLE, icmp_template));
@@ -146,7 +146,7 @@ public class Main {
         session.save(inter_entity_compare_rule_advanced);
         Template icmp_template_advanced = new Template(8, "brg_gebruiker_trg_icmp_02", "CREATE OR REPLACE TRIGGER {{ NAME }} {{ BEFORE/AFTER }} {{ EVENT }}  ON {{ TABLE_1 }} {{ FOR EACH ROW }} DECLARE BEGIN IF ( {{ LOOP }} SELECT {{COLUMN_2}} FROM {{TABLE_2}} {{OPERATOR}} :new.{{COLUMN1}} {{ BINDER }} {{ ENDLOOP }} )  THEN RAISE_APPLICATION_ERROR({{ERRCODE}}, {{ERRMESSAGE}});", "icmp", inter_entity_compare_rule_advanced, DatabaseType.ORACLE);
         session.save(icmp_template_advanced);
-        session.save(new TemplateTag("NAME", TemplateTagType.STRING, icmp_template_advanced));
+        session.save(new TemplateTag("NAME", TemplateTagType.NAME, icmp_template_advanced));
         session.save(new TemplateTag("BEFORE/AFTER", TemplateTagType.STATE, icmp_template_advanced));
         session.save(new TemplateTag("EVENT", TemplateTagType.EVENT, icmp_template_advanced));
         session.save(new TemplateTag("TABLE_1", TemplateTagType.TABLE, icmp_template_advanced));
@@ -166,7 +166,7 @@ public class Main {
         Template alis_template = new Template(9, "brg_gebruiker_trg_alis_01", "ALTER TABLE {{ TABLE }} ADD CONSTRAINT {{ NAME }} CHECK ( {{ COLUMN }} {{ NOT }} IN {{ LIST }} )", "alis", attribute_list_rule, DatabaseType.ORACLE);
         session.save(alis_template);
         session.save(new TemplateTag("TABLE", TemplateTagType.TABLE, alis_template));
-        session.save(new TemplateTag("NAME", TemplateTagType.STRING, alis_template));
+        session.save(new TemplateTag("NAME", TemplateTagType.NAME, alis_template));
         session.save(new TemplateTag("LOOP", TemplateTagType.LOOP, alis_template));
         session.save(new TemplateTag("COLUMN", TemplateTagType.COLUMN, alis_template));
         session.save(new TemplateTag("NOT", TemplateTagType.BOOLEAN, alis_template));
@@ -182,7 +182,7 @@ public class Main {
         Template alis_template_advanced = new Template(10, "brg_gebruiker_trg_alis_02", "ALTER TABLE {{ TABLE }} ADD CONSTRAINT {{ NAME }} CHECK ( {{ LOOP }}  {{ COLUMN }} {{ NOT }} IN {{ LIST }} {{ BINDER }} {{ ENDLOOP }} )", "alis", attribute_list_rule_advanced, DatabaseType.ORACLE);
         session.save(alis_template_advanced);
         session.save(new TemplateTag("TABLE", TemplateTagType.TABLE, alis_template_advanced));
-        session.save(new TemplateTag("NAME", TemplateTagType.STRING, alis_template_advanced));
+        session.save(new TemplateTag("NAME", TemplateTagType.NAME, alis_template_advanced));
         session.save(new TemplateTag("LOOP", TemplateTagType.LOOP, alis_template_advanced));
         session.save(new TemplateTag("COLUMN", TemplateTagType.COLUMN, alis_template_advanced));
         session.save(new TemplateTag("NOT", TemplateTagType.BOOLEAN, alis_template_advanced));
@@ -197,7 +197,7 @@ public class Main {
         session.save(entity_other_rule);
         Template eoth_template = new Template(11, "brg_gebruiker_trg_eoth_01", "CREATE OR REPLACE TRIGGER {{ NAME }} {{ before/after }} {{ event }}  ON {{ TABLE_1 }} [[ FOR EACH ROW ]] DECLARE v_kolommen number; BEGIN SELECT COUNT(*) INTO v_kolommen FROM {{TABLE_2}}  WHERE {{TABLE_2}}.{{TABLE_2_ID}} = {{TABLE_1}}.{{TABLE_1_ID}} IF v_kolommen {{OPERATOR}} {{VALUE}} THEN RAISE_APPLICATION_ERROR({{errcode}}, {{errmessage}}); END;", "eoth", entity_other_rule, DatabaseType.ORACLE);
         session.save(eoth_template);
-        session.save(new TemplateTag("NAME", TemplateTagType.STRING, eoth_template));
+        session.save(new TemplateTag("NAME", TemplateTagType.NAME, eoth_template));
         session.save(new TemplateTag("BEFORE/AFTER", TemplateTagType.STATE, eoth_template));
         session.save(new TemplateTag("EVENT", TemplateTagType.EVENT, eoth_template));
         session.save(new TemplateTag("TABLE_1", TemplateTagType.TABLE, eoth_template));
@@ -217,7 +217,7 @@ public class Main {
         session.save(entity_other_rule_advanced);
         Template eoth_template_advanced = new Template(12, "brg_gebruiker_trg_eoth_02", "CREATE OR REPLACE TRIGGER {{ NAME }} {{ before/after }} {{ event }}  ON {{ TABLE_1 }} [[ FOR EACH ROW ]] DECLARE v_kolommen number; BEGIN SELECT COUNT(*) INTO v_kolommen FROM {{TABLE_2}}  WHERE {{TABLE_2}}.{{TABLE_2_ID}} = {{TABLE_1}}.{{TABLE_1_ID}} IF v_kolommen {{OPERATOR}} {{VALUE}} THEN RAISE_APPLICATION_ERROR({{errcode}}, {{errmessage}}); END;", "eoth", entity_other_rule_advanced, DatabaseType.ORACLE);
         session.save(eoth_template_advanced);
-        session.save(new TemplateTag("NAME", TemplateTagType.STRING, eoth_template_advanced));
+        session.save(new TemplateTag("NAME", TemplateTagType.NAME, eoth_template_advanced));
         session.save(new TemplateTag("BEFORE/AFTER", TemplateTagType.STATE, eoth_template_advanced));
         session.save(new TemplateTag("EVENT", TemplateTagType.EVENT, eoth_template_advanced));
         session.save(new TemplateTag("TABLE_1", TemplateTagType.TABLE, eoth_template_advanced));
@@ -241,7 +241,7 @@ public class Main {
         Template aoth_template = new Template(13, "brg_gebruiker_trg_aoth_01", "ALTER TABLE {{ TABLE }} ADD CONSTRAINT {{ NAME }} CHECK(SUBSTR({{ COLUMN }},{{NUMBER_1}},{{NUMBER_2}}) [[ NOT ]] BETWEEN ({{ VALUE_1}} AND {{ VALUE_2}}))", "eoth", attribute_other_rule, DatabaseType.ORACLE);
         session.save(aoth_template);
         session.save(new TemplateTag("TABLE", TemplateTagType.TABLE, aoth_template));
-        session.save(new TemplateTag("NAME", TemplateTagType.STRING, aoth_template));
+        session.save(new TemplateTag("NAME", TemplateTagType.NAME, aoth_template));
         session.save(new TemplateTag("COLUMN", TemplateTagType.COLUMN, aoth_template));
         session.save(new TemplateTag("NUMBER_1", TemplateTagType.NUMBER, aoth_template));
         session.save(new TemplateTag("NUMBER_2", TemplateTagType.NUMBER, aoth_template));
@@ -257,7 +257,7 @@ public class Main {
         Template aoth_template_advanced = new Template(14, "brg_gebruiker_trg_aoth_02", "ALTER TABLE {{ TABLE }} ADD CONSTRAINT {{ NAME }} CHECK(SUBSTR({{ COLUMN }},{{NUMBER_1}},{{NUMBER_2}}) [[ NOT ]] BETWEEN ({{ VALUE_1}} AND {{ VALUE_2}}))", "eoth", attribute_other_rule_advanced, DatabaseType.ORACLE);
         session.save(aoth_template_advanced);
         session.save(new TemplateTag("TABLE", TemplateTagType.TABLE, aoth_template_advanced));
-        session.save(new TemplateTag("NAME", TemplateTagType.STRING, aoth_template_advanced));
+        session.save(new TemplateTag("NAME", TemplateTagType.NAME, aoth_template_advanced));
         session.save(new TemplateTag("LOOP", TemplateTagType.LOOP, aoth_template_advanced));
         session.save(new TemplateTag("COLUMN", TemplateTagType.COLUMN, aoth_template_advanced));
         session.save(new TemplateTag("NUMBER_1", TemplateTagType.NUMBER, aoth_template_advanced));
@@ -275,7 +275,7 @@ public class Main {
         session.save(tuple_other_rule);
         Template toth_template = new Template(15, "brg_gebruiker_trg_toth_01", "CREATE OR REPLACE TRIGGER {{ NAME }} {{ before/after }} {{ event }}  ON {{ TABLE_1 }} [[ FOR EACH ROW ]] DECLARE BEGIN IF :new.{{COLUMN_1}} {{OPERATOR}} {{VALUE_1}} THEN IF ! SUBSTR({{COLUMN_2}}, {{NUMBER_1}}, {{NUMBER_2}}) [[NOT]] BETWEEN({{VALUE_1}},{{VALUE_2}})) THEN RAISE_APPLICATION_ERROR({{errcode}}, {{errmessage}}); END;", "toth", tuple_other_rule, DatabaseType.ORACLE);
         session.save(toth_template);
-        session.save(new TemplateTag("NAME", TemplateTagType.STRING, toth_template));
+        session.save(new TemplateTag("NAME", TemplateTagType.NAME, toth_template));
         session.save(new TemplateTag("BEFORE/AFTER", TemplateTagType.STATE, toth_template));
         session.save(new TemplateTag("EVENT", TemplateTagType.EVENT, toth_template));
         session.save(new TemplateTag("TABLE", TemplateTagType.TABLE, toth_template));
@@ -298,7 +298,7 @@ public class Main {
         session.save(tuple_other_rule_advanced);
         Template toth_template_advanced = new Template(16, "brg_gebruiker_trg_toth_02", "CREATE OR REPLACE TRIGGER {{ NAME }} {{ before/after }} {{ event }}  ON {{ TABLE_1 }} [[ FOR EACH ROW ]] DECLARE BEGIN IF :new.{{COLUMN_1}} {{OPERATOR}} {{VALUE_1}} THEN IF ! SUBSTR({{COLUMN_2}}, {{NUMBER_1}}, {{NUMBER_2}}) [[NOT]] BETWEEN({{VALUE_1}},{{VALUE_2}})) THEN RAISE_APPLICATION_ERROR({{errcode}}, {{errmessage}}); END;", "toth", tuple_other_rule_advanced, DatabaseType.ORACLE);
         session.save(toth_template_advanced);
-        session.save(new TemplateTag("NAME", TemplateTagType.STRING, toth_template_advanced));
+        session.save(new TemplateTag("NAME", TemplateTagType.NAME, toth_template_advanced));
         session.save(new TemplateTag("BEFORE/AFTER", TemplateTagType.STATE, toth_template_advanced));
         session.save(new TemplateTag("EVENT", TemplateTagType.EVENT, toth_template_advanced));
         session.save(new TemplateTag("TABLE", TemplateTagType.TABLE, toth_template_advanced));

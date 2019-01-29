@@ -5,6 +5,7 @@ import java.io.Serializable;
 
 public enum TemplateTagType implements Serializable {
     STRING("string"),
+    NAME("name"),
     LIST("list") {
         @Override
         public String parseValue(String value) {

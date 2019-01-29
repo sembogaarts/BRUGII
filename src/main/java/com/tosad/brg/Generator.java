@@ -9,7 +9,10 @@ import com.tosad.brg.domain.template.TemplateTag;
 import com.tosad.brg.taskSpecific.persistence.BusinessRulePersistence;
 import com.tosad.brg.taskSpecific.persistence.BusinessRuleTagPersistence;
 import com.tosad.brg.taskSpecific.persistence.TemplatePersistence;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -25,21 +28,26 @@ public class Generator {
     @GET
     @Path("businessrule")
     @Produces("application/json")
-    public String getCreate(@QueryParam("businessrule") int businessRuleId) {
-        BusinessRule businessRule = BusinessRulePersistence.getBusinessRuleById(businessRuleId);
-        Template template = TemplatePersistence.getTemplateByBusinessRuleType(businessRule.businessRuleType);
-        List<BusinessRuleTag> businessRuleTagList = BusinessRuleTagPersistence.getBusinessRuleTagsByBusinessRule(businessRule);
-        HashMap<BusinessRuleTag, TemplateTag> businessRuleHashMap = BusinessRuleTagPersistence.getBusinessRuleHashMapByBusinessRuleTags(businessRuleTagList);
+    public String getCreate(@QueryParam("businessrule") String businessRuleIds) throws ParseException {
+        JSONParser parser = new JSONParser();
+        JSONArray businessRuleIdJsonArray = (JSONArray) parser.parse(businessRuleIds);
+
+        JSONArray jsonArray = new JSONArray();
+        businessRuleIdJsonArray.forEach(o -> {
+            long businessRuleId = (Long) o;
+
+            BusinessRule businessRule = BusinessRulePersistence.getBusinessRuleById((int) businessRuleId);
+            Template template = TemplatePersistence.getTemplateByBusinessRuleType(businessRule.businessRuleType);
+            List<BusinessRuleTag> businessRuleTagList = BusinessRuleTagPersistence.getBusinessRuleTagsByBusinessRule(businessRule);
+            HashMap<BusinessRuleTag, TemplateTag> businessRuleHashMap = BusinessRuleTagPersistence.getBusinessRuleHashMapByBusinessRuleTags(businessRuleTagList);
+
+            JSONObject jsonObject = BusinessRuleJSON.generateJSON(businessRule, template, businessRuleHashMap);
+            jsonArray.add(jsonObject);
+        });
 
 
-        System.out.println(businessRuleHashMap);
-
-        String code = BusinessRuleJSON.generateSQL(template, businessRuleHashMap);
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("code", code);
         HibernateUtils.close();
 
-        return jsonObject.toJSONString();
+        return jsonArray.toJSONString();
     }
-
 }
