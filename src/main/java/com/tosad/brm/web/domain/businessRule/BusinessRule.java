@@ -24,13 +24,18 @@ public class BusinessRule {
     @JoinColumn(name = "project_id", nullable = false)
     public Project project;
 
+
+    @Column(name = "active")
+    public boolean active;
+
     public BusinessRule() {
     }
 
-    public BusinessRule(String name, BusinessRuleType businessRuleType, Project project) {
+    public BusinessRule(String name, BusinessRuleType businessRuleType, Project project, boolean active) {
         this.name = name;
         this.businessRuleType = businessRuleType;
         this.project = project;
+        this.active = active;
     }
 
     public String getName() {

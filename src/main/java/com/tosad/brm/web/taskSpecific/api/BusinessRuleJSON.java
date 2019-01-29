@@ -22,7 +22,7 @@ public class BusinessRuleJSON {
         // @TODO Change
         //  Get latest used project for now.
         Project project = ProjectPersistence.getLatestProject();
-        return new BusinessRule(name, businessRuleType, project);
+        return new BusinessRule(name, businessRuleType, project, false);
     }
 
     public static JSONArray parseBusinessRules(List<BusinessRule> businessRuleList) {
@@ -36,6 +36,7 @@ public class BusinessRuleJSON {
         JSONObject jsonObject = new JSONObject();
 
         jsonObject.put("id", businessRule.id);
+        jsonObject.put("active", businessRule.active);
         jsonObject.put("name", businessRule.name);
         return jsonObject;
     }

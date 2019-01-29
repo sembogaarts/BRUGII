@@ -38,4 +38,17 @@ public class BusinessRulePersistence {
 
         return HibernateUtils.getSession().createQuery(criteria).getResultList();
     }
+
+    public static void removeBusinessRuleById(int businessRuleId) {
+        SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
+        Session session = HibernateUtils.getSession();
+
+        BusinessRule businessRule = getBusinessRuleById(businessRuleId);
+
+        Transaction t = session.beginTransaction();
+
+        session.delete(businessRule);
+        t.commit();
+
+    }
 }
