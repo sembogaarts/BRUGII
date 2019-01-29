@@ -101,6 +101,7 @@ button:hover{
   margin-right: 7px;
   outline: none;
 }
+
 .fancyCheck:checked::before
 {
   position: absolute;
@@ -110,10 +111,12 @@ button:hover{
   content: '\02143';
   transform: rotate(40deg);
 }
+
 .fancyCheck:hover
 {
   background-color: #f7f7f7;
 }
+
 .fancyCheck:checked
 {
   background-color: #f1f1f1;
