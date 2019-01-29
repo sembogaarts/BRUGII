@@ -11,11 +11,14 @@ public class MySQLDatabaseConnection implements DatabaseConnection {
 
     public MySQLDatabaseConnection(String host, String username, String password, int port) {
         try {
+            Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(
                     formatToConnectionString(host, username, password, port)
             );
         } catch (SQLException e) {
             System.out.println("Connection Failed! Check output console");
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
     }

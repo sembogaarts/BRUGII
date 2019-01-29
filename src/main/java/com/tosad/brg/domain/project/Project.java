@@ -96,8 +96,7 @@ public class Project {
 
 
     public DatabaseConnection getConnection() {
-        DatabaseConnection databaseConnection = DatabaseType.getTypeByText(databaseType).createConnection(host, username, password, port);
-        return databaseConnection;
+        return DatabaseType.getTypeByText(databaseType).createConnection(host, username, password, port);
     }
 //    public Set<Table> getTables() {
 //        return table;
