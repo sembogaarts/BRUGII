@@ -5,7 +5,7 @@
     <session-factory>
 
         <property name="hibernate.dialect">
-            org.hibernate.dialect.Oracle10gDialect
+            org.hibernate.dialect.Oracle12cDialect
         </property>
 
         <property name="hibernate.connection.driver_class">
@@ -15,24 +15,23 @@
         <!-- Assume test is the database name -->
 
         <property name="hibernate.connection.url">
-            jdbc:oracle:thin:@//174.138.0.100:49161/xe
+            jdbc:oracle:thin:@//ondora04.hu.nl:8521/EDUC16
         </property>
 
         <property name="hibernate.connection.username">
-            tosad
+            cursist
         </property>
 
         <property name="hibernate.connection.password">
-            K,Zj4KsB9WAnkFTP^uAsDwzZuw4{k
+            cursist2321
         </property>
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">true</property>
 
-        <!-- Drop and re-create the dataAccess schema on startup -->
-        <property name="hibernate.hbm2ddl.auto">update</property>
+        <!-- Drop and re-create the database schema on startup -->
+        <!--<property name="hibernate.hbm2ddl.auto">create</property>-->
 
-        <property name="hibernate.default_schema">tosad</property>
-
+        <property name="hibernate.default_schema">cursist</property>
 
         <mapping class="com.tosad.brm.web.domain.businessRule.BusinessRuleTag"/>
         <mapping class="com.tosad.brm.web.domain.businessRule.BusinessRule"/>
