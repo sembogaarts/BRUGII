@@ -63,4 +63,16 @@ public class BusinessRuleTagPersistence {
         return hashMap;
 
     }
+
+    public static void removeBusinessRuleTagsByBusinessRule(BusinessRule businessRule) {
+        SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
+        Session session = HibernateUtils.getSession();
+        Transaction t = session.beginTransaction();
+        List<BusinessRuleTag> businessRuleTags = getBusinessRuleTagsByBusinessRule(businessRule);
+
+        businessRuleTags.forEach(businessRuleTag -> {
+            session.delete(businessRuleTag);
+        });
+        t.commit();
+    }
 }

@@ -22,6 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import static com.tosad.brm.web.taskSpecific.api.TemplateTagJSON.generateFromList;
+import static com.tosad.brm.web.taskSpecific.persistence.BusinessRulePersistence.getBusinessRuleById;
 import static com.tosad.brm.web.taskSpecific.persistence.BusinessRulePersistence.saveBusinessRule;
 import static com.tosad.brm.web.taskSpecific.persistence.BusinessRuleTagPersistence.saveBusinessRuleTags;
 import static com.tosad.brm.web.taskSpecific.persistence.BusinessRuleTypePersistence.getAllBusinessRuleTypes;
@@ -130,10 +131,21 @@ public class BusinessRuleApi {
         return jsonObject.toJSONString();
     }
 
-    @DELETE
-    @Path("/deleteBusinessRule")
+    @POST
+    @Path("/update")
     @Produces("application/json")
-    public void delete() {
+    public String createBusinessRule(@QueryParam("id") int businessRuleId, String data) throws ParseException {
+        JSONParser parser = new JSONParser();
+        JSONObject jsonObject = (JSONObject) parser.parse(data);
+        BusinessRule businessRule = getBusinessRuleById(businessRuleId);
+        BusinessRuleTagPersistence.removeBusinessRuleTagsByBusinessRule(businessRule);
 
+        List<BusinessRuleTag> businessRuleTags = BusinessRuleTagJSON.parseTags((JSONArray) jsonObject.get("tags"), businessRule);
+        saveBusinessRuleTags(businessRuleTags);
+
+        HibernateUtils.close();
+
+        return jsonObject.toJSONString();
     }
+
 }
