@@ -30,7 +30,8 @@
                 <tbody>
                 <tr v-for="(businessrule, index) in businessrules">
 
-                    <td><input class="fancyCheck" :checked="isSelected(businessrule.id)" :id="businessrule.name" type="checkbox"
+                    <td><input class="fancyCheck" :checked="isSelected(businessrule.id)" :id="businessrule.name"
+                               type="checkbox"
                                @click="toggleCheckedBusinessRule(businessrule.id)">
                         <label :for="businessrule.name" class="check"> </label>
                     </td>
@@ -59,9 +60,10 @@
                 <button><i class="fa fa-sync-alt"></i> GENEREREN ({{ checkedBusinessRules.length }})</button>
             </router-link>
 
-            <router-link :to="generateBusinessRules(checkedBusinessRules)">
-                <button><i class="fa fa-trash"></i> VERWIJDEREN ({{ checkedBusinessRules.length }})</button>
-            </router-link>
+            <button @click="deleteRules()">
+                <i class="fa fa-trash"></i> VERWIJDEREN ({{ checkedBusinessRules.length }})
+            </button>
+
 
         </div>
 
