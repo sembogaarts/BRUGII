@@ -1,5 +1,6 @@
 package com.tosad.brg;
 
+import com.tosad.brg.dataAccess.DatabaseConnection;
 import com.tosad.brg.domain.businessRule.BusinessRuleType;
 import com.tosad.brg.domain.template.DatabaseType;
 import com.tosad.brg.domain.template.Template;
@@ -12,6 +13,9 @@ import com.tosad.brg.hibernate.HibernateUtils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+
+import java.sql.Statement;
+import java.sql.ResultSet;
 
 public class Main {
     SessionFactory factory;
@@ -26,6 +30,9 @@ public class Main {
 
         Project project2 = new Project(1, "BRG", "174.138.0.100", "admin", "a72c23455018edf0648592d865b355a49121697731bfe6c2", 3306, DatabaseType.MYSQL, null);
         session.save(project2);
+
+        DatabaseConnection conn = project2.getConnection();
+        Statement stmt = null;
 
         Project project = new Project(2, "BRG", "localhost", "cursist", "cursist2321", 8521, DatabaseType.ORACLE, null);
         session.save(project);
