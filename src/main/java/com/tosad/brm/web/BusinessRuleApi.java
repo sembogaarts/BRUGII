@@ -49,6 +49,10 @@ public class BusinessRuleApi {
         return data.toJSONString();
     }
 
+//    @GET
+//    @Path("/remove")
+//    @Produces("application/json")
+//    public
     @GET
     @Path("/rules")
     @Produces("application/json")
