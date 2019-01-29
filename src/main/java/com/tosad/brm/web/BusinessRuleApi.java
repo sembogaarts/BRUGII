@@ -60,6 +60,10 @@ public class BusinessRuleApi {
     @Path("/remove")
     @Produces("application/json")
     public String removeBusinessrule(@QueryParam("businessrule") int businessRuleId) {
+
+        BusinessRule br = BusinessRulePersistence.getBusinessRuleById(businessRuleId);
+        BusinessRuleTagPersistence.removeBusinessRuleTagsByBusinessRule(br);
+
         BusinessRulePersistence.removeBusinessRuleById(businessRuleId);
         JSONObject data = new JSONObject();
         data.put("success", true);

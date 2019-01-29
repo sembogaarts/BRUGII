@@ -45,6 +45,7 @@ public class BusinessRulePersistence {
 
         BusinessRule businessRule = getBusinessRuleById(businessRuleId);
 
+
         Transaction t = session.beginTransaction();
 
         session.delete(businessRule);
