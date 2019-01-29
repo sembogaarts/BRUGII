@@ -9,6 +9,7 @@ public class Column {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @SequenceGenerator(name = "COLUMN_SEQUENCE", sequenceName = "COLUMN_SEQUENCE", allocationSize = 1)
     public int id;
+
     public String type;
 
     @javax.persistence.Column(name = "name")

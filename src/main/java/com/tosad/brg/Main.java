@@ -1,22 +1,18 @@
 package com.tosad.brg;
 
-import com.tosad.brg.dataAccess.DatabaseConnection;
 import com.tosad.brg.dataAccess.OracleDatabaseConnection;
 import com.tosad.brg.domain.businessRule.BusinessRuleType;
+import com.tosad.brg.domain.project.Column;
+import com.tosad.brg.domain.project.Project;
+import com.tosad.brg.domain.project.Table;
 import com.tosad.brg.domain.template.DatabaseType;
 import com.tosad.brg.domain.template.Template;
 import com.tosad.brg.domain.template.TemplateTag;
 import com.tosad.brg.domain.type.TemplateTagType;
-import com.tosad.brg.domain.project.Column;
-import com.tosad.brg.domain.project.Project;
-import com.tosad.brg.domain.project.Table;
 import com.tosad.brg.hibernate.HibernateUtils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-
-import java.sql.Statement;
-import java.sql.ResultSet;
 
 public class Main {
     SessionFactory factory;
@@ -31,8 +27,8 @@ public class Main {
         Project project = new Project(1, "BRG", "174.138.0.100", "admin", "a72c23455018edf0648592d865b355a49121697731bfe6c2", 3306, DatabaseType.MYSQL, null);
         session.save(project);
 
-        OracleDatabaseConnection conn = (OracleDatabaseConnection) project.getConnection();
-        conn.getSchema();
+//        OracleDatabaseConnection conn = (OracleDatabaseConnection) project.getConnection();
+//        conn.getSchema();
 
 
         Table factuur = new Table(project, "Factuur");

@@ -47,7 +47,7 @@ public class Project {
         this.username = username;
         this.password = password;
         this.port = port;
-        this.databaseType = databaseType.toString();
+        this.databaseType = databaseType.name;
 //        this.table = tables;
     }
 
@@ -96,7 +96,7 @@ public class Project {
 
 
     public DatabaseConnection getConnection() {
-        DatabaseConnection databaseConnection = DatabaseType.valueOf(databaseType).createConnection(host, username, password, port);
+        DatabaseConnection databaseConnection = DatabaseType.getTypeByText(databaseType).createConnection(host, username, password, port);
         return databaseConnection;
     }
 //    public Set<Table> getTables() {

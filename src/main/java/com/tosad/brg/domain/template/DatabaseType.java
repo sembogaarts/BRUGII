@@ -3,6 +3,7 @@ package com.tosad.brg.domain.template;
 import com.tosad.brg.dataAccess.DatabaseConnection;
 import com.tosad.brg.dataAccess.MySQLDatabaseConnection;
 import com.tosad.brg.dataAccess.OracleDatabaseConnection;
+import com.tosad.brg.domain.type.TemplateTagType;
 
 import java.io.Serializable;
 
@@ -27,6 +28,14 @@ public enum DatabaseType implements Serializable {
         this.name = name;
     }
 
+    public static DatabaseType getTypeByText(String type) {
+        for (DatabaseType databaseType : values()) {
+            if (databaseType.name.equals(type)) {
+                return databaseType;
+            }
+        }
+        return UNKNOWN;
+    }
 
     @Override
     public String toString() {
