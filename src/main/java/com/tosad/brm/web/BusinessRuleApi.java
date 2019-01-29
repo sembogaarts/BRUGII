@@ -7,12 +7,10 @@ import com.tosad.brm.web.domain.businessRule.BusinessRuleTag;
 import com.tosad.brm.web.domain.businessRule.BusinessRuleType;
 import com.tosad.brm.web.domain.template.Template;
 import com.tosad.brm.web.domain.template.TemplateTag;
-import com.tosad.brm.web.taskSpecific.api.BusinessRuleJSON;
-import com.tosad.brm.web.taskSpecific.api.BusinessRuleTagJSON;
-import com.tosad.brm.web.taskSpecific.api.BusinessRuleTypeJSON;
-import com.tosad.brm.web.taskSpecific.api.TemplateJSON;
+import com.tosad.brm.web.taskSpecific.api.*;
 import com.tosad.brm.web.taskSpecific.persistence.BusinessRulePersistence;
 import com.tosad.brm.web.taskSpecific.persistence.BusinessRuleTagPersistence;
+import com.tosad.brm.web.taskSpecific.persistence.ProjectPersistence;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -83,7 +81,11 @@ public class BusinessRuleApi {
     @Path("/schema")
     @Produces("application/json")
     public String getStructureInfo() {
-        return "";
+        JSONArray jsonArray = ProjectJSON.generateFromList(ProjectPersistence.getAllTables());
+
+        HibernateUtils.close();
+
+        return jsonArray.toJSONString();
     }
 
 

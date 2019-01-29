@@ -17,6 +17,10 @@ public class Table {
     @JoinColumn(name = "project_id", nullable = false)
     public Project project;
 
+    public Table() {
+
+    }
+
     public Table(Project project, String name) {
         this.project = project;
         this.name = name;

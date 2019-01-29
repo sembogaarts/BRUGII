@@ -1,8 +1,12 @@
 package com.tosad.brm.web.dataAccess;
 
+import com.tosad.brm.web.domain.project.Table;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.List;
 
 public class OracleDatabaseConnection implements DatabaseConnection {
     Connection connection = null;
@@ -31,6 +35,16 @@ public class OracleDatabaseConnection implements DatabaseConnection {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public Statement createStatement() {
+        return null;
+    }
+
+    @Override
+    public List<Table> getSchema() {
+        return null;
     }
 
     private String formatToConnectionString(String host, int port) {

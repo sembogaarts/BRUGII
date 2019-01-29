@@ -10,8 +10,11 @@ public class Column {
     @SequenceGenerator(name = "COLUMN_SEQUENCE", sequenceName = "COLUMN_SEQUENCE", allocationSize = 1)
     public int id;
 
+    public String type;
+
     @javax.persistence.Column(name = "name")
-    String name;
+    public String name;
+
 
     @ManyToOne
     @JoinColumn(name = "tables_id", nullable = false)
@@ -20,6 +23,9 @@ public class Column {
     public Column(String name, Table tables) {
         this.name = name;
         this.tables = tables;
+    }
+    public Column() {
+
     }
 
     public Table getTable() {
