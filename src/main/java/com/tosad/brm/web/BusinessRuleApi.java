@@ -76,6 +76,13 @@ public class BusinessRuleApi {
         return BusinessRuleJSON.parseBusinessRules(businessRuleList).toJSONString();
     }
 
+    @GET
+    @Path("/schema")
+    @Produces("application/json")
+    public String getStructureInfo() {
+
+    }
+
 
     @GET
     @Path("/types")

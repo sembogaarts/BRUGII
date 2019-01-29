@@ -3,7 +3,7 @@ package com.tosad.brm.web.taskSpecific.api;
 import com.tosad.brm.web.domain.businessRule.BusinessRule;
 import com.tosad.brm.web.domain.businessRule.BusinessRuleTag;
 import com.tosad.brm.web.domain.template.TemplateTag;
-import com.tosad.brm.web.taskSpecific.persistence.TemplateTagPersitence;
+import com.tosad.brm.web.taskSpecific.persistence.TemplateTagPersistence;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -19,7 +19,7 @@ public class BusinessRuleTagJSON implements ApiJSON {
             JSONObject jsonItem = (JSONObject) item;
             String value = parseValue(jsonItem.get("value"));
             int id = ((Long) jsonItem.get("id")).intValue();
-            TemplateTag templateTag = TemplateTagPersitence.getById(id);
+            TemplateTag templateTag = TemplateTagPersistence.getById(id);
             businessRuleTagList.add(new BusinessRuleTag(value, templateTag, businessRule));
         }
 

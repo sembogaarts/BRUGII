@@ -4,7 +4,7 @@ import com.tosad.brm.web.hibernate.HibernateUtils;
 import com.tosad.brm.web.domain.template.TemplateTag;
 import org.hibernate.SessionFactory;
 
-public class TemplateTagPersitence {
+public class TemplateTagPersistence {
 
     public static TemplateTag getById(int id) {
         SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
