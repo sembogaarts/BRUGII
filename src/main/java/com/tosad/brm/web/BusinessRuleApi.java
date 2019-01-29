@@ -39,8 +39,11 @@ public class BusinessRuleApi {
     @Path("/data")
     @Produces("application/json")
     public String getCreate(@QueryParam("businessrule") int businessRuleId) {
+
         BusinessRule businessRule = BusinessRulePersistence.getBusinessRuleById(businessRuleId);
         List<BusinessRuleTag> businessRuleTagList = BusinessRuleTagPersistence.getBusinessRuleTagsByBusinessRule(businessRule);
+
+        System.out.println(businessRuleId);
 
         LinkedHashMap<BusinessRuleTag, TemplateTag> businessRuleHashMap = BusinessRuleTagPersistence.getBusinessRuleHashMapByBusinessRuleTags(businessRuleTagList);
 
@@ -152,9 +155,13 @@ public class BusinessRuleApi {
         JSONParser parser = new JSONParser();
         JSONObject jsonObject = (JSONObject) parser.parse(data);
         BusinessRule businessRule = getBusinessRuleById(businessRuleId);
+
         BusinessRuleTagPersistence.removeBusinessRuleTagsByBusinessRule(businessRule);
 
         List<BusinessRuleTag> businessRuleTags = BusinessRuleTagJSON.parseTags((JSONArray) jsonObject.get("tags"), businessRule);
+
+        System.out.println(businessRuleTags);
+
         saveBusinessRuleTags(businessRuleTags);
 
         HibernateUtils.close();
