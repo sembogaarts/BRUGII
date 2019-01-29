@@ -4,6 +4,8 @@ import com.tosad.brm.web.domain.project.Project;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Entity
 @Table(name = "BUSINESSRULE")
@@ -68,38 +70,14 @@ public class BusinessRule {
     }
 
 
-    public String getBusinessRulePrefix(String businessRuleName) {
-        String businessRulePrefix = "";
-
-        if(businessRuleName.contains("Attribute Range")) {
-            businessRulePrefix = "arng";
-        } else if (businessRuleName.contains("Attribute Compare")) {
-            businessRulePrefix = "acmp";
-        } else if (businessRuleName.contains("Tuple Compare")) {
-            businessRulePrefix = "tcmp";
-        } else if (businessRuleName.contains("Inter Entity")) {
-            businessRulePrefix = "icmp";
-        } else if (businessRuleName.contains("Attribute List")) {
-            businessRulePrefix = "alis";
-        } else if (businessRuleName.contains("Entity Other")) {
-            businessRulePrefix = "eoth";
-        } else if (businessRuleName.contains("Attribute Other")) {
-            businessRulePrefix = "aoth";
-        } else if (businessRuleName.contains("Tuple Other")) {
-            businessRulePrefix = "toth";
+    public String getPrefix() {
+        StringBuilder prefix = new StringBuilder();
+        String businessRuleType = this.businessRuleType.name;
+        Pattern p = Pattern.compile("\\b[a-zA-Z]");
+        Matcher m = p.matcher(businessRuleType);
+        while (m.find()) {
+            prefix.append(m.group());
         }
-        return businessRulePrefix;
+        return String.valueOf(prefix);
     }
-
-    public String getCategorie(List<BusinessRuleTag> businessRuleRaw){
-        Boolean trigger = businessRuleRaw.contains("TRIGGER");
-        String type;
-        if(trigger) {
-            type = "trg";
-        } else {
-            type = "cns";
-        }
-        return type;
-    }
-
 }

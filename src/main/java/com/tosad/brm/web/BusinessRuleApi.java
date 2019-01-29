@@ -124,37 +124,16 @@ public class BusinessRuleApi {
         JSONParser parser = new JSONParser();
         JSONObject jsonObject = (JSONObject) parser.parse(data);
         BusinessRule businessRule = BusinessRuleJSON.parseBusinessRule(jsonObject);
-        String businessRuleName = businessRule.getBusinessRuleType().getName();
-
-        String businessRulePrefix = businessRule.getBusinessRulePrefix(businessRuleName);
-
-        int sequence = 01;
-        saveBusinessRule(businessRule);
-
-
-        List<BusinessRuleTag> businessRuleRaw = BusinessRuleTagJSON.parseTags((JSONArray) jsonObject.get("raw"), businessRule);
         List<BusinessRuleTag> businessRuleTags = BusinessRuleTagJSON.parseTags((JSONArray) jsonObject.get("tags"), businessRule);
+        Template template = getTemplateByBusinessRuleType(businessRule.businessRuleType);
+        String businessRuleName = BusinessRuleJSON.generateBusinessRuleName(businessRule, businessRuleTags, template);
+        businessRule.setName(businessRuleName);
 
-//        businessRuleTags.add();
-        String categorie = businessRule.getCategorie(businessRuleTags);
-
-        String table = "";
-        businessRuleTags.forEach(businessRuleTag -> {
-            if (businessRuleTag.templateTag.getTemplateTagType() == TemplateTagType.TABLE) {
-                
-            }
-        });
-
-
-        String generatedName = "brg_" + table + "_" + categorie + "_" + businessRulePrefix + "_" + sequence;
-
-
-        // brg_gebruiker_cns_arng_01
+        saveBusinessRule(businessRule);
 
         saveBusinessRuleTags(businessRuleTags);
 
         HibernateUtils.close();
-
 
         return jsonObject.toJSONString();
     }
