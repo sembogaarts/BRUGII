@@ -1,6 +1,7 @@
 <template>
 
     <div class="preview">
+        <button class="deploy" @click="deployBusinessRules()"> Deploy </button>
         <div v-if="loading" class="loader-wrapper">
             <i class="fas loader fa-sync fa-spin"></i>
         </div>
@@ -34,7 +35,7 @@
 
             </div>
         </div>
-
+        <button class="deploy" @click="deployBusinessRules()"> Deploy </button>
     </div>
 
 </template>

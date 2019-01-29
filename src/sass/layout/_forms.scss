@@ -84,6 +84,16 @@ button:hover{
   box-shadow: 0 0 20px #adadad !important;
 }
 
+.deploy {
+  width:100%;
+  margin-bottom:35px;
+  margin-top:10px;
+  border-left:1px solid $primary;
+  border-right:1px solid $primary;
+  color: $primary!important;
+  font-weight:700;
+}
+
 .fancyCheck
 {
   -webkit-appearance: none;
