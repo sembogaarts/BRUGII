@@ -22,7 +22,12 @@ module.exports = {
                 });
         },
         deployBusinessRules() {
-            this.axios.post('https://brugii-generator.herokuapp.com/api/execute', this.templates);
+            this.axios.post('https://brugii-generator.herokuapp.com/api/execute', this.businessrules)
+                .then(response => {
+                    new window.sw('Businessrule is uitgevoerd!', 'Er is een businessrule toegevoegd aan de database.', 'success');
+                }, error => {
+                    new window.sw('Er is iets goed misgegaan.', 'Probeer het anders later even overnieuw.', 'error');
+                });
         }
     },
     created: function() {
