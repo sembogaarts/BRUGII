@@ -41,6 +41,7 @@ public class BusinessRuleTagPersistence {
             session.save(businessRuleTag);
         });
         t.commit();
+        session.close();
     }
 
     public static List<BusinessRuleTag> getBusinessRuleTagsByBusinessRule(BusinessRule businessRule) {
@@ -75,5 +76,6 @@ public class BusinessRuleTagPersistence {
             session.delete(businessRuleTag);
         });
         t.commit();
+        session.close();
     }
 }
