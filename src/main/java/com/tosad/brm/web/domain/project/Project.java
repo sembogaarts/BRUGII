@@ -1,13 +1,16 @@
 package com.tosad.brm.web.domain.project;
 
+
+import com.tosad.brm.web.dataAccess.DatabaseConnection;
 import com.tosad.brm.web.domain.template.DatabaseType;
 
-import javax.persistence.*;
 import javax.persistence.Column;
+import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@javax.persistence.Table(name = "PROJECT")
+@Table(name = "PROJECT")
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -39,10 +42,6 @@ public class Project {
 //    @OneToMany(mappedBy = "project")
 //    private Set<Table> table;
 
-    public Project() {
-
-    }
-
     public Project(int id, String name, String host, String username, String password, int port, DatabaseType databaseType, Set<Table> tables) {
         this.id = id;
         this.name = name;
@@ -52,7 +51,9 @@ public class Project {
         this.port = port;
         this.databaseType = databaseType.toString();
 //        this.table = tables;
-//        this.databaseConnection = databaseType.createConnection(host, username, password, port);
+    }
+
+    public Project() {
     }
 
     public String getName() {
@@ -95,6 +96,11 @@ public class Project {
         this.port = port;
     }
 
+
+    public DatabaseConnection getConnection() {
+        DatabaseConnection databaseConnection = DatabaseType.valueOf(databaseType).createConnection(host, username, password, port);
+        return databaseConnection;
+    }
 //    public Set<Table> getTables() {
 //        return table;
 //    }

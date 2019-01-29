@@ -1,7 +1,7 @@
 package com.tosad.brm.web.domain.template;
 
 import com.tosad.brm.web.dataAccess.DatabaseConnection;
-import com.tosad.brm.web.dataAccess.MysqlDatabaseConnection;
+import com.tosad.brm.web.dataAccess.MySQLDatabaseConnection;
 import com.tosad.brm.web.dataAccess.OracleDatabaseConnection;
 
 import java.io.Serializable;
@@ -16,7 +16,7 @@ public enum DatabaseType implements Serializable {
     MYSQL("mysql") {
         @Override
         public DatabaseConnection createConnection(String host, String username, String password, int port) {
-            return new MysqlDatabaseConnection(host, username, password, port);
+            return new MySQLDatabaseConnection(host, username, password, port);
         }
     },
     UNKNOWN("unknown");
