@@ -61,7 +61,7 @@ public class Main {
         session.save(new TemplateTag("NUMBER_1", TemplateTagType.NUMBER, arng_template_advanced));
         session.save(new TemplateTag("NUMBER_2", TemplateTagType.NUMBER, arng_template_advanced));
         session.save(new TemplateTag("NOT", TemplateTagType.BOOLEAN, arng_template_advanced));
-        session.save(new TemplateTag("BINDER", TemplateTagType.STRING, arng_template_advanced));
+        session.save(new TemplateTag("BINDER", TemplateTagType.BINDER, arng_template_advanced));
         session.save(new TemplateTag("ENDLOOP", TemplateTagType.LOOP, arng_template_advanced));
 
         /*
@@ -91,7 +91,7 @@ public class Main {
         session.save(new TemplateTag("COLUMN", TemplateTagType.COLUMN, acmp_template_advanced));
         session.save(new TemplateTag("OPERATOR", TemplateTagType.OPERATOR, acmp_template_advanced));
         session.save(new TemplateTag("VALUE", TemplateTagType.DYNAMIC, acmp_template_advanced));
-        session.save(new TemplateTag("BINDER", TemplateTagType.STRING, acmp_template_advanced));
+        session.save(new TemplateTag("BINDER", TemplateTagType.BINDER, acmp_template_advanced));
         session.save(new TemplateTag("ENDLOOP", TemplateTagType.LOOP, acmp_template_advanced));
 
         /*
@@ -116,9 +116,12 @@ public class Main {
         session.save(tcmp_template_advanced);
         session.save(new TemplateTag("TABLE", TemplateTagType.TABLE, tcmp_template_advanced));
         session.save(new TemplateTag("NAME", TemplateTagType.NAME, tcmp_template_advanced));
+        session.save(new TemplateTag("LOOP", TemplateTagType.LOOP, tcmp_template_advanced));
         session.save(new TemplateTag("COLUMN_1", TemplateTagType.COLUMN, tcmp_template_advanced));
         session.save(new TemplateTag("OPERATOR", TemplateTagType.OPERATOR, tcmp_template_advanced));
         session.save(new TemplateTag("COLUMN_2", TemplateTagType.COLUMN, tcmp_template_advanced));
+        session.save(new TemplateTag("BINDER", TemplateTagType.BINDER, tcmp_template_advanced));
+        session.save(new TemplateTag("ENDLOOP", TemplateTagType.LOOP, tcmp_template_advanced));
 
         /*
          * inter_entity_compare_rule
@@ -171,7 +174,7 @@ public class Main {
         session.save(new TemplateTag("COLUMN", TemplateTagType.COLUMN, alis_template));
         session.save(new TemplateTag("NOT", TemplateTagType.BOOLEAN, alis_template));
         session.save(new TemplateTag("LIST", TemplateTagType.LIST, alis_template));
-        session.save(new TemplateTag("BINDER", TemplateTagType.STRING, alis_template));
+        session.save(new TemplateTag("BINDER", TemplateTagType.BINDER, alis_template));
         session.save(new TemplateTag("ENDLOOP", TemplateTagType.LOOP, alis_template));
 
         /*
@@ -187,7 +190,7 @@ public class Main {
         session.save(new TemplateTag("COLUMN", TemplateTagType.COLUMN, alis_template_advanced));
         session.save(new TemplateTag("NOT", TemplateTagType.BOOLEAN, alis_template_advanced));
         session.save(new TemplateTag("LIST", TemplateTagType.LIST, alis_template_advanced));
-        session.save(new TemplateTag("BINDER", TemplateTagType.STRING, alis_template_advanced));
+        session.save(new TemplateTag("BINDER", TemplateTagType.BINDER, alis_template_advanced));
         session.save(new TemplateTag("ENDLOOP", TemplateTagType.LOOP, alis_template_advanced));
 
         /*
@@ -228,7 +231,7 @@ public class Main {
         session.save(new TemplateTag("COLUMN_2", TemplateTagType.TABLE, eoth_template_advanced));
         session.save(new TemplateTag("OPERATOR", TemplateTagType.OPERATOR, eoth_template_advanced));
         session.save(new TemplateTag("VALUE", TemplateTagType.DYNAMIC, eoth_template_advanced));
-        session.save(new TemplateTag("BINDER", TemplateTagType.STRING, eoth_template_advanced));
+        session.save(new TemplateTag("BINDER", TemplateTagType.BINDER, eoth_template_advanced));
         session.save(new TemplateTag("ENDLOOP", TemplateTagType.LOOP, eoth_template_advanced));
         session.save(new TemplateTag("ERRCODE", TemplateTagType.STRING, eoth_template_advanced));
         session.save(new TemplateTag("ERRMESSAGE", TemplateTagType.STRING, eoth_template_advanced));
@@ -265,7 +268,7 @@ public class Main {
         session.save(new TemplateTag("NOT", TemplateTagType.BOOLEAN, aoth_template_advanced));
         session.save(new TemplateTag("VALUE_1", TemplateTagType.DYNAMIC, aoth_template_advanced));
         session.save(new TemplateTag("VALUE_2", TemplateTagType.DYNAMIC, aoth_template_advanced));
-        session.save(new TemplateTag("BINDER", TemplateTagType.STRING, aoth_template_advanced));
+        session.save(new TemplateTag("BINDER", TemplateTagType.BINDER, aoth_template_advanced));
         session.save(new TemplateTag("ENDLOOP", TemplateTagType.LOOP, aoth_template_advanced));
 
         /*
@@ -312,7 +315,7 @@ public class Main {
         session.save(new TemplateTag("NOT", TemplateTagType.BOOLEAN, toth_template_advanced));
         session.save(new TemplateTag("VALUE_1", TemplateTagType.DYNAMIC, toth_template_advanced));
         session.save(new TemplateTag("VALUE_2", TemplateTagType.DYNAMIC, toth_template_advanced));
-        session.save(new TemplateTag("BINDER", TemplateTagType.STRING, toth_template_advanced));
+        session.save(new TemplateTag("BINDER", TemplateTagType.BINDER, toth_template_advanced));
         session.save(new TemplateTag("ENDLOOP", TemplateTagType.LOOP, toth_template_advanced));
         session.save(new TemplateTag("ERRCODE", TemplateTagType.STRING, toth_template_advanced));
         session.save(new TemplateTag("ERRMESSAGE", TemplateTagType.STRING, toth_template_advanced));
