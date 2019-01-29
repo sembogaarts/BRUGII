@@ -27,7 +27,11 @@ public class HibernateUtils {
     }
 
     public static Session getSession() {
-        return session;
+        if (session.isConnected()) {
+            return session;
+        } else {
+            return factory.openSession();
+        }
     }
 
     public static void close() {
