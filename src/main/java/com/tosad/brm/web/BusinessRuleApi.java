@@ -49,10 +49,18 @@ public class BusinessRuleApi {
         return data.toJSONString();
     }
 
-//    @GET
-//    @Path("/remove")
-//    @Produces("application/json")
-//    public
+    @GET
+    @Path("/remove")
+    @Produces("application/json")
+    public String removeBusinessrule(@QueryParam("businessrule") int businessRuleId) {
+        BusinessRulePersistence.removeBusinessRuleById(businessRuleId);
+        JSONObject data = new JSONObject();
+        data.put("success", true);
+
+        HibernateUtils.close();
+        return data.toJSONString();
+    }
+
     @GET
     @Path("/rules")
     @Produces("application/json")
