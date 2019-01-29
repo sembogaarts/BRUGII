@@ -55,7 +55,6 @@ public class TemplateTagJSON implements ApiJSON {
         for (Map.Entry<BusinessRuleTag, TemplateTag> entry : hashMapList.entrySet()) {
             BusinessRuleTag businessRuleTag = entry.getKey();
             TemplateTag templateTag = entry.getValue();
-            System.out.println(templateTag.id);
             if (TemplateTagType.LOOP == templateTag.getTemplateTagType()) {
                 isLoop = !isLoop;
                 continue;
