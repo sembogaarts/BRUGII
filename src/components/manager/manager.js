@@ -56,6 +56,18 @@ module.exports = {
 
         path(br) {
             return '/editor/' + br.id;
+        },
+
+        deleteRules() {
+            for (var x = 0; this.checkedBusinessRules.length > x; x++) {
+                var name = this.checkedBusinessRules[x].name;
+                this.axios.get("https://brugii-manager.herokuapp.com/businessrule/delete?businessrule=" + this.checkedBusinessRules[x].id)
+                    .then(data => {
+                        new window.sw('Businessrule is verwijderd', 'De volgende businessrule is verwijderd: ' + name, 'error');
+                    }, error => {
+                        new window.sw('Ondora is onbereikbaar', 'We gaan naar de volgende regel om te verwijderen.', 'error');
+                    });
+            }
         }
 
     },
