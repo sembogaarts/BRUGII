@@ -19,7 +19,7 @@ public class TemplateTagJSON implements ApiJSON {
     }
 
     public static JSONObject generate(TemplateTag templateTag, BusinessRuleTag businessRuleTag) {
-        JSONObject jsonObject = generateJSONObject(templateTag, businessRuleTag);
+        JSONObject jsonObject = generateJSONObject(templateTag);
         jsonObject.put("value", templateTag.getTemplateTagType().parseValue(businessRuleTag.value));
         return jsonObject;
     }
@@ -120,9 +120,9 @@ public class TemplateTagJSON implements ApiJSON {
         return jsonObject;
     }
 
-    static JSONObject generateJSONObject(TemplateTag templateTag, BusinessRuleTag businessRuleTag) {
-        JSONObject jsonObject = generateJSONObject(templateTag);
-        jsonObject.put("id", businessRuleTag.id);
-        return jsonObject;
-    }
+//    static JSONObject generateJSONObject(TemplateTag templateTag, BusinessRuleTag businessRuleTag) {
+//        JSONObject jsonObject = generateJSONObject(templateTag);
+//        jsonObject.put("id", templateTag.id);
+//        return jsonObject;
+//    }
 }
