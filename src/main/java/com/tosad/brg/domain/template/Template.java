@@ -23,7 +23,7 @@ public class Template {
     @Column(name = "name")
     public String name;
 
-    @Column(name = "script")
+    @Column(name = "script", length = 900)
     public String script;
 
     @Column(name = "prefix")
