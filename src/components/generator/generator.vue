@@ -63,7 +63,7 @@
 
                 </div>
 
-                <button type="submit" @click="onSubmit()"><i class="fas fa-sync-alt"></i> Genereer</button>
+                <button type="submit" @click="onSubmit()"><i class="fas fa-sync-alt"></i> Aanmaken</button>
 
             </form>
 
