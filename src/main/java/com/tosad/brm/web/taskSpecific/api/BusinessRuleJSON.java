@@ -61,7 +61,7 @@ public class BusinessRuleJSON {
         name.add(getCategorieTypeByTemplate(template));
         name.add(businessRule.getPrefix());
 
-        return String.join("_", name);
+        return String.join("_", name).toLowerCase();
     }
 
     private static String getCategorieTypeByTemplate(Template template) {
