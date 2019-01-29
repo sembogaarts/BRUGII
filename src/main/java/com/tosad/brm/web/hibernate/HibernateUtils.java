@@ -2,6 +2,7 @@ package com.tosad.brm.web.hibernate;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
@@ -12,6 +13,7 @@ import java.util.List;
 public class HibernateUtils {
     public static SessionFactory factory;
     public static Session session;
+    public static Transaction transaction;
     // to disallow creating objects by other classes.
 
     // maling the Hibernate SessionFactory object as singleton
@@ -37,5 +39,17 @@ public class HibernateUtils {
     public static void close() {
         factory.close();
         session.close();
+    }
+
+    public static Transaction getTransaction() {
+        if (transaction == null || !transaction.isActive()) {
+            transaction = session.beginTransaction();
+        }
+        return transaction;
+    }
+
+    public static void closeTransaction() {
+        transaction.commit();
+        close();
     }
 }
