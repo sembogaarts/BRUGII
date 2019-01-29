@@ -42,10 +42,12 @@ module.exports = {
 
         onSubmit() {
             this.loading = true;
-            this.axios.post('https://brugii-manager.herokuapp.com/businessrule/create', JSON.parse(JSON.stringify(this.template)))
+            this.axios.post('https://brugii-manager.herokuapp.com/businessrule/create', JSON.stringify(this.template), {
+                headers: { 'Content-Type': "application/json" }
+            })
                 .then(response => {
                     this.loading = false;
-                    alert('De businessrule is toegevoegd');
+                    new window.sw('Businessrule is toegevoegd', 'Navigeer naar de manager om hem te bekijken.', 'success');
                     this.template = {};
                 });
         },

@@ -37,7 +37,7 @@ module.exports = {
             this.axios.post('http://localhost:8080/businessrule/create', this.template)
                 .then(response => {
                     this.loading = false;
-                    alert('De businessrule is toegevoegd');
+                    new window.sw('Businessrule is toegevoegd', 'We navigeren je gelijk naar de juiste pagina.', 'success');
                     this.template = {};
                 });
         },
