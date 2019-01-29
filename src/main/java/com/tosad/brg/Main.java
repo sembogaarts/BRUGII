@@ -30,31 +30,31 @@ public class Main {
 
         Table factuur = new Table(project, "Factuur");
         session.save(factuur);
-        session.save(new Column("id", "int", factuur));
-        session.save(new Column("bedrag", "int", factuur));
-        session.save(new Column("persoon_id", "int", factuur));
+        session.save(new Column("id", "number", factuur));
+        session.save(new Column("bedrag", "number", factuur));
+        session.save(new Column("persoon_id", "number", factuur));
 
         Table gebruiker = new Table(project, "Gebruiker");
         session.save(gebruiker);
-        session.save(new Column("id", "int", gebruiker));
+        session.save(new Column("id", "number", gebruiker));
         session.save(new Column("naam", "string", gebruiker));
-        session.save(new Column("leeftijd", "int", gebruiker));
+        session.save(new Column("leeftijd", "number", gebruiker));
         session.save(new Column("email", "string", gebruiker));
         session.save(new Column("wachtwoord", "string", gebruiker));
-        session.save(new Column("saldo", "int", gebruiker));
+        session.save(new Column("saldo", "number", gebruiker));
 
         Table post = new Table(project, "Post");
         session.save(post);
-        session.save(new Column("id", "int", post));
+        session.save(new Column("id", "number", post));
         session.save(new Column("name", "string", post));
         session.save(new Column("title", "string", post));
         
         Table product = new Table(project, "Product");
         session.save(product);
-        session.save(new Column("id", "int", product));
+        session.save(new Column("id", "number", product));
         session.save(new Column("name", "string", product));
-        session.save(new Column("inkoopprijs", "int", product));
-        session.save(new Column("verkoopprijs", "int", product));
+        session.save(new Column("inkoopprijs", "number", product));
+        session.save(new Column("verkoopprijs", "number", product));
 
 
         /*
