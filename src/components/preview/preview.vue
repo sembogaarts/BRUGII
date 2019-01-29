@@ -1,7 +1,11 @@
 <template>
 
     <div class="preview">
-        <button class="deploy" @click="deployBusinessRules()"> Deploy </button>
+        <div class="toolbar" v-if="!error && !loading">
+
+            <button @click="deployBusinessRules()"> Deploy </button>
+
+        </div>
         <div v-if="loading" class="loader-wrapper">
             <i class="fas loader fa-sync fa-spin"></i>
         </div>
@@ -35,7 +39,11 @@
 
             </div>
         </div>
-        <button class="deploy" @click="deployBusinessRules()"> Deploy </button>
+        <div class="toolbar" v-if="!error && !loading">
+
+            <button @click="deployBusinessRules()"> Deploy </button> <br>
+
+        </div>
     </div>
 
 </template>
