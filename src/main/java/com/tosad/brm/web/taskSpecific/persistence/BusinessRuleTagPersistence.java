@@ -42,7 +42,6 @@ public class BusinessRuleTagPersistence {
         });
 
         HibernateUtils.closeTransaction();
-        session.close();
     }
 
     public static List<BusinessRuleTag> getBusinessRuleTagsByBusinessRule(BusinessRule businessRule) {
