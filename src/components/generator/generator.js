@@ -43,7 +43,7 @@ module.exports = {
         onSubmit() {
             this.loading = true;
             this.axios.post('https://brugii-manager.herokuapp.com/businessrule/create', JSON.stringify(this.template), {
-                headers: { 'Content-Type': "application/json" }
+                headers: {'Content-Type': "application/json"}
             })
                 .then(response => {
                     this.loading = false;
