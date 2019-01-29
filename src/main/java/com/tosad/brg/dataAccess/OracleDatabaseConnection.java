@@ -1,9 +1,12 @@
 package com.tosad.brg.dataAccess;
 
+import com.tosad.brg.domain.project.Table;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 public class OracleDatabaseConnection implements DatabaseConnection {
     Connection connection = null;
@@ -12,7 +15,7 @@ public class OracleDatabaseConnection implements DatabaseConnection {
     public OracleDatabaseConnection(String host, String username, String password, int port) {
         try {
             connection = DriverManager.getConnection(
-                    formatToConnectionString(host, port), username, password
+                    formatToConnectionString(host, username, password, port)
             );
         } catch (SQLException e) {
             System.out.println("Connection Failed! Check output console");
@@ -34,12 +37,19 @@ public class OracleDatabaseConnection implements DatabaseConnection {
         }
     }
 
+
     @Override
     public Statement createStatement() {
         return null;
     }
 
-    private String formatToConnectionString(String host, int port) {
+    @Override
+    public List<Table> getSchema() {
+
+        return null;
+    }
+
+    private String formatToConnectionString(String host, String username, String password, int port) {
         return String.format("jdbc:oracle:thin:@//%s:%d/%s", host, port, "EDUC16");
     }
 }
