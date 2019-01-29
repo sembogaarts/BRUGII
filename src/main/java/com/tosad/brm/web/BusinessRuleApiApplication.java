@@ -1,6 +1,5 @@
 package com.tosad.brm.web;
 
-import com.tosad.brm.web.CORSResponseFilter;
 import org.glassfish.jersey.server.ResourceConfig;
 
 public class BusinessRuleApiApplication extends ResourceConfig {
