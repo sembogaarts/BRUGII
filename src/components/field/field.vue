@@ -2,7 +2,7 @@
 
     <div>
 
-        <label :for="tag.name">{{ tag.name }}</label>
+        <label v-if="!isName(tag.type)" :for="tag.name">{{ tag.name }}</label>
 
         <!-- String, Number, Boolean -->
         <input v-if="isString(tag.type)" :id="tag.name" type="text" :v-model="value" @input="onInput($event)" required>

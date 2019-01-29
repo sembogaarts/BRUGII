@@ -15,6 +15,9 @@ module.exports =  {
         isString(type) {
             return this.isType("STRING", type);
         },
+        isName(type) {
+            return this.isType("NAME", type);
+        },
         isBoolean(type) {
             return this.isType("BOOLEAN", type);
         },

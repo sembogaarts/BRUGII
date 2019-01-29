@@ -10,35 +10,44 @@ module.exports = {
             selectedTemplate: null,
             template: {},
             schema: {},
-            loading: false
+            loading: false,
+            error: false,
+            id: Number
         }
     },
     methods: {
-        getBusinessRule(id) {
+        getBusinessRule() {
             this.loading = true;
+            this.error = false;
             // Get the template information
-            // this.axios.get('https://brugii-manager.herokuapp.com/businessrule/data?businessrule=' + id)
-            this.axios.get('templates/attributeCompareRuleFilled.json')
+            this.axios.get('https://brugii-manager.herokuapp.com/businessrule/data?businessrule=' + this.id)
                 .then(response => {
                     this.template = response.data;
                     this.loading = false;
+                }, error => {
+                    this.error = true;
+                    this.loading = false;
+                    new window.sw('Ondora is onbereikbaar', 'Herlaad de pagina of probeer het later opnieuw.', 'error');
                 });
         },
         getSchemaData() {
             this.axios.get('templates/schema.json')
                 .then(response => {
                     this.schema = response.data.schema;
-                    this.getBusinessRule(this.$route.params['id']);
+                    this.getBusinessRule();
                 });
         },
 
         onSubmit() {
             this.loading = true;
-            this.axios.post('http://localhost:8080/businessrule/create', this.template)
+            this.axios.post('https://brugii-manager.herokuapp.com/businessrule/update', this.template)
                 .then(response => {
                     this.loading = false;
-                    new window.sw('Businessrule is toegevoegd', 'We navigeren je gelijk naar de juiste pagina.', 'success');
+                    new window.sw('Businessrule is bijgewerkt', 'Deploy de businessrule opnieuw.', 'success');
                     this.template = {};
+                }, error => {
+                    this.loading = false;
+                    new window.sw('Ondora is onbereikbaar', 'Herlaad de pagina of probeer het later opnieuw.', 'error');
                 });
         },
 
@@ -69,6 +78,7 @@ module.exports = {
 
     },
     created: function () {
+        this.id = this.$route.params['id'];
         this.getSchemaData();
     }
 }
