@@ -14,10 +14,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import java.util.HashMap;
 import java.util.List;
 
@@ -25,23 +22,32 @@ import java.util.List;
 @Path("/")
 public class Generator {
 
-    @GET
+    @POST
     @Path("businessrule")
     @Produces("application/json")
-    public String getCreate(@QueryParam("businessrule") String businessRuleIds) throws ParseException {
+    public String getCreate(String data) throws ParseException {
+
         JSONParser parser = new JSONParser();
-        JSONArray businessRuleIdJsonArray = (JSONArray) parser.parse(businessRuleIds);
+        JSONArray businessRuleIdJsonArray = (JSONArray) parser.parse(data);
 
         JSONArray jsonArray = new JSONArray();
+
+
         businessRuleIdJsonArray.forEach(o -> {
+
             long businessRuleId = (Long) o;
 
             BusinessRule businessRule = BusinessRulePersistence.getBusinessRuleById((int) businessRuleId);
             Template template = TemplatePersistence.getTemplateByBusinessRuleType(businessRule.businessRuleType);
+
+
             List<BusinessRuleTag> businessRuleTagList = BusinessRuleTagPersistence.getBusinessRuleTagsByBusinessRule(businessRule);
             HashMap<BusinessRuleTag, TemplateTag> businessRuleHashMap = BusinessRuleTagPersistence.getBusinessRuleHashMapByBusinessRuleTags(businessRuleTagList);
 
             JSONObject jsonObject = BusinessRuleJSON.generateJSON(businessRule, template, businessRuleHashMap);
+
+
+
             jsonArray.add(jsonObject);
         });
 
