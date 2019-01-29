@@ -5,17 +5,21 @@ module.exports = {
             businessrules: [],
             createStatus: "",
             loading: false,
-            checkedBusinessRules: []
+            checkedBusinessRules: [],
+            error: false
         }
     },
     methods: {
         getBusinessRules() {
+            this.error = false;
             this.loading = true;
             this.axios.get('https://brugii-manager.herokuapp.com/businessrule/rules')
                 .then(response => {
                     this.loading = false;
                     this.businessrules = response.data;
                 }, error => {
+                    this.loading = false;
+                    this.error = true;
                     new window.sw('Ondora is onbereikbaar', 'Herlaad de pagina of probeer het later opnieuw.', 'error');
                 });
         },

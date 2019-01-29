@@ -4,6 +4,9 @@ module.exports = {
         return {
         }
     },
+    methods: {
+
+    },
     created: function() {
         console.log(this.businessrules);
     }

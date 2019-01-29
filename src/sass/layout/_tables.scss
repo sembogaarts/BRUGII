@@ -1,7 +1,6 @@
 
 .table {
   border-collapse: collapse;
-  margin-left: 20px;
   table-layout: auto;
   width: 100%;
 
@@ -14,6 +13,11 @@
         font-size: 13px;
         color: $dark-gray;
         text-align: left;
+
+        &.center {
+          text-align: center;
+        }
+
       }
 
       .icontd {

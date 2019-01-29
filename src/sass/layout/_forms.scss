@@ -64,7 +64,7 @@ button {
   background-color: white;
   color: $dark-gray !important;
   border:none;
-  width:142.5px;
+  min-width: 142.5px;
   padding:8px;
   font-size:13px;
   border-radius:2px;
@@ -102,16 +102,6 @@ button:hover{
   outline: none;
 }
 
-.fancyCheck:checked::before
-{
-  position: absolute;
-  font: 13px/1 'Open Sans', sans-serif;
-  left: 7px;
-  top: 3px;
-  content: '\02143';
-  transform: rotate(40deg);
-}
-
 .fancyCheck:hover
 {
   background-color: #f7f7f7;
@@ -119,7 +109,7 @@ button:hover{
 
 .fancyCheck:checked
 {
-  background-color: #f1f1f1;
+  background-color: $primary;
 }
 label
 {
