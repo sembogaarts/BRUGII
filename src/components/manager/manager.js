@@ -24,21 +24,34 @@ module.exports = {
                 });
         },
 
+        isSelected(id) {
+            return this.checkedBusinessRules.indexOf(id) != -1;
+        },
+
+        toggleAll() {
+            if (this.businessrules.length != this.checkedBusinessRules.length) {
+
+                for (var x = 0; this.businessrules.length > x; x++) {
+                    if (this.checkedBusinessRules.indexOf(this.businessrules[x].id) == -1) {
+                        this.checkedBusinessRules.push(this.businessrules[x].id);
+                    }
+                }
+            } else {
+                this.checkedBusinessRules = [];
+            }
+        },
+
         generateBusinessRules(data) {
-            return {name: 'Preview', params: { businessrules: data } }
+            return {name: 'Preview', params: {businessrules: data}}
         },
 
         toggleCheckedBusinessRule(id) {
             var index = this.checkedBusinessRules.indexOf(id);
-            if(index !== -1){
-                console.log('exists');
+            if (index !== -1) {
                 this.checkedBusinessRules.splice(index, 1);
-            }
-            else {
-                console.log('does not exist');
+            } else {
                 this.checkedBusinessRules.push(id);
             }
-            console.log(this.checkedBusinessRules);
         },
 
         path(br) {

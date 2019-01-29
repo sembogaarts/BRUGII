@@ -18,7 +18,10 @@
 
             <table v-if="!loading && !error" class="table">
                 <thead class="table-header">
-                <th></th>
+                <th>
+                    <input class="fancyCheck" id="selectAll" type="checkbox" @click="toggleAll()">
+                    <label for="selectAll" class="check"> </label>
+                </th>
                 <th> Business Rule</th>
                 <th> Status</th>
                 <th class="iconth"> Maintain</th>
@@ -27,7 +30,7 @@
                 <tbody>
                 <tr v-for="(businessrule, index) in businessrules">
 
-                    <td><input class="fancyCheck" :id="businessrule.name" type="checkbox"
+                    <td><input class="fancyCheck" :checked="isSelected(businessrule.id)" :id="businessrule.name" type="checkbox"
                                @click="toggleCheckedBusinessRule(businessrule.id)">
                         <label :for="businessrule.name" class="check"> </label>
                     </td>
