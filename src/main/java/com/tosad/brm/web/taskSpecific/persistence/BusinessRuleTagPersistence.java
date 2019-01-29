@@ -35,12 +35,13 @@ public class BusinessRuleTagPersistence {
     public static void saveBusinessRuleTags(List<BusinessRuleTag> businessRuleTags) {
         SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
         Session session = HibernateUtils.getSession();
-        Transaction t = session.beginTransaction();
+        HibernateUtils.getTransaction();
 
         businessRuleTags.forEach(businessRuleTag -> {
             session.save(businessRuleTag);
         });
-        t.commit();
+
+        HibernateUtils.closeTransaction();
     }
 
     public static List<BusinessRuleTag> getBusinessRuleTagsByBusinessRule(BusinessRule businessRule) {
@@ -68,12 +69,11 @@ public class BusinessRuleTagPersistence {
     public static void removeBusinessRuleTagsByBusinessRule(BusinessRule businessRule) {
         SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
         Session session = HibernateUtils.getSession();
-        Transaction t = session.beginTransaction();
+        HibernateUtils.getTransaction();
         List<BusinessRuleTag> businessRuleTags = getBusinessRuleTagsByBusinessRule(businessRule);
 
-        businessRuleTags.forEach(businessRuleTag -> {
-            session.delete(businessRuleTag);
-        });
-        t.commit();
+        businessRuleTags.forEach(businessRuleTag -> session.delete(businessRuleTag));
+
+        HibernateUtils.closeTransaction();
     }
 }
