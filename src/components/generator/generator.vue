@@ -14,7 +14,9 @@
             <pre><code>{{ template.script }}</code></pre>
         </div>
 
-        <i v-if="loading" class="fas loader fa-sync fa-spin"></i>
+        <div v-if="loading" class="loader-wrapper">
+            <i class="fas loader fa-sync fa-spin"></i>
+        </div>
 
         <!-- Template Generator -->
         <div v-if="hasTemplate && !loading">

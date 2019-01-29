@@ -42,14 +42,11 @@ module.exports = {
 
         onSubmit() {
             this.loading = true;
-            this.axios.post('http://localhost:8080/businessrule/create', this.template)
+            this.axios.post('https://brugii-manager.herokuapp.com/businessrule/create', JSON.parse(JSON.stringify(this.template)))
                 .then(response => {
-
-
                     this.loading = false;
                     alert('De businessrule is toegevoegd');
                     this.template = {};
-
                 });
         },
 

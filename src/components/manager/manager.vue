@@ -12,6 +12,7 @@
 
             <table v-if="!loading" class="table">
                 <thead class="table-header">
+                <th></th>
                 <th> Business Rule</th>
                 <th> Status</th>
                 <th class="iconth"> Maintain</th>
@@ -19,6 +20,7 @@
                 </thead>
                 <tbody>
                 <tr v-for="businessrule in businessrules">
+                    <td><input type="checkbox"></td>
                     <td> {{businessrule.name}}</td>
                     <td> {{businessrule.status}}</td>
                     <td><router-link :to="path(businessrule)"><i class="far fa-edit"></i></router-link></td>

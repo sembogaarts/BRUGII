@@ -10,7 +10,7 @@
 
             <form @submit.prevent>
 
-                <div v-for="(tag, index) in data.tags">
+                <div v-for="(tag, index) in template.tags">
 
                     <!-- Render the field depending on type -->
                     <field
@@ -50,7 +50,7 @@
 
                 </div>
 
-                <button type="submit" @click="onSubmit()"><i class="fas fa-sync-alt"></i> Genereer</button>
+                <button type="submit" @click="onSubmit()"><i class="fas fa-save"></i> Opslaan</button>
 
             </form>
 

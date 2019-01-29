@@ -8,7 +8,7 @@ module.exports = {
         return {
             // TODO: GET FROM API
             selectedTemplate: null,
-            data: {},
+            template: {},
             schema: {},
             loading: false
         }
@@ -17,9 +17,10 @@ module.exports = {
         getBusinessRule(id) {
             this.loading = true;
             // Get the template information
-            this.axios.get('https://brugii-manager.herokuapp.com/businessrule/data?businessrule=' + id)
+            // this.axios.get('https://brugii-manager.herokuapp.com/businessrule/data?businessrule=' + id)
+            this.axios.get('templates/attributeCompareRuleFilled.json')
                 .then(response => {
-                    this.data = response.data;
+                    this.template = response.data;
                     this.loading = false;
                 });
         },
@@ -27,6 +28,7 @@ module.exports = {
             this.axios.get('templates/schema.json')
                 .then(response => {
                     this.schema = response.data.schema;
+                    this.getBusinessRule(this.$route.params['id']);
                 });
         },
 
@@ -67,7 +69,7 @@ module.exports = {
 
     },
     created: function () {
-        this.getBusinessRule(this.$route.params['id']);
+        this.getSchemaData();
     }
 }
 
