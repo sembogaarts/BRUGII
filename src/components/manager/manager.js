@@ -1,15 +1,18 @@
 module.exports = {
-    data: function() {
+    data: function () {
         return {
             project: "Manager",
-            businessrules : [],
-            createStatus : ""
+            businessrules: [],
+            createStatus: "",
+            loading: false
         }
     },
     methods: {
         getBusinessRules() {
-            this.axios.get('http://localhost:8080/businessrule/rules')
+            this.loading = true;
+            this.axios.get('https://brugii-manager.herokuapp.com/businessrule/rules')
                 .then(response => {
+                    this.loading = false;
                     this.businessrules = response.data;
                 });
         },
@@ -19,7 +22,15 @@ module.exports = {
                 .then(response => {
                     this.createStatus = response.data;
                 });
+        },
+
+        path(br) {
+            return '/editor/' + br.id;
         }
+
+    },
+    created: function () {
+        this.getBusinessRules();
     }
 
 };

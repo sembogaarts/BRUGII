@@ -1,25 +1,12 @@
 <template>
     <div>
-        <div class="template-type-selector">
-            <!-- Business Rule Type Selector -->
-            <label for="templateSelector">Selecteer een Businessrule Type</label>
-            <select @change="getTemplateInformation()" v-model="selectedTemplate" name="templateSelector"
-                    id="templateSelector">
-                <option disabled value="null" selected>Selecteer een Businessrule Type</option>
-                <option v-for="template in templates" :value="template.id">{{ template.name }}</option>
-            </select>
-        </div>
-
-        <div class="template-raw" v-if="template.script">
-            <pre><code>{{ template.script }}</code></pre>
-        </div>
 
         <div v-if="loading" class="loader-wrapper">
             <i class="fas loader fa-sync fa-spin"></i>
         </div>
 
         <!-- Template Generator -->
-        <div v-if="hasTemplate && !loading">
+        <div v-if="!loading">
 
             <form @submit.prevent>
 
@@ -63,7 +50,7 @@
 
                 </div>
 
-                <button type="submit" @click="onSubmit()"><i class="fas fa-sync-alt"></i> Genereer</button>
+                <button type="submit" @click="onSubmit()"><i class="fas fa-save"></i> Opslaan</button>
 
             </form>
 
@@ -72,4 +59,4 @@
     </div>
 </template>
 
-<script src="./generator.js"></script>
+<script src="./editor.js"></script>

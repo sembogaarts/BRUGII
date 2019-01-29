@@ -7,7 +7,6 @@ module.exports = {
     data: function () {
         return {
             // TODO: GET FROM API
-            templates: [],
             selectedTemplate: null,
             template: {},
             schema: {},
@@ -15,34 +14,27 @@ module.exports = {
         }
     },
     methods: {
-        getTemplates() {
-            // Get the template information
-            this.axios.get('https://brugii-manager.herokuapp.com/businessrule/types')
-                .then(response => {
-                    this.templates = response.data;
-                });
-        },
-        getTemplateInformation() {
+        getBusinessRule(id) {
             this.loading = true;
             // Get the template information
-            this.axios.get('https://brugii-manager.herokuapp.com/businessrule/type?id=' + this.selectedTemplate)
+            // this.axios.get('https://brugii-manager.herokuapp.com/businessrule/data?businessrule=' + id)
+            this.axios.get('templates/attributeCompareRuleFilled.json')
                 .then(response => {
                     this.template = response.data;
                     this.loading = false;
-                }, error => {
-                    alert('Kan niet verbinden met ondora.');
                 });
         },
         getSchemaData() {
             this.axios.get('templates/schema.json')
                 .then(response => {
                     this.schema = response.data.schema;
+                    this.getBusinessRule(this.$route.params['id']);
                 });
         },
 
         onSubmit() {
             this.loading = true;
-            this.axios.post('https://brugii-manager.herokuapp.com/businessrule/create', JSON.parse(JSON.stringify(this.template)))
+            this.axios.post('http://localhost:8080/businessrule/create', this.template)
                 .then(response => {
                     this.loading = false;
                     alert('De businessrule is toegevoegd');
@@ -76,13 +68,7 @@ module.exports = {
         }
 
     },
-    computed: {
-        hasTemplate: function () {
-            return JSON.stringify(this.template) !== '{}'
-        }
-    },
     created: function () {
-        this.getTemplates();
         this.getSchemaData();
     }
 }

@@ -24,13 +24,13 @@
         </select>
 
         <!-- Binders -->
-        <select v-if="isBinder(tag.type)" :id="tag.name">
+        <select v-if="isBinder(tag.type)" :value="value" @input="onInput($event)" :id="tag.name">
             <option selected value="" disabled>Selecteer een binder</option>
             <option v-for="binder in binders()" :value="binder">{{ binder }}</option>
         </select>
 
         <!-- Operators -->
-        <select v-if="isOperator(tag.type)" :id="tag.name">
+        <select v-if="isOperator(tag.type)" :value="value" @input="onInput($event)" :id="tag.name">
             <option selected value="" disabled>Selecteer een operator</option>
             <option v-for="(operator, index) in getOperatorsForEarlierField(getEarlierFieldType())" :key="index" :value="operator">{{ operator }}</option>
         </select>
