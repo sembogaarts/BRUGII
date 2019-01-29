@@ -11,7 +11,8 @@ module.exports = {
             selectedTemplate: null,
             template: {},
             schema: {},
-            loading: false
+            loading: false,
+            error: false
         }
     },
     methods: {

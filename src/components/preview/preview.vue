@@ -1,7 +1,11 @@
 <template>
 
     <div class="preview">
-        SCRIPT
+
+        <div v-for="template of templates">
+
+        </div>
+
     </div>
 
 </template>

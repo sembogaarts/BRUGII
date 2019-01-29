@@ -1,5 +1,6 @@
 <template>
     <div>
+
         <div class="template-type-selector">
             <!-- Business Rule Type Selector -->
             <label for="templateSelector">Selecteer een Businessrule Type</label>

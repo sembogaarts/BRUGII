@@ -2,6 +2,7 @@ module.exports = {
     props: ['businessrules'],
     data: function () {
         return {
+            templates: []
         }
     },
     methods: {
