@@ -13,21 +13,6 @@ import java.util.List;
 import static java.lang.Integer.parseInt;
 
 public class BusinessRuleTagJSON implements ApiJSON {
-    public static JSONObject generate(BusinessRuleTag businessRuleTag) {
-        JSONObject jsonObject = generateJSONObject(businessRuleTag);
-//        jsonObject.put("value", templateTag.getTemplateTagType().getDefaultValue());
-        return jsonObject;
-    }
-
-    private static JSONObject generateLoopObject(TemplateTag templateTag) {
-        return new JSONObject();
-    }
-
-    static JSONObject generateJSONObject(BusinessRuleTag businessRuleTag) {
-        JSONObject jsonObject = new JSONObject();
-        return jsonObject;
-    }
-
     public static List<BusinessRuleTag> parseTags(JSONArray jsonArray, BusinessRule businessRule) {
         List<BusinessRuleTag> businessRuleTagList = new ArrayList<>();
         for (Object item : jsonArray) {
