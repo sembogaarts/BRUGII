@@ -1,8 +1,10 @@
 package com.tosad.brm.web.domain.template;
 
+import com.tosad.brm.web.domain.businessRule.BusinessRuleTag;
 import com.tosad.brm.web.domain.businessRule.BusinessRuleType;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "TEMPLATE")
@@ -39,6 +41,7 @@ public class Template {
         this.businessRuleType = businessRuleType;
         this.databaseType = databaseType.toString();
     }
+
 
 //    public DatabaseType getDatabaseType() {
 //        return databaseType;

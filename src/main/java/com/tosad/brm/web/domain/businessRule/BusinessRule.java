@@ -3,6 +3,7 @@ package com.tosad.brm.web.domain.businessRule;
 import com.tosad.brm.web.domain.project.Project;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "BUSINESSRULE")
@@ -60,4 +61,40 @@ public class BusinessRule {
     public void setBusinessRuleType(BusinessRuleType businessRuleType) {
         this.businessRuleType = businessRuleType;
     }
+
+
+    public String getBusinessRulePrefix(String businessRuleName) {
+        String businessRulePrefix = "";
+
+        if(businessRuleName.contains("Attribute Range")) {
+            businessRulePrefix = "arng";
+        } else if (businessRuleName.contains("Attribute Compare")) {
+            businessRulePrefix = "acmp";
+        } else if (businessRuleName.contains("Tuple Compare")) {
+            businessRulePrefix = "tcmp";
+        } else if (businessRuleName.contains("Inter Entity")) {
+            businessRulePrefix = "icmp";
+        } else if (businessRuleName.contains("Attribute List")) {
+            businessRulePrefix = "alis";
+        } else if (businessRuleName.contains("Entity Other")) {
+            businessRulePrefix = "eoth";
+        } else if (businessRuleName.contains("Attribute Other")) {
+            businessRulePrefix = "aoth";
+        } else if (businessRuleName.contains("Tuple Other")) {
+            businessRulePrefix = "toth";
+        }
+        return businessRulePrefix;
+    }
+
+    public String getCategorie(List<BusinessRuleTag> businessRuleRaw){
+        Boolean trigger = businessRuleRaw.contains("TRIGGER");
+        String type;
+        if(trigger) {
+            type = "trg";
+        } else {
+            type = "cns";
+        }
+        return type;
+    }
+
 }
