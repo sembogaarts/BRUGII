@@ -11,7 +11,7 @@ public class Column {
     public int id;
 
     @javax.persistence.Column(name = "name")
-    String name;
+    public String name;
 
     @ManyToOne
     @JoinColumn(name = "tables_id", nullable = false)
