@@ -20,11 +20,8 @@ module.exports = {
                 });
         },
 
-        generateBusinessRule(id) {
-            this.axios.get('http://localhost:8080/businessrule/generate?businessrule=' + id)
-                .then(response => {
-                    this.createStatus = response.data;
-                });
+        generateBusinessRules(data) {
+            return {name: 'Preview', params: { businessrules: data } }
         },
 
         toggleCheckedBusinessRule(id) {

@@ -1,3 +1,9 @@
-<template></template>
+<template>
 
-<script src="preview.js"></script>
+    <div class="preview">
+        SCRIPT
+    </div>
+
+</template>
+
+<script src="./preview.js"></script>
