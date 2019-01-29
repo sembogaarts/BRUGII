@@ -5,6 +5,7 @@ module.exports = {
             templates: [],
             loading:false,
             error: false,
+            succesfullDeploy:false
         }
     },
     methods: {
@@ -19,6 +20,9 @@ module.exports = {
                     this.error = true;
                     this.loading = false;
                 });
+        },
+        deployBusinessRules() {
+            this.axios.post('https://brugii-generator.herokuapp.com/api/execute', this.templates);
         }
     },
     created: function() {
