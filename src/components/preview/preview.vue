@@ -1,7 +1,13 @@
 <template>
 
     <div class="preview">
+        <div v-if="loading" class="loader-wrapper">
+            <i class="fas loader fa-sync fa-spin"></i>
+        </div>
 
+        <div v-if="error" class="loader-wrapper" @click="getBusinessRules()">
+            <i class="fas loader fa-redo-alt"></i>
+        </div>
         <div v-for="template of templates">
             <div class="card-wrapper">
                 <div class="card">
@@ -21,7 +27,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td> <pre> <code> {{template.template}} </code></pre></td>
+                            <td> <pre> <code> {{template.code}} </code></pre></td>
                         </tr>
                     </tbody>
                 </table>
