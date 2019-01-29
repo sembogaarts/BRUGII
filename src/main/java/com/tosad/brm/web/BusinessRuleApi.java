@@ -80,7 +80,7 @@ public class BusinessRuleApi {
     @Path("/schema")
     @Produces("application/json")
     public String getStructureInfo() {
-
+        return "";
     }
 
 
