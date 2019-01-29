@@ -4,7 +4,8 @@ module.exports = {
             project: "Manager",
             businessrules: [],
             createStatus: "",
-            loading: false
+            loading: false,
+            checkedBusinessRules: []
         }
     },
     methods: {
@@ -22,6 +23,19 @@ module.exports = {
                 .then(response => {
                     this.createStatus = response.data;
                 });
+        },
+
+        toggleCheckedBusinessRule(id) {
+            var index = this.checkedBusinessRules.indexOf(id);
+            if(index !== -1){
+                console.log('exists');
+                this.checkedBusinessRules.splice(index, 1);
+            }
+            else {
+                console.log('does not exist');
+                this.checkedBusinessRules.push(id);
+            }
+            console.log(this.checkedBusinessRules);
         },
 
         path(br) {
