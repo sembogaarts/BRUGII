@@ -40,11 +40,10 @@ module.exports = {
 
         onSubmit() {
             this.loading = true;
-            this.axios.post('https://brugii-manager.herokuapp.com/businessrule/update', this.template)
+            this.axios.post('https://brugii-manager.herokuapp.com/businessrule/update?id=' + this.id, this.template)
                 .then(response => {
                     this.loading = false;
                     new window.sw('Businessrule is bijgewerkt', 'Deploy de businessrule opnieuw.', 'success');
-                    this.template = {};
                 }, error => {
                     this.loading = false;
                     new window.sw('Ondora is onbereikbaar', 'Herlaad de pagina of probeer het later opnieuw.', 'error');
