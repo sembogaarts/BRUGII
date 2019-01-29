@@ -5,8 +5,12 @@
             <i class="fas loader fa-sync fa-spin"></i>
         </div>
 
+        <div v-if="error" class="loader-wrapper" @click="getBusinessRule()">
+            <i class="fas loader fa-redo-alt"></i>
+        </div>
+
         <!-- Template Generator -->
-        <div v-if="!loading">
+        <div v-if="!loading && !error">
 
             <form @submit.prevent>
 
