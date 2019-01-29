@@ -31,13 +31,12 @@ module.exports = {
                 });
         },
         getSchemaData() {
-            this.axios.get('templates/schema.json')
+            this.axios.get('https://brugii-manager.herokuapp.com/businessrule/schema')
                 .then(response => {
-                    this.schema = response.data.schema;
+                    this.schema = response.data;
                     this.getBusinessRule();
                 });
         },
-
         onSubmit() {
             this.loading = true;
             this.axios.post('https://brugii-manager.herokuapp.com/businessrule/update?id=' + this.id, this.template)
