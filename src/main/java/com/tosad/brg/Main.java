@@ -118,7 +118,7 @@ public class Main {
         session.save(new TemplateTag("NAME", TemplateTagType.STRING, tcmp_template_advanced));
         session.save(new TemplateTag("LOOP", TemplateTagType.LOOP, tcmp_template_advanced));
         session.save(new TemplateTag("COLUMN_1", TemplateTagType.COLUMN, tcmp_template_advanced));
-        session.save(new TemplateTag("OPERATOR", TemplateTagType.OPERATOR, tcmp_template_advanced))
+        session.save(new TemplateTag("OPERATOR", TemplateTagType.OPERATOR, tcmp_template_advanced));
         session.save(new TemplateTag("COLUMN_2", TemplateTagType.COLUMN, tcmp_template_advanced));
         session.save(new TemplateTag("BINDER", TemplateTagType.BINDER, tcmp_template_advanced));
         session.save(new TemplateTag("ENDLOOP", TemplateTagType.LOOP, tcmp_template_advanced));
