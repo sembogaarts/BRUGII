@@ -15,9 +15,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-import java.sql.Statement;
-import java.sql.ResultSet;
-
 public class Main {
     SessionFactory factory;
     Session session;
@@ -30,10 +27,6 @@ public class Main {
 
         Project project = new Project(1, "BRG", "174.138.0.100", "admin", "a72c23455018edf0648592d865b355a49121697731bfe6c2", 3306, DatabaseType.MYSQL, null);
         session.save(project);
-//
-//        OracleDatabaseConnection conn = (OracleDatabaseConnection) project.getConnection();
-//        conn.getSchema();
-
 
         Table factuur = new Table(project, "Factuur");
         session.save(factuur);
@@ -55,8 +48,7 @@ public class Main {
         session.save(new Column("id", "int", post));
         session.save(new Column("name", "string", post));
         session.save(new Column("title", "string", post));
-
-
+        
         Table product = new Table(project, "Product");
         session.save(product);
         session.save(new Column("id", "int", product));
