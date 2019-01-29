@@ -31,6 +31,9 @@ public class Generator {
         List<BusinessRuleTag> businessRuleTagList = BusinessRuleTagPersistence.getBusinessRuleTagsByBusinessRule(businessRule);
         HashMap<BusinessRuleTag, TemplateTag> businessRuleHashMap = BusinessRuleTagPersistence.getBusinessRuleHashMapByBusinessRuleTags(businessRuleTagList);
 
+
+        System.out.println(businessRuleHashMap);
+
         String code = BusinessRuleJSON.generateSQL(template, businessRuleHashMap);
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("code", code);
@@ -38,4 +41,5 @@ public class Generator {
 
         return jsonObject.toJSONString();
     }
+
 }

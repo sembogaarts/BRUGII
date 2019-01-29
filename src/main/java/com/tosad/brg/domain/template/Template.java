@@ -41,6 +41,8 @@ public class Template {
     public Template() {
 
     }
+
+
 //    public DatabaseType getDatabaseType() {
 //        return databaseType;
 //    }
