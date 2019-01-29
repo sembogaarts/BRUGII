@@ -4,14 +4,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class MysqlDatabaseConnection implements DatabaseConnection {
+public class MySQLDatabaseConnection implements DatabaseConnection {
     Connection connection = null;
 
 
-    public MysqlDatabaseConnection(String host, String username, String password) {
+    public MySQLDatabaseConnection(String host, String username, String password, int port) {
         try {
             connection = DriverManager.getConnection(
-                    formatToConnectionString(host), username, password
+                    formatToConnectionString(host, username, password, port)
             );
         } catch (SQLException e) {
             System.out.println("Connection Failed! Check output console");
@@ -33,7 +33,8 @@ public class MysqlDatabaseConnection implements DatabaseConnection {
         }
     }
 
-    private String formatToConnectionString(String host) {
-        return String.format("jdbc:mysql:@//%s:%d", host);
+    private String formatToConnectionString(String host, String username, String password, int port) {
+        String dbName = "target_db";
+        return String.format(String.format("jdbc:mysql://%s:%d/%s?user=%s&password=%s", host, port, dbName, username, password));
     }
 }
