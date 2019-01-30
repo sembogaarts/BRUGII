@@ -196,12 +196,9 @@ public class Main {
         session.save(alis_template);
         session.save(new TemplateTag("TABLE", TemplateTagType.TABLE, alis_template));
         session.save(new TemplateTag("NAME", TemplateTagType.NAME, alis_template));
-        session.save(new TemplateTag("LOOP", TemplateTagType.LOOP, alis_template));
         session.save(new TemplateTag("COLUMN", TemplateTagType.COLUMN, alis_template));
         session.save(new TemplateTag("NOT", TemplateTagType.BOOLEAN, alis_template));
         session.save(new TemplateTag("LIST", TemplateTagType.LIST, alis_template));
-        session.save(new TemplateTag("BINDER", TemplateTagType.BINDER, alis_template));
-        session.save(new TemplateTag("ENDLOOP", TemplateTagType.LOOP, alis_template));
 
         /*
          * attribute_list_rule_advanced
