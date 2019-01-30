@@ -24,7 +24,7 @@ module.exports = {
             this.axios.get('https://brugii-manager.herokuapp.com/businessrule/types')
                 .then(response => {
                     this.loadingMain = false;
-                    if(response.data.length > 0) {
+                    if(response.data.length == 0) {
                         this.errorMain = true;
                     } else {
                         this.templates = response.data;
@@ -51,6 +51,9 @@ module.exports = {
                 .then(response => {
                     this.schema = response.data;
                     this.getTemplates();
+                }, error => {
+                    this.loadingMain = false;
+                    this.errorMain = true;
                 });
         },
 

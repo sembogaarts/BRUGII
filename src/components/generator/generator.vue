@@ -1,7 +1,15 @@
 <template>
     <div>
 
-        <div class="template-type-selector">
+        <div v-if="loadingMain" class="loader-wrapper">
+            <i class="fas loader fa-sync fa-spin"></i>
+        </div>
+
+        <div v-if="errorMain" class="loader-wrapper" @click="getSchemaData()">
+            <i class="fas loader fa-redo-alt"></i>
+        </div>
+
+        <div v-if="!loadingMain && !errorMain" class="template-type-selector">
             <!-- Business Rule Type Selector -->
             <label for="templateSelector">Selecteer een Businessrule Type</label>
             <select @change="getTemplateInformation()" v-model="selectedTemplate" name="templateSelector"
