@@ -9,6 +9,8 @@ public enum TemplateTagType implements Serializable {
     LIST("list") {
         @Override
         public String parseValue(String value) {
+            value = value.replace("[", "(");
+            value = value.replace("]", ")");
             return value;
         }
     },
