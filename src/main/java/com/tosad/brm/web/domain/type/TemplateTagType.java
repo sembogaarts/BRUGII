@@ -10,19 +10,33 @@ public enum TemplateTagType implements Serializable {
     NAME("name"),
     LIST("list") {
         @Override
-        public Object getDefaultValue() {
-            return new JSONArray();
+        public String parseValue(String value) {
+            value = value.replace("[", "(");
+            value = value.replace("]", ")");
+            return value;
         }
     },
-    OPERATOR("operator"),
-    L_OPERATOR("l_operator"),
-    LOOP("loop"),
-    NUMBER("number") {
+    OPERATOR("operator") {
         @Override
-        public Object parseValue(String value) {
-            return Integer.parseInt(value);
+        public String parseValue(String value) {
+            return value;
         }
     },
+    L_OPERATOR("l_operator") {
+        @Override
+        public String parseValue(String value) {
+            return value;
+        }
+    },
+    FOREACHROW("foreachrow") {
+        @Override
+        public String parseValue(String value) {
+            return value.equals("true") ? "FOR EACH ROW" : "";
+        }
+    },
+    BINDER("binder"),
+    LOOP("loop"),
+    NUMBER("number"),
     TABLE("table"),
     DYNAMIC("dynamic"),
     STATE("state"),         // Trigger - Before / After
@@ -30,13 +44,8 @@ public enum TemplateTagType implements Serializable {
     COLUMN("column"),
     BOOLEAN("boolean") {
         @Override
-        public Object getDefaultValue() {
-            return false;
-        }
-
-        @Override
-        public Object parseValue(String value) {
-            return value.equals("true");
+        public String parseValue(String value) {
+            return value.equals("true") ? "NOT" : "";
         }
     },
     UNKNOWN("unknown");
