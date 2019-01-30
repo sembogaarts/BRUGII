@@ -12,7 +12,9 @@ module.exports = {
             template: {},
             schema: {},
             loading: false,
-            error: false
+            error: false,
+            loadingMain: false,
+            errorMain: false
         }
     },
 
@@ -21,7 +23,12 @@ module.exports = {
             // Get the template information
             this.axios.get('https://brugii-manager.herokuapp.com/businessrule/types')
                 .then(response => {
-                    this.templates = response.data;
+                    this.loadingMain = false;
+                    if(response.data.length > 0) {
+                        this.errorMain = true;
+                    } else {
+                        this.templates = response.data;
+                    }
                 });
         },
 
@@ -38,6 +45,8 @@ module.exports = {
         },
 
         getSchemaData() {
+            this.loadingMain = true;
+            this.errorMain = false;
             this.axios.get('https://brugii-manager.herokuapp.com/businessrule/schema')
                 .then(response => {
                     this.schema = response.data;

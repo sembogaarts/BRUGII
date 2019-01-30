@@ -12,7 +12,7 @@
         <!-- Template Generator -->
         <div v-if="!loading && !error">
 
-            <form @submit.prevent>
+            <form @submit.prevent="onSubmit">
 
                 <div v-for="(tag, index) in template.tags">
 
@@ -48,13 +48,13 @@
                             </div>
                         </div>
 
-                        <button @click="addLoopRow(tag)"><i class="fas fa-plus-circle"></i> Addrow</button>
+                        <button type="button" @click="addLoopRow(tag)"><i class="fas fa-plus-circle"></i> Addrow</button>
 
                     </div>
 
                 </div>
 
-                <button type="submit" @submit="onSubmit()"><i class="fas fa-save"></i> Opslaan</button>
+                <button type="submit"><i class="fas fa-save"></i> Opslaan</button>
 
             </form>
 
