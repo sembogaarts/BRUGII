@@ -26,6 +26,12 @@ public enum TemplateTagType implements Serializable {
             return value;
         }
     },
+    FOREACHROW("foreachrow") {
+        @Override
+        public String parseValue(String value) {
+            return value.equals("true") ? "FOR EACH ROW" : "";
+        }
+    },
     BINDER("binder"),
     LOOP("loop"),
     NUMBER("number"),

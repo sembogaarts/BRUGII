@@ -160,7 +160,7 @@ public class Main {
         session.save(new TemplateTag("BEFORE/AFTER", TemplateTagType.STATE, icmp_template));
         session.save(new TemplateTag("EVENT", TemplateTagType.EVENT, icmp_template));
         session.save(new TemplateTag("TABLE_1", TemplateTagType.TABLE, icmp_template));
-        session.save(new TemplateTag("FOR EACH ROW", TemplateTagType.BOOLEAN, icmp_template));
+        session.save(new TemplateTag("FOR EACH ROW", TemplateTagType.FOREACHROW, icmp_template));
         session.save(new TemplateTag("COLUMN_2", TemplateTagType.COLUMN, icmp_template));
         session.save(new TemplateTag("TABLE_2", TemplateTagType.TABLE, icmp_template));
         session.save(new TemplateTag("OPERATOR", TemplateTagType.OPERATOR, icmp_template));
@@ -179,7 +179,7 @@ public class Main {
         session.save(new TemplateTag("BEFORE/AFTER", TemplateTagType.STATE, icmp_template_advanced));
         session.save(new TemplateTag("EVENT", TemplateTagType.EVENT, icmp_template_advanced));
         session.save(new TemplateTag("TABLE_1", TemplateTagType.TABLE, icmp_template_advanced));
-        session.save(new TemplateTag("FOR EACH ROW", TemplateTagType.BOOLEAN, icmp_template_advanced));
+        session.save(new TemplateTag("FOR EACH ROW", TemplateTagType.FOREACHROW, icmp_template_advanced));
         session.save(new TemplateTag("COLUMN_2", TemplateTagType.COLUMN, icmp_template_advanced));
         session.save(new TemplateTag("TABLE_2", TemplateTagType.TABLE, icmp_template_advanced));
         session.save(new TemplateTag("OPERATOR", TemplateTagType.OPERATOR, icmp_template_advanced));
@@ -228,7 +228,7 @@ public class Main {
         session.save(new TemplateTag("EVENT", TemplateTagType.EVENT, eoth_template));
         session.save(new TemplateTag("TABLE_1", TemplateTagType.TABLE, eoth_template));
         session.save(new TemplateTag("COLUMN_1", TemplateTagType.COLUMN, eoth_template));
-        session.save(new TemplateTag("FOR EACH ROW", TemplateTagType.BOOLEAN, eoth_template));
+        session.save(new TemplateTag("FOR EACH ROW", TemplateTagType.FOREACHROW, eoth_template));
         session.save(new TemplateTag("TABLE_2", TemplateTagType.TABLE, eoth_template));
         session.save(new TemplateTag("COLUMN_2", TemplateTagType.COLUMN, eoth_template));
         session.save(new TemplateTag("OPERATOR", TemplateTagType.OPERATOR, eoth_template));
@@ -281,7 +281,8 @@ public class Main {
         session.save(new TemplateTag("NAME", TemplateTagType.NAME, toth_template));
         session.save(new TemplateTag("BEFORE/AFTER", TemplateTagType.STATE, toth_template));
         session.save(new TemplateTag("EVENT", TemplateTagType.EVENT, toth_template));
-        session.save(new TemplateTag("TABLE", TemplateTagType.TABLE, toth_template));
+        session.save(new TemplateTag("TABLE_1", TemplateTagType.TABLE, toth_template));
+        session.save(new TemplateTag("FOR EACH ROW", TemplateTagType.FOREACHROW, toth_template));
         session.save(new TemplateTag("COLUMN_1", TemplateTagType.COLUMN, toth_template));
         session.save(new TemplateTag("OPERATOR", TemplateTagType.OPERATOR, toth_template));
         session.save(new TemplateTag("VALUE_1", TemplateTagType.DYNAMIC, toth_template));
@@ -293,32 +294,7 @@ public class Main {
         session.save(new TemplateTag("VALUE_2", TemplateTagType.DYNAMIC, toth_template));
         session.save(new TemplateTag("ERRCODE", TemplateTagType.STRING, toth_template));
         session.save(new TemplateTag("ERRMESSAGE", TemplateTagType.STRING, toth_template));
-
-        /*
-         * tuple_other_rule_advanced
-         * */
-        BusinessRuleType tuple_other_rule_advanced = new BusinessRuleType(16, "Tuple Other Rule (Advanced)");
-        session.save(tuple_other_rule_advanced);
-        Template toth_template_advanced = new Template(16, "brg_gebruiker_trg_toth_02", "CREATE OR REPLACE TRIGGER {{ NAME }} {{ BEFORE/AFTER }} {{ event }}  ON {{ TABLE_1 }} {{ FOR EACH ROW }} DECLARE BEGIN IF :new.{{ COLUMN_1 }} {{ OPERATOR }} {{ VALUE_1 }} THEN IF ! SUBSTR({{ COLUMN_2 }}, {{ NUMBER_1 }}, {{ NUMBER_2 }}) {{ NOT }} BETWEEN({{ VALUE_1 }},{{ VALUE_2 }})) THEN RAISE_APPLICATION_ERROR({{ ERRCODE }}, {{ ERRMESSAGE }}); END;", "toth", tuple_other_rule_advanced, DatabaseType.ORACLE);
-        session.save(toth_template_advanced);
-        session.save(new TemplateTag("NAME", TemplateTagType.NAME, toth_template_advanced));
-        session.save(new TemplateTag("BEFORE/AFTER", TemplateTagType.STATE, toth_template_advanced));
-        session.save(new TemplateTag("EVENT", TemplateTagType.EVENT, toth_template_advanced));
-        session.save(new TemplateTag("TABLE", TemplateTagType.TABLE, toth_template_advanced));
-        session.save(new TemplateTag("COLUMN_1", TemplateTagType.COLUMN, toth_template_advanced));
-        session.save(new TemplateTag("OPERATOR", TemplateTagType.OPERATOR, toth_template_advanced));
-        session.save(new TemplateTag("VALUE_1", TemplateTagType.DYNAMIC, toth_template_advanced));
-        session.save(new TemplateTag("LOOP", TemplateTagType.LOOP, toth_template_advanced));
-        session.save(new TemplateTag("COLUMN_2", TemplateTagType.COLUMN, toth_template_advanced));
-        session.save(new TemplateTag("NUMBER_1", TemplateTagType.NUMBER, toth_template_advanced));
-        session.save(new TemplateTag("NUMBER_2", TemplateTagType.NUMBER, toth_template_advanced));
-        session.save(new TemplateTag("NOT", TemplateTagType.BOOLEAN, toth_template_advanced));
-        session.save(new TemplateTag("VALUE_1", TemplateTagType.DYNAMIC, toth_template_advanced));
-        session.save(new TemplateTag("VALUE_2", TemplateTagType.DYNAMIC, toth_template_advanced));
-        session.save(new TemplateTag("BINDER", TemplateTagType.BINDER, toth_template_advanced));
-        session.save(new TemplateTag("ENDLOOP", TemplateTagType.LOOP, toth_template_advanced));
-        session.save(new TemplateTag("ERRCODE", TemplateTagType.STRING, toth_template_advanced));
-        session.save(new TemplateTag("ERRMESSAGE", TemplateTagType.STRING, toth_template_advanced));
+;
 
 
         t.commit();
