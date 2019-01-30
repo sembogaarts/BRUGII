@@ -15,6 +15,7 @@ module.exports = {
             error: false
         }
     },
+
     methods: {
         getTemplates() {
             // Get the template information
@@ -23,6 +24,7 @@ module.exports = {
                     this.templates = response.data;
                 });
         },
+
         getTemplateInformation() {
             this.loading = true;
             // Get the template information
@@ -34,6 +36,7 @@ module.exports = {
                     alert('Kan niet verbinden met ondora.');
                 });
         },
+
         getSchemaData() {
             this.axios.get('https://brugii-manager.herokuapp.com/businessrule/schema')
                 .then(response => {
@@ -60,7 +63,6 @@ module.exports = {
                 tag.fields[x].value.push("");
             }
         },
-
 
         getLoopRows(tag) {
             // The actual sorted rows

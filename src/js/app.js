@@ -7,10 +7,12 @@ import GeneratorComponent from '../components/generator/generator.vue';
 import ManagerComponent from '../components/manager/manager.vue';
 import EditorComponent from '../components/editor/editor.vue';
 import sweetalert from 'sweetalert2';
+import VeeValidate from 'vee-validate';
 
 Vue.use(
     VueAxios,
-    axios
+    axios,
+    VeeValidate
 );
 
 window.sw = sweetalert;

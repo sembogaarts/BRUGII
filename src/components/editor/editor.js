@@ -17,8 +17,6 @@ module.exports = {
     },
     methods: {
         getBusinessRule() {
-            this.loading = true;
-            this.error = false;
             // Get the template information
             this.axios.get('https://brugii-manager.herokuapp.com/businessrule/data?businessrule=' + this.id)
                 .then(response => {
@@ -31,6 +29,8 @@ module.exports = {
                 });
         },
         getSchemaData() {
+            this.loading = true;
+            this.error = false;
             this.axios.get('https://brugii-manager.herokuapp.com/businessrule/schema')
                 .then(response => {
                     this.schema = response.data;
@@ -38,6 +38,11 @@ module.exports = {
                 });
         },
         onSubmit() {
+
+            for(var x = 0; this.template.tags.length > x; x++) {
+
+            }
+
             this.loading = true;
             this.axios.post('https://brugii-manager.herokuapp.com/businessrule/update?id=' + this.id, this.template)
                 .then(response => {

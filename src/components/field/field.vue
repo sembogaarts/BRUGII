@@ -7,7 +7,7 @@
         <!-- String, Number, Boolean -->
         <input v-if="isString(tag.type)" :id="tag.name" type="text" :v-model="value" @input="onInput($event)" required>
         <input v-if="isNumber(tag.type)" :id="tag.name" type="number" :value="value" @input="onInput($event)" required>
-        <input v-if="isBoolean(tag.type)" :id="tag.name" type="checkbox" :value="value" @input="onInput($event)" required>
+        <input v-if="isBoolean(tag.type)" :id="tag.name" type="checkbox" :value="value" @input="onInput($event)">
 
         <!-- Tables -->
         <select v-if="isTable(tag.type)" :value="value" @input="onInput($event)" :id="tag.name" required>
@@ -24,7 +24,7 @@
         </select>
 
         <!-- Binders -->
-        <select v-if="isBinder(tag.type)" :value="value" @input="onInput($event)" :id="tag.name" required>
+        <select v-if="isBinder(tag.type)" :value="value" @input="onInput($event)" :id="tag.name">
             <option selected value="" disabled>Selecteer een binder</option>
             <option v-for="binder in binders()" :value="binder">{{ binder }}</option>
         </select>
@@ -71,7 +71,8 @@
                 <input v-if="isNumber(getEarlierFieldType())" :id="tag.name" type="number" v-model="value[index]" required>
                 <input v-if="isBoolean(getEarlierFieldType())" :id="tag.name" type="checkbox" v-model="value[index]" required>
             </div>
-            <button @click="addListInput(tag)">Voeg rij toe</button>
+
+            <button type="button" @click="addListInput(tag)">Voeg rij toe</button>
         </div>
 
     </div>

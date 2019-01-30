@@ -54,7 +54,7 @@
 
                 </div>
 
-                <button type="submit" @click="onSubmit()"><i class="fas fa-save"></i> Opslaan</button>
+                <button type="submit" @submit="onSubmit()"><i class="fas fa-save"></i> Opslaan</button>
 
             </form>
 

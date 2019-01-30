@@ -22,7 +22,7 @@
         <!-- Template Generator -->
         <div v-if="hasTemplate && !loading">
 
-            <form @submit.prevent>
+            <form @submit.prevent="onSubmit">
 
                 <div v-for="(tag, index) in template.tags">
 
@@ -58,13 +58,13 @@
                             </div>
                         </div>
 
-                        <button @click="addLoopRow(tag)"><i class="fas fa-plus-circle"></i> Addrow</button>
+                        <button type="button" @click="addLoopRow(tag)"><i class="fas fa-plus-circle"></i> Addrow</button>
 
                     </div>
 
                 </div>
 
-                <button type="submit" @click="onSubmit()"><i class="fas fa-sync-alt"></i> Aanmaken</button>
+                <button type="submit"><i class="fas fa-sync-alt"></i> Aanmaken</button>
 
             </form>
 
