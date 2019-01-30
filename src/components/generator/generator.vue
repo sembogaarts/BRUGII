@@ -72,6 +72,8 @@
 
                 </div>
 
+                {{ template }}
+
                 <button type="submit"><i class="fas fa-sync-alt"></i> Aanmaken</button>
 
             </form>

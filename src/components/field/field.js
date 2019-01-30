@@ -15,7 +15,11 @@ module.exports = {
     methods: {
 
         onInput(event) {
-            this.$emit('update:value', event.target.value);
+            if(this.isBoolean(this.tag.type)) {
+                this.$emit('update:value', event.target.checked);
+            } else {
+                this.$emit('update:value', event.target.value);
+            }
         },
 
         getOperatorsForNumber() {
